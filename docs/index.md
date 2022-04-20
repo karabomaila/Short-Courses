@@ -41,15 +41,16 @@ Javascript
 HTML
 
 Backend technology stack
-Node JS
+- Node JS
+![This is an image](images/nodejs.png)
 
-Firebase
+- Firebase
 
-Express JS
+- Express JS
 
-Mysql
+- Mysql
 
-Hiroku
+- Hiroku
 
 ## 7. Setting up continuous integration
 Continuous integration and delivery are performed through GitHub. It helps the team to collaborate and develop the software.  The link to the repository https://github.com/WitsSDTeam/ShortCourses.git. 
