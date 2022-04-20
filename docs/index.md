@@ -1,32 +1,9 @@
-### Welcome to GitHub Pages
+### Welcome to Short-course System
 
-You can use the [editor on GitHub](https://github.com/karabomaila/Short-Courses/edit/gh-pages/docs/index.md) to maintain and preview the content for your website in Markdown files.
+1. Project Overview
+It’s become apparent that social engagement is integral when it comes to learning. And often, students have skills that they’re capable of sharing but there’s no internal platform to facilitate this learning engagement. This project aims to develop a system where any member of Wits (including students) may act as content creators and share information in a course structure, while adhering to the “Deep and Meaningful Learning” philosophies. And members of Wits and students will  be able to enrol in the short courses application to learn. The documentation will explain the detailed design of the system.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 
 
