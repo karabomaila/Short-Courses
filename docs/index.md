@@ -42,7 +42,7 @@ HTML
 
 Backend technology stack
 - Node JS
-![This is an image](images/nodejs.png)
+<img src="https://github.com/karabomaila/Short-Courses/blob/2d72c8065e5eccf0a459adae53dbb3d3fa7beb8b/images/nodejs.png" width="100" height="100">
 
 - Firebase
 
