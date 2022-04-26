@@ -3,7 +3,7 @@ const { pool } = require('./db');
 const app = express();
 const cors = require('cors');
 
-//midware
+// midware
 app.use(express.json());
 app.use(cors())
 
