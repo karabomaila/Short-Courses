@@ -3,7 +3,11 @@ import ExposeView from "./ExposeView.jsx";
 const Display = (props) => {
     return(
         <div style={{display: 'flex', flexDirection: 'column'}}>
-            <ExposeView courses = {props.courses} id = "Given.Mathebula1@wits.ac.za"/>
+            <ExposeView 
+            id = "2381410@students.wits.ac.za"
+            courses = {props.courses} 
+            comments = {props.comments}
+            />
         </div>
     )
 }

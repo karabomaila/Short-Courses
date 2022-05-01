@@ -1,17 +1,14 @@
 import {Typography, Button} from '@mui/material';
-import Action from './Action.jsx';
-import ML from "./ml.png";
 
-const CommentHelper = () =>{
+const CommentHelper = (props) =>{
     return(
         <div style = {CommentBodyStyle}>
             <Typography variant="h6" gutterBottom component="div">
-                Machine Learning
+                {props.comment.courseName}
             </Typography>
             <div style = {ContentStyle}>
                 <Typography variant="body2" gutterBottom>
-                    This is the best Machine Learning Course
-                    
+                    {props.comment.content}
                 </Typography>
             </div>
             <div style = {ActionsStyle}>

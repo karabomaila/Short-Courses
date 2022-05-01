@@ -5,10 +5,13 @@ import CourseHelper from './utils/CourseHelper';
 const ExposeView = (props) =>{
     let FilterCourses = require('./utils/FilterCourses');
     let filter = new FilterCourses(props.courses, props.id);
-
     let myCourses = filter.getMyCourses();
     let courseIDs = filter.getCourseID();
-    console.log(myCourses);
+    
+    let FilterComments = require('./utils/FilterComments');
+    let comms = new FilterComments(props.comments, props.id);
+    let myComments = comms.getMyComments();
+   
     return(
         <div style = {ExposeViewStyle}>
             <p style = {TextStyle}>Expose View</p>
@@ -33,13 +36,11 @@ const ExposeView = (props) =>{
             </div>
             
             <div style = {CommentsStyle}>
-                <CommentHelper/>
-                <CommentHelper/>
-                <CommentHelper/>
-                <CommentHelper/>
-                <CommentHelper/>
-                <CommentHelper/>
-                
+            {myComments.map((item, index) => 
+                <CommentHelper 
+                key = {index} 
+                comment = {item} 
+                />)}
             </div>
                     
         </div>
@@ -55,7 +56,7 @@ const ExposeViewStyle = {
     flexDirection: 'column',
     alignItems: 'center',
     background: '#edf4f5',
-    height: '100vh'
+    height: '100vh',
 }
 
 const BioDiv = {
