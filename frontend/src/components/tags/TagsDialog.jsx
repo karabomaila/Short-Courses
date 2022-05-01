@@ -1,17 +1,31 @@
 import {Button,Dialog, DialogTitle, DialogContent, DialogActions,DialogContentText} from '@mui/material';
 import * as React from 'react';
 import TagsInput from './TagsInput';
+import {db} from "../firebase-config";
+import {useState, useEffect} from 'react';
+import {doc, setDoc, collection, getDocs} from "firebase/firestore"; 
+import TagsUpload from '../FirebaseAPIs/TagsUpload';
 
 /*
  * ONLY This file should be called on the studio
   after creating a course...
  * Pass in course code and name as props
- * Pass in the Open and close useState - an seen on the "useless.jsx"
+ * Pass in the Open and close useState - as seen on the "useless.jsx"
  * No one should edit anything on these files 
  * By NO ONE I mean Lindokuhle...
 
 */
 const TagsDialog = (props) => {
+    const [tags, setTags] = useState([]);
+    const REF_COLLECTION = collection(db, "CourseTags");
+    
+    useEffect(() => {
+        const getTags = async ()=>{
+            const data = await getDocs(REF_COLLECTION);
+            setTags(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        }
+        getTags();
+    }, [])
 
     let initArray = props.courseName.split(' ');
     let TagArray = new Array();
@@ -25,8 +39,7 @@ const TagsDialog = (props) => {
 
     const onClose = () =>{
         props.close(false);
-        console.log(TagArray);
-        console.log('OnClose - Send data to the database');
+        new TagsUpload(tags, TagArray, "2022ml");
     }
 
     return(

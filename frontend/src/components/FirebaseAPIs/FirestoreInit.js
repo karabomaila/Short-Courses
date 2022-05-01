@@ -2,9 +2,9 @@ import {db} from "../firebase-config";
 import {doc, setDoc} from "firebase/firestore"; 
 
 export default class FirestoreInit{
-    contructor(){}
-
+    constructor(){}
     /*
+    
     *** MUST READ ***
     For some reasons this way of exporting a class doesnt call the contructor...
     ====================================================================================

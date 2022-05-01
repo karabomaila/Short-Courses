@@ -1,6 +1,7 @@
 import {Button} from '@mui/material';
 import {useState} from 'react';
 import TagsDialog from './TagsDialog';
+import TagsUpload from '../FirebaseAPIs/TagsUpload';
 
 const Useless = () =>{
     let courseName = 'Machine Learning';
@@ -10,12 +11,14 @@ const Useless = () =>{
         console.log('open')
         setOpen(true);
     }
+
+
     return(
         <div style = {{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <Button variant = 'outlined' onClick = {onOpen}>Open Dialog</Button>
             <TagsDialog open = {open} close = {setOpen} courseName = {courseName}/>
 
-            <Button variant = 'outlined'>EG</Button>
+            <Button variant = 'outlined' >EG</Button>
         </div>
     )
 }
