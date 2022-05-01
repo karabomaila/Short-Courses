@@ -39,7 +39,7 @@ const TagsDialog = (props) => {
 
     const onClose = () =>{
         props.close(false);
-        new TagsUpload(tags, TagArray, "2022ml");
+        new TagsUpload(tags, TagArray, props.courseID);
     }
 
     return(

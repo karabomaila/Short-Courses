@@ -1,6 +1,5 @@
 import {db} from "../firebase-config";
-import {useState, useEffect} from 'react';
-import {doc, setDoc, collection, getDocs} from "firebase/firestore"; 
+import {doc, setDoc, collection, updateDoc, arrayUnion,} from "firebase/firestore"; 
 
 export default class TagUpload{
     constructor(dbTags, userTags, courseID){
@@ -17,17 +16,21 @@ export default class TagUpload{
             const currDbTag = dbTags[i];
             if(currTag === currDbTag.id){
                 isFound = true;
-                console.log("Add is on database " + currDbTag.id);
                 break;
             }
         }
 
         if(isFound){
-            console.log("Found append");
+            this.AppendTag(currTag, courseID);
         }else{
             this.AddNewTag(currTag, courseID);
-            console.log("Not found create new " + currTag);
         }
+    }
+
+    AppendTag = async (oldTag, id)=>{
+        let document = "CourseTags";
+        const REF = doc(db, document, oldTag);
+        await updateDoc(REF, {courseID: arrayUnion(id)});
     }
 
 
@@ -38,11 +41,4 @@ export default class TagUpload{
         let document = "CourseTags";
         await setDoc(doc(db, document, newTag), data);
     }
-
-
-
-   
-
-   
-
 }

@@ -30,7 +30,6 @@ const TagsInput = (props)=>{
                 props.tagArray.push(newTag);
             }
         setInput('');
-        console.log(props.tagArray);
         }
     }
 
