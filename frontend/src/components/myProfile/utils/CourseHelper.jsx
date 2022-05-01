@@ -1,11 +1,11 @@
 import NameTag from "./NameTag"
 
 const CourseHelper = (props) => {
-    let tag = NameTag(props.name);
+    let tag = NameTag(props.course.courseName);
 
     const onClick = () =>{
         // must open the course clicked...
-        console.log(props.courseID[props.i]);
+        console.log(props.course.courseID);
     }
     return(
         <div style = {OuterBox} onClick = {onClick}>
@@ -13,7 +13,7 @@ const CourseHelper = (props) => {
                 <h1 style = {{color: '#edf4f5'}}>{tag}</h1>
             </div>
             <div style = {InnerInnerBox}>
-                <p style = {{alignSelf: 'center', fontWeight: 'bold'}}>{props.name}</p>
+                <p style = {{alignSelf: 'center', fontWeight: 'bold'}}>{props.course.courseName}</p>
             </div>
             
         </div>

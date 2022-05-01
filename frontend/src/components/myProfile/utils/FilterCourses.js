@@ -11,8 +11,7 @@ module.exports = class FilterCourses {
             }
         }
 
-        this.coursesName = new Array();
-        this.coursesID = new Array();
+        this.myCourses = new Array();
         this.Rearrange(this.size);
     }
 
@@ -20,19 +19,17 @@ module.exports = class FilterCourses {
         for(let i = 0; i < size; i++){
             let currCourse = this.courses[i];
             let temp = currCourse.split("+");
-            this.coursesName.push(temp[0]);
-            this.coursesID.push(temp[1]);
+
+            const curr = {
+                courseName: temp[0],
+                courseID: temp[1]
+            }
+
+            this.myCourses.push(curr);
         }
     }
 
     getMyCourses(){
-        return this.coursesName;
+        return this.myCourses;
     }
-
-    getCourseID(){
-        return this.coursesID;
-    }
-
-
-
 }

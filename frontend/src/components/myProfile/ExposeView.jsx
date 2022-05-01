@@ -6,7 +6,6 @@ const ExposeView = (props) =>{
     let FilterCourses = require('./utils/FilterCourses');
     let filter = new FilterCourses(props.courses, props.id);
     let myCourses = filter.getMyCourses();
-    let courseIDs = filter.getCourseID();
     
     let FilterComments = require('./utils/FilterComments');
     let comms = new FilterComments(props.comments, props.id);
@@ -25,9 +24,7 @@ const ExposeView = (props) =>{
             {myCourses.map((item, index) => 
                 <CourseHelper 
                 key = {index} 
-                name = {item} 
-                courseID = {courseIDs}
-                i = {index}
+                course = {item} 
                 />)}
                 
             </div>

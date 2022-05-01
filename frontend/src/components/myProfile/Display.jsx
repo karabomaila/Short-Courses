@@ -4,7 +4,7 @@ const Display = (props) => {
     return(
         <div style={{display: 'flex', flexDirection: 'column'}}>
             <ExposeView 
-            id = "2381410@students.wits.ac.za"
+            id = "Given.Mathebula1@wits.ac.za"
             courses = {props.courses} 
             comments = {props.comments}
             />
