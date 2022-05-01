@@ -7,6 +7,7 @@ const ExposeView = (props) =>{
     let filter = new FilterCourses(props.courses, props.id);
 
     let myCourses = filter.getMyCourses();
+    let courseIDs = filter.getCourseID();
     console.log(myCourses);
     return(
         <div style = {ExposeViewStyle}>
@@ -18,14 +19,13 @@ const ExposeView = (props) =>{
                 <p style = {TextStyle}>Completed Courses</p>
             </div>
             <div style = {CompCoursesStyle}>
-                <CourseHelper/>
-                <CourseHelper/>
-                <CourseHelper/>
-                <CourseHelper/>
-                <CourseHelper/>
-                <CourseHelper/>
-                <CourseHelper/>
-                <CourseHelper/>
+            {myCourses.map((item, index) => 
+                <CourseHelper 
+                key = {index} 
+                name = {item} 
+                courseID = {courseIDs}
+                i = {index}
+                />)}
                 
             </div>
             <div style = {SubTitleStyle}>
@@ -54,7 +54,8 @@ const ExposeViewStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    background: '#edf4f5'
+    background: '#edf4f5',
+    height: '100vh'
 }
 
 const BioDiv = {

@@ -28,6 +28,10 @@ module.exports = class FilterCourses {
         return this.coursesName;
     }
 
+    getCourseID(){
+        return this.coursesID;
+    }
+
 
 
 }

@@ -1,13 +1,19 @@
+import NameTag from "./NameTag"
 
+const CourseHelper = (props) => {
+    let tag = NameTag(props.name);
 
-const CourseHelper = () => {
+    const onClick = () =>{
+        // must open the course clicked...
+        console.log(props.courseID[props.i]);
+    }
     return(
-        <div style = {OuterBox}>
+        <div style = {OuterBox} onClick = {onClick}>
             <div style = {InnerBox}>
-                <h1 style = {{color: '#edf4f5'}}>ML</h1>
+                <h1 style = {{color: '#edf4f5'}}>{tag}</h1>
             </div>
             <div style = {InnerInnerBox}>
-                <p style = {{alignSelf: 'center', fontWeight: 'bold'}}>Machine Learning</p>
+                <p style = {{alignSelf: 'center', fontWeight: 'bold'}}>{props.name}</p>
             </div>
             
         </div>
