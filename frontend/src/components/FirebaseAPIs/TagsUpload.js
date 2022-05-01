@@ -5,7 +5,7 @@ import {doc, setDoc, collection, getDocs} from "firebase/firestore";
 export default class TagUpload{
     constructor(dbTags, userTags, courseID){
         for(let i = 0; i < userTags.length; i++){
-            const currTag = userTags[i];
+            const currTag = userTags[i].toLowerCase();
             this.AddTag(dbTags, currTag, courseID);
         }
     }
@@ -13,7 +13,6 @@ export default class TagUpload{
     AddTag(dbTags, currTag, courseID){
         let isFound = false;
 
-        console.log("ID: " + courseID);
         for(let i = 0; i < dbTags.length; i++){
             const currDbTag = dbTags[i];
             if(currTag === currDbTag.id){
@@ -26,11 +25,19 @@ export default class TagUpload{
         if(isFound){
             console.log("Found append");
         }else{
-            console.log("Not found create new");
+            this.AddNewTag(currTag, courseID);
+            console.log("Not found create new " + currTag);
         }
     }
 
 
+    AddNewTag = async (newTag, id)=>{
+        const data ={
+            courseID: [id]
+        }
+        let document = "CourseTags";
+        await setDoc(doc(db, document, newTag), data);
+    }
 
 
 
