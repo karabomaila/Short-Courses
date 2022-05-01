@@ -1,10 +1,23 @@
 import Menu from './Menu.jsx';
 import Display from './Display.jsx';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import { db } from '../firebase-config.jsx';
+import {collection, getDocs} from 'firebase/firestore';
 
 const MyPortfolio = () =>{
 
+    const dbCollection = collection(db, "FinCourses");
     const [displayWindow, setDisplay] = useState(true);
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        const getCourses = async ()=>{
+            const data = await getDocs(dbCollection);
+            setCourses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        }
+
+        getCourses();
+    }, [])
     
     return(
         <div style = {MyPortfolioStyle}>
@@ -15,7 +28,7 @@ const MyPortfolio = () =>{
                 />
             </div>
             <div style = {RightPanelStyle}>
-                <Display/>
+                <Display courses = {courses}/>
             </div>
         </div>
     )

@@ -2,9 +2,12 @@ import { TextField } from '@mui/material';
 import CommentHelper from './utils/CommentHelper';
 import CourseHelper from './utils/CourseHelper';
 
-const ExposeView = () =>{
-   
+const ExposeView = (props) =>{
+    let FilterCourses = require('./utils/FilterCourses');
+    let filter = new FilterCourses(props.courses, props.id);
 
+    let myCourses = filter.getMyCourses();
+    console.log(myCourses);
     return(
         <div style = {ExposeViewStyle}>
             <p style = {TextStyle}>Expose View</p>

@@ -1,9 +1,9 @@
 import ExposeView from "./ExposeView.jsx";
 
-const Display = () => {
+const Display = (props) => {
     return(
         <div style={{display: 'flex', flexDirection: 'column'}}>
-            <ExposeView/>
+            <ExposeView courses = {props.courses} id = "Given.Mathebula1@wits.ac.za"/>
         </div>
     )
 }
