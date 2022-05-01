@@ -1,4 +1,4 @@
-import {Button, Icon, Typography, Dialog, DialogTitle, DialogContent, DialogActions} from '@mui/material';
+import {Button} from '@mui/material';
 import {useState} from 'react';
 import TagsDialog from './TagsDialog';
 
@@ -11,9 +11,11 @@ const Useless = () =>{
         setOpen(true);
     }
     return(
-        <div>
+        <div style = {{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <Button variant = 'outlined' onClick = {onOpen}>Open Dialog</Button>
             <TagsDialog open = {open} close = {setOpen} courseName = {courseName}/>
+
+            <Button variant = 'outlined'>EG</Button>
         </div>
     )
 }

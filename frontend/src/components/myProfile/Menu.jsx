@@ -1,7 +1,9 @@
 import Action from "./utils/Action.jsx";
 import Profile from "./utils/user.png";
 
+
 const Menu = () => {
+   
 
     return(
         <div style = {MenuStyle}>
@@ -12,7 +14,7 @@ const Menu = () => {
                 <div style = {CourseTag}>Enrolled 8</div>
             </div>
             <Action title = 'Expose View'/>
-            <Action title = 'Personality Test'/>
+            <Action title = 'Personality Test' p = "/TagsDemo"/>
             <Action title = 'MyCourses'/>
             <Action title = 'Enrolled'/>
             

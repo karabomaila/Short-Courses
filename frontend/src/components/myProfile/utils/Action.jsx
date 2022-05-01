@@ -1,8 +1,15 @@
 import { Button } from "@mui/material";
+import {useNavigate} from 'react-router-dom';
 
 const Action = (prop) => {
+
+    const nav = useNavigate();
+    const onClick = ()=>{
+        nav(prop.p);
+    }
+
     return(
-        <Button variant="outlined" style={ButtonStyle}>{prop.title}</Button>
+        <Button variant="outlined" style={ButtonStyle} onClick = {onClick}>{prop.title}</Button>
     )
 }
 
