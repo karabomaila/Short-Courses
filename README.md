@@ -1,19 +1,4 @@
-# DATABASE OVERVIEW 
+# Project Overview
 
-### Tables on the database
-We have 3 tables: USERS, COURSES and ENROLLED
 
-#### USERS 
-* USER_ID
-* PASSWORD
-* NAME
 
-#### COURSES
-* COURSE_ID
-* NAME
-* USER_ID
-* DESCRIPTION 
-
-#### ENROLLED 
-* USER_ID
-* MY_COURESES
