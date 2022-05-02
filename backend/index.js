@@ -2,14 +2,13 @@ const express = require("express");
 const { pool } = require('./db');
 const app = express();
 const cors = require('cors');
-var validator = require('validate.js') 
 
 // middleware
 app.use(express.json());
 app.use(cors())
 
 const PORT = process.env.PORT || 5000;
- 
+
 // all users
 app.get('/users',
 (req, res)=>{
@@ -21,7 +20,6 @@ app.get('/users',
                 res.status(400); // client made a bad request
                 throw err;
             }
-            console.log(results.rows[0]);
             res.status(202); // client's request was ACCEPTED
 
             // response is a list of users as a JSONArray node
@@ -38,14 +36,6 @@ app.post('/users/register',
     const first_name = req.body.first_name;
     const user_id = req.body.user_id;
     const password = req.body.password;
-
-    if (validator.isEmpty(email)) {
-      res.send("Please type your email");
-  }
-    if (validator.isEmpty(first_name)) {
-      res.send("Please type your email");
-  }
-  
 
     pool.query(
         `INSERT INTO users (user_id , password, first_name)
@@ -67,6 +57,7 @@ app.post('/users/login',
     // get login details from request body
     const user_id_fromUser = req.body.user_id;
     const password_fromUser = req.body.password;
+  
     pool.query(
         `SELECT user_id, password,first_name FROM users WHERE user_id = $1 `,
          [user_id_fromUser], // use details to make a query to the database
@@ -109,7 +100,6 @@ app.post('/mycourses', (req, res) => {
     [req.body.user_id],
     (err, result) => {
       if (!err) {
-        console.log(result.rows);
         res.send(result.rows);
 
       } else {
@@ -126,7 +116,7 @@ app.post('/enrolled',(req,res)=>{
 
   pool.query(
     "Select crs_code from enroll where user_id = $1",
-    [user_id], //logged in user id
+    [user_id], // logged in user id
     (error, results) => {
       if (!error) {
         const data = []; // will add every object here
@@ -166,10 +156,10 @@ app.post('/CreateCourse',(req,res)=>{
 
   pool.query(data, [req.body.user_id, req.body.crs_description, req.body.crs_id, req.body.crs_name, req.body.picture_1,req.body.picture_2], (err, results) => {
     if (err) {
-      //couerse is not created
+      // course was not created
       throw err;
     } else {
-      res.send("1 record inserted"); //couerse is created
+      res.send("1 record inserted"); // course is created
     }
   });
 })
@@ -179,10 +169,9 @@ app.get("/allcourses", (req, res) => {
     if (!err) {
       res.send(result.rows);
 
-      //loop it ,and get each course info
     } else {
       res.send(err.message);
-      //some error occured
+
     }
   });
 });
