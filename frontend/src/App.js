@@ -8,10 +8,17 @@ import Homepage from './components/Homepage';
 import Course from './components/Course';
 import { Grid } from '@mui/material';
 import Explore from './components/Explore';
+import CreateCourseAgain from './components/CreateCourseAgain';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import MyPortfolio from './components/myProfile/MyPortfolio';
+import Useless from './components/tags/Useless';
+
 
 
 function App() {
     return (
+        <DndProvider backend={HTML5Backend}>
         <div className= "App" >
        
         <BrowserRouter>
@@ -21,7 +28,10 @@ function App() {
           <Route path='/'exact element={ <Homepage/ >}/>
           <Route path='/Home'exact element={ <Explore/> }/>
            <Route path='/Enrolled' element={<Enrolled/>}/>
+           <Route path='/CreateCourse' element={<CreateCourseAgain/>}/>
            <Route path='/MyCourses' element={<MyCourses/>} />
+           <Route path='/MyPortfolio' element={<MyPortfolio/>} />
+           <Route path='/TagsDemo' element ={<Useless/>}/>
            <Route path='/Slides/:id' element={
                       <Grid style={{display: 'flex', flexDirection: 'row',height:'100vh'}}>
                             <Course />
@@ -39,6 +49,7 @@ function App() {
        
 
         </div>
+        </DndProvider>
     );
 }
 

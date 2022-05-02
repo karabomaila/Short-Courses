@@ -45,6 +45,7 @@ app.post('/users/register',
             if(err)
             {
               res.status(400); // client made a bad request
+
             }
             res.status(201); // USER CREATED
         });
@@ -131,18 +132,19 @@ app.post('/enrolled',(req,res)=>{
             (err, result) => {
               if (!err) {
                 data.push(result.rows[0]); // adding all the enrolled course to one json
+                
                 if (i == results.rowCount - 1) {
                   res.send(data);
                 }
               } else {
                 console.log(err.message);
+
               }
             }
           );
         }
       } else {
         console.log(err.message);
-
       }
     }
   );
