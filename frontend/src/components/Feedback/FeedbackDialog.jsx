@@ -4,7 +4,7 @@ import RatingPanel from './RatingPanel';
 import UploadImagePanel from './UploadImagePanel';
 
 /*
-    * Has bugs 
+    * Has bugs...
  */
 
 const FeedbackDialog = (props)=>{
