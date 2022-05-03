@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Lindokuhle777/Short-Courses/issues"
   },
-  "homepage": "https://github.com/Lindokuhle777/Short-Courses#readme"
+  "homepage": "https://github.com/Lindokuhle777/Short-Courses#readme",
+  "dependencies": {
+    "azure": "^2.3.1-preview"
+  }
 }
