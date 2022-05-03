@@ -16,28 +16,29 @@ import { useMsal } from "@azure/msal-react";
 import { callMsGraph } from "../graph";
 import { loginRequest } from "../authConfig";
 import SignInButton from "./SSO/SignInButton";
-import {useState,useEffect} from 'react';
+import { useState, useEffect } from "react";
 
 function Navigation(props) {
-
   const isAuthenticated = useIsAuthenticated();
   const dataNav = useContext(DataContext);
   const navigate = useNavigate();
-  const [name,setName] = useState(null);
+  const [name, setName] = useState(null);
   const { instance, accounts } = useMsal();
   const [graphData, setGraphData] = useState(null);
 
-  
   useEffect(() => {
-      instance.acquireTokenSilent({
-          ...loginRequest,
-          account: accounts[0]
-      }).then((response) => {
-          callMsGraph(response.accessToken).then(response => setGraphData(response));
+    console.log('sabelo')
+    instance
+      .acquireTokenSilent({
+        ...loginRequest,
+        account: accounts[0],
+      })
+      .then((response) => {
+        callMsGraph(response.accessToken).then((response) =>
+          setGraphData(response)
+        );
       });
-
-    },[setGraphData])
-  
+  }, [setGraphData, instance, accounts]);
 
   return (
     <Navbar expand="lg" variant="dark" style={{ background: "#003B5C" }}>
@@ -61,27 +62,26 @@ function Navigation(props) {
                   variant="outline-light"
                   style={{ marginRight: "15px" }}
                   size="sm"
-                  onClick={() =>{
-                    console.log(graphData)
-                    navigate("/MyCourses", { state: { user: graphData } })}
-                  }
+                  onClick={() => {
+                    // console.log(graphData);
+                    // alert("hi");
+                    navigate("/MyCourses", { state: { user: graphData } });
+                  }}
                 >
                   My Courses
                 </Button>
                 <Button
                   variant="outline-light"
                   size="sm"
-                  onClick={() =>{
-                    console.log(graphData)
-                    navigate("/Enrolled", { state: { user: graphData } })}
-                  }
+                  onClick={() => {
+                    // console.log(graphData);
+                    navigate("/Enrolled", { state: { user: graphData } });
+                  }}
                 >
                   Enrolled
                 </Button>
               </>
-            ) : (
-              null
-            )}
+            ) : null}
           </Nav>
           <Form className="d-flex">
             <FormControl

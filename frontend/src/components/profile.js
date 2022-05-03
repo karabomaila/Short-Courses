@@ -17,7 +17,7 @@ function Profile(props) {
   };
 
   const { instance,accounts } = useMsal();
-  console.log(accounts)
+  // console.log(accounts)
   const [namee,setNamee] = React.useState(null);
   React.useEffect(()=>{
     setNamee((s)=>{

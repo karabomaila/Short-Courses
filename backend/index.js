@@ -170,7 +170,7 @@ app.get("/allcourses", (req, res) => {
   pool.query("Select * from courses", (err, result) => {
     if (!err) {
       res.send(result.rows);
-
+      console.log(result.rows)
     } else {
       res.send(err.message);
 
