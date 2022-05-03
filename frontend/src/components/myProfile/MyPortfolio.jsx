@@ -9,6 +9,7 @@ const MyPortfolio = () =>{
     const {state} = useLocation();
     const name = state.acc[0].name;
     const userID = state.acc[0].username;
+    const [bio, setBio] = useState('Given Mathe');
 
     const courseCollection = collection(db, "FinCourses");
     const commCollection = collection(db, "Comments");
@@ -42,7 +43,12 @@ const MyPortfolio = () =>{
                 />
             </div>
             <div style = {RightPanelStyle}>
-                <Display userID = {userID} courses = {courses} comments = {comments}/>
+                <Display 
+                userID = {userID} 
+                courses = {courses} 
+                comments = {comments}
+                bio = {bio}
+                setBio = {setBio}/>
             </div>
         </div>
     )

@@ -7,6 +7,8 @@ const Display = (props) => {
             userID = {props.userID}
             courses = {props.courses} 
             comments = {props.comments}
+            bio = {props.bio}
+            setBio = {props.setBio}
             />
         </div>
     )

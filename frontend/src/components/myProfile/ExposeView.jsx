@@ -1,8 +1,10 @@
 import { TextField } from '@mui/material';
 import CommentHelper from './utils/CommentHelper';
 import CourseHelper from './utils/CourseHelper';
+import {useState} from 'react';
 
 const ExposeView = (props) =>{
+    
     let FilterCourses = require('./utils/FilterCourses');
     let filter = new FilterCourses(props.courses, props.userID);
     let myCourses = filter.getMyCourses();
@@ -10,12 +12,21 @@ const ExposeView = (props) =>{
     let FilterComments = require('./utils/FilterComments');
     let comms = new FilterComments(props.comments, props.userID);
     let myComments = comms.getMyComments();
+
+    const onChange = event => {
+        props.setBio(event.target.value);
+        // update the database...
+    }
    
     return(
         <div style = {ExposeViewStyle}>
             <p style = {TextStyle}>Expose View</p>
             <div style = {BioDiv}>
-            <TextField label="Biography" multiline fullWidth/>
+            <TextField 
+            label="Biography" 
+            multiline fullWidth 
+            value = {props.bio} 
+            onChange = {onChange}/>
             </div>
             <div style = {SubTitleStyle}>
                 <p style = {TextStyle}>Completed Courses</p>
