@@ -2,7 +2,6 @@ import {Button} from '@mui/material';
 import {useState} from 'react';
 import TagsDialog from './TagsDialog';
 
-
 const Useless = () =>{
     let courseName = 'Machine Learning';
     const [open, setOpen] = useState(false);
@@ -12,6 +11,7 @@ const Useless = () =>{
         setOpen(true);
     }
 
+    
 
     return(
         <div style = {{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
