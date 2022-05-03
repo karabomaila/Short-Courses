@@ -46,7 +46,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import TitleIcon from "@mui/icons-material/Title";
-
+import {useLocation,useNavigate } from 'react-router-dom';
 const reducer = (state, action) => {
   switch (action.type) {
     case "populateBoard":
@@ -289,6 +289,7 @@ const temp_slides = [
   },
 ];
 
+
 const mins=[2,5,10,15,20,30,40,50,60]
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -346,6 +347,7 @@ const boardSty = {
 };
 
 function SecondPanel(props) {
+  
   const picsRef = useRef();
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
@@ -360,13 +362,13 @@ function SecondPanel(props) {
   const [addSlideBool, setAddSlideBool] = useState(false);
   const [currChap, setCurrChap] = useState("");
   const [ppictureURL, SetPictureURL] = useState("no pictures to see here");
-  const [currSlideComps, setCurrSlideComps] = useState([]);
   let tmpTitle = "title";
   const [currSlideMins,setCurrSlideMins] = useState();
   const [currSlide, setCurrSlide] = useState(null);
   const [currentChapter, setCurrentChapter] = useState(0);
   const [Display, setDisplay] = useState("");
   const [slideName,setSlideName] = useState(null);
+  
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "image",
@@ -375,6 +377,8 @@ function SecondPanel(props) {
       isOver: !!monitor.isOver(),
     }),
   }));
+
+  console.log(isOver)
 
   const addImageToBoard = (id) => {
     const pictureList = PictureList.filter((picture) => id === picture.id);
@@ -546,6 +550,7 @@ function SecondPanel(props) {
   const setContent = () => {};
 
   useEffect(() => {
+    console.log(props.user)
     var tmp =
       chapters.length === 0
         ? []
@@ -692,7 +697,7 @@ function SecondPanel(props) {
     //alert("Simnandi");
     console.log(slides);
     console.log(chapters);
-    
+
 
 
     //setShow(true);
@@ -758,12 +763,7 @@ function SecondPanel(props) {
   };
 
 
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+  
 
   const list = () => (
     <List>

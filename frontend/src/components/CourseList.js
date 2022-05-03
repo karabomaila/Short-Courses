@@ -13,7 +13,7 @@ function CourseList(props){
 
       var temp={"user_id":props.user.id}
     
-    axios.post('http://localhost:5000/enrolled',temp)
+    axios.post('/enrolled',temp)
         .then((res)=>{
           console.log(res.data);
           setEnrolledData(res.data)
