@@ -8,6 +8,8 @@ export default class TagUpload{
             this.AddTag(dbTags, currTag, courseID);
         }
     }
+    
+    
 
     AddTag(dbTags, currTag, courseID){
         let isFound = false;
