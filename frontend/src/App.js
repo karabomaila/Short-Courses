@@ -12,7 +12,7 @@ import CreateCourseAgain from './components/CreateCourseAgain';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import MyPortfolio from './components/myProfile/MyPortfolio';
-import Useless from './components/tags/Useless';
+import Useless from './components/Feedback/useless';;
 
 
 
