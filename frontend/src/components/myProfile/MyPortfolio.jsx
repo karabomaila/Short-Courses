@@ -3,8 +3,12 @@ import Display from './Display.jsx';
 import {useState, useEffect} from 'react';
 import { db } from '../firebase-config.jsx';
 import {collection, getDocs} from 'firebase/firestore';
+import {useLocation,useNavigate } from 'react-router-dom';
 
 const MyPortfolio = () =>{
+    const {state} = useLocation();
+    const name = state.acc[0].name;
+    const userID = state.acc[0].username;
 
     const courseCollection = collection(db, "FinCourses");
     const commCollection = collection(db, "Comments");
@@ -32,12 +36,13 @@ const MyPortfolio = () =>{
         <div style = {MyPortfolioStyle}>
             <div className='pin' style = {LeftPanelStyle} >
                 <Menu 
+                name = {name}
                 //displayWindow = {displayWindow} 
                 //setDisplay = {setDisplay}
                 />
             </div>
             <div style = {RightPanelStyle}>
-                <Display courses = {courses} comments = {comments}/>
+                <Display userID = {userID} courses = {courses} comments = {comments}/>
             </div>
         </div>
     )

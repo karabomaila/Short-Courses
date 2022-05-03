@@ -1,7 +1,7 @@
 import {db} from "../firebase-config";
 import {doc, setDoc, collection, updateDoc, arrayUnion,} from "firebase/firestore"; 
 
-export default class TagUpload{
+export default class Helpers{
     constructor(){}
     
     // Method to be called when adding a tags...
@@ -12,6 +12,19 @@ export default class TagUpload{
         }
     }
     
+
+    // Method to be called to add comments... 
+    PushComments(){
+        
+    }
+
+    /*
+    
+    ========================================================================================================
+                            DO NOT TOUCH OR CALL ANYTHING BELOW THIS LINE
+    ========================================================================================================
+
+    */
     AddTag(dbTags, currTag, courseID){
         let isFound = false;
 

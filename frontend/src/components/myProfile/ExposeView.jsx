@@ -4,11 +4,11 @@ import CourseHelper from './utils/CourseHelper';
 
 const ExposeView = (props) =>{
     let FilterCourses = require('./utils/FilterCourses');
-    let filter = new FilterCourses(props.courses, props.id);
+    let filter = new FilterCourses(props.courses, props.userID);
     let myCourses = filter.getMyCourses();
     
     let FilterComments = require('./utils/FilterComments');
-    let comms = new FilterComments(props.comments, props.id);
+    let comms = new FilterComments(props.comments, props.userID);
     let myComments = comms.getMyComments();
    
     return(
