@@ -25,8 +25,8 @@ function App() {
          
           
           <Routes>
-          <Route path='/'exact element={ <Homepage/ >}/>
-          <Route path='/Home'exact element={ <Explore/> }/>
+          {/* <Route path='/'exact element={ <Homepage/ >}/> */}
+          <Route path='/'exact element={ <Explore/> }/>
            <Route path='/Enrolled' element={<Enrolled/>}/>
            <Route path='/CreateCourse' element={<CreateCourseAgain/>}/>
            <Route path='/MyCourses' element={<MyCourses/>} />

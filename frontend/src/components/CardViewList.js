@@ -1,34 +1,33 @@
-import { useContext,useEffect } from 'react';
-import { Container, Row,Col } from 'react-bootstrap';
-import CardView from './cardView';
-import DataContext from './DataContext';
-import axios from 'axios';
+import { useContext, useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import CardView from "./cardView";
+import { Box, CircularProgress } from "@mui/material";
+import DataContext from "./DataContext";
 
-function CardViewList(props){
-
+function CardViewList(props) {
+  const dataCard = useContext(DataContext);
+  const MyDatabase = dataCard.Data;
   
-
- const dataCard=useContext(DataContext);
- const MyDatabase=dataCard.Data;
- console.log(MyDatabase);
-
- 
-
-
-    return(
-        <Container>
+  return (
+    <Container>
+      {MyDatabase.length !== 0 ? (
         <Row>
-         
-         {MyDatabase.map(data => <Col><CardView
-           image1={data.picture_1}
-           image2={data.picture_1} 
-           name={data.crs_name}
-          /></Col>)}
-         
+          {MyDatabase.map((data, index) => (
+            <Col key={index}>
+              <CardView
+                image1={data.picture_1}
+                image2={data.picture_1}
+                name={data.crs_name}
+              />
+            </Col>
+          ))}
         </Row>
-        
-        
-         </Container>
-    );
+      ) : (
+        <Box style={{ marginLeft: "48%", marginTop: "10%"}}>
+          <CircularProgress />
+        </Box>
+      )}
+    </Container>
+  );
 }
 export default CardViewList;

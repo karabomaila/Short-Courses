@@ -15,7 +15,7 @@ function CardView(props){
     const storage = getStorage();
     await getDownloadURL(ref(storage, `Pictures/${props.image1}`))
     .then((url) => {
-      console.log(url)
+      // console.log(url)
       setImageURL1(url);
     })
 
@@ -27,7 +27,7 @@ function CardView(props){
     const storage = getStorage();
     await getDownloadURL(ref(storage, `Pictures/${props.image2}`))
     .then((url) => {
-      console.log(url)
+      // console.log(url)
       setImageURL2(url);
     })
 

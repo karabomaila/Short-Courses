@@ -44,14 +44,14 @@ export function DataProvider(props){
     
     const [currentdata, setcurrentdata] = useState([]);
 
-    useEffect(() => {
+    useEffect(async() =>  {
         
-        axios
+        await axios
           .get("/allcourses")
           .then((res) => {
               MyDatabase = res.data;
             setcurrentdata(res.data);
-            console.log(res.data);
+            // console.log(res.data);
           })
           .catch((err) => {
             console.log(err);

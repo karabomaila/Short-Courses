@@ -20,7 +20,7 @@ function CourseNav(props){
    
     <Navbar  expand="lg" variant="dark" className="my-0 flex" style={{ background: '#003B5C'}}>
     
-      <Navbar.Brand href="#" className="my-0"><Profile name={props.user.first_name}/></Navbar.Brand>
+      <Profile/>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
@@ -28,7 +28,7 @@ function CourseNav(props){
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Button variant="outline-light" size="sm" style={{marginRight: '10px'}} onClick={() =>navigate('/Home',{state:{user:props.user}})}>Home</Button>
+          <Button variant="outline-light" size="sm" style={{marginRight: '10px'}} onClick={() =>navigate('/',{state:{user:props.user}})}>Home</Button>
           <Button variant="outline-light" size="sm" style={{marginRight: '10px'}} onClick={() =>navigate('/Enrolled',{state:{user:props.user}})}>Enrolled</Button>
           <Button variant="outline-light" size="sm" onClick={() =>navigate('/MyCourses',{state:{user:props.user}})}>MyCourses</Button>
           

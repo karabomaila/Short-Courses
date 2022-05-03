@@ -11,9 +11,9 @@ function CourseList(props){
 
     useEffect(()=>{
 
-      var temp={"user_id":props.user.user_id}
+      var temp={"user_id":props.user.id}
     
-    axios.post('http://localhost:5000/enrolled',{"user_id":'53456'})
+    axios.post('http://localhost:5000/enrolled',temp)
         .then((res)=>{
           console.log(res.data);
           setEnrolledData(res.data)
