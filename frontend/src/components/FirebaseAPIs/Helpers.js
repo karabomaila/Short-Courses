@@ -2,15 +2,16 @@ import {db} from "../firebase-config";
 import {doc, setDoc, collection, updateDoc, arrayUnion,} from "firebase/firestore"; 
 
 export default class TagUpload{
-    constructor(dbTags, userTags, courseID){
+    constructor(){}
+    
+    // Method to be called when adding a tags...
+    PushTag(dbTags, userTags, courseID){
         for(let i = 0; i < userTags.length; i++){
             const currTag = userTags[i].toLowerCase();
             this.AddTag(dbTags, currTag, courseID);
         }
     }
     
-    
-
     AddTag(dbTags, currTag, courseID){
         let isFound = false;
 
