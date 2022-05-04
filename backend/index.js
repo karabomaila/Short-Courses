@@ -90,12 +90,12 @@ app.post("/enroll", (req, res) => {
         throw err;
       }
 
-      // not registered, registered by force
+      // not registered, register by force
       else if (results.rows.length == 0) {
         pool.query(
           `INSERT INTO users (user_id , password, first_name)
                 VALUES ($1, $2, $3)`,
-          [user_id, password, first_name], // use details to make a query to the database
+          [user_id, "password", "first_name"], // use details to make a query to the database
           (err, results) => {
             if (err) {
               res.send("some error"); // client made a bad request
