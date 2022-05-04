@@ -720,7 +720,7 @@ function SecondPanel(props) {
     //setShow(true);
 
 
-    // ====================Handling the tags... ============================
+    // ==================== Handling the tags... ============================
     setOpenTagsDialog(true);
   };
 
@@ -1375,9 +1375,7 @@ function SecondPanel(props) {
         </Paper>
       </Dialog>
 
-      // ======================= Tags Dialog =====================================
       <TagsDialog open = {openTagsDialog} close = {setOpenTagsDialog} courseName = {courseName} courseID = {courseID}/>
-
     </div>
   );
 }
