@@ -24,7 +24,7 @@ function MyCourseList(props){
 
     useEffect( async()=>{
 
-      var temp={"user_id":props.user.id}
+      var temp={"user_id":props.user[0].username.split("@")[0]}
       
     
       await axios.post('http://localhost:5000/mycourses',temp)

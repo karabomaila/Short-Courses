@@ -65,7 +65,7 @@ function Navigation(props) {
                   onClick={() => {
                     // console.log(graphData);
                     // alert("hi");
-                    navigate("/MyCourses", { state: { user: graphData } });
+                    navigate("/MyCourses", { state: { user: accounts } });
                   }}
                 >
                   My Courses
@@ -75,7 +75,7 @@ function Navigation(props) {
                   size="sm"
                   onClick={() => {
                     // console.log(graphData);
-                    navigate("/Enrolled", { state: { user: graphData } });
+                    navigate("/Enrolled", { state: { user: accounts } });
                   }}
                 >
                   Enrolled

@@ -20,7 +20,8 @@ function CourseList(props) {
   const [EnrolledData, setEnrolledData] = useState(t);
 
   useEffect(() => {
-    var temp = { user_id: props.user.id };
+    
+    var temp = { user_id: props.user[0].username.split("@")[0] };
 
     axios
       .post("/enrolled", temp)
