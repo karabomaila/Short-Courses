@@ -80,8 +80,8 @@ app.post("/enroll", (req, res) => {
   const course_id = req.body.crs_id;
   const user_id = req.body.user_id;
 
-  console.log(course_id);
-  console.log(user_id);
+  // console.log(course_id);
+  // console.log(user_id);
 
   var data = `INSERT INTO enroll (crs_code , user_id)
     VALUES ($1, $2)`;
