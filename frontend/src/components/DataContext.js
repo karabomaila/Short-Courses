@@ -73,7 +73,7 @@ export function DataProvider(props){
         let searched='';
          if(search !==''){
              searched= MyDatabase.filter((data)=>{
-                 return data.name.toString().toLocaleLowerCase().includes(search.toLocaleLowerCase())
+                 return data.crs_name.toString().toLocaleLowerCase().includes(search.toLocaleLowerCase())
                 
               });
               setcurrentdata(searched);
