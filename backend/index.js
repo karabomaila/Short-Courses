@@ -91,10 +91,10 @@ app.post("/enroll", (req, res) => {
     [course_id, user_id], // use details to make a query to the database
     (err, results) => {
       if (err) {
-        res.status(400); // client couldn't enroll
+        res.send("False"); // client couldn't enroll
         // console.log("nah" + err);
       } else {
-        res.status(201); // we are in
+        res.send("True"); // we are in
         // console.log("yes");
       }
     }
@@ -115,16 +115,7 @@ app.post("/mycourses", (req, res) => {
   );
 });
 
-<<<<<<< HEAD
 app.post("/enrolled", (req, res) => {
-=======
-})
-
-
-
-app.post('/enrolled',(req,res)=>{
-
->>>>>>> 610e54a0959cad80a102f6ba5b7fd0b56ecdaf2b
   const user_id = req.body.user_id;
 
   pool.query(
