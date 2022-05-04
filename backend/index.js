@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 // all users
 app.get("/users", (req, res) => {
@@ -91,11 +91,11 @@ app.post("/enroll", (req, res) => {
     [course_id, user_id], // use details to make a query to the database
     (err, results) => {
       if (err) {
-        res.status(400); // client couldn't enroll
+        res.send(false); // client couldn't enroll
         // console.log("nah" + err);
       } else {
-        res.status(201); // we are in
-        // console.log("yes");
+        res.send(true); // we are in
+        console.log("yes");
       }
     }
   );
@@ -115,16 +115,12 @@ app.post("/mycourses", (req, res) => {
   );
 });
 
-<<<<<<< HEAD
-app.post("/enrolled", (req, res) => {
-=======
-})
+
 
 
 
 app.post('/enrolled',(req,res)=>{
 
->>>>>>> 610e54a0959cad80a102f6ba5b7fd0b56ecdaf2b
   const user_id = req.body.user_id;
 
   pool.query(

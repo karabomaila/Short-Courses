@@ -323,6 +323,7 @@ const leftDiv = {
 const textareaStyle = {
   resize: "both",
   width: "100%",
+  color: "black",
 };
 
 const rightDiv = {
