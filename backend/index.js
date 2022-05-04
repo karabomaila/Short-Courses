@@ -75,6 +75,32 @@ app.post("/users/login", (req, res) => {
   );
 });
 
+//enroll
+app.post("/enroll", (req, res) => {
+  const course_id = req.body.crs_id;
+  const user_id = req.body.user_id;
+
+  console.log(course_id);
+  console.log(user_id);
+
+  var data = `INSERT INTO enroll (crs_code , user_id)
+    VALUES ($1, $2)`;
+
+  pool.query(
+    data,
+    [course_id, user_id], // use details to make a query to the database
+    (err, results) => {
+      if (err) {
+        res.status(400); // client couldn't enroll
+        // console.log("nah" + err);
+      } else {
+        res.status(201); // we are in
+        // console.log("yes");
+      }
+    }
+  );
+});
+
 app.post("/mycourses", (req, res) => {
   pool.query(
     "Select * from courses where crs_creator = $1",
