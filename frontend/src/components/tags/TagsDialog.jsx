@@ -5,6 +5,7 @@ import {db} from "../firebase-config";
 import {useState, useEffect} from 'react';
 import {doc, setDoc, collection, getDocs} from "firebase/firestore"; 
 import Helpers from '../FirebaseAPIs/Helpers';
+import {useNavigate} from 'react-router-dom';
 
 /*
  * ONLY This file should be called on the studio
@@ -16,6 +17,7 @@ import Helpers from '../FirebaseAPIs/Helpers';
 
 */
 const TagsDialog = (props) => {
+    const navigator = useNavigate();
     const [tags, setTags] = useState([]);
     const REF_COLLECTION = collection(db, "CourseTags");
     
@@ -41,6 +43,8 @@ const TagsDialog = (props) => {
         props.close(false);
         let uploadTag = new Helpers();
         uploadTag.PushTag(tags, TagArray, props.courseID);
+        // Lead back to homepage...
+        navigator("/");
     }
 
     return(

@@ -47,6 +47,8 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import TitleIcon from "@mui/icons-material/Title";
 import {useLocation,useNavigate } from 'react-router-dom';
+import TagsDialog from "./tags/TagsDialog";
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "populateBoard":
@@ -348,7 +350,16 @@ const boardSty = {
 };
 
 function SecondPanel(props) {
-  
+  // ===================== For Tags =========================
+  const [openTagsDialog, setOpenTagsDialog] = useState(false);
+
+  // @Lindokuhle777 give me the following fileds... 
+  let courseName = 'Java Complete';
+  let courseID = '2022jc';
+
+  // =========================================================
+
+
   const picsRef = useRef();
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
@@ -707,10 +718,11 @@ function SecondPanel(props) {
     })
 
     console.log(finalChapters)
-
-
-
     //setShow(true);
+
+
+    // ==================== Handling the tags... ============================
+    setOpenTagsDialog(true);
   };
 
   //const pictureRef = useRef();
@@ -1364,6 +1376,7 @@ function SecondPanel(props) {
         </Paper>
       </Dialog>
 
+      <TagsDialog open = {openTagsDialog} close = {setOpenTagsDialog} courseName = {courseName} courseID = {courseID}/>
     </div>
   );
 }
