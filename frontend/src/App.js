@@ -2,6 +2,7 @@ import './App.css';
 import Home from './components/home';
 import Enrolled from './components/Enrolledpage';
 import MyCourses from './components/MyCoursesPage';
+import Siderbar from './components/Siderbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter ,Routes,Route} from 'react-router-dom';
 import Homepage from './components/Homepage';
@@ -33,10 +34,7 @@ function App() {
            <Route path='/MyPortfolio' element={<MyPortfolio/>} />
            <Route path='/TagsDemo' element ={<Useless/>}/>
            <Route path='/Slides/:id' element={
-                      <Grid style={{display: 'flex', flexDirection: 'row',height:'100vh'}}>
-                            <Course />
-
-                      </Grid>
+                     <Siderbar/>
               
                 } />
            
