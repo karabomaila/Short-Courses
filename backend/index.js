@@ -80,23 +80,55 @@ app.post("/enroll", (req, res) => {
   const course_id = req.body.crs_id;
   const user_id = req.body.user_id;
 
-  console.log(course_id);
-  console.log(user_id);
-
-  var data = `INSERT INTO enroll (crs_code , user_id)
-    VALUES ($1, $2)`;
-
+  //check if user is registered
   pool.query(
-    data,
-    [course_id, user_id], // use details to make a query to the database
+    `SELECT user_id, password,first_name FROM users WHERE user_id = $1 `,
+    [user_id], // use details to make a query to the database
     (err, results) => {
       if (err) {
+<<<<<<< HEAD
+        res.status(400); // client made a bad request
+        throw err;
+      }
+
+      // not registered, register by force
+      else if (results.rows.length == 0) {
+        pool.query(
+          `INSERT INTO users (user_id , password, first_name)
+                VALUES ($1, $2, $3)`,
+          [user_id, "password", "first_name"], // use details to make a query to the database
+          (err, results) => {
+            if (err) {
+              res.send("some error"); // client made a bad request
+            }
+            res.send("In"); // USER CREATED
+          }
+        );
+
+        // we in by force
+=======
         res.send(false); // client couldn't enroll
         console.log(err);
       } else {
         res.send(true); // we are in
         console.log("yes");
+>>>>>>> e0df54ad4a958c169bd6c8ff16a72c70abd0d1ad
       }
+      var data = `INSERT INTO enroll (crs_code , user_id)
+      VALUES ($1, $2)`;
+      pool.query(
+        data,
+        [course_id, user_id], // use details to make a query to the database
+        (err, results) => {
+          if (err) {
+            res.send("False"); // client couldn't enroll
+            // console.log("nah" + err);
+          } else {
+            res.send("True"); // we are in
+            // console.log("yes");
+          }
+        }
+      );
     }
   );
 });
@@ -115,12 +147,16 @@ app.post("/mycourses", (req, res) => {
   );
 });
 
+<<<<<<< HEAD
+app.post("/enrolled", (req, res) => {
+=======
 
 
 
 
 app.post('/enrolled',(req,res)=>{
 
+>>>>>>> e0df54ad4a958c169bd6c8ff16a72c70abd0d1ad
   const user_id = req.body.user_id;
 
   pool.query(
