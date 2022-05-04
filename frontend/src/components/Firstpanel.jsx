@@ -1,168 +1,178 @@
-import { Card, CssBaseline, Paper, TextField,Button, Typography } from '@mui/material'
+/* eslint-disable react/jsx-no-undef */
+
+import {  TextField,Button ,Typography} from '@mui/material'
 import React, { useState,useRef }from 'react';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
+
+import {
+  getDownloadURL,
+  ref,
+  uploadBytesResumable,
+  uploadBytes,
+  getStorage,
+} from "@firebase/storage";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-
-const PaperStyle = {
-    margin:"auto",
-    width:"70%",
-    backgroundColor:"#003b5c",
-    padding:"20px"
-}
-const CardStyle = {
-  margin:"0 auto",
-  width:"50%",
-  padding:"10px",
-  
-}
-
-const divStyle = {
-  borderRadius:"10px",
-  border: "3px solid",
-  overflow:"hidden",
-  resize:"true",
-  padding:"5px",
-}
-
-const TextFieldStyle = {
-  backgroundColor:"#ffffff",
-  borderRadius:"20px",
-  textAlign:"center",
-  width:"100%",
-
-}
-
 function Firstpanel({handletab}) {
+  
 
-  const [images,setImages] = useState([{name:"pic1"},{name:"pic2"}]);
+  const [showimageupload,setshowimageupload] = useState(false)
+  const [images , setImages] = useState([]);
+
+  const onclick = ()=> {
+    setshowimageupload(!showimageupload);
+    
+  }
+
+  const handleBtn = (e)=>{
+    e.preventDefault();
+    let temp = document.getElementById('chowed').value;
+    if(temp===''){
+    document.getElementById('faith').click();
+    }else{
+      setImages([...images,{id:images.length,url:temp}])
+      document.getElementById('chowed').value=''
+
+    }
+    // setshowimageupload(false); ggggggg
+
+
+  }
+ 
+  
   const picsRef = useRef();
-
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
+  const upAnddown = async ( file1) => {
+    const storage = getStorage();
+    const storageRef1 = ref(
+      storage,
+      `/Courses/${file1.name}`
+    );
+    await uploadBytes(storageRef1, file1);
+    picsRef.current.value = null;
+    let g = await getDownloadURL(
+      ref(
+        storage,
+        `/Courses/${file1.name}`
+      )
+    );
+    console.log(g)
+    return g;
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const pictureshandler = (e) => {
+  const pictureshandler = async (e) => {
     e.preventDefault();
     const file1 = e.target[0].files[0];
-    const courseName = e.target[1].value;
+    
     console.log(file1);
-    handleClose();
-    // uploadFiles(file1,file2)
-  }
+  
+    const pictureURL = await upAnddown(file1);
+    console.log(pictureURL);
+    setImages([...images,{id:images.length,url:pictureURL}])
+
     
-    
-
-  const addImage = () =>{
-    document.getElementById("btnImg").click();
-    console.log(document.getElementById("btnImg").event());
-
-
   }
 
   return (
-    <div>
-        <Paper style={PaperStyle} elevarion={50}>
-          <CssBaseline/>
-          <Card style={CardStyle} elevarion={10}>
+    <div style={{backgroundColor: '#003b5c',width: '800px',height: '700px'}}>
+      
+      <div style={{backgroundColor: '#ffffff' , width: '50%' , height: '80%',border:'5px',borderColor:'#000000',margin:"auto",borderRadius:"4", pading:'1rem'}}>
+      
+            <TextField id="Course" label="Course name" variant="outlined" size="small" style= {{ marginTop : "25px" ,padding:'10px'}} />
 
-            <div style={{margin: "0 auto",width:"90%"}}>
-              <TextField varient="outlined"  label="Course Name"  style={{...TextFieldStyle,marginTop: "20px"}} ></TextField>
-              <TextField varient="outlined"  label="Description"  style={{...TextFieldStyle,marginTop: "20px"}} ></TextField>
-              
-             
-              <Button 
-                  onClick={handleClickOpen} 
-                  size="small" 
-                  variant="contained" 
-                  type="file" 
-                  style={{position:"flex",right: "0px",marginTop: "10px",marginBottom: "10px"}}>Add</Button>
-              
-              
-              <div style={divStyle}>
+            <TextField id="Course" label="Course description" variant="outlined" size="small"  style= {{ marginTop : "5px" , padding:'10px'}}/>
+      <div>  
+      <Button variant="contained" style={{margin: "10px 5px 30px 50px"  }} onClick={onclick}   >Add Image </Button >
+      </div>
+      
+              {showimageupload && 
+            
+                <>
+                <TextField varient="outlined" id="chowed" label="Image url" size ="small" style={{margin:"0px 60px 2px 50px"}} />
+                  <form onSubmit={
+                    pictureshandler
+                  }>
+                    
+                    <div className='Imageupload'> 
+                    <input style={{margin:'0px 5px 0px 50px'}} type="file" id="image" name="file " multiple ref={picsRef} onChange={(e)=>this.handlefile(e)} />
+                    </div>
+                 <Button variant="contained" id="faith"   type="submit" style={{margin: "2px 10px 30px 90px",display:"none" }}>upload</Button>
 
-              {images.length===0?(
+                  </form>
+                  <Button variant="contained" onClick={handleBtn} style={{margin: "2px 10px 30px 90px"  }}>upload</Button>
+                </>
+                    
+
+                
+                    
+               
+              }
+
+       <div style={container}>
+      
+       {images.length===0?(
                   <Typography>No photos</Typography>
               ):(
                 <>
                   {images.map((image)=>{
-                    return <img src={image.url} style={{width:"50px",height:"50px"}}/>
+                    // eslint-disable-next-line jsx-a11y/alt-text
+                    return <img src={image.url} key={image.id}
+                    style={{width:"50px",height:"50px"}}/>
                   })}
 
                 </>
               )}
 
-              </div>
-              <Button onClick={(event)=>handletab(event,1)}>Next</Button>
-              
-              
-            </div>
+      </div>
+      <div>
+         <Button variant="outlined" style={{backgroundColor: '#ffffff',
+          margin :"10px 50px 50px 500px ", position:"absolute", marginBottom:"0"}} 
+          onClick={(event)=>handletab(event,1)}>Next </Button>
+      </div>
+            
+      </div>
+      
 
             
-            
+      </div>
 
-
-           
-            
-            
-          </Card>
-        </Paper>
-        
-        <Dialog
-        open={open}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-        
-      >
-        <div style={{backgroundColor:"#ffffff"}}>
-        <DialogTitle>{"Add Image"}</DialogTitle>
-        <DialogContent>
-          <Paper>
-            <div style={{margin:"auto",textAlign:"center",padding:"10px"}}>
-              <TextField 
-                varient="outlined"
-                label="Image url"
-                />
-                <Typography variant="h6">OR</Typography>
-                <form onSubmit={pictureshandler} >
-           
-                      <div>
-                      <input type="file" name="images" id="" required class="form-control"  multiple ref={picsRef}/>
-                      </div>
-
-                      
-                      <Button type="submit" value="Send" variant="dark" >send</Button>
-                      
-                  
-                </form>
-            </div>
-          </Paper>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose}>Agree</Button>
-        </DialogActions>
-        </div>
-      </Dialog>
-
-    </div>
   )
+
+
+    
 }
+
+
+
+
+
+
+  
+
+  
+ 
+  
+
+
+const container = {
+  width: '350px',
+  margin: '30px auto',
+  overflow: 'auto',
+  height: '100px',
+  border: '1px solid steelblue',
+  padding: '30px',
+  borderRadius: '5px',
+}
+
+
+  
+
+  
+
+
+
 
 export default Firstpanel
