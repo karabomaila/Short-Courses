@@ -47,7 +47,7 @@ export function DataProvider(props){
     useEffect(async() =>  {
         
         await axios
-          .get("/allcourses")
+          .get("http://localhost:5000/allcourses")
           .then((res) => {
               MyDatabase = res.data;
             setcurrentdata(res.data);

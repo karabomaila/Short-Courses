@@ -8,10 +8,37 @@ import {
 } from "@firebase/storage";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useIsAuthenticated } from "@azure/msal-react";
+import { useMsal } from "@azure/msal-react";
+import { callMsGraph } from "../graph";
+import { loginRequest } from "../authConfig";
 
 function CardView(props) {
   const [imageURL1, setImageURL1] = useState("");
   const [imageURL2, setImageURL2] = useState("");
+  const { instance, accounts } = useMsal();
+  const [graphData, setGraphData] = useState(null);
+  const isAuthenticated = useIsAuthenticated();
+
+  const someFunc = ()=>{
+    var x;
+    instance
+      .acquireTokenSilent({
+        ...loginRequest,
+        account: accounts[0],
+      })
+      .then((response) => {
+        callMsGraph(response.accessToken).then((response) =>
+          {setGraphData(response);
+            x=response
+
+          }
+        );
+      });
+
+      return graphData.id
+      
+    }
 
   useEffect(async () => {
     const storage = getStorage();
@@ -35,15 +62,24 @@ function CardView(props) {
 
   const handleClick = (event) => {
     event.preventDefault();
+    // someFunc()
+    // console.log(graphData)
 
-    axios
-      .post("enroll", { user_id: props.user_id, crs_id: props.crs_id })
+    if (isAuthenticated){
+      console.log(accounts[0].username.split("@")[0])
+      axios
+      .post("enroll", { user_id: accounts[0].username.split("@")[0], crs_id: props.crs_id  })
       .then((response) => {
 
       })
       .catch((error) => {
         
       });
+    }
+
+
+
+    
   };
 
   return (
