@@ -695,8 +695,17 @@ function SecondPanel(props) {
   const handleShow = () => {
     //Simnandi
     //alert("Simnandi");
-    console.log(slides);
-    console.log(chapters);
+    // console.log(slides);
+    // console.log(chapters);
+
+    var finalChapters = []
+
+    chapters.map((chapter, index) => {
+      var temp = slides.filter((slide) =>slide.chapter===index)
+      finalChapters.push({...chapter,slides:temp})
+    })
+
+    console.log(finalChapters)
 
 
 
