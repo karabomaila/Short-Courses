@@ -92,7 +92,7 @@ app.post("/enroll", (req, res) => {
     (err, results) => {
       if (err) {
         res.send(false); // client couldn't enroll
-        // console.log("nah" + err);
+        console.log(err);
       } else {
         res.send(true); // we are in
         console.log("yes");

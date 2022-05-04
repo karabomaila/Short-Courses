@@ -18,8 +18,10 @@ function CardView(props) {
   const [imageURL2, setImageURL2] = useState("");
   const { instance, accounts } = useMsal();
   const [graphData, setGraphData] = useState(null);
+  const isAuthenticated = useIsAuthenticated();
 
   const someFunc = ()=>{
+    var x;
     instance
       .acquireTokenSilent({
         ...loginRequest,
@@ -27,9 +29,15 @@ function CardView(props) {
       })
       .then((response) => {
         callMsGraph(response.accessToken).then((response) =>
-          setGraphData(response)
+          {setGraphData(response);
+            x=response
+
+          }
         );
       });
+
+      return graphData.id
+      
     }
 
   useEffect(async () => {
@@ -57,14 +65,21 @@ function CardView(props) {
     // someFunc()
     // console.log(graphData)
 
-    axios
-      .post("enroll", { user_id: "13196ac7-cf03-45e2-9d14-69d125fca6f6", crs_id: props.crs_id  })
+    if (isAuthenticated){
+      console.log(accounts[0].username.split("@")[0])
+      axios
+      .post("enroll", { user_id: accounts[0].username.split("@")[0], crs_id: props.crs_id  })
       .then((response) => {
 
       })
       .catch((error) => {
         
       });
+    }
+
+
+
+    
   };
 
   return (
