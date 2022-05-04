@@ -89,7 +89,16 @@ app.post("/mycourses", (req, res) => {
   );
 });
 
+<<<<<<< HEAD
 app.post("/enrolled", (req, res) => {
+=======
+})
+
+
+
+app.post('/enrolled',(req,res)=>{
+
+>>>>>>> 610e54a0959cad80a102f6ba5b7fd0b56ecdaf2b
   const user_id = req.body.user_id;
 
   pool.query(
