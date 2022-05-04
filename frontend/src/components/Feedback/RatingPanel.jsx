@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {useState} from 'react';
 import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
@@ -42,13 +41,11 @@ const customIcons = {
 
   };
 
-const RatingPanel = ()=>{
-    const [rate, setRate] = useState(3);
-
-    const onClick = ()=>{
-        
-        console.log(rate);
-    }
+const RatingPanel = (props)=>{
+    
+    const onChange = event => {
+      props.setRate(event.target.value);
+  }
     return(
         <div style = {MainStyle}>
           <Rating
@@ -56,10 +53,7 @@ const RatingPanel = ()=>{
             defaultValue={3}
             IconContainerComponent={IconContainer}
             highlightSelectedOnly
-            onChange={(event, newValue) => {
-            setRate(newValue);
-          }}
-        onClick = {onClick}
+            onChange={onChange}
       />
         </div>
         

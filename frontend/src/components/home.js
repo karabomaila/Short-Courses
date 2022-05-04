@@ -4,6 +4,7 @@ import Navigation from "./navigation";
 
 function Home(props) {
     return ( 
+       
         <Container fluid className="justify-content-center">
             <Row>
                 <Navigation user={props.user}/>

@@ -4,7 +4,7 @@ import TagsInput from './TagsInput';
 import {db} from "../firebase-config";
 import {useState, useEffect} from 'react';
 import {doc, setDoc, collection, getDocs} from "firebase/firestore"; 
-import TagsUpload from '../FirebaseAPIs/TagsUpload';
+import Helpers from '../FirebaseAPIs/Helpers';
 
 /*
  * ONLY This file should be called on the studio
@@ -39,7 +39,8 @@ const TagsDialog = (props) => {
 
     const onClose = () =>{
         props.close(false);
-        new TagsUpload(tags, TagArray, props.courseID);
+        let uploadTag = new Helpers();
+        uploadTag.PushTag(tags, TagArray, props.courseID);
     }
 
     return(

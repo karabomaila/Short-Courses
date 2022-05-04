@@ -2,13 +2,13 @@ import Action from "./utils/Action.jsx";
 import Profile from "./utils/user.png";
 
 
-const Menu = () => {
+const Menu = (props) => {
    
 
     return(
         <div style = {MenuStyle}>
             <img src = {Profile} width = {100} height = {100} style = {ProfileSyle}/>
-            <div style = {UserNameStyle}>Username</div>
+            <div style = {UserNameStyle}>{props.name}</div>
             <div style = {AboutCourses}>
                 <div style = {CourseTag}>MyCourses 12</div>
                 <div style = {CourseTag}>Enrolled 8</div>

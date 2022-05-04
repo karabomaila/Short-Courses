@@ -1,14 +1,17 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Firstpanel from './Firstpanel';
-import SecondPanel from './SecondPanel';
+import * as React from "react";
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Firstpanel from "./Firstpanel";
+import SecondPanel from "./SecondPanel";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+  const {state} = useLocation();
+  console.log(state);
 
   return (
     <div
@@ -36,23 +39,24 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
 export default function CreateCourse() {
   const [value, setValue] = React.useState(0);
+  const {state} = useLocation();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const handletab = (event,num)=>{
+  const handletab = (event, num) => {
     setValue(num);
-  }
+  };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: "100%" }}>
       {/* <Box sx={{ borderBottom: 1, borderColor: 'divider' }} style={{width: '100%',position:"fixed"}}>
         <div >
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" style={{ margin:"auto"}} >
@@ -66,9 +70,8 @@ export default function CreateCourse() {
         <Firstpanel handletab={handletab} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <SecondPanel handletab={handletab} courseName="course Name"/>
+        <SecondPanel handletab={handletab} courseName="course Name" user={state.user} />
       </TabPanel>
-      
     </Box>
   );
 }

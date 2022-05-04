@@ -32,7 +32,7 @@ function MyCourseView(props){
       const storage = getStorage();
       await getDownloadURL(ref(storage, `Pictures/${props.image1}`))
       .then((url) => {
-        console.log(url)
+        //console.log(url)
         setImageURL(url);
       })
 

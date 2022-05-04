@@ -38,7 +38,7 @@ function Firstpanel({handletab}) {
       document.getElementById('chowed').value=''
 
     }
-    // setshowimageupload(false);
+    // setshowimageupload(false); ggggggg
 
 
   }

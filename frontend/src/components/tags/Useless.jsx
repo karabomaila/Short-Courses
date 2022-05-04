@@ -12,11 +12,13 @@ const Useless = () =>{
         setOpen(true);
     }
 
+   
+    
 
     return(
         <div style = {{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <Button variant = 'outlined' onClick = {onOpen}>Open Dialog</Button>
-            <TagsDialog open = {open} close = {setOpen} courseName = {courseName} courseID = "2022sd"/>
+            <TagsDialog open = {open} close = {setOpen} courseName = {courseName} courseID = "2022ossp"/>
 
             <Button variant = 'outlined' >EG</Button>
         </div>

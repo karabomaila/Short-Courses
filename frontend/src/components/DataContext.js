@@ -44,14 +44,14 @@ export function DataProvider(props){
     
     const [currentdata, setcurrentdata] = useState([]);
 
-    useEffect(() => {
+    useEffect(async() =>  {
         
-        axios
+        await axios
           .get("/allcourses")
           .then((res) => {
               MyDatabase = res.data;
             setcurrentdata(res.data);
-            console.log(res.data);
+            // console.log(res.data);
           })
           .catch((err) => {
             console.log(err);
@@ -73,7 +73,7 @@ export function DataProvider(props){
         let searched='';
          if(search !==''){
              searched= MyDatabase.filter((data)=>{
-                 return data.name.toString().toLocaleLowerCase().includes(search.toLocaleLowerCase())
+                 return data.crs_name.toString().toLocaleLowerCase().includes(search.toLocaleLowerCase())
                 
               });
               setcurrentdata(searched);

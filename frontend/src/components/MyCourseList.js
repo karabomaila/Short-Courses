@@ -19,14 +19,15 @@ function MyCourseList(props){
     //   .catch((err) => {
     //     console.log(err);
     //   });
+    // console.log(props.user)
 
 
+    useEffect( async()=>{
 
-    useEffect(()=>{
-
-      var temp={"user_id":props.user.user_id}
+      var temp={"user_id":props.user.id}
+      
     
-      axios.post('http://localhost:5000/mycourses',temp)
+      await axios.post('http://localhost:5000/mycourses',temp)
         .then((res)=>{
           console.log(res.data);
           setMycoursesData(res.data)

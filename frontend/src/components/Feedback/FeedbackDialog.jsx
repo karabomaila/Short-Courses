@@ -2,17 +2,20 @@ import {Button,Dialog, DialogTitle, DialogContent, DialogActions,DialogContentTe
 import * as React from 'react';
 import RatingPanel from './RatingPanel';
 import UploadImagePanel from './UploadImagePanel';
+import {useState} from 'react';
 
 /*
     * Has bugs...
  */
 
 const FeedbackDialog = (props)=>{
+    const [rate, setRate] = useState(3);
     const [fullWidth, setFullWidth] = React.useState(true);
     const [maxWidth, setMaxWidth] = React.useState('sm');
 
     const onClose = ()=>{
         console.log('close dialog');
+        console.log(rate)
         props.close(false);
     }
 
@@ -26,7 +29,7 @@ const FeedbackDialog = (props)=>{
                     <DialogContentText>
                         Please rate the course and upload an image showing how you feel about the content covered.
                     </DialogContentText>
-                    <RatingPanel/>
+                    <RatingPanel setRate = {setRate}/>
                     <UploadImagePanel/>
                 </DialogContent>
                 <DialogActions>

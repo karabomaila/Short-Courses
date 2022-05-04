@@ -132,6 +132,7 @@ function Login({setSignUP,setLogin,wid,users}) {
                   
                   <Typography variant="Contained" 
                   style={{marginTop:'20px',color:'#d9c93b'}}> Don't have an account? 
+                  
                       <Button onClick={()=>{setSignUP(false)}} style={{color:'#d9c93b'}} >
                          Sign up
                       </Button> </Typography>

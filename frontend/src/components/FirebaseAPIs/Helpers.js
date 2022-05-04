@@ -1,14 +1,33 @@
 import {db} from "../firebase-config";
 import {doc, setDoc, collection, updateDoc, arrayUnion,} from "firebase/firestore"; 
 
-export default class TagUpload{
-    constructor(dbTags, userTags, courseID){
+export default class Helpers{
+    constructor(){}
+    
+    // Method to be called when adding a tags...
+    PushTag(dbTags, userTags, courseID){
         for(let i = 0; i < userTags.length; i++){
             const currTag = userTags[i].toLowerCase();
             this.AddTag(dbTags, currTag, courseID);
         }
     }
+    
 
+    // Method to be called to add comments... 
+    PushComment = async (userID, courseName, courseID, commentText) =>{
+        let payload = courseName + "+" + courseID  + "+" + commentText;
+        let document = "Comments";
+        const REF = doc(db, document, userID);
+        await updateDoc(REF, {comms: arrayUnion(payload)});
+    }
+
+    /*
+    
+    ========================================================================================================
+                            DO NOT TOUCH OR CALL ANYTHING BELOW THIS LINE
+    ========================================================================================================
+
+    */
     AddTag(dbTags, currTag, courseID){
         let isFound = false;
 

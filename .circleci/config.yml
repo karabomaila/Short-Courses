@@ -13,15 +13,15 @@ jobs:
       - image: "circleci/node:10"
     steps:
       - checkout
-      - run: cd backend | npm i
-      - run: cd frontend | npm i
+      - run: cd backend && npm i
+      - run: cd frontend && npm i
   test:
     docker:
       - image: "circleci/node:10"
     steps:
       - checkout
-      - run: cd backend | npm i
-      - run: cd frontend | npm i
+      - run: cd backend && npm i
+      - run: cd frontend && npm i && npm run test
 
 
 workflows:

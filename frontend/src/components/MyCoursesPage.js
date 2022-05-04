@@ -28,14 +28,12 @@ function MyCourses(){
 
     const [show, setShow] = useState(false);
     const {state} = useLocation();
-    console.log(state.user);
+    console.log(state);
     const navigate = useNavigate();
 
     const handleClose = () => setShow(false);
     const handleShow = () => {
-        navigate('/CreateCourse');
-
-        //setShow(true);
+        navigate('/CreateCourse',{ state: { user: state.user } });
     }
 
     return(
@@ -61,25 +59,3 @@ function MyCourses(){
     );
 }
 export default MyCourses;
-
-{/* <container fluid>
-            
-            <Row className="my-0">
-                <Col  lg="2" className="my-0 py-0 px-0" border="primary">
-                 <EnrolledNav/>
-                </Col>
-                <Col  lg md="auto" className='my-0 py-0 px-0'>
-                <Row fluid className="justify-content-center  my-0" style={{ background: '#003B5C',color:"white",weight:'100vh',margin:'0px' }}>
-                <h3 className="d-flex justify-content-center"  style={{ background: '#003B5C',color:"white",weight:'100vh',margin:'0px' }}>
-                    My Courses
-                </h3>
-               </Row>
-               <Row  fluid className="justify-content-center  my-0">
-                   <Col>
-                   <MyCourseList/>
-                   </Col>
-               </Row>
-              
-                </Col>
-            </Row>
-        </container> */}

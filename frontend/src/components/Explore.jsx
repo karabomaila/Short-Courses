@@ -3,11 +3,11 @@ import Home from './home';
 import {useParams,useLocation} from 'react-router-dom';
 
 function Explore() {
-  const { state } = useLocation();
-  console.log(state.user.name + ' ex')
+  //const { state } = useLocation();
+  
   return (
     <div>
-        <Home user={state.user}/>
+        <Home/>
     </div>
   )
 }

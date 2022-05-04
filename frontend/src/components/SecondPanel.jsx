@@ -46,7 +46,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import TitleIcon from "@mui/icons-material/Title";
-
+import {useLocation,useNavigate } from 'react-router-dom';
 const reducer = (state, action) => {
   switch (action.type) {
     case "populateBoard":
@@ -289,6 +289,7 @@ const temp_slides = [
   },
 ];
 
+
 const mins=[2,5,10,15,20,30,40,50,60]
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -346,6 +347,7 @@ const boardSty = {
 };
 
 function SecondPanel(props) {
+  
   const picsRef = useRef();
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
@@ -354,17 +356,19 @@ function SecondPanel(props) {
   const [slides, setSlides] = React.useState([]);
   const [chapters, setChapters] = React.useState([]);
   const [openStudio, setOpenStudio] = React.useState(false);
+  const [outcomes, setOutcomes] = useState([]);
   const [board, despatch] = useReducer(reducer, []);
   const [current, setCurrent] = useState([]);
   const [addSlideBool, setAddSlideBool] = useState(false);
   const [currChap, setCurrChap] = useState("");
   const [ppictureURL, SetPictureURL] = useState("no pictures to see here");
-  const [currSlideComps, setCurrSlideComps] = useState([]);
   let tmpTitle = "title";
+  const [currSlideMins,setCurrSlideMins] = useState();
   const [currSlide, setCurrSlide] = useState(null);
   const [currentChapter, setCurrentChapter] = useState(0);
   const [Display, setDisplay] = useState("");
   const [slideName,setSlideName] = useState(null);
+  
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "image",
@@ -373,6 +377,8 @@ function SecondPanel(props) {
       isOver: !!monitor.isOver(),
     }),
   }));
+
+  console.log(isOver)
 
   const addImageToBoard = (id) => {
     const pictureList = PictureList.filter((picture) => id === picture.id);
@@ -499,6 +505,7 @@ function SecondPanel(props) {
       id: slides.length,
       name: slideName===null? tt[0].content:document.getElementById('slideName').value,
       chapter: currentChapter,
+      duration:currSlideMins,
       body: tt,
     };
     //alert(tempSlide)
@@ -542,29 +549,47 @@ function SecondPanel(props) {
 
   const setContent = () => {};
 
-  // useEffect(() => {
-  //   var tmp =
-  //     chapters.length === 0
-  //       ? []
-  //       : [0, chapters[0].slides.length !== 0 ? 0 : null];
-  //   setCurrent(tmp);
-  //   despatch({ type: "populateBoard", payload: populateBoardd() });
-  // }, [despatch]);
+  useEffect(() => {
+    console.log(props.user)
+    var tmp =
+      chapters.length === 0
+        ? []
+        : [0, chapters[0].slides.length !== 0 ? 0 : null];
+    setCurrent(tmp);
+    despatch({ type: "populateBoard", payload: populateBoardd() });
+  }, [despatch]);
 
   const newSlidee = (indexx) => {
     setCurrentChapter(indexx);
     setCurrSlide(null);
     despatch({ type: "populateBoard", payload: [] });
+    setOpenStudio(true)
     //despatch({type:'populateBoard',payload:[{id:1,type:'title',content:''}]});
     //document.getElementById(100).value='';
   };
 
   const handleChangeSelect = (event)=>{
-    alert(event.target.value);
+    //alert(event.target.value);
+    setCurrSlideMins(event.target.value);
+    event.target.value= null;
+
   }
 
   const openSaveDialog = (event)=>{
     setOpen4(true);
+  }
+
+  const openOutcomes =(chapIndex)=>{
+
+    setOutcomes(chapters[chapIndex].outcomes)
+    console.log(chapters[chapIndex].outcomes)
+
+    chapters[chapIndex].outcomes.map((outcome,index)=>{
+      document.getElementById("outcome"+index.toString()).value=outcome;
+    })
+
+    handleClickOpen2();
+
   }
 
   const handleClickOpen = () => {
@@ -581,10 +606,16 @@ function SecondPanel(props) {
 
     setCurrChap(tmp);
     if (tmp !== "") {
+      let temp_outcomes=[]
+      outcomes.map((outcome,index) =>{
+        let curr = document.getElementById("outcome"+index.toString()).value;
+        if(curr !== ""){temp_outcomes.push(curr)}
+      })
       var temp = {
         id: chapters.length + 1,
         name: tmp,
         slides: [],
+        outcomes:temp_outcomes
       };
       setChapters([...chapters, temp]);
       var tmp = [chapters.length, null];
@@ -663,7 +694,20 @@ function SecondPanel(props) {
 
   const handleShow = () => {
     //Simnandi
-    alert("Simnandi");
+    //alert("Simnandi");
+    // console.log(slides);
+    // console.log(chapters);
+
+    var finalChapters = []
+
+    chapters.map((chapter, index) => {
+      var temp = slides.filter((slide) =>slide.chapter===index)
+      finalChapters.push({...chapter,slides:temp})
+    })
+
+    console.log(finalChapters)
+
+
 
     //setShow(true);
   };
@@ -727,14 +771,8 @@ function SecondPanel(props) {
     //   )
   };
 
-  const [outcomes, setOutcomes] = useState([]);
 
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+  
 
   const list = () => (
     <List>
@@ -772,7 +810,9 @@ function SecondPanel(props) {
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
+      
       <div style={leftDiv}>
+
         <div style={{ display: "flex", flexDirection: "row" }}>
           <IconButton onClick={(event) => props.handletab(event, 0)}>
             <ArrowBack style={{ color: "white" }} />
@@ -829,11 +869,13 @@ function SecondPanel(props) {
                           >
                             New Slide
                           </Button>
+
                           <Button
                             variant="text"
                             onClick={(event) => {
                               event.preventDefault();
-                              newSlidee(indexx);
+                              openOutcomes(indexx)
+
                             }}
                             style={{
                               color: "#ffffff",
@@ -903,6 +945,7 @@ function SecondPanel(props) {
           </Typography>
           {board.length !== 0 ? list("right") : null}
         </div>
+
       </div>
 
       <div style={rightDiv}>
@@ -1067,9 +1110,10 @@ function SecondPanel(props) {
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
+        
       >
-        <div style={{ backgroundColor: "#ffffff" }}>
-          <DialogTitle>{"Add Image"}</DialogTitle>
+        <div style={{ backgroundColor: "#003b5c" }}>
+          <DialogTitle style={{ color: "#ffffff",textAlign: "center" }}><h4>Add Image</h4></DialogTitle>
           <DialogContent>
             <Paper>
               <div
@@ -1109,6 +1153,7 @@ function SecondPanel(props) {
           </DialogContent>
           <DialogActions>
             <Button
+              style={{backgroundColor: "#ffffff", color:"#003b5c",borderRadius: "15px"}}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById("sendBtn").click();
@@ -1119,6 +1164,7 @@ function SecondPanel(props) {
             </Button>
 
             <Button
+            style={{backgroundColor: "#ffffff", color:"#003b5c",borderRadius: "15px"}}
               onClick={(e) => {
                 e.preventDefault();
                 setOpen(false);
@@ -1154,13 +1200,12 @@ function SecondPanel(props) {
                 style={{
                   backgroundColor: "#ffffff",
                   margin: "auto",
-                  padding: "8px",
                   borderRadius: "10px",
                   width: "80%",
                 }}
               >
                 <TextField
-                  variant="outlined"
+                  variant="filled"
                   id="ChapterName"
                   label="ChapterName"
                   style={{ width: "100%" }}
@@ -1168,10 +1213,9 @@ function SecondPanel(props) {
               </div>
 
               <Typography variant="h5">
-                {" "}
                 Please specify the learning outcomes of this chapter
               </Typography>
-              <Button
+              <Button style={{backgroundColor: "#d9c93b",color:"#ffffff",borderRadius: "15px",width: "20%",align:"right",marginLeft:"70%"}}
                 onClick={(event) => {
                   event.preventDefault();
                   setOutcomes([...outcomes, outcomes.length]);
@@ -1195,8 +1239,9 @@ function SecondPanel(props) {
                       <li style={{ color: "#000000" }}>
                         <div>
                           <textarea
+                            
                             rows="1"
-                            id={index}
+                            id={"outcome"+index.toString()}
                             foc
                             style={{
                               minWidth: "95%",
@@ -1204,7 +1249,7 @@ function SecondPanel(props) {
                               border: "0px solid",
                             }}
                             autoFocus
-                          />
+                          ></textarea>
                         </div>
                       </li>
                     );
@@ -1297,12 +1342,12 @@ function SecondPanel(props) {
         onClose={handleClose4}
         aria-describedby="alert-dialog-slide-description"
       >
-        <Paper style={{display: 'flex', flexDirection: 'column',margin:"0px",padding: "10px"}}>
-          <Typography variant="h3">Save Slide</Typography>
-          <TextField variant="filled" style={{marginBottom: "5px"}} label="Slide name" id="slideName"/>
-          <FormControl>
+        <Paper style={{display: 'flex', flexDirection: 'column',margin:"0px",padding: "10px",textAlign: 'center',backgroundColor: "#003b5c"}}>
+          <Typography variant="h5" style={{margin:"5px",color:'#ffffff'}}>Save Slide</Typography>
+          <TextField variant="filled" style={{marginBottom: "10px",color:'#ffffff',background:'white',borderRadius: "5px"}} label="Slide name" id="slideName"/>
+          <FormControl variant="standard" style={{marginBottom: "10px",color:'#ffffff',background:'white',borderRadius: "5px"}}>
             <InputLabel id='demo'>Estimated slide duration</InputLabel>
-            <Select labelId='demoSelect' value='Mins' onChange={handleChangeSelect}>
+            <Select labelId='demoSelect' value={currSlideMins} onChange={handleChangeSelect}>
                 {
                   mins.map((item,index) => {
                     return (
@@ -1313,10 +1358,11 @@ function SecondPanel(props) {
               
             </Select>
           </FormControl>
-          <Button onClick={handleClose4}>Save</Button>
+          <Button onClick={handleClose4} style={{color: "#ffffff",backgroundColor: "#d9c93b"}}>Save</Button>
 
         </Paper>
       </Dialog>
+
     </div>
   );
 }
