@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Lindokuhle777/Short-Courses#readme",
   "dependencies": {
-    "azure": "^2.3.1-preview"
+    "azure": "^2.3.1-preview",
+    "styled-components": "^5.3.5"
   }
 }
