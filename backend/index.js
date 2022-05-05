@@ -81,19 +81,19 @@ app.post("/enroll", (req, res) => {
   const user_id = req.body.user_id;
 
   //check if user is registered
-  client.query(
+  pool.query(
     `SELECT user_id, password,first_name FROM users WHERE user_id = $1 `,
     [user_id], // use details to make a query to the database
     (err, results) => {
       if (err) {
-        console.log("client");
+        console.log("client_not_working");
         // res.status(400); // client made a bad request
         // throw err;
       }
 
       // not registered, register by force
       else if (results.rows.length == 0) {
-        client.query(
+        pool.query(
           `INSERT INTO users (user_id , password, first_name)
                 VALUES ($1, $2, $3)`,
           [user_id, "password", "first_name"], // use details to make a query to the database
@@ -108,33 +108,42 @@ app.post("/enroll", (req, res) => {
         // we in by force
       }
 
-      client.query(
+      pool.query(
         "Select crs_code from enroll where user_id = $1",
         [user_id],
         (e, r) => {
           if (e) {
             console.log("bad_req");
           }
-          if (r.rowCount !== 0) {
-            if (!r.rows.includes(course_id)) {
+          if (r.rows.length != 0) {
+            var enrolled = false;
+            for (let j = 0; j < r.rows.length; j++) {
+              var i = r.rows[j].crs_code;
+              if (i === course_id) {
+                enrolled = true;
+                console.log("here");
+                // break;
+              }
+            }
+            if (enrolled === false) {
               var data = `INSERT INTO enroll (crs_code , user_id) VALUES ($1, $2)`;
-              client.query(
+              pool.query(
                 data,
                 [course_id, user_id], // use details to make a query to the database
                 (er, resu) => {
                   if (er) {
                     res.send("False"); // client couldn't enroll
-                    // console.log("nah" + er);
+                    console.log("nah" + er);
                   } else {
                     res.send("True"); // we are in
                     console.log("yeap");
                   }
                 }
               );
+            } else {
+              console.log("already in");
+              res.send("already enrolled");
             }
-          } else {
-            console.log("already in");
-            res.send("already enrolled");
           }
         }
       );
