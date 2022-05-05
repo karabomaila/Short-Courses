@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // all users
 app.get("/users", (req, res) => {
@@ -81,51 +81,60 @@ app.post("/enroll", (req, res) => {
   const user_id = req.body.user_id;
 
   //check if user is registered
-  pool.query(
+  client.query(
     `SELECT user_id, password,first_name FROM users WHERE user_id = $1 `,
     [user_id], // use details to make a query to the database
     (err, results) => {
       if (err) {
-<<<<<<< HEAD
-        res.status(400); // client made a bad request
-        throw err;
+        console.log("client");
+        // res.status(400); // client made a bad request
+        // throw err;
       }
 
       // not registered, register by force
       else if (results.rows.length == 0) {
-        pool.query(
+        client.query(
           `INSERT INTO users (user_id , password, first_name)
                 VALUES ($1, $2, $3)`,
           [user_id, "password", "first_name"], // use details to make a query to the database
-          (err, results) => {
-            if (err) {
-              res.send("some error"); // client made a bad request
+          (error, result) => {
+            if (error) {
+              console.log("some error"); // client made a bad request
+            } else {
+              console.log("In"); // USER CREATED
             }
-            res.send("In"); // USER CREATED
           }
         );
-
         // we in by force
-=======
-        res.send(false); // client couldn't enroll
-        console.log(err);
-      } else {
-        res.send(true); // we are in
-        console.log("yes");
->>>>>>> e0df54ad4a958c169bd6c8ff16a72c70abd0d1ad
       }
-      var data = `INSERT INTO enroll (crs_code , user_id)
-      VALUES ($1, $2)`;
-      pool.query(
-        data,
-        [course_id, user_id], // use details to make a query to the database
-        (err, results) => {
-          if (err) {
-            res.send("False"); // client couldn't enroll
-            // console.log("nah" + err);
+
+      client.query(
+        "Select crs_code from enroll where user_id = $1",
+        [user_id],
+        (e, r) => {
+          if (e) {
+            console.log("bad_req");
+          }
+          if (r.rowCount !== 0) {
+            if (!r.rows.includes(course_id)) {
+              var data = `INSERT INTO enroll (crs_code , user_id) VALUES ($1, $2)`;
+              client.query(
+                data,
+                [course_id, user_id], // use details to make a query to the database
+                (er, resu) => {
+                  if (er) {
+                    res.send("False"); // client couldn't enroll
+                    // console.log("nah" + er);
+                  } else {
+                    res.send("True"); // we are in
+                    console.log("yeap");
+                  }
+                }
+              );
+            }
           } else {
-            res.send("True"); // we are in
-            // console.log("yes");
+            console.log("already in");
+            res.send("already enrolled");
           }
         }
       );
@@ -147,16 +156,7 @@ app.post("/mycourses", (req, res) => {
   );
 });
 
-<<<<<<< HEAD
 app.post("/enrolled", (req, res) => {
-=======
-
-
-
-
-app.post('/enrolled',(req,res)=>{
-
->>>>>>> e0df54ad4a958c169bd6c8ff16a72c70abd0d1ad
   const user_id = req.body.user_id;
 
   pool.query(
