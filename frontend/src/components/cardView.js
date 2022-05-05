@@ -12,6 +12,7 @@ import { useIsAuthenticated } from "@azure/msal-react";
 import { useMsal } from "@azure/msal-react";
 import { callMsGraph } from "../graph";
 import { loginRequest } from "../authConfig";
+import React from "react";
 
 function CardView(props) {
   const [imageURL1, setImageURL1] = useState("");

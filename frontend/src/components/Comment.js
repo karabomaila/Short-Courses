@@ -1,5 +1,6 @@
 import CommentForm from "./CommentForm";
 import { HiUserCircle } from "react-icons/hi";
+import React from "react";
 
 const Comment = ({
   comment,

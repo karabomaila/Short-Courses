@@ -34,8 +34,9 @@ import {
   uploadBytes,
   getStorage,
 } from "@firebase/storage";
-import { storage } from "./firebase-config";
+import { storage, db } from "./firebase-config";
 import { async } from "@firebase/util";
+import { collection, addDoc, getDocs, where, query, updateDoc, doc } from "@firebase/firestore";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
@@ -708,7 +709,9 @@ function SecondPanel(props) {
     
   };
 
-  const handleShow = () => {
+  const slidesCollectionRef = collection(db, 'slides');
+
+  const handleShow = async() => {
     //Simnandi
     //alert("Simnandi");
     // console.log(slides);
@@ -723,11 +726,100 @@ function SecondPanel(props) {
 
     console.log(finalChapters)
     //setShow(true);
+    await addDoc(slidesCollectionRef, {
+      ...props.course,
+      content:[...finalChapters]
+    });
 
 
     // ==================== Handling the tags... ============================
     setOpenTagsDialog(true);
   };
+
+  useEffect(async()=>{
+
+    // var crs_id = courseID
+    const q = query(slidesCollectionRef, where("courseID", "==", courseID))
+          
+
+    const data = await getDocs(q);
+    //console.log(data.docs.map((doc) => JSON.stringify(doc.data())));
+    // setSlides(data.docs.map((doc,index)=>{
+    //   return {...doc.data(), id: doc.id}
+    // }))
+    // console.log(JSON.parse(data))
+    let final ={}
+    let tmp = JSON.parse(JSON.stringify(data.docs[0]))._document.data.value.mapValue.fields
+    let chap = tmp.content.arrayValue.values[0].mapValue.fields
+    // let slide = chap.slides.arrayValue.values[0].mapValue.fields
+    // console.log(slide.body.arrayValue.values[1].mapValue.fields)
+    let tmpChaps = []
+    tmp.content.arrayValue.values.map((item,index)=>{
+      let tmp2 = item.mapValue.fields
+      let outcomes = []
+      tmp2.outcomes.arrayValue.values.map(item2=>{
+        let outcome = item2.stringValue
+        outcomes.push(outcome)
+      })
+      let tmpSlides =[]
+      tmp2.slides.arrayValue.values.map(tmpSlide=>{
+        // let outcome = item2.stringValue
+        let slide = tmpSlide.mapValue.fields
+        let tmpBody = []
+        slide.body.arrayValue.values.map(bodyItem=>{
+          let temp2 = bodyItem.mapValue.fields
+          let ft = {
+            id:temp2.id.integerValue,
+            type:temp2.type.stringValue,
+          }
+          if(parseInt(ft.id)<=3){
+            ft = {...ft,content:temp2.content.stringValue}
+          }else{
+            ft = {...ft,url:temp2.url.stringValue}
+
+          }
+          tmpBody.push(ft)
+
+        })
+        let tmpSlidee = {
+          id:slide.id.integerValue,
+          chapter:slide.chapter.integerValue,
+          name:slide.name.stringValue,
+          duration:slide.duration.integerValue,
+          body:tmpBody
+        }
+        tmpSlides.push(tmpSlidee)
+
+      })
+      let tmpChap = {
+        id:tmp2.id.integerValue,
+        name:tmp2.name.stringValue,
+        slides:tmpSlides,
+        outcomes:outcomes
+      }
+      tmpChaps.push(tmpChap)
+      
+    })
+    // console.log(tmp)
+    let tmpImages = []
+    tmp.images.arrayValue.values.map(curr=>{
+      tmpImages.push({
+        id:curr.mapValue.fields.id.integerValue,
+        url:curr.mapValue.fields.url.stringValue
+      })
+
+    })
+
+    let finalCourse = {
+      name:tmp.name.stringValue,
+      courseID:tmp.courseID.stringValue,
+      description:tmp.description.stringValue,
+      content:tmpChaps,
+      images:tmpImages
+    }
+    console.log(finalCourse)
+
+  })
 
   //const pictureRef = useRef();
 
