@@ -69,7 +69,7 @@ function MyCourseView(props){
             
           
           <Col className="my-2 mx-2"> <Button variant="dark" onClick={()=>{
-            navigate(`/Slides/${props.name}`,{state:{
+            navigate(`/CreateCourse/${props.name}`,{state:{
               student:false,
               user:props.user,
               crs_id:props.crs_id

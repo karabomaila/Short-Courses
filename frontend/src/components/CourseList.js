@@ -17,7 +17,7 @@ const t = [
 
 function CourseList(props) {
   // const data=useContext(DataContext);
-  const [EnrolledData, setEnrolledData] = useState(t);
+  const [EnrolledData, setEnrolledData] = useState([]);
 
   useEffect(() => {
     

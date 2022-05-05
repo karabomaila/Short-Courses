@@ -2,6 +2,8 @@ import { TextField } from '@mui/material';
 import CommentHelper from './utils/CommentHelper';
 import CourseHelper from './utils/CourseHelper';
 import {useState} from 'react';
+import { db } from '../firebase-config.jsx';
+import {doc, setDoc} from 'firebase/firestore';
 
 const ExposeView = (props) =>{
     
@@ -13,9 +15,15 @@ const ExposeView = (props) =>{
     let comms = new FilterComments(props.comments, props.userID);
     let myComments = comms.getMyComments();
 
+    const updateBio = async () =>{
+        let ref = doc(db, 'About', props.userID);
+        setDoc(ref, {bio: props.bio}, {merge: true});
+    }
+
     const onChange = event => {
         props.setBio(event.target.value);
         // update the database...
+        updateBio();
     }
    
     return(

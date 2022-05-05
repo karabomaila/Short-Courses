@@ -46,6 +46,8 @@ function a11yProps(index) {
 export default function CreateCourse() {
   const [value, setValue] = React.useState(0);
   const {state} = useLocation();
+  const [course,setCourse] = React.useState({});
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -67,10 +69,10 @@ export default function CreateCourse() {
         </div>
       </Box> */}
       <TabPanel value={value} index={0}>
-        <Firstpanel handletab={handletab} />
+        <Firstpanel handletab={handletab} setCourse={setCourse} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <SecondPanel handletab={handletab} courseName="course Name" user={state.user} />
+        <SecondPanel handletab={handletab} course={course} user={state.user} />
       </TabPanel>
     </Box>
   );
