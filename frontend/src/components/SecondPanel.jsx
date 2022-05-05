@@ -339,6 +339,7 @@ const rightDiv = {
   maxWidth: "70%",
   height: "100vh",
 };
+
 const boardSty = {
   minWidth: "100%",
   maxWidth: "100%",
@@ -354,8 +355,8 @@ function SecondPanel(props) {
   const [openTagsDialog, setOpenTagsDialog] = useState(false);
 
   // @Lindokuhle777 give me the following fileds... 
-  let courseName = 'Java Complete';
-  let courseID = '2022jc';
+  let courseName = props.course.name;
+  let courseID = props.course.courseID;
 
   // =========================================================
 
@@ -563,6 +564,9 @@ function SecondPanel(props) {
 
   useEffect(() => {
     console.log(props.user)
+    console.log(props.course)
+
+
     var tmp =
       chapters.length === 0
         ? []
@@ -731,14 +735,14 @@ function SecondPanel(props) {
     const storage = getStorage();
     const storageRef1 = ref(
       storage,
-      `/Courses/${props.courseName}/${chapterName}/${title}/${file1.name}`
+      `/Courses/${props.course.name}/${chapterName}/${title}/${file1.name}`
     );
     await uploadBytes(storageRef1, file1);
     picsRef.current.value = null;
     let g = await getDownloadURL(
       ref(
         storage,
-        `/Courses/${props.courseName}/${chapterName}/${title}/${file1.name}`
+        `/Courses/${props.course.name}/${chapterName}/${title}/${file1.name}`
       )
     );
     //console.log(g)

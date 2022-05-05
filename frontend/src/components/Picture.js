@@ -36,7 +36,7 @@ function Picture({ id, url,type,handleClickOpen,handleClickOpen3 }) {
 
      
 
-      <div ref={drag}>
+      <div>
       {temp.map((current) => {
         if(type==="title"){
           return <div ref={drag} style={divStyle}><h5 style={h5style}><DragIndicatorIcon/>Title</h5></div>
