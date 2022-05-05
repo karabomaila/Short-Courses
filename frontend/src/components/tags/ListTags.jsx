@@ -1,4 +1,5 @@
 import ViewTag from './ViewTag';
+import React from "react";
 
 const ListTags = (props)=>{
     return(

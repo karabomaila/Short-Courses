@@ -6,6 +6,7 @@ import { useContext,useState,useEffect } from 'react';
 import CardViewList from './CardViewList';
 import CreateCourse from './CreateCourse';
 import {useLocation,useNavigate } from 'react-router-dom';
+import React from "react";
 
 function CourseNav(props){
     const [show, setShow] = useState(false);

@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 import { db } from '../firebase-config.jsx';
 import {collection, getDocs, doc, getDoc} from 'firebase/firestore';
 import {useLocation,useNavigate } from 'react-router-dom';
+import React from "react";
 
 const MyPortfolio = () =>{
     const {state} = useLocation();

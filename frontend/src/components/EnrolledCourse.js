@@ -3,6 +3,7 @@ import { Container, Row,Col } from "react-bootstrap";
 import { useNavigate,useLocation } from "react-router-dom";
 import { getDownloadURL, ref, uploadBytesResumable, getStorage } from "@firebase/storage"
 import { useState, useEffect } from 'react';
+import React from "react";
 
 
 

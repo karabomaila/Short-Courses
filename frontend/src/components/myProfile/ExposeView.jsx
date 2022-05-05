@@ -4,6 +4,7 @@ import CourseHelper from './utils/CourseHelper';
 import {useState} from 'react';
 import { db } from '../firebase-config.jsx';
 import {doc, setDoc} from 'firebase/firestore';
+import React from "react";
 
 const ExposeView = (props) =>{
     

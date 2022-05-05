@@ -5,6 +5,7 @@ import { Modal } from 'react-bootstrap';
 import { useContext,useState} from 'react';
 import CreateCourse from './CreateCourse';
 import { useNavigate } from 'react-router-dom';
+import React from "react";
 
 
 function EnrolledNav(){

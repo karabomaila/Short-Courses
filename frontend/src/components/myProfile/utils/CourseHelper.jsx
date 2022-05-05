@@ -1,4 +1,5 @@
 import NameTag from "./NameTag"
+import React, { Component } from "react";
 
 const CourseHelper = (props) => {
     let tag = NameTag(props.course.courseName);

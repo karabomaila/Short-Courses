@@ -1,4 +1,5 @@
 import ExposeView from "./ExposeView.jsx";
+import React from "react";
 
 const Display = (props) => {
     return(
