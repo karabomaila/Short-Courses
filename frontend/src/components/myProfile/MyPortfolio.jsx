@@ -2,14 +2,22 @@ import Menu from './Menu.jsx';
 import Display from './Display.jsx';
 import {useState, useEffect} from 'react';
 import { db } from '../firebase-config.jsx';
-import {collection, getDocs} from 'firebase/firestore';
+import {collection, getDocs, doc, getDoc} from 'firebase/firestore';
 import {useLocation,useNavigate } from 'react-router-dom';
 
 const MyPortfolio = () =>{
     const {state} = useLocation();
     const name = state.acc[0].name;
     const userID = state.acc[0].username;
-    const [bio, setBio] = useState('Given Mathe');
+    const [bio, setBio] = useState('');
+
+    const getBio = async () =>{
+        const bioRef = doc(db, "About", userID);
+        const bioData = await getDoc(bioRef);
+        let fields = bioData._document.data.value.mapValue.fields;
+        setBio(fields.bio.stringValue);
+    }
+    
 
     const courseCollection = collection(db, "FinCourses");
     const commCollection = collection(db, "Comments");
@@ -23,6 +31,7 @@ const MyPortfolio = () =>{
             setCourses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
         }
         getCourses();
+        getBio();
     }, [])
 
     useEffect(() => {

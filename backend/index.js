@@ -92,18 +92,43 @@ app.post("/enroll", (req, res) => {
         // res.send(true); // we are in
         console.log("yes");
       }
-      var data = `INSERT INTO enroll (crs_code , user_id)
-      VALUES ($1, $2)`;
+
       pool.query(
-        data,
-        [course_id, user_id], // use details to make a query to the database
-        (err, results) => {
-          if (err) {
-            res.send("False"); // client couldn't enroll
-            // console.log("nah" + err);
-          } else {
-            res.send("True"); // we are in
-            // console.log("yes");
+        "Select crs_code from enroll where user_id = $1",
+        [user_id],
+        (e, r) => {
+          if (e) {
+            console.log("bad_req");
+          }
+          if (r.rows.length != 0) {
+            var enrolled = false;
+            for (let j = 0; j < r.rows.length; j++) {
+              var i = r.rows[j].crs_code;
+              if (i === course_id) {
+                enrolled = true;
+                console.log("here");
+                // break;
+              }
+            }
+            if (enrolled === false) {
+              var data = `INSERT INTO enroll (crs_code , user_id) VALUES ($1, $2)`;
+              pool.query(
+                data,
+                [course_id, user_id], // use details to make a query to the database
+                (er, resu) => {
+                  if (er) {
+                    res.send("False"); // client couldn't enroll
+                    console.log("nah" + er);
+                  } else {
+                    res.send("True"); // we are in
+                    console.log("yeap");
+                  }
+                }
+              );
+            } else {
+              console.log("already in");
+              res.send("already enrolled");
+            }
           }
         }
       );
