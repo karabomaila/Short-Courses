@@ -203,6 +203,37 @@ app.post("/enrolled", (req, res) => {
 });
 
 app.post("/CreateCourse", (req, res) => {
+  const user_id = req.body.user_id;
+
+  pool.query(
+    `SELECT user_id, password,first_name FROM users WHERE user_id = $1 `,
+    [user_id], // use details to make a query to the database
+    (err, results) => {
+      if (err) {
+        console.log("client_not_working");
+        // res.status(400); // client made a bad request
+        // throw err;
+      }
+
+      // not registered, register by force
+      else if (results.rows.length == 0) {
+        pool.query(
+          `INSERT INTO users (user_id , password, first_name)
+                VALUES ($1, $2, $3)`,
+          [user_id, "password", "first_name"], // use details to make a query to the database
+          (error, result) => {
+            if (error) {
+              console.log("some error"); // client made a bad request
+            } else {
+              console.log("In"); // USER CREATED
+            }
+          }
+        );
+        // we in by force
+      }
+    }
+  );
+
   var data =
     "INSERT INTO courses (crs_creator,crs_description,crs_id,crs_name,Picture_1,Picture_2) VALUES($1,$2,$3,$4,$5,$6);";
 
