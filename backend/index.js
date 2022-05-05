@@ -86,11 +86,26 @@ app.post("/enroll", (req, res) => {
     [user_id], // use details to make a query to the database
     (err, results) => {
       if (err) {
-        //res.send(false); // client couldn't enroll
-        console.log(err);
-      } else {
-        // res.send(true); // we are in
-        console.log("yes");
+        console.log("client_not_working");
+        // res.status(400); // client made a bad request
+        // throw err;
+      }
+
+      // not registered, register by force
+      else if (results.rows.length == 0) {
+        pool.query(
+          `INSERT INTO users (user_id , password, first_name)
+                VALUES ($1, $2, $3)`,
+          [user_id, "password", "first_name"], // use details to make a query to the database
+          (error, result) => {
+            if (error) {
+              console.log("some error"); // client made a bad request
+            } else {
+              console.log("In"); // USER CREATED
+            }
+          }
+        );
+        // we in by force
       }
 
       pool.query(
