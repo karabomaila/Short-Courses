@@ -2,9 +2,16 @@ import {React,useState} from 'react';
 import { NavItem } from 'react-bootstrap';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'
+import axios from 'axios';
 
 
-function Submenu({item}) {
+function Submenu({item,setCurrSlide}) {
+
+    const setSlide = (item)=>{
+        // setCurrSlide(item.body)
+        // console.log(item.body)
+    }
+    
 
     const SidebarLink=styled.div`
     display:flex;
@@ -63,9 +70,12 @@ function Submenu({item}) {
         </SidebarLink>
         {sub && item.slides.map((item,index)=>{
             return(
-                <Dropdown>
+                <Dropdown key={index}>
                     {item.icon}
-                    <SideBarLabel>{item.title}</SideBarLabel>
+                    <SideBarLabel key={index} onClick={(e)=>{
+                        e.preventDefault()
+                        setSlide(item)
+                    }}>{item.title}</SideBarLabel>
                 </Dropdown>
             )
         })}

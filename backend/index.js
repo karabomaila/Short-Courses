@@ -235,17 +235,15 @@ app.post("/CreateCourse", (req, res) => {
   );
 
   var data =
-    "INSERT INTO courses (crs_creator,crs_description,crs_id,crs_name,Picture_1,Picture_2) VALUES($1,$2,$3,$4,$5,$6);";
+    "INSERT INTO courses (crs_creator,crs_description,crs_id,crs_name) VALUES($1,$2,$3,$4);";
 
   pool.query(
     data,
     [
       req.body.user_id,
-      req.body.crs_description,
+      "description",
       req.body.crs_id,
       req.body.crs_name,
-      req.body.picture_1,
-      req.body.picture_2,
     ],
     (err, results) => {
       if (err) {

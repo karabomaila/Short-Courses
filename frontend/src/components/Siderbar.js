@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import styled from "styled-components";
 import { link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
@@ -10,6 +10,21 @@ import Submenu from "./Submenu";
 import { MdOutlineChatBubbleOutline } from "react-icons/md";
 import { FcSms } from "react-icons/fc";
 import { AiFillSafetyCertificate } from "react-icons/ai";
+import { storage, db } from "./firebase-config";
+import { async } from "@firebase/util";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  where,
+  query,
+  updateDoc,
+  doc,
+} from "@firebase/firestore";
+import { FiBookOpen, FiBook } from "react-icons/fi";
+import { MdLibraryBooks } from "react-icons/md";
+import * as RiIcons from "react-icons/ri";
+import axios from "axios";
 
 const temp_slides = [
   {
@@ -32,6 +47,7 @@ const temp_slides = [
 const textareaStyle = {
   resize: "both",
   width: "100%",
+  minWidth: "70%",
 };
 
 const Nav = styled.div`
@@ -95,6 +111,115 @@ function Siderbar() {
   const [sidebar, setSidebar] = useState(false);
   const [open, setOpen] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
+  const [data,setData] = useState([])
+  const slidesCollectionRef = collection(db, "slides");
+  const [currSlide,setCurrSlide] = useState([])
+
+  
+
+  useEffect(()=>{
+
+    // var crs_id = courseID
+    const lindo = async ()=>{
+      const q = query(slidesCollectionRef, where("courseID", "==", "23757367CGV6"))
+    const data = await getDocs(q);
+    let tmp = data.docs[0]._document.data.value.mapValue.fields
+    let tmpChaps = []
+    tmp.content.arrayValue.values.map((item,index)=>{
+      let tmp2 = item.mapValue.fields
+      let outcomes = []
+      tmp2.outcomes.arrayValue.values.map(item2=>{
+        let outcome = item2.stringValue
+        outcomes.push(outcome)
+      })
+      let tmpSlides =[]
+      tmp2.slides.arrayValue.values.map(tmpSlide=>{
+        // let outcome = item2.stringValue
+        let slide = tmpSlide.mapValue.fields
+        let tmpBody = []
+        slide.body.arrayValue.values.map(bodyItem=>{
+          let temp2 = bodyItem.mapValue.fields
+          let ft = {
+            id:temp2.id.integerValue,
+            type:temp2.type.stringValue,
+          }
+          if(parseInt(ft.id)<=3){
+            ft = {...ft,content:temp2.content.stringValue}
+          }else{
+            ft = {...ft,url:temp2.url.stringValue}
+
+          }
+          tmpBody.push(ft)
+
+        })
+        let tmpSlidee = {
+          id:slide.id.integerValue,
+          chapter:slide.chapter.integerValue,
+          name:slide.name.stringValue,
+          duration:slide.duration.integerValue,
+          body:tmpBody
+        }
+        tmpSlides.push(tmpSlidee)
+
+      })
+      let tmpChap = {
+        id:tmp2.id.integerValue,
+        name:tmp2.name.stringValue,
+        slides:tmpSlides,
+        outcomes:outcomes
+      }
+      tmpChaps.push(tmpChap)
+      
+    })
+    // console.log(tmp)
+    let tmpImages = []
+    tmp.images.arrayValue.values.map(curr=>{
+      tmpImages.push({
+        id:curr.mapValue.fields.id.integerValue,
+        url:curr.mapValue.fields.url.stringValue
+      })
+
+    })
+
+    let finalCourse = {
+      name:tmp.name.stringValue,
+      courseID:tmp.courseID.stringValue,
+      description:tmp.description.stringValue,
+      content:tmpChaps,
+      images:tmpImages
+    }
+    // console.log(finalCourse)
+    let tmpData = [];
+    setCurrSlide(finalCourse.content[0].slides[0].body)
+
+    finalCourse.content.map((chapter, index) => {
+      // console.log(chapter)
+      let slides = [];
+      chapter.slides.map((slide, index) => {
+        // console.log(slide)
+        slides.push({ title: slide.name, icon: <MdLibraryBooks />,body:slide.body });
+      });
+      
+      let temp = {
+        chapter: chapter.name,
+        icon: <FiBookOpen />,
+        iconClosed: <RiIcons.RiArrowDownSFill />,
+        iconOpened: <RiIcons.RiArrowUpSFill />,
+        slides: slides,
+        open: false,
+      };
+      tmpData.push(temp);
+    });
+    // console.log(tmpData);
+    console.log("hi")
+    setData(tmpData);}
+
+    lindo();
+    
+  },[setCurrSlide])
+
+  
+
   return (
     <>
       <Nav>
@@ -107,8 +232,9 @@ function Siderbar() {
           <NavIcon>
             <AiIcons.AiOutlineClose onClick={() => showSidebar()} />
           </NavIcon>
-          {Data.map((item, index) => {
-            return <Submenu item={item} key={index} />;
+          {data.map((item, index) => {
+            // setCurrSlide(item.slides)
+            return <Submenu item={item} key={index} setCurrSlide={setCurrSlide} />;
           })}
         </SidebarWrap>
       </SidebarNav>
@@ -122,7 +248,8 @@ function Siderbar() {
             sidebar ? "w-100" : "w-100"
           } duration-300 p-2  bg-WitsBlue text-base  justify-content: center`}
         >
-          {temp_slides.map((slide, index) =>{
+          {currSlide.map((slide, index) =>{
+          
             if (slide.type === "title") {
               console.log(slide)
               return (
@@ -137,7 +264,6 @@ function Siderbar() {
                   
                   style={{
                     ...textareaStyle,
-                    fontSize: "25px",
                     textAlign: "center",
                   }}
                   
@@ -159,7 +285,6 @@ function Siderbar() {
                   
                   style={{
                     ...textareaStyle,
-                    fontSize: "25px",
                     textAlign: "center",
                   }}
                   
@@ -181,11 +306,49 @@ function Siderbar() {
 
                   style={{
                     ...textareaStyle,
-                    fontSize: "25px",
                     textAlign: "center",
                   }}
                   value={slide.content}
                 ></p>
+              );
+            }
+            else if (slide.type === "image") {
+              return (
+                <div style={{ resize: "both", overflow: "auto" }}>
+                  <img
+                    style={{
+                      border: "2px solid black",
+                      maxWidth: "95%",
+                      maxHeight: "95%",
+                    }}
+                    key={index}
+                    id={
+                      index.toString() +
+                      "1" +
+                      slide.type
+                    }
+                    src={slide.url}
+                  ></img>
+                </div>
+              );
+            } else if (slide.type === "video") {
+              return (
+                <div>
+                  <iframe
+                    key={index}
+                    id={
+                      index.toString() +
+                      "1" +
+                      slide.type
+                    }
+                    style={{ resize: "both", overflow: "auto" }}
+                    src={slide.url}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               );
             }
 

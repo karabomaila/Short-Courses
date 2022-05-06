@@ -14,7 +14,7 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
-  Select
+  Select,
 } from "@mui/material";
 import React, { useState, useRef, useEffect, useReducer } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -26,6 +26,7 @@ import { useDrop } from "react-dnd";
 import "../App.css";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
+import axios from "axios";
 
 import {
   getDownloadURL,
@@ -36,7 +37,15 @@ import {
 } from "@firebase/storage";
 import { storage, db } from "./firebase-config";
 import { async } from "@firebase/util";
-import { collection, addDoc, getDocs, where, query, updateDoc, doc } from "@firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  where,
+  query,
+  updateDoc,
+  doc,
+} from "@firebase/firestore";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
@@ -47,7 +56,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import TitleIcon from "@mui/icons-material/Title";
-import {useLocation,useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from "react-router-dom";
 import TagsDialog from "./tags/TagsDialog";
 
 const reducer = (state, action) => {
@@ -292,8 +301,7 @@ const temp_slides = [
   },
 ];
 
-
-const mins=[2,5,10,15,20,30,40,50,60]
+const mins = [2, 5, 10, 15, 20, 30, 40, 50, 60];
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -355,12 +363,11 @@ function SecondPanel(props) {
   // ===================== For Tags =========================
   const [openTagsDialog, setOpenTagsDialog] = useState(false);
 
-  // @Lindokuhle777 give me the following fileds... 
+  // @Lindokuhle777 give me the following fileds...
   let courseName = props.course.name;
   let courseID = props.course.courseID;
 
   // =========================================================
-
 
   const picsRef = useRef();
   const [open, setOpen] = React.useState(false);
@@ -377,12 +384,11 @@ function SecondPanel(props) {
   const [currChap, setCurrChap] = useState("");
   const [ppictureURL, SetPictureURL] = useState("no pictures to see here");
   let tmpTitle = "title";
-  const [currSlideMins,setCurrSlideMins] = useState();
+  const [currSlideMins, setCurrSlideMins] = useState();
   const [currSlide, setCurrSlide] = useState(null);
   const [currentChapter, setCurrentChapter] = useState(0);
   const [Display, setDisplay] = useState("");
-  const [slideName,setSlideName] = useState(null);
-  
+  const [slideName, setSlideName] = useState(null);
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "image",
@@ -392,7 +398,7 @@ function SecondPanel(props) {
     }),
   }));
 
-  console.log(isOver)
+  // console.log(isOver)
 
   const addImageToBoard = (id) => {
     const pictureList = PictureList.filter((picture) => id === picture.id);
@@ -493,12 +499,10 @@ function SecondPanel(props) {
     return temp;
   };
 
-  
   const saveSlide = () => {
-    
-    var temp2 = document.getElementById('slideName').value;
-    setSlideName(temp2===''?null:temp2)
-    console.log(temp2)
+    var temp2 = document.getElementById("slideName").value;
+    setSlideName(temp2 === "" ? null : temp2);
+    console.log(temp2);
     var tt = [];
 
     board.map((item, index) => {
@@ -513,17 +517,19 @@ function SecondPanel(props) {
       }
     });
     //onsole.log(board)
-    
 
     var tempSlide = {
       id: slides.length,
-      name: slideName===null? tt[0].content:document.getElementById('slideName').value,
+      name:
+        slideName === null
+          ? tt[0].content
+          : document.getElementById("slideName").value,
       chapter: currentChapter,
-      duration:currSlideMins,
+      duration: currSlideMins,
       body: tt,
     };
     //alert(tempSlide)
-    document.getElementById('slideName').value='';
+    document.getElementById("slideName").value = "";
     if (currSlide === null) {
       setSlides((s) => {
         let t = [];
@@ -564,9 +570,8 @@ function SecondPanel(props) {
   const setContent = () => {};
 
   useEffect(() => {
-    console.log(props.user)
-    console.log(props.course)
-
+    console.log(props.user);
+    console.log(props.course);
 
     var tmp =
       chapters.length === 0
@@ -580,34 +585,31 @@ function SecondPanel(props) {
     setCurrentChapter(indexx);
     setCurrSlide(null);
     despatch({ type: "populateBoard", payload: [] });
-    setOpenStudio(true)
+    setOpenStudio(true);
     //despatch({type:'populateBoard',payload:[{id:1,type:'title',content:''}]});
     //document.getElementById(100).value='';
   };
 
-  const handleChangeSelect = (event)=>{
+  const handleChangeSelect = (event) => {
     //alert(event.target.value);
     setCurrSlideMins(event.target.value);
-    event.target.value= null;
+    event.target.value = null;
+  };
 
-  }
-
-  const openSaveDialog = (event)=>{
+  const openSaveDialog = (event) => {
     setOpen4(true);
-  }
+  };
 
-  const openOutcomes =(chapIndex)=>{
+  const openOutcomes = (chapIndex) => {
+    setOutcomes(chapters[chapIndex].outcomes);
+    console.log(chapters[chapIndex].outcomes);
 
-    setOutcomes(chapters[chapIndex].outcomes)
-    console.log(chapters[chapIndex].outcomes)
-
-    chapters[chapIndex].outcomes.map((outcome,index)=>{
-      document.getElementById("outcome"+index.toString()).value=outcome;
-    })
+    chapters[chapIndex].outcomes.map((outcome, index) => {
+      document.getElementById("outcome" + index.toString()).value = outcome;
+    });
 
     handleClickOpen2();
-
-  }
+  };
 
   const handleClickOpen = () => {
     tmpTitle = board[0].content;
@@ -623,16 +625,18 @@ function SecondPanel(props) {
 
     setCurrChap(tmp);
     if (tmp !== "") {
-      let temp_outcomes=[]
-      outcomes.map((outcome,index) =>{
-        let curr = document.getElementById("outcome"+index.toString()).value;
-        if(curr !== ""){temp_outcomes.push(curr)}
-      })
+      let temp_outcomes = [];
+      outcomes.map((outcome, index) => {
+        let curr = document.getElementById("outcome" + index.toString()).value;
+        if (curr !== "") {
+          temp_outcomes.push(curr);
+        }
+      });
       var temp = {
         id: chapters.length + 1,
         name: tmp,
         slides: [],
-        outcomes:temp_outcomes
+        outcomes: temp_outcomes,
       };
       setChapters([...chapters, temp]);
       var tmp = [chapters.length, null];
@@ -706,120 +710,129 @@ function SecondPanel(props) {
   const handleClose4 = () => {
     saveSlide();
     setOpen4(false);
-    
   };
 
-  const slidesCollectionRef = collection(db, 'slides');
+  const slidesCollectionRef = collection(db, "slides");
 
-  const handleShow = async() => {
+  const handleShow = async () => {
     //Simnandi
     //alert("Simnandi");
     // console.log(slides);
     // console.log(chapters);
 
-    var finalChapters = []
+    var finalChapters = [];
 
     chapters.map((chapter, index) => {
-      var temp = slides.filter((slide) =>slide.chapter===index)
-      finalChapters.push({...chapter,slides:temp})
-    })
-
-    console.log(finalChapters)
-    //setShow(true);
-    await addDoc(slidesCollectionRef, {
-      ...props.course,
-      content:[...finalChapters]
+      var temp = slides.filter((slide) => slide.chapter === index);
+      finalChapters.push({ ...chapter, slides: temp });
     });
 
+    console.log(finalChapters);
+    //setShow(true);
+    
+    console.log(props.user[0].username.split("@")[0])
+
+    axios
+      .post("http://localhost:5000/CreateCourse", {
+        user_id: props.user[0].username.split("@")[0],
+        crs_id: props.course.courseID,
+        crs_name: props.course.courseName,
+      })
+      .then(async (res) => {
+        alert(res);
+        console.log(res);
+        if (res.data==="1 record inserted"){
+          await addDoc(slidesCollectionRef, {
+            ...props.course,
+            content: [...finalChapters],
+          });
+        }
+      })
+      .catch((err) => {});
 
     // ==================== Handling the tags... ============================
     setOpenTagsDialog(true);
   };
 
-  useEffect(async()=>{
-
+  useEffect(async () => {
     // var crs_id = courseID
-    const q = query(slidesCollectionRef, where("courseID", "==", courseID))
-          
+    const q = query(
+      slidesCollectionRef,
+      where("courseID", "==", "23757367CGV6")
+    );
 
     const data = await getDocs(q);
     //console.log(data.docs.map((doc) => JSON.stringify(doc.data())));
     // setSlides(data.docs.map((doc,index)=>{
     //   return {...doc.data(), id: doc.id}
     // }))
-    // console.log(JSON.parse(data))
-    let final ={}
-    let tmp = JSON.parse(JSON.stringify(data.docs[0]))._document.data.value.mapValue.fields
-    let chap = tmp.content.arrayValue.values[0].mapValue.fields
+    console.log(data.docs);
+    let final = {};
+    let tmp = data.docs[0]._document.data.value.mapValue.fields;
+    let chap = tmp.content.arrayValue.values[0].mapValue.fields;
     // let slide = chap.slides.arrayValue.values[0].mapValue.fields
     // console.log(slide.body.arrayValue.values[1].mapValue.fields)
-    let tmpChaps = []
-    tmp.content.arrayValue.values.map((item,index)=>{
-      let tmp2 = item.mapValue.fields
-      let outcomes = []
-      tmp2.outcomes.arrayValue.values.map(item2=>{
-        let outcome = item2.stringValue
-        outcomes.push(outcome)
-      })
-      let tmpSlides =[]
-      tmp2.slides.arrayValue.values.map(tmpSlide=>{
+    let tmpChaps = [];
+    tmp.content.arrayValue.values.map((item, index) => {
+      let tmp2 = item.mapValue.fields;
+      let outcomes = [];
+      tmp2.outcomes.arrayValue.values.map((item2) => {
+        let outcome = item2.stringValue;
+        outcomes.push(outcome);
+      });
+      let tmpSlides = [];
+      tmp2.slides.arrayValue.values.map((tmpSlide) => {
         // let outcome = item2.stringValue
-        let slide = tmpSlide.mapValue.fields
-        let tmpBody = []
-        slide.body.arrayValue.values.map(bodyItem=>{
-          let temp2 = bodyItem.mapValue.fields
+        let slide = tmpSlide.mapValue.fields;
+        let tmpBody = [];
+        slide.body.arrayValue.values.map((bodyItem) => {
+          let temp2 = bodyItem.mapValue.fields;
           let ft = {
-            id:temp2.id.integerValue,
-            type:temp2.type.stringValue,
+            id: temp2.id.integerValue,
+            type: temp2.type.stringValue,
+          };
+          if (parseInt(ft.id) <= 3) {
+            ft = { ...ft, content: temp2.content.stringValue };
+          } else {
+            ft = { ...ft, url: temp2.url.stringValue };
           }
-          if(parseInt(ft.id)<=3){
-            ft = {...ft,content:temp2.content.stringValue}
-          }else{
-            ft = {...ft,url:temp2.url.stringValue}
-
-          }
-          tmpBody.push(ft)
-
-        })
+          tmpBody.push(ft);
+        });
         let tmpSlidee = {
-          id:slide.id.integerValue,
-          chapter:slide.chapter.integerValue,
-          name:slide.name.stringValue,
-          duration:slide.duration.integerValue,
-          body:tmpBody
-        }
-        tmpSlides.push(tmpSlidee)
-
-      })
+          id: slide.id.integerValue,
+          chapter: slide.chapter.integerValue,
+          name: slide.name.stringValue,
+          duration: slide.duration.integerValue,
+          body: tmpBody,
+        };
+        tmpSlides.push(tmpSlidee);
+      });
       let tmpChap = {
-        id:tmp2.id.integerValue,
-        name:tmp2.name.stringValue,
-        slides:tmpSlides,
-        outcomes:outcomes
-      }
-      tmpChaps.push(tmpChap)
-      
-    })
+        id: tmp2.id.integerValue,
+        name: tmp2.name.stringValue,
+        slides: tmpSlides,
+        outcomes: outcomes,
+      };
+      tmpChaps.push(tmpChap);
+    });
     // console.log(tmp)
-    let tmpImages = []
-    tmp.images.arrayValue.values.map(curr=>{
+    let tmpImages = [];
+    tmp.images.arrayValue.values.map((curr) => {
       tmpImages.push({
-        id:curr.mapValue.fields.id.integerValue,
-        url:curr.mapValue.fields.url.stringValue
-      })
-
-    })
+        id: curr.mapValue.fields.id.integerValue,
+        url: curr.mapValue.fields.url.stringValue,
+      });
+    });
 
     let finalCourse = {
-      name:tmp.name.stringValue,
-      courseID:tmp.courseID.stringValue,
-      description:tmp.description.stringValue,
-      content:tmpChaps,
-      images:tmpImages
-    }
-    console.log(finalCourse)
-
-  })
+      name: tmp.name.stringValue,
+      courseID: tmp.courseID.stringValue,
+      description: tmp.description.stringValue,
+      content: tmpChaps,
+      images: tmpImages,
+    };
+    console.log(finalCourse);
+  });
 
   //const pictureRef = useRef();
 
@@ -880,9 +893,6 @@ function SecondPanel(props) {
     //   )
   };
 
-
-  
-
   const list = () => (
     <List>
       {board.map((item, index) => (
@@ -919,9 +929,7 @@ function SecondPanel(props) {
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
-      
       <div style={leftDiv}>
-
         <div style={{ display: "flex", flexDirection: "row" }}>
           <IconButton onClick={(event) => props.handletab(event, 0)}>
             <ArrowBack style={{ color: "white" }} />
@@ -983,8 +991,7 @@ function SecondPanel(props) {
                             variant="text"
                             onClick={(event) => {
                               event.preventDefault();
-                              openOutcomes(indexx)
-
+                              openOutcomes(indexx);
                             }}
                             style={{
                               color: "#ffffff",
@@ -1054,7 +1061,6 @@ function SecondPanel(props) {
           </Typography>
           {board.length !== 0 ? list("right") : null}
         </div>
-
       </div>
 
       <div style={rightDiv}>
@@ -1087,7 +1093,7 @@ function SecondPanel(props) {
                 id="idd"
                 onClick={(event) => {
                   event.preventDefault();
-                  currSlide===null?openSaveDialog():saveSlide();
+                  currSlide === null ? openSaveDialog() : saveSlide();
                 }}
               >
                 Save
@@ -1219,10 +1225,11 @@ function SecondPanel(props) {
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
-        
       >
         <div style={{ backgroundColor: "#003b5c" }}>
-          <DialogTitle style={{ color: "#ffffff",textAlign: "center" }}><h4>Add Image</h4></DialogTitle>
+          <DialogTitle style={{ color: "#ffffff", textAlign: "center" }}>
+            <h4>Add Image</h4>
+          </DialogTitle>
           <DialogContent>
             <Paper>
               <div
@@ -1262,7 +1269,11 @@ function SecondPanel(props) {
           </DialogContent>
           <DialogActions>
             <Button
-              style={{backgroundColor: "#ffffff", color:"#003b5c",borderRadius: "15px"}}
+              style={{
+                backgroundColor: "#ffffff",
+                color: "#003b5c",
+                borderRadius: "15px",
+              }}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById("sendBtn").click();
@@ -1273,7 +1284,11 @@ function SecondPanel(props) {
             </Button>
 
             <Button
-            style={{backgroundColor: "#ffffff", color:"#003b5c",borderRadius: "15px"}}
+              style={{
+                backgroundColor: "#ffffff",
+                color: "#003b5c",
+                borderRadius: "15px",
+              }}
               onClick={(e) => {
                 e.preventDefault();
                 setOpen(false);
@@ -1324,7 +1339,15 @@ function SecondPanel(props) {
               <Typography variant="h5">
                 Please specify the learning outcomes of this chapter
               </Typography>
-              <Button style={{backgroundColor: "#d9c93b",color:"#ffffff",borderRadius: "15px",width: "20%",align:"right",marginLeft:"70%"}}
+              <Button
+                style={{
+                  backgroundColor: "#d9c93b",
+                  color: "#ffffff",
+                  borderRadius: "15px",
+                  width: "20%",
+                  align: "right",
+                  marginLeft: "70%",
+                }}
                 onClick={(event) => {
                   event.preventDefault();
                   setOutcomes([...outcomes, outcomes.length]);
@@ -1348,9 +1371,8 @@ function SecondPanel(props) {
                       <li style={{ color: "#000000" }}>
                         <div>
                           <textarea
-                            
                             rows="1"
-                            id={"outcome"+index.toString()}
+                            id={"outcome" + index.toString()}
                             foc
                             style={{
                               minWidth: "95%",
@@ -1451,28 +1473,69 @@ function SecondPanel(props) {
         onClose={handleClose4}
         aria-describedby="alert-dialog-slide-description"
       >
-        <Paper style={{display: 'flex', flexDirection: 'column',margin:"0px",padding: "10px",textAlign: 'center',backgroundColor: "#003b5c"}}>
-          <Typography variant="h5" style={{margin:"5px",color:'#ffffff'}}>Save Slide</Typography>
-          <TextField variant="filled" style={{marginBottom: "10px",color:'#ffffff',background:'white',borderRadius: "5px"}} label="Slide name" id="slideName"/>
-          <FormControl variant="standard" style={{marginBottom: "10px",color:'#ffffff',background:'white',borderRadius: "5px"}}>
-            <InputLabel id='demo'>Estimated slide duration</InputLabel>
-            <Select labelId='demoSelect' value={currSlideMins} onChange={handleChangeSelect}>
-                {
-                  mins.map((item,index) => {
-                    return (
-                      <MenuItem value={item} key={index}>{item}</MenuItem>
-                    )
-                  })
-                }
-              
+        <Paper
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: "0px",
+            padding: "10px",
+            textAlign: "center",
+            backgroundColor: "#003b5c",
+          }}
+        >
+          <Typography variant="h5" style={{ margin: "5px", color: "#ffffff" }}>
+            Save Slide
+          </Typography>
+          <TextField
+            variant="filled"
+            style={{
+              marginBottom: "10px",
+              color: "#ffffff",
+              background: "white",
+              borderRadius: "5px",
+            }}
+            label="Slide name"
+            id="slideName"
+          />
+          <FormControl
+            variant="standard"
+            style={{
+              marginBottom: "10px",
+              color: "#ffffff",
+              background: "white",
+              borderRadius: "5px",
+            }}
+          >
+            <InputLabel id="demo">Estimated slide duration</InputLabel>
+            <Select
+              labelId="demoSelect"
+              value={currSlideMins}
+              onChange={handleChangeSelect}
+            >
+              {mins.map((item, index) => {
+                return (
+                  <MenuItem value={item} key={index}>
+                    {item}
+                  </MenuItem>
+                );
+              })}
             </Select>
           </FormControl>
-          <Button onClick={handleClose4} style={{color: "#ffffff",backgroundColor: "#d9c93b"}}>Save</Button>
-
+          <Button
+            onClick={handleClose4}
+            style={{ color: "#ffffff", backgroundColor: "#d9c93b" }}
+          >
+            Save
+          </Button>
         </Paper>
       </Dialog>
 
-      <TagsDialog open = {openTagsDialog} close = {setOpenTagsDialog} courseName = {courseName} courseID = {courseID}/>
+      <TagsDialog
+        open={openTagsDialog}
+        close={setOpenTagsDialog}
+        courseName={courseName}
+        courseID={courseID}
+      />
     </div>
   );
 }

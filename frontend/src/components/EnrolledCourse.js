@@ -43,6 +43,7 @@ function Course(props){
          <Card.Text>
         {props.description}
       </Card.Text>
+      
          </Row>
        <Row>
        <Col></Col>
