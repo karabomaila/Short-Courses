@@ -1,5 +1,5 @@
 
-module.exports = class FilterComments{
+export default class FilterComments{
 
     constructor(list, id){
         for(let i = 0; i < list.length; i++){
