@@ -13,6 +13,16 @@ import { useMsal } from "@azure/msal-react";
 import { callMsGraph } from "../graph";
 import { loginRequest } from "../authConfig";
 import React from "react";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  where,
+  query,
+  updateDoc,
+  doc,
+} from "@firebase/firestore";
+import { storage, db } from "./firebase-config";
 
 function CardView(props) {
   const [imageURL1, setImageURL1] = useState("");
@@ -20,8 +30,27 @@ function CardView(props) {
   const { instance, accounts } = useMsal();
   const [graphData, setGraphData] = useState(null);
   const isAuthenticated = useIsAuthenticated();
+  const slidesCollectionRef = collection(db, "slides");
 
-  const someFunc = ()=>{
+  const lindo = async () => {
+    const q = query(slidesCollectionRef, where("courseID", "==", props.crs_id));
+    const data = await getDocs(q);
+
+    let tmp = data.docs[0]._document.data.value.mapValue.fields;
+    // setDescription(tmp.description.stringValue);
+
+    let tmpImages = [];
+    tmp.images.arrayValue.values.map((curr) => {
+      tmpImages.push({
+        id: curr.mapValue.fields.id.integerValue,
+        url: curr.mapValue.fields.url.stringValue,
+      });
+    });
+    setImageURL1(tmpImages[0].url);
+    setImageURL2(tmpImages[0].url);
+  };
+
+  const someFunc = () => {
     var x;
     instance
       .acquireTokenSilent({
@@ -29,58 +58,61 @@ function CardView(props) {
         account: accounts[0],
       })
       .then((response) => {
-        callMsGraph(response.accessToken).then((response) =>
-          {setGraphData(response);
-            x=response
-
-          }
-        );
+        callMsGraph(response.accessToken).then((response) => {
+          setGraphData(response);
+          x = response;
+        });
       });
 
-      return graphData.id
-      
-    }
+    return graphData.id;
+  };
 
   useEffect(async () => {
-    const storage = getStorage();
-    await getDownloadURL(ref(storage, `Pictures/${props.image1}`)).then(
-      (url) => {
-        // console.log(url)
-        setImageURL1(url);
-      }
-    );
+    if (props.image1 === null) {
+      lindo();
+    } else {
+      const storage = getStorage();
+      await getDownloadURL(ref(storage, `Pictures/${props.image1}`)).then(
+        (url) => {
+          // console.log(url)
+          setImageURL1(url);
+        }
+      );
+    }
   }, [setImageURL1]);
 
   useEffect(async () => {
-    const storage = getStorage();
-    await getDownloadURL(ref(storage, `Pictures/${props.image2}`)).then(
-      (url) => {
-        // console.log(url)
-        setImageURL2(url);
-      }
-    );
-  }, [setImageURL2]);
+    if (props.image2 === null) {
+      lindo();
+    } else {
+      const storage = getStorage();
+      await getDownloadURL(ref(storage, `Pictures/${props.image2}`)).then(
+        (url) => {
+          // console.log(url)
+          setImageURL2(url);
+        }
+      );
+    }
+  }, [setImageURL1]);
 
+  
   const handleClick = (event) => {
     event.preventDefault();
     // someFunc()
     // console.log(graphData)
 
-    if (isAuthenticated){
-      console.log(accounts[0].username.split("@")[0])
+    if (isAuthenticated) {
+      console.log(accounts[0].username.split("@")[0]);
       axios
-      .post("enroll", { user_id: accounts[0].username.split("@")[0], crs_id: props.crs_id  })
-      .then((response) => {
-
-      })
-      .catch((error) => {
-        
-      });
+        .post("enroll", {
+          user_id: accounts[0].username.split("@")[0],
+          crs_id: props.crs_id,
+        })
+        .then((response) => {})
+        .catch((error) => {});
+    } else {
+      alert("Please login with you wits account");
     }
-
-
-
-    
   };
 
   return (
@@ -92,15 +124,17 @@ function CardView(props) {
               className="d-block w-100"
               src={imageURL1}
               alt="First view"
-              height="300"
+              
+              style={{maxHeight:"300px",minHeight:"300px",maxWeight:"200px",minWeight:"200px"}}
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
+              style={{maxHeight:"300px",minHeight:"300px",maxWeight:"200px",minWeight:"200px"}}
               className="d-block w-100"
               src={imageURL2}
               alt="Second view"
-              height="300"
+              
             />
           </Carousel.Item>
         </Carousel>
