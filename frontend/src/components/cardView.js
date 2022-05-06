@@ -13,18 +13,17 @@ import { useMsal } from "@azure/msal-react";
 import { callMsGraph } from "../graph";
 import { loginRequest } from "../authConfig";
 import React from "react";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  where,
-  query,
-  updateDoc,
-  doc,
-} from "@firebase/firestore";
-import { storage, db } from "./firebase-config";
+import AboutCourseDialog from "./AboutCourse/AboutCourseDialog";
 
 function CardView(props) {
+
+  const [openAboutDialog, setOpenAboutDialog] = useState(false);
+
+  const onClickAboutDialog = () =>{
+    setOpenAboutDialog(true);
+  }
+
+
   const [imageURL1, setImageURL1] = useState("");
   const [imageURL2, setImageURL2] = useState("");
   const { instance, accounts } = useMsal();
@@ -145,11 +144,14 @@ function CardView(props) {
           </Button>
           <Button 
           variant = 'outlined' 
-          style = {{marginLeft: 15, color: 'black'}}>
+          style = {{marginLeft: 15, color: 'black'}}
+          onClick = {onClickAboutDialog}>
           Course Info
           </Button>
         </Card.Body>
       </Card>
+
+      <AboutCourseDialog open = {openAboutDialog} close = {setOpenAboutDialog} />
     </div>
   );
 }
