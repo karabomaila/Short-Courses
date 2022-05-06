@@ -13,7 +13,17 @@ import { useMsal } from "@azure/msal-react";
 import { callMsGraph } from "../graph";
 import { loginRequest } from "../authConfig";
 import React from "react";
+import { db } from "./firebase-config";
 import AboutCourseDialog from "./AboutCourse/AboutCourseDialog";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  where,
+  query,
+  updateDoc,
+  doc,
+} from "@firebase/firestore";
 
 function CardView(props) {
 

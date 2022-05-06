@@ -243,7 +243,7 @@ function Siderbar() {
       </SidebarNav>
       <Content
         className={`${
-          sidebar ? "w-50 mx-60 " : "w-20 mx-60 "
+          sidebar ? "w-50 mx-60 " : "w-50 mx-60 "
         } duration-300  bg-WitsBlue text-base `}
       >
         <div
@@ -312,7 +312,7 @@ function Siderbar() {
                     textAlign: "center",
                   }}
                   value={slide.content}
-                ></p>
+                >{slide.content}</p>
               );
             }
             else if (slide.type === "image") {

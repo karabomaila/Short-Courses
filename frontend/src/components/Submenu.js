@@ -8,8 +8,8 @@ import axios from 'axios';
 function Submenu({item,setCurrSlide}) {
 
     const setSlide = (item)=>{
-        // setCurrSlide(item.body)
-        // console.log(item.body)
+        setCurrSlide(item.body)
+        console.log(item.body)
     }
     
 
@@ -72,7 +72,7 @@ function Submenu({item,setCurrSlide}) {
             return(
                 <Dropdown key={index}>
                     {item.icon}
-                    <SideBarLabel key={index} onClick={(e)=>{
+                    <SideBarLabel style={{cursor:'pointer'}} key={index} onClick={(e)=>{
                         e.preventDefault()
                         setSlide(item)
                     }}>{item.title}</SideBarLabel>
