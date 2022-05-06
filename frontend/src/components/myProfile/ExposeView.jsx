@@ -5,14 +5,17 @@ import {useState} from 'react';
 import { db } from '../firebase-config.jsx';
 import {doc, setDoc} from 'firebase/firestore';
 import React from "react";
+import FilterCourses from './utils/FilterCourses';
+import FilterComments from './utils/FilterComments';
 
 const ExposeView = (props) =>{
     
-    let FilterCourses = require('./utils/FilterCourses');
-    let filter = new FilterCourses(props.courses, props.userID);
+    //let FilterCourses = require('./utils/FilterCourses');
+    let filter = new FilterCourses();
+    filter.Filter(props.courses, props.userID);
     let myCourses = filter.getMyCourses();
     
-    let FilterComments = require('./utils/FilterComments');
+    //let FilterComments = require('./utils/FilterComments');
     let comms = new FilterComments(props.comments, props.userID);
     let myComments = comms.getMyComments();
 

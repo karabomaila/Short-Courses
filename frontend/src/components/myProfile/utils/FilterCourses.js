@@ -1,7 +1,11 @@
 
-module.exports = class FilterCourses {
+export default class FilterCourses {
 
-    constructor(list, id){
+    constructor(){
+       
+    }
+
+    Filter(list, id){
         this.size = 0;
         for(let i = 0; i < list.length; i++){
             if(list[i].id === id){

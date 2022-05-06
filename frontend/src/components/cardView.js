@@ -143,6 +143,11 @@ function CardView(props) {
           <Button variant="primary" onClick={handleClick}>
             Enroll
           </Button>
+          <Button 
+          variant = 'outlined' 
+          style = {{marginLeft: 15, color: 'black'}}>
+          Course Info
+          </Button>
         </Card.Body>
       </Card>
     </div>
