@@ -9,8 +9,6 @@ const AboutCourseDialog = (props)=>{
     const [maxWidth, setMaxWidth] = React.useState('sm');
    
     const onClose = ()=>{
-        //console.log(info);
-
         props.close(false);
     }
 
@@ -21,16 +19,22 @@ const AboutCourseDialog = (props)=>{
                     {props.courseName}
                 </DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
-                       {props.data.description}
-                    </DialogContentText>
-                    <DialogContentText>
-                        Duration: {props.data.duration}
-                    </DialogContentText>
-                    <DialogContentText>
-                        Learning Outcomes
-                    </DialogContentText>
-                       <ListOutcomes array = {props.data.outcomes}/>
+                <DialogContentText style = {{color: 'black', fontWeight: 'bold'}}>
+                    Description
+                </DialogContentText>
+                <DialogContentText>
+                    {props.data.description}
+                </DialogContentText>
+                <DialogContentText style = {{color: 'black', fontWeight: 'bold'}}>
+                    Duration
+                </DialogContentText>
+                <DialogContentText>
+                    {props.data.duration}
+                </DialogContentText>
+                <DialogContentText style = {{color: 'black', fontWeight: 'bold'}}>
+                    Learning Outcomes
+                </DialogContentText>
+                    <ListOutcomes array = {props.data.outcomes}/>
                 </DialogContent>
                 <DialogActions>
                     <Button variant = 'outlined' onClick = {onClose}>OK</Button>

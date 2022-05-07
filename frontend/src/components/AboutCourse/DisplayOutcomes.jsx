@@ -14,17 +14,16 @@ const DisplayOutcomes = (props)=>{
 
 const TagStyle = {
     display: 'flex',
-    background: 'green',
     width: 'fit-content',
+    borderStyle: 'solid',
     borderRadius: 10,
+    borderColor: '#003b5c',
     margin: 12
-    //height: 'fit-content'
 }
 
 const DivStyle = {
-    marginLeft: 5,
-    paddingTop: 5,
-    color: 'white'
+    margin: 2,
+    color: '#003b5c'
 }
 
 export default DisplayOutcomes;
