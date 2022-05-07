@@ -730,13 +730,13 @@ function SecondPanel(props) {
     console.log(finalChapters);
     //setShow(true);
     
-    console.log(props.user[0].username.split("@")[0])
+    console.log()
 
     axios
       .post("http://localhost:5000/CreateCourse", {
         user_id: props.user[0].username.split("@")[0],
         crs_id: props.course.courseID,
-        crs_name: props.course.courseName,
+        crs_name: props.course.name,
       })
       .then(async (res) => {
         alert(res);

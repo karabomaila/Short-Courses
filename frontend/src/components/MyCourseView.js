@@ -1,96 +1,139 @@
-import { Navbar, Container, Nav,Form, FormControl, Button } from 'react-bootstrap';
-import {BrowserRouter as  Router,Routes,Route,} from 'react-router-dom';
-import Profile from './profile';
-import { Card,Carousel,Modal } from 'react-bootstrap';
-import { Row,Col } from "react-bootstrap";
-import Course from './Course'
+import {
+  Navbar,
+  Container,
+  Nav,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Profile from "./profile";
+import { Card, Carousel, Modal } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import Course from "./Course";
 import { Grid } from "@mui/material";
-import { useNavigate,useLocation } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import { storage } from "./firebase-config"
-import { getDownloadURL, ref, uploadBytesResumable, getStorage } from "@firebase/storage"
+import { useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { storage } from "./firebase-config";
+import {
+  getDownloadURL,
+  ref,
+  uploadBytesResumable,
+  getStorage,
+} from "@firebase/storage";
 import React from "react";
-
-
+import { db } from "./firebase-config";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  where,
+  query,
+  updateDoc,
+  doc,
+} from "@firebase/firestore";
 
 const user = {
-  id:'1',
-  email:'235528@students.wits.ac.za',
-}
+  id: "1",
+  email: "235528@students.wits.ac.za",
+};
 
-function MyCourseView(props){
+function MyCourseView(props) {
+  const { state } = useLocation();
+  const slidesCollectionRef = collection(db, "slides");
+  const [description, setDescription] = useState("");
 
-    const { state } = useLocation();
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  var namee = props.name;
 
-    var namee = props.name;
+  const [imageURL, setImageURL] = useState("");
 
-    const [imageURL, setImageURL] = useState('');
+  const lindo = async () => {
+    const q = query(slidesCollectionRef, where("courseID", "==", props.crs_id));
+    const data = await getDocs(q);
 
-    useEffect(async() =>  {
+    let tmp = data.docs[0]._document.data.value.mapValue.fields;
+    setDescription(tmp.description.stringValue);
 
-      const storage = getStorage();
-      await getDownloadURL(ref(storage, `Pictures/${props.image1}`))
-      .then((url) => {
-        //console.log(url)
-        setImageURL(url);
-      })
+    let tmpImages = [];
+    tmp.images.arrayValue.values.map((curr) => {
+      tmpImages.push({
+        id: curr.mapValue.fields.id.integerValue,
+        url: curr.mapValue.fields.url.stringValue,
+      });
+    });
+    setImageURL(tmpImages[0].url);
+  };
 
-    },[setImageURL])
+  useEffect(async () => {
+    const storage = getStorage();
+    if (props.image1 === null) {
+      lindo();
+    } else {
+      await getDownloadURL(ref(storage, `Pictures/${props.image1}`)).then(
+        (url) => {
+          //console.log(url)
+          setImageURL(url);
+        }
+      );
+    }
+  }, [setImageURL]);
 
-
-  return(
-
-    
-
-  <Container>
+  return (
+    <Container style={{position: 'relative',padding: '10px'}}>
       <>
+        <Card className="d-flex my-2 mx-3 " style={{ background: "#b5aeb2" }}>
+          <Card.Body className="d-flex">
+            <div>
+              <img
+                variant="bottom"
+                src={imageURL}
+                width="150px"
+                height="150px"
+                style={{
+                  maxHeight: "200px",
+                  minHeight: "200px",
+                  maxWidth: "100px",
+                  minWidth: "100px",
+                }}
+              />
 
-               
+            </div>
 
+            <Container>
+              <Row>
+                <Card.Text>{props.name}</Card.Text>
+              </Row>
+              <Row>
+                <Card.Text>{description}</Card.Text>
+              </Row>
+              <div style={{display: "flex", flexDirection: "row",position:'absolute',bottom:"15px",right:"15px"}}>
+                <Button
+                  style={{marginRight:'5px'}}
+                  variant="dark"
+                  onClick={() => {
+                    navigate(`/CreateCourse/${props.name}`, {
+                      state: {
+                        student: false,
+                        user: props.user,
+                        crs_id: props.crs_id,
+                      },
+                    });
+                  }}
+                >
+                  VIEW
+                </Button>
 
+                <Button variant="dark" style={{marginRight:'5px'}}>EDIT</Button>
 
-<Card className="d-flex my-2 mx-3 " style={{ background: '#b5aeb2'  }}>
-  <Card.Body className="d-flex">
-      <img variant="bottom" src={imageURL} width="150px" height="150px"  />
-        <Container>
-            <Row>
-            <Card.Text>
-          {props.name}
-        </Card.Text>
-            </Row>
-            <Row>
-            <Card.Text>
-          {props.description}
-        </Card.Text>
-            </Row>
-          <Row>
-
-            
-          
-          <Col className="my-2 mx-2"> <Button variant="dark" onClick={()=>{
-            navigate(`/CreateCourse/${props.name}`,{state:{
-              student:false,
-              user:props.user,
-              crs_id:props.crs_id
-            }});
-  
-          }}>VIEW</Button></Col>
-          <Col className="my-2 mx-2"><Button variant="dark">EDIT</Button></Col>
-          <Col className="my-2 mx-2"><Button variant="dark">DELETE</Button></Col>
-          
-          </Row>  
-        </Container>
-  </Card.Body>
-
-</Card>
-
-</>
-  </Container>
-    
+                
+              </div>
+            </Container>
+          </Card.Body>
+        </Card>
+      </>
+    </Container>
   );
 }
 export default MyCourseView;
-
-

@@ -5,11 +5,9 @@ import { link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import Comments from "./Comments";
-import { Data } from "./Data";
+// import { Data } from "./Data";
 import Submenu from "./Submenu";
-import { MdOutlineChatBubbleOutline } from "react-icons/md";
 import { FcSms } from "react-icons/fc";
-import { AiFillSafetyCertificate } from "react-icons/ai";
 import { storage, db } from "./firebase-config";
 import { async } from "@firebase/util";
 import {
@@ -25,6 +23,7 @@ import { FiBookOpen, FiBook } from "react-icons/fi";
 import { MdLibraryBooks } from "react-icons/md";
 import * as RiIcons from "react-icons/ri";
 import axios from "axios";
+import {useParams,useLocation} from 'react-router-dom';
 
 const temp_slides = [
   {
@@ -113,7 +112,10 @@ function Siderbar() {
   const showSidebar = () => setSidebar(!sidebar);
   const [data,setData] = useState([])
   const slidesCollectionRef = collection(db, "slides");
-  const [currSlide,setCurrSlide] = useState([])
+  const [currSlide,setCurrSlide] = useState([]);
+  const {state} = useLocation();
+  console.log(state.user[0].username.split("@")[0])
+  console.log(state.crs_id)
 
   
 
@@ -121,8 +123,9 @@ function Siderbar() {
 
     // var crs_id = courseID
     const lindo = async ()=>{
-      const q = query(slidesCollectionRef, where("courseID", "==", "23757367CGV6"))
+      const q = query(slidesCollectionRef, where("courseID", "==", state.crs_id))
     const data = await getDocs(q);
+    // console.log(data)
     let tmp = data.docs[0]._document.data.value.mapValue.fields
     let tmpChaps = []
     tmp.content.arrayValue.values.map((item,index)=>{
@@ -240,7 +243,7 @@ function Siderbar() {
       </SidebarNav>
       <Content
         className={`${
-          sidebar ? "w-50 mx-60 " : "w-20 mx-60 "
+          sidebar ? "w-50 mx-60 " : "w-50 mx-60 "
         } duration-300  bg-WitsBlue text-base `}
       >
         <div
@@ -309,7 +312,7 @@ function Siderbar() {
                     textAlign: "center",
                   }}
                   value={slide.content}
-                ></p>
+                >{slide.content}</p>
               );
             }
             else if (slide.type === "image") {

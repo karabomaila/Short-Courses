@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 
-import { TextField, Button, Typography } from "@mui/material";
+import { TextField, Button, Typography, Paper } from "@mui/material";
 import React, { useState, useRef } from "react";
 import Slide from "@mui/material/Slide";
 import CreateID from "./GenCourseID";
@@ -35,10 +35,10 @@ function Firstpanel({ handletab, setCourse }) {
         accounts[0].username.split("@")[0],
         document.getElementById("courseName").value
       ),
-      description:document.getElementById('courseDes').value,
-      images:images
+      description: document.getElementById("courseDes").value,
+      images: images,
     };
-    setCourse(temp)
+    setCourse(temp);
 
     handletab(event, num);
   };
@@ -79,18 +79,27 @@ function Firstpanel({ handletab, setCourse }) {
 
   return (
     <div
-      style={{ backgroundColor: "#003b5c", width: "800px", height: "700px" }}
+      style={{
+        backgroundColor: "#003b5c",
+        margin: "0px",
+        minHeight: "100vh",
+        paddingTop: "50px",
+      }}
     >
-      <div
+      <Paper
+      elevation={20}
         style={{
           backgroundColor: "#ffffff",
           width: "50%",
           height: "80%",
           border: "5px",
+          borderRadius: "15px",
           borderColor: "#000000",
           margin: "auto",
           borderRadius: "4",
           pading: "1rem",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <TextField
@@ -182,15 +191,14 @@ function Firstpanel({ handletab, setCourse }) {
             style={{
               backgroundColor: "#ffffff",
               margin: "10px 50px 50px 500px ",
-              position: "absolute",
-              marginBottom: "0",
+              marginBottom: "10px",
             }}
             onClick={(event) => handletabChange(event, 1)}
           >
             Next{" "}
           </Button>
         </div>
-      </div>
+      </Paper>
     </div>
   );
 }

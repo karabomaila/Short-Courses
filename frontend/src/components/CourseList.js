@@ -5,16 +5,7 @@ import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
 
-const t = [
-  {
-    name: "JSON",
-    image1: "jason1.jpeg",
-    image2: "jason2.jpeg",
-    description:
-      "JSON is an open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and arrays",
-    crs_id: "hi",
-  },
-];
+
 
 function CourseList(props) {
   // const data=useContext(DataContext);
