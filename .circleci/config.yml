@@ -5,8 +5,9 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   node: circleci/node@4.7
+  orbs:
+  codecov: codecov/codecov@3.0.0
   
-
 
 jobs:
   build:
@@ -23,6 +24,13 @@ jobs:
       - checkout
       - run: cd backend && npm i
       - run: cd frontend && npm i 
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: "circleci/node:10"
+    steps:
+      - codecov/upload:
+          file: frontend/coverage/clover.xml 
 
 
 workflows:
@@ -30,8 +38,6 @@ workflows:
     jobs:
       - test
       - build
-  upload-to-codecov:
+  example-workflow:
     jobs:
-      - checkout
-      - codecov/upload
-        file: frontend/coverage/clover.xml
+      - example-job
