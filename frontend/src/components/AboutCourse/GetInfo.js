@@ -4,7 +4,6 @@ export default class GetInfo{
         for(let i = 0; i < list.length; i++){
             if(list[i].courseID === courseID){
                 this.description = list[i].description;
-                this.duration = list[i].duration;
                 this.content = list[i].content;
                 break;
             }
@@ -14,11 +13,27 @@ export default class GetInfo{
     PullData(){
         const payload = {
             description: this.description,
-            duration: this.duration,
-            outcomes: this.GetOutcomes()
+            outcomes: this.GetOutcomes(),
+            duration: this.GetDuration()
+        }
+        return payload;
+    }
+
+    GetDuration(){
+        let duration = 0;
+        for(let i = 0; i < this.content.length; i++){
+            let slides = this.content[i].slides;
+            for(let k = 0; k < slides.length; k++){
+                let currDuration = slides[k].duration;
+                console.log(currDuration);
+                if(currDuration > 0){
+                    duration += currDuration;
+                }
+            }
+           
         }
 
-        return payload;
+        return duration;
     }
 
     GetOutcomes(){

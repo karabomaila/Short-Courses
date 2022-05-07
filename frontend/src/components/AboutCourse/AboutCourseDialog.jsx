@@ -23,7 +23,7 @@ const AboutCourseDialog = (props)=>{
                     <DialogContentText>
                        {props.data.description}
                     </DialogContentText>
-                    {props.courseID}
+                       Duration: {props.data.duration}
                 </DialogContent>
                 <DialogActions>
                     <Button variant = 'outlined' onClick = {onClose}>OK</Button>
