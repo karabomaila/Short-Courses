@@ -17,13 +17,16 @@ const AboutCourseDialog = (props)=>{
         <div>
             <Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={props.open} onClose={onClose}>
                 <DialogTitle>
-                    Course Name
+                    JSON
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                       Info about the course
+                       This will teach all the JSON objects and all the good stuff
                     </DialogContentText>
-                    OUTCOMES HERE
+                   <ul>
+                       <li>What is JSON</li>
+                       <li>JSON fundimentals</li>
+                   </ul>
                 </DialogContent>
                 <DialogActions>
                     <Button variant = 'outlined' onClick = {onClose}>OK</Button>
