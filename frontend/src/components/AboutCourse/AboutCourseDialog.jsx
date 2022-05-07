@@ -1,15 +1,14 @@
 import {Button,Dialog, DialogTitle, DialogContent, DialogActions,DialogContentText} from '@mui/material';
 import * as React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import { db } from '../firebase-config.jsx';
+import ListOutcomes from './ListOutcomes.jsx';
 
 const AboutCourseDialog = (props)=>{
-    const [rate, setRate] = useState(3);
     const [fullWidth, setFullWidth] = React.useState(true);
     const [maxWidth, setMaxWidth] = React.useState('sm');
-
+   
     const onClose = ()=>{
-        console.log('close dialog');
-       
         props.close(false);
     }
 
@@ -17,16 +16,25 @@ const AboutCourseDialog = (props)=>{
         <div>
             <Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={props.open} onClose={onClose}>
                 <DialogTitle>
-                    JSON
+                    {props.courseName}
                 </DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
-                       This will teach all the JSON objects and all the good stuff
-                    </DialogContentText>
-                   <ul>
-                       <li>What is JSON</li>
-                       <li>JSON fundimentals</li>
-                   </ul>
+                <DialogContentText style = {{color: 'black', fontWeight: 'bold'}}>
+                    Description
+                </DialogContentText>
+                <DialogContentText>
+                    {props.data.description}
+                </DialogContentText>
+                <DialogContentText style = {{color: 'black', fontWeight: 'bold'}}>
+                    Duration
+                </DialogContentText>
+                <DialogContentText>
+                    {props.data.duration}
+                </DialogContentText>
+                <DialogContentText style = {{color: 'black', fontWeight: 'bold'}}>
+                    Learning Outcomes
+                </DialogContentText>
+                    <ListOutcomes array = {props.data.outcomes}/>
                 </DialogContent>
                 <DialogActions>
                     <Button variant = 'outlined' onClick = {onClose}>OK</Button>

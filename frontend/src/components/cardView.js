@@ -1,4 +1,5 @@
 import { Card, Button, Carousel, Modal } from "react-bootstrap";
+import GetInfo from './AboutCourse/GetInfo';
 import "./CardView.css";
 import {
   getDownloadURL,
@@ -28,8 +29,21 @@ import {
 function CardView(props) {
 
   const [openAboutDialog, setOpenAboutDialog] = useState(false);
+  const [info, setInfo] = useState([]);
+  const [dataObject, setDataObject] = useState({});
+  const INFO_REF = collection(db, "slides");
+
+  useEffect(() => {
+    const getData = async ()=>{
+        const data = await getDocs(INFO_REF);
+        setInfo(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    }
+    getData();
+  }, [])
 
   const onClickAboutDialog = () =>{
+    let getInfo = new GetInfo(info, props.crs_id);
+    setDataObject(getInfo.PullData());
     setOpenAboutDialog(true);
   }
 
@@ -161,7 +175,12 @@ function CardView(props) {
         </Card.Body>
       </Card>
 
-      <AboutCourseDialog open = {openAboutDialog} close = {setOpenAboutDialog} />
+      <AboutCourseDialog 
+      open = {openAboutDialog} 
+      close = {setOpenAboutDialog} 
+      courseName = {props.name}
+      courseID = {props.crs_id} 
+      data = {dataObject}/>
     </div>
   );
 }
