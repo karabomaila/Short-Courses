@@ -13,13 +13,29 @@ import { useMsal } from "@azure/msal-react";
 import { callMsGraph } from "../graph";
 import { loginRequest } from "../authConfig";
 import React from "react";
+import { db } from './firebase-config.jsx';
+import {collection, getDocs, doc, getDoc} from 'firebase/firestore';
 import AboutCourseDialog from "./AboutCourse/AboutCourseDialog";
+import GetInfo from './AboutCourse/GetInfo';
 
 function CardView(props) {
 
   const [openAboutDialog, setOpenAboutDialog] = useState(false);
+  const [info, setInfo] = useState([]);
+  const [dataObject, setDataObject] = useState({});
+  const INFO_REF = collection(db, "slides");
+
+  useEffect(() => {
+    const getData = async ()=>{
+        const data = await getDocs(INFO_REF);
+        setInfo(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    }
+    getData();
+  }, [])
 
   const onClickAboutDialog = () =>{
+    let getInfo = new GetInfo(info, props.crs_id);
+    setDataObject(getInfo.PullData());
     setOpenAboutDialog(true);
   }
 
@@ -127,7 +143,12 @@ function CardView(props) {
         </Card.Body>
       </Card>
 
-      <AboutCourseDialog open = {openAboutDialog} close = {setOpenAboutDialog} />
+      <AboutCourseDialog 
+      open = {openAboutDialog} 
+      close = {setOpenAboutDialog} 
+      courseName = {props.name}
+      courseID = {props.crs_id} 
+      data = {dataObject}/>
     </div>
   );
 }
