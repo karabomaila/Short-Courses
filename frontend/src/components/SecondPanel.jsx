@@ -927,6 +927,8 @@ function SecondPanel(props) {
     </List>
   );
 
+  console.log(props.course)
+
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
       <div style={leftDiv}>
@@ -934,7 +936,7 @@ function SecondPanel(props) {
           <IconButton onClick={(event) => props.handletab(event, 0)}>
             <ArrowBack style={{ color: "white" }} />
           </IconButton>
-          <Typography variant="h4">Course Content</Typography>
+          <Typography variant="h4" data-testid="hearder">Course Content</Typography>
         </div>
 
         <div style={{ borderBottom: "1px solid white", paddingBottom: "10px" }}>

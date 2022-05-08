@@ -103,6 +103,8 @@ function Firstpanel({ handletab, setCourse }) {
         }}
       >
         <TextField
+        value=""
+        data-testid='courseName'
           id="courseName"
           label="Course name"
           variant="outlined"
@@ -119,6 +121,7 @@ function Firstpanel({ handletab, setCourse }) {
         />
         <div>
           <Button
+          data-testid="addImageBtn"
             variant="contained"
             style={{ margin: "10px 5px 30px 50px" }}
             onClick={onclick}
@@ -149,15 +152,17 @@ function Firstpanel({ handletab, setCourse }) {
                 />
               </div>
               <Button
+                
                 variant="contained"
                 id="faith"
                 type="submit"
                 style={{ margin: "2px 10px 30px 90px", display: "none" }}
               >
-                upload
+               
               </Button>
             </form>
             <Button
+              data-testid="uploadBtn"
               variant="contained"
               onClick={handleBtn}
               style={{ margin: "2px 10px 30px 90px" }}
@@ -188,6 +193,7 @@ function Firstpanel({ handletab, setCourse }) {
         <div>
           <Button
             variant="outlined"
+            data-testid="nextBtn"
             style={{
               backgroundColor: "#ffffff",
               margin: "10px 50px 50px 500px ",
