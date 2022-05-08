@@ -24,21 +24,9 @@ function Navigation(props) {
   const navigate = useNavigate();
   const [name, setName] = useState(null);
   const { instance, accounts } = useMsal();
-  const [graphData, setGraphData] = useState(null);
+  
 
-  useEffect(() => {
-    console.log('sabelo')
-    instance
-      .acquireTokenSilent({
-        ...loginRequest,
-        account: accounts[0],
-      })
-      .then((response) => {
-        callMsGraph(response.accessToken).then((response) =>
-          setGraphData(response)
-        );
-      });
-  }, [setGraphData, instance, accounts]);
+  
 
   return (
     <Navbar expand="lg" variant="dark" style={{ background: "#003B5C" }}>

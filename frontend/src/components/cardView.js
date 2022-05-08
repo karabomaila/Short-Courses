@@ -73,22 +73,7 @@ function CardView(props) {
     setImageURL2(tmpImages[0].url);
   };
 
-  const someFunc = () => {
-    var x;
-    instance
-      .acquireTokenSilent({
-        ...loginRequest,
-        account: accounts[0],
-      })
-      .then((response) => {
-        callMsGraph(response.accessToken).then((response) => {
-          setGraphData(response);
-          x = response;
-        });
-      });
-
-    return graphData.id;
-  };
+  
 
   useEffect(async () => {
     if (props.image1 === null) {
