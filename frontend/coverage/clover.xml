@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652049350780" clover="3.2.0">
-  <project timestamp="1652049350780" name="All files">
-    <metrics statements="1814" coveredstatements="98" conditionals="298" coveredconditionals="9" methods="393" coveredmethods="17" elements="2505" coveredelements="124" complexity="0" loc="1814" ncloc="1814" packages="10" files="86" classes="86">
+<coverage generated="1652049932508" clover="3.2.0">
+  <project timestamp="1652049932508" name="All files">
+    <metrics statements="1812" coveredstatements="100" conditionals="298" coveredconditionals="9" methods="393" coveredmethods="18" elements="2503" coveredelements="127" complexity="0" loc="1812" ncloc="1812" packages="10" files="86" classes="86">
       <package name="src">
         <metrics statements="68" coveredstatements="1" conditionals="12" coveredconditionals="0" methods="11" coveredmethods="1"/>
         <file name="App.js" path="D:\Short-Courses\frontend\src\App.js">
@@ -1498,10 +1498,10 @@
         </file>
         <file name="firebase-config.jsx" path="D:\Short-Courses\frontend\src\components\firebase-config.jsx">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="28" count="1" type="stmt"/>
-          <line num="30" count="1" type="stmt"/>
-          <line num="31" count="1" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="28" count="2" type="stmt"/>
+          <line num="30" count="2" type="stmt"/>
+          <line num="31" count="2" type="stmt"/>
         </file>
         <file name="home.js" path="D:\Short-Courses\frontend\src\components\home.js">
           <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -1798,37 +1798,35 @@
         </file>
       </package>
       <package name="src.components.myProfile">
-        <metrics statements="73" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="1"/>
+        <metrics statements="71" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="2"/>
         <file name="Display.jsx" path="D:\Short-Courses\frontend\src\components\myProfile\Display.jsx">
-          <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
         </file>
         <file name="ExposeView.jsx" path="D:\Short-Courses\frontend\src\components\myProfile\ExposeView.jsx">
           <metrics statements="21" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="14" count="4" type="stmt"/>
-          <line num="15" count="4" type="stmt"/>
-          <line num="16" count="4" type="stmt"/>
-          <line num="19" count="4" type="stmt"/>
-          <line num="20" count="4" type="stmt"/>
-          <line num="22" count="4" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="14" count="5" type="stmt"/>
+          <line num="15" count="5" type="stmt"/>
+          <line num="16" count="5" type="stmt"/>
+          <line num="19" count="5" type="stmt"/>
+          <line num="20" count="5" type="stmt"/>
+          <line num="22" count="5" type="stmt"/>
           <line num="23" count="0" type="stmt"/>
           <line num="24" count="0" type="stmt"/>
-          <line num="27" count="4" type="stmt"/>
+          <line num="27" count="5" type="stmt"/>
           <line num="28" count="0" type="stmt"/>
           <line num="30" count="0" type="stmt"/>
-          <line num="33" count="4" type="stmt"/>
+          <line num="33" count="5" type="stmt"/>
           <line num="49" count="0" type="stmt"/>
           <line num="61" count="0" type="stmt"/>
-          <line num="71" count="1" type="stmt"/>
-          <line num="75" count="1" type="stmt"/>
-          <line num="83" count="1" type="stmt"/>
-          <line num="88" count="1" type="stmt"/>
-          <line num="100" count="1" type="stmt"/>
-          <line num="112" count="1" type="stmt"/>
+          <line num="71" count="2" type="stmt"/>
+          <line num="75" count="2" type="stmt"/>
+          <line num="83" count="2" type="stmt"/>
+          <line num="88" count="2" type="stmt"/>
+          <line num="100" count="2" type="stmt"/>
+          <line num="112" count="2" type="stmt"/>
         </file>
         <file name="Home.jsx" path="D:\Short-Courses\frontend\src\components\myProfile\Home.jsx">
           <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -1904,57 +1902,57 @@
         </file>
         <file name="CommentHelper.jsx" path="D:\Short-Courses\frontend\src\components\myProfile\utils\CommentHelper.jsx">
           <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-          <line num="4" count="1" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
           <line num="5" count="0" type="stmt"/>
-          <line num="23" count="1" type="stmt"/>
-          <line num="39" count="1" type="stmt"/>
-          <line num="47" count="1" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
+          <line num="39" count="2" type="stmt"/>
+          <line num="47" count="2" type="stmt"/>
         </file>
         <file name="CourseHelper.jsx" path="D:\Short-Courses\frontend\src\components\myProfile\utils\CourseHelper.jsx">
           <metrics statements="8" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-          <line num="4" count="1" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
           <line num="5" count="0" type="stmt"/>
           <line num="7" count="0" type="stmt"/>
           <line num="9" count="0" type="stmt"/>
           <line num="11" count="0" type="stmt"/>
-          <line num="24" count="1" type="stmt"/>
-          <line num="37" count="1" type="stmt"/>
-          <line num="47" count="1" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="37" count="2" type="stmt"/>
+          <line num="47" count="2" type="stmt"/>
         </file>
         <file name="FilterComments.js" path="D:\Short-Courses\frontend\src\components\myProfile\utils\FilterComments.js">
           <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-          <line num="5" count="10" type="stmt"/>
+          <line num="5" count="11" type="stmt"/>
           <line num="6" count="18" type="cond" truecount="2" falsecount="0"/>
           <line num="7" count="4" type="stmt"/>
           <line num="8" count="4" type="stmt"/>
           <line num="9" count="4" type="stmt"/>
-          <line num="13" count="10" type="stmt"/>
-          <line num="14" count="10" type="stmt"/>
-          <line num="18" count="10" type="stmt"/>
+          <line num="13" count="11" type="stmt"/>
+          <line num="14" count="11" type="stmt"/>
+          <line num="18" count="11" type="stmt"/>
           <line num="19" count="6" type="stmt"/>
           <line num="20" count="6" type="stmt"/>
           <line num="21" count="6" type="stmt"/>
           <line num="22" count="6" type="stmt"/>
           <line num="24" count="6" type="stmt"/>
           <line num="29" count="6" type="stmt"/>
-          <line num="34" count="10" type="stmt"/>
+          <line num="34" count="11" type="stmt"/>
         </file>
         <file name="FilterCourses.js" path="D:\Short-Courses\frontend\src\components\myProfile\utils\FilterCourses.js">
           <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-          <line num="9" count="10" type="stmt"/>
-          <line num="10" count="10" type="stmt"/>
+          <line num="9" count="11" type="stmt"/>
+          <line num="10" count="11" type="stmt"/>
           <line num="11" count="20" type="cond" truecount="2" falsecount="0"/>
           <line num="12" count="5" type="stmt"/>
           <line num="13" count="5" type="stmt"/>
           <line num="14" count="5" type="stmt"/>
-          <line num="18" count="10" type="stmt"/>
-          <line num="19" count="10" type="stmt"/>
-          <line num="23" count="10" type="stmt"/>
+          <line num="18" count="11" type="stmt"/>
+          <line num="19" count="11" type="stmt"/>
+          <line num="23" count="11" type="stmt"/>
           <line num="24" count="10" type="stmt"/>
           <line num="25" count="10" type="stmt"/>
           <line num="27" count="10" type="stmt"/>
           <line num="32" count="10" type="stmt"/>
-          <line num="37" count="10" type="stmt"/>
+          <line num="37" count="11" type="stmt"/>
         </file>
         <file name="NameTag.js" path="D:\Short-Courses\frontend\src\components\myProfile\utils\NameTag.js">
           <metrics statements="8" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
