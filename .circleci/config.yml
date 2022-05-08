@@ -5,6 +5,6 @@ orbs:
 workflows:
   upload-to-codecov:
     jobs:
-        post-steps:
-          - codecov/upload
-            file: frontend
+      - node/test:
+          post-steps:
+            - codecov/upload
