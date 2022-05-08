@@ -3,27 +3,27 @@ const { pool } = require("./db");
 const app = express();
 const cors = require("cors");
 
+//to be updated for sso 
 // middleware
 app.use(express.json());
 app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
-// all users
+
 app.get("/users", (req, res) => {
   pool.query(`SELECT * FROM users`, (err, results) => {
     if (err) {
-      res.status(400); // client made a bad request
+      res.status(400); 
       throw err;
     }
-    res.status(202); // client's request was ACCEPTED
+    res.status(202);
 
-    // response is a list of users as a JSONArray node
+
     res.send(results.rows);
   });
 });
 
-// register
 app.post("/users/register", (req, res) => {
   // get the details from request body.
   const first_name = req.body.first_name;
@@ -43,7 +43,6 @@ app.post("/users/register", (req, res) => {
   );
 });
 
-// user login
 app.post("/users/login", (req, res) => {
   // get login details from request body
   const user_id_fromUser = req.body.user_id;
