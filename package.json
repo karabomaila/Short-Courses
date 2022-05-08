@@ -4,7 +4,7 @@
   "description": "We have 3 tables: USERS, COURSES and ENROLLED",
   "main": "index.js",
   "scripts": {
-    "test": "cd frontend/ && npm test",
+    "test": "cd frontend/ && npm install && npm test",
     "installbackend": "cd backend | npm i",
     "installfrontend": "cd frontend | npm i"
   },
