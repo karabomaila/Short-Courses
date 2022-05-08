@@ -13,7 +13,6 @@ export default class GetInfo{
     }
 
     PullData(){
-
         if(this.flag){
             return {description: '', outcomes: [], duration: 0};
         }else{
