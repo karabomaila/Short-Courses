@@ -7,3 +7,4 @@ workflows:
     jobs:
         post-steps:
           - codecov/upload
+            file: frontend
