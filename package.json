@@ -4,7 +4,7 @@
   "description": "We have 3 tables: USERS, COURSES and ENROLLED",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cd frontend/ && npm test",
     "installbackend": "cd backend | npm i",
     "installfrontend": "cd frontend | npm i"
   },
