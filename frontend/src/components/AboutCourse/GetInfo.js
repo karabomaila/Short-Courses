@@ -1,8 +1,10 @@
 
 export default class GetInfo{
     constructor(list, courseID){
+        this.flag = true;
         for(let i = 0; i < list.length; i++){
             if(list[i].courseID === courseID){
+                this.flag = false;
                 this.description = list[i].description;
                 this.content = list[i].content;
                 break;
@@ -11,12 +13,16 @@ export default class GetInfo{
     }
 
     PullData(){
-        const payload = {
-            description: this.description,
-            outcomes: this.GetOutcomes(),
-            duration: this.GetDuration()
+        if(this.flag){
+            return {description: '', outcomes: [], duration: 0};
+        }else{
+            const payload = {
+                description: this.description,
+                outcomes: this.GetOutcomes(),
+                duration: this.GetDuration()
+            }
+            return payload;
         }
-        return payload;
     }
 
     GetDuration(){

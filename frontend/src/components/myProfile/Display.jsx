@@ -3,7 +3,7 @@ import React from "react";
 
 const Display = (props) => {
     return(
-        <div style={{display: 'flex', flexDirection: 'column'}}>
+        <div data-testid = 'display-div' style={{display: 'flex', flexDirection: 'column'}}>
             <ExposeView 
             userID = {props.userID}
             courses = {props.courses} 

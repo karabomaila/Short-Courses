@@ -32,16 +32,17 @@ const ExposeView = (props) =>{
    
     return(
         <div style = {ExposeViewStyle}>
-            <p style = {TextStyle}>Expose View</p>
+            <p style = {TextStyle} data-testid = 'exp-text1'>Expose View</p>
             <div style = {BioDiv}>
             <TextField 
             label="Biography" 
             multiline fullWidth 
             value = {props.bio} 
+            data-testid = 'exp-test-bio'
             onChange = {onChange}/>
             </div>
             <div style = {SubTitleStyle}>
-                <p style = {TextStyle}>Completed Courses</p>
+                <p style = {TextStyle} data-testid = 'exp-text2'>Completed Courses</p>
             </div>
             <div style = {CompCoursesStyle}>
             {myCourses.map((item, index) => 
@@ -52,7 +53,7 @@ const ExposeView = (props) =>{
                 
             </div>
             <div style = {SubTitleStyle}>
-                <p style = {TextStyle}>Pushed Comments</p>
+                <p style = {TextStyle} data-testid = 'exp-text3'>Pushed Comments</p>
             </div>
             
             <div style = {CommentsStyle}>

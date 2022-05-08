@@ -37,8 +37,17 @@ const TagsInput = (props)=>{
     return(
         <div style = {{display: 'flex', flexDirection: 'column'}}>
         <div style = {InputStyle}>
-            <TextField value = {input} onChange = {onChange} id="newtag" label="#NewTag" variant="outlined" />
-            <Button variant = 'outlined' style = {{marginLeft: 12}} onClick = {onAdd}>Add</Button>
+            <TextField value = {input} 
+            onChange = {onChange} 
+            id="newtag" 
+            label="#NewTag" 
+            variant="outlined" 
+            data-testid = 'test-textfield'/>
+            <Button variant = 'outlined' 
+            style = {{marginLeft: 12}} 
+            onClick = {onAdd}
+            data-testid = 'test-tags-button'
+            >Add</Button>
         </div>
         <div>
             <ListTags tagArray = {props.tagArray}/>
