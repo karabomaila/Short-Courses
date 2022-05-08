@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/tags/TagsDialog.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/components/tags</a> TagsDialog.jsx
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import {Button,Dialog, DialogTitle, DialogContent, DialogActions,DialogContentText} from '@mui/material';</span>
+<span class="cstat-no" title="statement not covered" >import * as React from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import TagsInput from './TagsInput';</span>
+<span class="cstat-no" title="statement not covered" >import {db} from "../firebase-config";</span>
+import {useState, useEffect} from 'react';
+<span class="cstat-no" title="statement not covered" >import {doc, setDoc, collection, getDocs} from "firebase/firestore"; </span>
+<span class="cstat-no" title="statement not covered" >import Helpers from '../FirebaseAPIs/Helpers';</span>
+<span class="cstat-no" title="statement not covered" >import {useNavigate} from 'react-router-dom';</span>
+<span class="cstat-no" title="statement not covered" >import { useIsAuthenticated } from "@azure/msal-react";</span>
+import { useMsal } from "@azure/msal-react";
+<span class="cstat-no" title="statement not covered" >import { callMsGraph } from "./MicrosoftGraph/graph";</span>
+<span class="cstat-no" title="statement not covered" >import { loginRequest } from "./MicrosoftGraph/authConfig";</span>
+&nbsp;
+/*
+ * ONLY This file should be called on the studio
+  after creating a course...
+ * Pass in course code and name as props
+ * Pass in the Open and close useState - as seen on the "useless.jsx"
+ * No one should edit anything on these files 
+ * By NO ONE I mean Lindokuhle...
+&nbsp;
+*/
+const TagsDialog = (<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >props) =&gt; <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >{</span></span></span></span>
+    const navigator = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
+    const [tags, setTags] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
+    const REF_COLLECTION = <span class="cstat-no" title="statement not covered" >collection(db, "CourseTags");</span>
+&nbsp;
+    const isAuthenticated = <span class="cstat-no" title="statement not covered" >useIsAuthenticated();</span>
+    const { instance, accounts } = <span class="cstat-no" title="statement not covered" >useMsal();</span>
+    const [graphData, setGraphData] = <span class="cstat-no" title="statement not covered" >useState(null);</span>
+    
+<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >() =&gt; </span>{</span>
+        const getTags = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async ()=&gt;</span>{</span>
+            const data = <span class="cstat-no" title="statement not covered" >await getDocs(REF_COLLECTION);</span>
+<span class="cstat-no" title="statement not covered" >            setTags(data.docs.map(<span class="cstat-no" title="statement not covered" >(<span class="fstat-no" title="function not covered" >doc) =&gt; ({...doc.data(), id: doc.id})));</span></span></span>
+        }
+<span class="cstat-no" title="statement not covered" >        getTags(</span>);
+    }, [])
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >() =&gt; </span>{</span>
+<span class="cstat-no" title="statement not covered" >        console.log('sabelo')</span>
+<span class="cstat-no" title="statement not covered" >        instance</span>
+          .acquireTokenSilent({
+            ...loginRequest,
+            account: accounts[0],
+          })
+          .then((<span class="fstat-no" title="function not covered" >response) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            callMsGraph(response.accessToken).then((<span class="fstat-no" title="function not covered" >response) =&gt;</span></span>
+<span class="cstat-no" title="statement not covered" >              setGraphData(response)</span>
+            );
+          });
+      }, [setGraphData, instance, accounts]);
+&nbsp;
+    let initArray = <span class="cstat-no" title="statement not covered" >props.courseName.split(' ');</span>
+    let TagArray = <span class="cstat-no" title="statement not covered" >new Array();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for(let i = 0; i &lt; initArray.length; i++){</span>
+<span class="cstat-no" title="statement not covered" >        TagArray.push('#' + initArray[i]);</span>
+    }
+&nbsp;
+    const [fullWidth, setFullWidth] = <span class="cstat-no" title="statement not covered" >React.useState(true);</span>
+    const [maxWidth, setMaxWidth] = <span class="cstat-no" title="statement not covered" >React.useState('sm');</span>
+&nbsp;
+    const onClose = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt;</span>{</span>
+<span class="cstat-no" title="statement not covered" >        props.close(false);</span>
+        let uploadTag = <span class="cstat-no" title="statement not covered" >new Helpers();</span>
+<span class="cstat-no" title="statement not covered" >        uploadTag.PushTag(tags, TagArray, props.courseID);</span>
+        // Lead back to homepage...
+<span class="cstat-no" title="statement not covered" >        navigator("/MyCourses", { state: { user: accounts } });</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return(</span>
+        &lt;div&gt;
+        &lt;Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={props.open} onClose={onClose}&gt;
+            &lt;DialogTitle&gt;Add Tags&lt;/DialogTitle&gt;
+            &lt;DialogContent&gt;
+            &lt;DialogContentText&gt;
+                Add few tags to your course to improve search appearance. e.g #ShortCourses, #DFMPC
+            &lt;/DialogContentText&gt;
+                &lt;TagsInput tagArray = {TagArray} /&gt;
+                
+            &lt;/DialogContent&gt;
+            &lt;DialogActions&gt;
+                &lt;Button variant = 'outlined' onClick={onClose}&gt;FINISH&lt;/Button&gt;
+            &lt;/DialogActions&gt;
+      &lt;/Dialog&gt;
+        &lt;/div&gt;
+    )
+}
+&nbsp;
+export default TagsDialog;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 08 2022 21:45:51 GMT+0200 (South Africa Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/Comment.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> Comment.js
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import CommentForm from "./CommentForm";</span>
+<span class="cstat-no" title="statement not covered" >import { HiUserCircle } from "react-icons/hi";</span>
+<span class="cstat-no" title="statement not covered" >import React from "react";</span>
+&nbsp;
+const Comment = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span></span>
+  comment,
+  replies,
+  setActiveComment,
+  activeComment,
+  updateComment,
+  deleteComment,
+  addComment,
+  parentId = <span class="branch-0 cbranch-no" title="branch not covered" >null,</span>
+  currentUserId,
+}) =&gt; {
+  const isEditing =
+<span class="cstat-no" title="statement not covered" >    activeComment &amp;&amp;</span>
+    activeComment.id === comment.id &amp;&amp;
+    activeComment.type === "editing";
+  const isReplying =
+<span class="cstat-no" title="statement not covered" >    activeComment &amp;&amp;</span>
+    activeComment.id === comment.id &amp;&amp;
+    activeComment.type === "replying";
+  const fiveMinutes = <span class="cstat-no" title="statement not covered" >300000;</span>
+  const timePassed = <span class="cstat-no" title="statement not covered" >new Date() - new Date(comment.createdAt) &gt; fiveMinutes;</span>
+  const canDelete =
+<span class="cstat-no" title="statement not covered" >    currentUserId === comment.userId &amp;&amp; replies.length === 0 &amp;&amp; !timePassed;</span>
+  const canReply = <span class="cstat-no" title="statement not covered" >Boolean(currentUserId);</span>
+  const canEdit = <span class="cstat-no" title="statement not covered" >currentUserId === comment.userId &amp;&amp; !timePassed;</span>
+  const replyId = <span class="cstat-no" title="statement not covered" >parentId ? parentId : comment.id;</span>
+  const createdAt = <span class="cstat-no" title="statement not covered" >new Date(comment.createdAt).toLocaleDateString();</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div key={comment.id} className="comment"&gt;
+      &lt;div className="comment-image-container"&gt;
+        &lt;HiUserCircle width={20} /&gt;
+      &lt;/div&gt;
+      &lt;div className="comment-right-part"&gt;
+        &lt;div className="comment-content"&gt;
+          &lt;div className="comment-author"&gt;{comment.username}&lt;/div&gt;
+          &lt;div&gt;{createdAt}&lt;/div&gt;
+        &lt;/div&gt;
+        {!isEditing &amp;&amp; &lt;div className="comment-text"&gt;{comment.body}&lt;/div&gt;}
+        {isEditing &amp;&amp; (
+          &lt;CommentForm
+            submitLabel="Update"
+            hasCancelButton
+            initialText={comment.body}
+            handleSubmit={(<span class="fstat-no" title="function not covered" >text) =&gt; <span class="cstat-no" title="statement not covered" >updateComment(text, comment.id)}</span></span>
+            handleCancel={<span class="fstat-no" title="function not covered" >() =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >              setActiveComment(null);</span>
+            }}
+          /&gt;
+        )}
+        &lt;div className="comment-actions"&gt;
+          {canReply &amp;&amp; (
+            &lt;div
+              className="comment-action"
+              onClick={<span class="fstat-no" title="function not covered" >() =&gt;</span>
+<span class="cstat-no" title="statement not covered" >                setActiveComment({ id: comment.id, type: "replying" })</span>
+              }
+            &gt;
+              Reply
+            &lt;/div&gt;
+          )}
+          {canEdit &amp;&amp; (
+            &lt;div
+              className="comment-action"
+              onClick={<span class="fstat-no" title="function not covered" >() =&gt;</span>
+<span class="cstat-no" title="statement not covered" >                setActiveComment({ id: comment.id, type: "editing" })</span>
+              }
+            &gt;
+              Edit
+            &lt;/div&gt;
+          )}
+          {canDelete &amp;&amp; (
+            &lt;div
+              className="comment-action"
+              onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>deleteComment(comment.id)}</span>
+            &gt;
+              Delete
+            &lt;/div&gt;
+          )}
+        &lt;/div&gt;
+        {isReplying &amp;&amp; (
+          &lt;CommentForm
+            submitLabel="Reply"
+            handleSubmit={(<span class="fstat-no" title="function not covered" >text) =&gt; <span class="cstat-no" title="statement not covered" >addComment(text, replyId)}</span></span>
+          /&gt;
+        )}
+        {replies.length &gt; 0 &amp;&amp; (
+          &lt;div className="replies"&gt;
+            {replies.map((<span class="fstat-no" title="function not covered" >reply) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >              &lt;Comment</span>
+                comment={reply}
+                key={reply.id}
+                setActiveComment={setActiveComment}
+                activeComment={activeComment}
+                updateComment={updateComment}
+                deleteComment={deleteComment}
+                addComment={addComment}
+                parentId={comment.id}
+                replies={[]}
+                currentUserId={currentUserId}
+              /&gt;
+            ))}
+          &lt;/div&gt;
+        )}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+&nbsp;
+export default Comment;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 08 2022 21:45:51 GMT+0200 (South Africa Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>
