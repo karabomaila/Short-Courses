@@ -38,6 +38,7 @@ const ExposeView = (props) =>{
             label="Biography" 
             multiline fullWidth 
             value = {props.bio} 
+            data-testid = 'exp-test-bio'
             onChange = {onChange}/>
             </div>
             <div style = {SubTitleStyle}>

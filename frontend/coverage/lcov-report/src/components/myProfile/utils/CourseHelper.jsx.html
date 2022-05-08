@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -77,28 +77,15 @@
 52
 53
 54
-55</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+55</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -113,7 +100,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,7 +110,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,13 +121,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import NameTag from "./NameTag"</span>
-<span class="cstat-no" title="statement not covered" >import React, { Component } from "react";</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import NameTag from "./NameTag"
+import React, { Component } from "react";
 &nbsp;
-const CourseHelper = (<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >props) =&gt; {</span></span>
+const CourseHelper = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
     let tag = <span class="cstat-no" title="statement not covered" >NameTag(props.course.courseName);</span>
 &nbsp;
-    const onClick = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt;</span>{</span>
+    const onClick = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt;{</span>
         // must open the course clicked...
 <span class="cstat-no" title="statement not covered" >        console.log(props.course.courseID);</span>
     }
@@ -154,7 +154,7 @@ const CourseHelper = (<span class="cstat-no" title="statement not covered" ><spa
     )
 }
 &nbsp;
-const OuterBox = <span class="cstat-no" title="statement not covered" >{</span>
+const OuterBox = {
     margin: 12,
     width: '20%',
     height: '150px',
@@ -167,7 +167,7 @@ const OuterBox = <span class="cstat-no" title="statement not covered" >{</span>
     alignItems: 'center'
 }
 &nbsp;
-const InnerBox = <span class="cstat-no" title="statement not covered" >{</span>
+const InnerBox = {
     display: 'flex',
     width: '100%',
     height: '55%',
@@ -177,7 +177,7 @@ const InnerBox = <span class="cstat-no" title="statement not covered" >{</span>
     background: '#003b5c'
 }
 &nbsp;
-const InnerInnerBox = <span class="cstat-no" title="statement not covered" >{</span>
+const InnerInnerBox = {
     display: 'flex',
     flexDirection: 'column',
     width: '90%',
@@ -191,7 +191,7 @@ export default CourseHelper;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 08 2022 23:46:51 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 09 2022 00:17:09 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="..\..\..\..\prettify.js"></script>
