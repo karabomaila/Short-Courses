@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652049932508" clover="3.2.0">
-  <project timestamp="1652049932508" name="All files">
-    <metrics statements="1812" coveredstatements="100" conditionals="298" coveredconditionals="9" methods="393" coveredmethods="18" elements="2503" coveredelements="127" complexity="0" loc="1812" ncloc="1812" packages="10" files="86" classes="86">
+<coverage generated="1652050775653" clover="3.2.0">
+  <project timestamp="1652050775653" name="All files">
+    <metrics statements="1812" coveredstatements="108" conditionals="298" coveredconditionals="11" methods="393" coveredmethods="19" elements="2503" coveredelements="138" complexity="0" loc="1812" ncloc="1812" packages="10" files="86" classes="86">
       <package name="src">
         <metrics statements="68" coveredstatements="1" conditionals="12" coveredconditionals="0" methods="11" coveredmethods="1"/>
         <file name="App.js" path="D:\Short-Courses\frontend\src\App.js">
@@ -1887,7 +1887,7 @@
         </file>
       </package>
       <package name="src.components.myProfile.utils">
-        <metrics statements="63" coveredstatements="37" conditionals="6" coveredconditionals="4" methods="14" coveredmethods="7"/>
+        <metrics statements="63" coveredstatements="45" conditionals="6" coveredconditionals="6" methods="14" coveredmethods="8"/>
         <file name="Action.jsx" path="D:\Short-Courses\frontend\src\components\myProfile\utils\Action.jsx">
           <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
@@ -1955,15 +1955,15 @@
           <line num="37" count="11" type="stmt"/>
         </file>
         <file name="NameTag.js" path="D:\Short-Courses\frontend\src\components\myProfile\utils\NameTag.js">
-          <metrics statements="8" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-          <line num="3" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
-          <line num="11" count="0" type="stmt"/>
-          <line num="12" count="0" type="stmt"/>
+          <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="3" count="4" type="stmt"/>
+          <line num="4" count="4" type="stmt"/>
+          <line num="5" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="7" count="4" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
         </file>
         <file name="Scroller.js" path="D:\Short-Courses\frontend\src\components\myProfile\utils\Scroller.js">
           <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
