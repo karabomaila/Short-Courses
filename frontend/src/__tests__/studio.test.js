@@ -7,6 +7,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+
 const t = {
   name: "CGV",
   courseID: "23757367CGV6",
@@ -121,48 +122,6 @@ const accounts = [
   </DndProvider>
 </BrowserRouter>; */}
 
-// test("Course Content is showing", () => {
-//   const handletab = (event, num) => {};
-//   const component = render(<BrowserRouter>
-//     <DndProvider backend={HTML5Backend}>
-//       <SecondPanel
-//         handletab={handletab}
-//         course={t}
-//         user={accounts}
-//       />
-//     </DndProvider>
-//   </BrowserRouter>);
-
-//   const temp = component.getByTestId("hearder");
-
-//   expect(temp.textContent).toBe("Course Content");
-// });
-
-test("Course name input",()=>{
-    const setCourse = ()=>{
-    }
-    const handletab = (event, num) => {};
-    const {getByTestId} = render(<BrowserRouter>
-    <DndProvider backend={HTML5Backend}>
-      <FirstPanel
-        handletab={handletab}
-        setCourse={setCourse}
-      />
-    </DndProvider>
-  </BrowserRouter>);
-  const element = getByTestId("courseName");
-
-  fireEvent.change(element, {
-      target:{
-          value:"New Course Name"
-      }
-  })
-
-
-  expect(element.value).toBe("New Course Name")
-  
-  
-})
 
 
 test("Add Image Btn",()=>{

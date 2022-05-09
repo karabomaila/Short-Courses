@@ -1,4 +1,4 @@
-import {React,useState} from 'react';
+import React,{useState} from 'react';
 import { NavItem } from 'react-bootstrap';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'

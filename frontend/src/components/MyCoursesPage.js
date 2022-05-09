@@ -48,12 +48,6 @@ function MyCourses(){
             </Fab>
         </div>
 
-        <Modal show={show} onHide={handleClose}  dialogClassName="modal-90w">
-        <Modal.Header closeButton>CREATE A COURSE HERE!!</Modal.Header>
-        <Modal.Body>
-        <CreateCourse user={state.user} handleClose={handleClose}/>
-        </Modal.Body>
-        </Modal>
         
         </>
         

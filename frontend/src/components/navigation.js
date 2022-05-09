@@ -47,6 +47,7 @@ function Navigation(props) {
             {isAuthenticated ? (
               <>
                 <Button
+                  data-testid="myCoursesBtn"
                   variant="outline-light"
                   style={{ marginRight: "15px" }}
                   size="sm"
@@ -59,6 +60,7 @@ function Navigation(props) {
                   My Courses
                 </Button>
                 <Button
+                data-testid="enrolledBtn"
                   variant="outline-light"
                   size="sm"
                   onClick={() => {
@@ -82,6 +84,7 @@ function Navigation(props) {
               }}
             />
             <Button
+            data-testid="searchBtn"
               variant="dark"
               onClick={(event) => {
                 dataNav.getValue(event.target.value);

@@ -40,8 +40,9 @@ const user = {
 
 function MyCourseView(props) {
   const { state } = useLocation();
+  console.log(props)
   const slidesCollectionRef = collection(db, "slides");
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(props.description);
 
   const navigate = useNavigate();
 
@@ -103,13 +104,14 @@ function MyCourseView(props) {
 
             <Container>
               <Row>
-                <Card.Text>{props.name}</Card.Text>
+                <Card.Text data-testid="name">{props.name}</Card.Text>
               </Row>
               <Row>
-                <Card.Text>{description}</Card.Text>
+                <Card.Text data-testid="des">{description}</Card.Text>
               </Row>
               <div style={{display: "flex", flexDirection: "row",position:'absolute',bottom:"15px",right:"15px"}}>
                 <Button
+                  data-testid="viewBtn"
                   style={{marginRight:'5px'}}
                   variant="dark"
                   onClick={() => {
@@ -125,7 +127,7 @@ function MyCourseView(props) {
                   VIEW
                 </Button>
 
-                <Button variant="dark" style={{marginRight:'5px'}}>EDIT</Button>
+                <Button variant="dark" style={{marginRight:'5px'}} data-testid="editBtn">EDIT</Button>
 
                 
               </div>

@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -70,35 +70,33 @@
 45
 46
 47
-48</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+48</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -117,33 +115,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { useContext, useEffect,useState } from "react";</span>
-<span class="cstat-no" title="statement not covered" >import { Container, Row, Col } from "react-bootstrap";</span>
-<span class="cstat-no" title="statement not covered" >import CardView from "./cardView";</span>
-<span class="cstat-no" title="statement not covered" >import { Box, CircularProgress } from "@mui/material";</span>
-<span class="cstat-no" title="statement not covered" >import DataContext from "./DataContext";</span>
-<span class="cstat-no" title="statement not covered" >import { useIsAuthenticated } from "@azure/msal-react";</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useContext, useEffect,useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import CardView from "./cardView";
+import { Box, CircularProgress } from "@mui/material";
+import DataContext from "./DataContext";
+import { useIsAuthenticated } from "@azure/msal-react";
 import { useMsal } from "@azure/msal-react";
-<span class="cstat-no" title="statement not covered" >import { callMsGraph } from "../graph";</span>
-<span class="cstat-no" title="statement not covered" >import { loginRequest } from "../authConfig";</span>
-<span class="cstat-no" title="statement not covered" >import axios from "axios";</span>
+import { callMsGraph } from "../graph";
+import { loginRequest } from "../authConfig";
+import axios from "axios";
 import React from "react";
 &nbsp;
 &nbsp;
-function <span class="fstat-no" title="function not covered" >CardViewList(props) {</span>
-  const dataCard = <span class="cstat-no" title="statement not covered" >useContext(DataContext);</span>
-  const MyDatabase = <span class="cstat-no" title="statement not covered" >dataCard.Data;</span>
+function CardViewList(props) {
+  const dataCard = useContext(DataContext);
+  const MyDatabase = dataCard.Data;
   
   
   
   
   
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;Container&gt;
       {MyDatabase.length !== 0 ? (
         &lt;Row&gt;
-          {MyDatabase.map(<span class="fstat-no" title="function not covered" >(d</span>ata, index) =&gt; (
-<span class="cstat-no" title="statement not covered" >            &lt;Col key={index}&gt;</span>
+          {MyDatabase.map((data, index) =&gt; (
+            &lt;Col key={index}&gt;
               &lt;CardView
                 image1={data.picture_1}
                 image2={data.picture_1}
@@ -156,7 +156,7 @@ function <span class="fstat-no" title="function not covered" >CardViewList(props
           ))}
         &lt;/Row&gt;
       ) : (
-        &lt;Box style={{ marginLeft: "48%", marginTop: "10%"}}&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;Box style={{ marginLeft: "48%", marginTop: "10%"}}&gt;</span>
           &lt;CircularProgress /&gt;
         &lt;/Box&gt;
       )}
@@ -170,7 +170,7 @@ export default CardViewList;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 08 2022 18:24:29 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 09 2022 12:08:29 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

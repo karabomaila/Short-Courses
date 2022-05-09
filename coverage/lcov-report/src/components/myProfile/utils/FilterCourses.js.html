@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -69,73 +69,73 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 export default class FilterCourses {
 &nbsp;
-<span class="fstat-no" title="function not covered" >    constructor</span>(){
+    constructor(){
        
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    Filter</span>(list, id){
-<span class="cstat-no" title="statement not covered" >        this.size = 0;</span>
-<span class="cstat-no" title="statement not covered" >        for(let i = 0; i &lt; list.length; i++){</span>
-<span class="cstat-no" title="statement not covered" >            if(list[i].id === id){</span>
-<span class="cstat-no" title="statement not covered" >                this.courses = list[i].courses;</span>
-<span class="cstat-no" title="statement not covered" >                this.size = list[i].courses.length;</span>
-<span class="cstat-no" title="statement not covered" >                break;</span>
+    Filter(list, id){
+        this.size = 0;
+        for(let i = 0; i &lt; list.length; i++){
+            if(list[i].id === id){
+                this.courses = list[i].courses;
+                this.size = list[i].courses.length;
+                break;
             }
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        this.myCourses = new Array();</span>
-<span class="cstat-no" title="statement not covered" >        this.Rearrange(this.size);</span>
+        this.myCourses = new Array();
+        this.Rearrange(this.size);
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    Rearrange</span>(size){
-<span class="cstat-no" title="statement not covered" >        for(let i = 0; i &lt; size; i++){</span>
-            let currCourse = <span class="cstat-no" title="statement not covered" >this.courses[i];</span>
-            let temp = <span class="cstat-no" title="statement not covered" >currCourse.split("+");</span>
+    Rearrange(size){
+        for(let i = 0; i &lt; size; i++){
+            let currCourse = this.courses[i];
+            let temp = currCourse.split("+");
 &nbsp;
-            const curr = <span class="cstat-no" title="statement not covered" >{</span>
+            const curr = {
                 courseName: temp[0],
                 courseID: temp[1]
             }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            this.myCourses.push(curr);</span>
+            this.myCourses.push(curr);
         }
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    getMyCourses</span>(){
-<span class="cstat-no" title="statement not covered" >        return this.myCourses;</span>
+    getMyCourses(){
+        return this.myCourses;
     }
 }</pre></td></tr>
 </table></pre>
@@ -143,7 +143,7 @@ export default class FilterCourses {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 08 2022 18:24:29 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 09 2022 12:08:29 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="..\..\..\..\prettify.js"></script>

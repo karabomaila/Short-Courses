@@ -21,10 +21,11 @@ import {
 } from "@firebase/firestore";
 
 function Course(props) {
+  console.log(props)
   const [imageURL, setImageURL] = useState("");
   const [backUpImageURL, setBackUpImageURL] = useState("");
   const slidesCollectionRef = collection(db, "slides");
-  const [ description,setDescription] = useState("");
+  const [ description,setDescription] = useState(props.description);
 
   const lindo = async () => {
     const q = query(slidesCollectionRef, where("courseID", "==", props.crs_id));
@@ -70,7 +71,6 @@ function Course(props) {
       <>
         <Card className="d-flex my-2 mx-3 " style={{ background: "#b5aeb2" }}>
           <Card.Body className="d-flex">
-            {console.log(imageURL)}
             <img
               variant="bottom"
               src={imageURL}
@@ -85,16 +85,17 @@ function Course(props) {
             />
             <Container>
               <Row>
-                <Card.Text>{props.name}</Card.Text>
+                <Card.Text data-testid="name">{props.name}</Card.Text>
               </Row>
               <Row>
-                <Card.Text>{description}</Card.Text>
+                <Card.Text data-testid="des">{description}</Card.Text>
               </Row>
               <Row>
                 <Col></Col>
                 <Col className="my-2 mx-2">
                   {" "}
                   <Button
+                    data-testid="getStartedBtn"
                     variant="dark"
                     onClick={() => {
                       navigate(`/Slides/${props.name}`, {
