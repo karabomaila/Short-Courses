@@ -39,10 +39,12 @@ function MyCourses(){
 
     return(
 
-        <div>
+        <div style = {{display: 'flex'}}>
+        <div style = {{display: 'flex', marginBottom: 12}}>
         <EnrolledAppBar title="My Courses" modal={true} user={state.user} />
+        </div>
         <div style = {listStyle}>
-        <MyCoursesList user={state.user}/>
+            <MyCoursesList user={state.user}/>
             
         </div>
 
@@ -58,7 +60,7 @@ function MyCourses(){
 const listStyle = {
     display: 'flex',
     flexWrap: 'wrap',
-    marginTop: 20,
+    margin: 12,
     justifyContent: 'center'
 }
 
