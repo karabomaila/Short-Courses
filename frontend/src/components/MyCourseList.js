@@ -14,7 +14,8 @@ function MyCourseList(props){
     //     // setUsers(res.data);
     //     console.log(res);
     //     if(res.data === "Login Sucessful"){
-    //       //setLogin(true);
+    //       //setLogin(true)
+    // 
     //          }
     //   })
     //   .catch((err) => {
@@ -50,7 +51,7 @@ function MyCourseList(props){
             key={index}
             image1={data.picture_1}
             description={data.crs_description} 
-            name={data.crs_name}
+            name={data.crs_name}s
             crs_id={data.crs_id}
             user={props.user}
            /></Col>)}

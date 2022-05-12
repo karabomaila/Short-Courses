@@ -27,8 +27,6 @@ const FinHome = ()=>{
             <CommentCard/>
             <CommentCard/>
 
-            <MyCourseCard/>
-            <EnrolledCard/>
 
             <FeedbackDialog open = {openFeedb} close = {setOpenFeedb}/>
         </div>
