@@ -1,4 +1,4 @@
-import NameTag from "./NameTag"
+import NameTag from "./NameTag";
 import React, { Component } from "react";
 
 const CourseHelper = (props) => {

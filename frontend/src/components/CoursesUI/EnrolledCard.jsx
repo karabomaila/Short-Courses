@@ -1,4 +1,5 @@
 import Actions from "./Actions"
+import React from 'react';
 import wits from './wits.png'
 
 

@@ -1,4 +1,5 @@
 import MyCourseCard from '../CoursesUI/MyCourseCard';
+import React from 'react';
 import Action from './Actions';
 import CommentCard from './CommentCard';
 import EnrolledCard from '../CoursesUI/EnrolledCard'
