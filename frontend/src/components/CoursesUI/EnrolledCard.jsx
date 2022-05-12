@@ -22,10 +22,8 @@ const MainStyle = {
     flexDirection: 'column',
     width: '330px',
     minWidth: '330px',
-    //background: 'blue',
     alignSelf: 'center',
     height: '410px',
-    //minHeight: '50%'
     borderRadius: 9,
     boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
 }
