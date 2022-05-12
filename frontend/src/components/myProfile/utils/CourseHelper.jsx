@@ -31,7 +31,8 @@ const OuterBox = {
     borderStyle: 'groove',
     flexDirection: 'column',
     minWidth: '20%',
-    alignItems: 'center'
+    alignItems: 'center',
+    boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
 }
 
 const InnerBox = {

@@ -32,7 +32,8 @@ const CommentBodyStyle = {
     borderStyle: 'solid',
     padding: 12,
     borderColor: '#003b5c',
-    borderRadius: 12
+    borderRadius: 12,
+    boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
 }
 
 
