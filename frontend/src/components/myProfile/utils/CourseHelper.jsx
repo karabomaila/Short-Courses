@@ -1,11 +1,13 @@
 import NameTag from "./NameTag";
+import {useNavigate} from 'react-router-dom';
 import React, { Component } from "react";
 
 const CourseHelper = (props) => {
+    const navigator = useNavigate();
     let tag = NameTag(props.course.courseName);
 
     const onClick = () =>{
-        // must open the course clicked...
+        navigator('/CourseCentre');
         console.log(props.course.courseID);
     }
     return(

@@ -4,9 +4,8 @@ import RatingPanel from './RatingPanel';
 import UploadImagePanel from './UploadImagePanel';
 import {useState} from 'react';
 
-/*
-    * Has bugs...
- */
+// Need to connected to firebase...
+
 
 const FeedbackDialog = (props)=>{
     const [rate, setRate] = useState(3);
