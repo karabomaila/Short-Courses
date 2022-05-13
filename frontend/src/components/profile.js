@@ -57,7 +57,7 @@ function Profile(props) {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={() => navigator("/MyPortfolio", {state: {acc: accounts}})}>Profile</MenuItem>
+        <MenuItem onClick={() => navigator("/MyPortfolio", {state: {acc: accounts, visible: true}})}>Profile</MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </>

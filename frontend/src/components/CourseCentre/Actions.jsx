@@ -5,8 +5,15 @@ import React from 'react';
 const Actions = (props)=>{
 
     const onClick = ()=> {
-        if(props.click === 'rate'){
-            props.openFeedb(true);
+        switch (props.click){
+            case 'rate':
+                props.openFeedb(true);
+                break;
+            case 'about':
+                props.openAbout(true);
+                break;
+            default:
+                console.log('non');
         }
     }
 

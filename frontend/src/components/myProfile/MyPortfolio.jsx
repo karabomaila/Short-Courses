@@ -5,12 +5,26 @@ import { db } from '../firebase-config.jsx';
 import {collection, getDocs, doc, getDoc} from 'firebase/firestore';
 import {useLocation,useNavigate } from 'react-router-dom';
 import React from "react";
+import ProfileLoader from '../ScreenLoader/ProfileLoader.jsx';
 
 const MyPortfolio = () =>{
+    const [int, setInt] = useState(0);
     const {state} = useLocation();
     const name = state.acc[0].name;
     const userID = state.acc[0].username;
     const [bio, setBio] = useState('');
+
+    if(int < 3){
+        setInterval(change(), 8000);
+    }
+
+    function change(){
+        setInt(int + 1);
+        console.log(int);
+        if(int < 3){
+            state.visible = false;
+        }
+    }
 
     const getBio = async () =>{
         const bioRef = doc(db, "About", userID);
@@ -42,9 +56,14 @@ const MyPortfolio = () =>{
         }
         getComments();
     }, [])
+
+    if(state.visible){
+        return(<ProfileLoader/>)
+    }
     
     return(
         <div style = {MyPortfolioStyle}>
+           
             <div className='pin' style = {LeftPanelStyle} >
                 <Menu 
                 name = {name}
@@ -68,7 +87,7 @@ const MyPortfolioStyle = {
     display: 'flex',
     flexDirection: 'row', 
     background: 'gray', 
-    height: '100vh'
+    //height: '100vh'
 
 }
 

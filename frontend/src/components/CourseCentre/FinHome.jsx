@@ -5,9 +5,16 @@ import Action from './Actions';
 import CommentCard from './CommentCard';
 import EnrolledCard from '../CoursesUI/EnrolledCard';
 import FeedbackDialog from '../Feedback/FeedbackDialog';
+import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
 
 const FinHome = ()=>{
     const [openFeedb, setOpenFeedb] = useState(false);
+    const [openAbout, setOpenAbout] = useState(false);
+    const courseName = "Course Name";
+    const data = {decscription: "Des", duration: 12, outcomes: []};
+
+
+
 
     return(
         <div style = {FinHomeStyle}>
@@ -17,7 +24,7 @@ const FinHome = ()=>{
                         <Action title = 'View' click = 'view'/>
                         <Action title = 'Comment' click = 'comment'/>
                         <Action title = 'Rate' click = 'rate' openFeedb = {setOpenFeedb}/>
-                        <Action title = 'About' click = 'about'/>
+                        <Action title = 'About' click = 'about' openAbout = {setOpenAbout}/>
                 </div>
             </div>
             Comments on this course...
@@ -28,6 +35,7 @@ const FinHome = ()=>{
             <CommentCard/>
 
 
+            <AboutCourseDialog data = {data} courseName = {courseName} open = {openAbout} close = {setOpenAbout}/>
             <FeedbackDialog open = {openFeedb} close = {setOpenFeedb}/>
         </div>
     )
