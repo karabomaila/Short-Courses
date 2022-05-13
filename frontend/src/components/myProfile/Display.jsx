@@ -17,7 +17,7 @@ const Display = (props) => {
         )
     }else if(props.view === 'PersonalityTest'){
         return(
-            <div data-testid = 'perso-div' style={{display: 'flex', flexDirection: 'column'}}>
+            <div style={{display: 'flex', flexDirection: 'column'}}>
                 <PersonalityTest 
                 userID = {props.userID}
                 courses = {props.courses} 
