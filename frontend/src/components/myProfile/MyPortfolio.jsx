@@ -8,23 +8,15 @@ import React from "react";
 import ProfileLoader from '../ScreenLoader/ProfileLoader.jsx';
 
 const MyPortfolio = () =>{
-    const [int, setInt] = useState(0);
+    const start = Date.now();
+    console.log('Start: '+ start);
+
+    const [view, setView] = useState('ExposeView');
+    
     const {state} = useLocation();
     const name = state.acc[0].name;
     const userID = state.acc[0].username;
     const [bio, setBio] = useState('');
-
-    if(int < 3){
-        setInterval(change(), 8000);
-    }
-
-    function change(){
-        setInt(int + 1);
-        console.log(int);
-        if(int < 3){
-            state.visible = false;
-        }
-    }
 
     const getBio = async () =>{
         const bioRef = doc(db, "About", userID);
@@ -57,9 +49,10 @@ const MyPortfolio = () =>{
         getComments();
     }, [])
 
+    /*
     if(state.visible){
         return(<ProfileLoader/>)
-    }
+    }*/
     
     return(
         <div style = {MyPortfolioStyle}>
@@ -67,12 +60,14 @@ const MyPortfolio = () =>{
             <div className='pin' style = {LeftPanelStyle} >
                 <Menu 
                 name = {name}
-                //displayWindow = {displayWindow} 
-                //setDisplay = {setDisplay}
+                view = {view}
+                setView = {setView}
                 />
             </div>
             <div style = {RightPanelStyle}>
                 <Display 
+                view = {view}
+                setView = {setView}
                 userID = {userID} 
                 courses = {courses} 
                 comments = {comments}

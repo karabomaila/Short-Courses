@@ -14,10 +14,19 @@ const Menu = (props) => {
                 <div style = {CourseTag}>MyCourses 12</div>
                 <div style = {CourseTag}>Enrolled 8</div>
             </div>
-            <Action title = 'Expose View'/>
-            <Action title = 'Personality Test' p = "/TagsDemo"/>
-            <Action title = 'MyCourses'/>
-            <Action title = 'Enrolled'/>
+            <Action title = 'Expose View' 
+
+            setView = {props.setView} 
+            click = {'ExposeView'}/>
+            <Action title = 'Personality Test' 
+            setView = {props.setView} 
+            click = {'PersonalityTest'}/>
+            <Action title = 'MyCourses' 
+            setView = {props.setView} 
+            click = {'MyCourses'}/>
+            <Action title = 'Enrolled' 
+            setView = {props.setView} 
+            click = {'Enrolled'}/>
             
         </div>
     )
