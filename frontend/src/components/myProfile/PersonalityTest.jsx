@@ -10,12 +10,14 @@ const PersonalityTest = (props)=>{
         <div style = {MainStyle}>
             <p style = {TextStyle}>PERSONALITY TEST</p>
 
+           
+
+            <PTestForm userID = {props.userID}/>
+
             <div style = {InfoBar}>
                 <InfoCard image = {analytics} title = 'Why We Collect Data?'/>
                 <InfoCard image = {remove} title = 'Delete My Data'/>
             </div>
-
-            <PTestForm userID = {props.userID}/>
         </div>
     )
 }
@@ -30,8 +32,9 @@ const MainStyle = {
 
 const InfoBar = {
     display: 'flex',
-    width: '80%',
-    minWidth: '80%',
+    flexDirection: 'column',
+    //width: '80%',
+    //minWidth: '80%',
     //background: 'yellow',
     justifyContent: 'center',
 

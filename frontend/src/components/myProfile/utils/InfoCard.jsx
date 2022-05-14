@@ -21,8 +21,10 @@ const MainStyle = {
     height: '50px',
     margin: 12,
     alignItems: 'center',
+    borderStyle: 'groove',
+    borderColor: '#003b5c',
     borderRadius: 9,
-    boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
+    //boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
 }
 
 const ImageStyle = {
