@@ -5,7 +5,7 @@ import PersonalityTest from "./PersonalityTest.jsx";
 const Display = (props) => {
     if(props.view === 'ExposeView'){
         return(
-        <div data-testid = 'display-div' style={{display: 'flex', flexDirection: 'column'}}>
+        <div data-testid = 'display-div' style={MainStyle}>
             <ExposeView 
             userID = {props.userID}
             courses = {props.courses} 
@@ -17,7 +17,7 @@ const Display = (props) => {
         )
     }else if(props.view === 'PersonalityTest'){
         return(
-            <div style={{display: 'flex', flexDirection: 'column'}}>
+            <div style={MainStyle}>
                 <PersonalityTest 
                 userID = {props.userID}
                 courses = {props.courses} 
@@ -29,6 +29,13 @@ const Display = (props) => {
         )
     }
     
+}
+
+const MainStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100vh',
+    minHeight: '100vh'
 }
 
 export default Display;

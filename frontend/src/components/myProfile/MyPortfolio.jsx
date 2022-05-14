@@ -82,7 +82,8 @@ const MyPortfolioStyle = {
     display: 'flex',
     flexDirection: 'row', 
     background: 'gray', 
-    //height: '100vh'
+    height: '100vh',
+    minHeight: '100vh'
 
 }
 
@@ -91,12 +92,14 @@ const LeftPanelStyle = {
     display: 'flex',
     background: 'gray',
     height: '100vh',
+    minHeight: '100vh'
     //position: 'fixed'
 }
 
 const RightPanelStyle = {
     flex: 3.5,
     height: '100vh',
+    //minHeight: '100vh',
     background: 'white',
     overflowY: 'scroll'
 }

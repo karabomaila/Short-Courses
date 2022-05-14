@@ -3,6 +3,7 @@ import InfoCard from './utils/InfoCard';
 import analytics from './utils/analytics.png';
 import remove from './utils/remove.png';
 import PTestForm from './ExtPerTest/PTestForm';
+import Footer from '../Footer/Footer';
 
 
 const PersonalityTest = (props)=>{
@@ -18,6 +19,8 @@ const PersonalityTest = (props)=>{
                 <InfoCard image = {analytics} title = 'Why We Collect Data?'/>
                 <InfoCard image = {remove} title = 'Delete My Data'/>
             </div>
+
+            <Footer/>
         </div>
     )
 }
@@ -25,9 +28,11 @@ const PersonalityTest = (props)=>{
 const MainStyle = {
     display: 'flex',
     flexDirection: 'column',
+    height: '100vh',
+    minHeight: '100vh',
     alignItems: 'center',
     background: '#edf4f5',
-    height: '100vh',
+    
 }
 
 const InfoBar = {

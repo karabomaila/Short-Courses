@@ -6,6 +6,7 @@ import CommentCard from './CommentCard';
 import EnrolledCard from '../CoursesUI/EnrolledCard';
 import FeedbackDialog from '../Feedback/FeedbackDialog';
 import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
+import Footer from '../Footer/Footer';
 
 const FinHome = ()=>{
     const [openFeedb, setOpenFeedb] = useState(false);
@@ -33,10 +34,16 @@ const FinHome = ()=>{
             <CommentCard/>
             <CommentCard/>
             <CommentCard/>
+            <CommentCard/>
+            <CommentCard/>
+            <CommentCard/>
+            <CommentCard/>
 
 
             <AboutCourseDialog data = {data} courseName = {courseName} open = {openAbout} close = {setOpenAbout}/>
             <FeedbackDialog open = {openFeedb} close = {setOpenFeedb}/>
+
+            <Footer/>
         </div>
     )
 }
