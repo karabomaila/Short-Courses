@@ -2,6 +2,7 @@ import React from 'react'
 import InfoCard from './utils/InfoCard';
 import analytics from './utils/analytics.png';
 import remove from './utils/remove.png';
+import PTestForm from './ExtPerTest/PTestForm';
 
 
 const PersonalityTest = (props)=>{
@@ -13,6 +14,8 @@ const PersonalityTest = (props)=>{
                 <InfoCard image = {analytics} title = 'Why We Collect Data?'/>
                 <InfoCard image = {remove} title = 'Delete My Data'/>
             </div>
+
+            <PTestForm userID = {props.userID}/>
         </div>
     )
 }
