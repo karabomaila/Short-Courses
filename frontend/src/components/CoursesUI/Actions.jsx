@@ -1,5 +1,6 @@
 import { Button } from '@mui/material';
 import React from 'react';
+import GetInfo from '../AboutCourse/GetInfo';
 import { useNavigate } from 'react-router-dom';
 
 const Actions = (props)=>{
@@ -7,15 +8,24 @@ const Actions = (props)=>{
     
 
     const onClick = ()=>{
-        if(props.click == 'view'){
-            navigate(`/CreateCourse/${props.name}`, {
-                state: {
-                  student: false,
-                  user: props.user,
-                  crs_id: props.crs_id,
-                },
-              });
+        switch (props.click){
+            case 'view':
+                navigate(`/CreateCourse/${props.name}`, {
+                    state: {
+                      student: false,
+                      user: props.user,
+                      crs_id: props.crs_id,
+                    },
+                  });
+            
+            case 'info':
+                let getInfo = new GetInfo(props.info, props.crs_id);
+                props.setDataObject(getInfo.PullData());
+                props.setOpenAbout(true);
+
+            default:
         }
+        
     }
 
     return(

@@ -6,12 +6,27 @@ import { db } from "../firebase-config";
 import {collection,addDoc,getDocs,where,query,updateDoc, doc,} from "@firebase/firestore";
 import {getDownloadURL,ref,uploadBytesResumable,getStorage,} from "@firebase/storage";
 import { useNavigate, useLocation } from "react-router-dom";
+import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
+import GetInfo from "../AboutCourse/GetInfo";
 import { useState, useEffect } from "react";
 
 
 const MyCourseCard = (props)=>{
+  const [openAbout, setOpenAbout] = useState(false);
+  const [info, setInfo] = useState([]);
+  const [dataObject, setDataObject] = useState({});
+  const INFO_REF = collection(db, "slides");
 
-    const { state } = useLocation();
+  useEffect(() => {
+    const getData = async ()=>{
+        const data = await getDocs(INFO_REF);
+        setInfo(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    }
+    getData();
+  }, [])
+
+
+  const { state } = useLocation();
   console.log(props)
   const slidesCollectionRef = collection(db, "slides");
   const [description, setDescription] = useState(props.description);
@@ -53,9 +68,6 @@ const MyCourseCard = (props)=>{
     }
   }, [setImageURL]);
 
-
-
-
     return(
         <div style = {MainStyle}>
             <div style = {ImageStyle}>
@@ -69,9 +81,20 @@ const MyCourseCard = (props)=>{
                 crs_id = {props.crs_id}
                 click = 'view'/>
                 <Actions title = 'Edit' click = 'edit'/>
-                <Actions title = 'Info' click = 'info'/>
+                <Actions title = 'Info' 
+                info = {info}
+                setDataObject = {setDataObject}
+                crs_id = {props.crs_id}
+                setOpenAbout = {setOpenAbout}
+                click = 'info'/>
                 <ActionDel title = 'Del' click = 'del'/>
             </div>
+
+            <AboutCourseDialog open = {openAbout} 
+              close = {setOpenAbout}
+              courseName = {props.name}
+              data = {dataObject}
+            />
         </div>
     )
 }

@@ -31,7 +31,8 @@ const FooterStyle = {
     flexDirection: 'column',
     background: '#003b5c',
     width: '100%',
-    marginTop: 20
+    marginTop: 20,
+    bottom: 0
 
 }
 
