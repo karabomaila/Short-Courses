@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/myProfile/utils/NameTag.js</title>
+    <title>Code coverage report for src/components/myProfile/ExtPerTest/Event.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -16,7 +16,7 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/myProfile/utils</a> NameTag.js
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/myProfile/ExtPerTest</a> Event.jsx
     </h1>
     <div class='clearfix'>
     </div>
@@ -39,39 +39,45 @@
 14
 15
 16
-17</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+17
+18
+19</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-function NameTag(name){
-    let char = '';
-    let arrName = name.split(" ");
-    if(arrName.length &gt; 1){
-        for(let i = 0; i &lt; arrName.length; i++){
-            char = char + arrName[i][0];
-        }
-        return char;
-    }else{
-        let size = name.length;
-        return name[0] + name[size - 1];
-    }
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button } from "@mui/material";
+import React from "react";
 &nbsp;
+const Event = (props) =&gt; {
+&nbsp;
+    return(
+        &lt;Button variant="outlined" style={ButtonStyle}&gt;{props.title}&lt;/Button&gt;
+    )
 }
 &nbsp;
-export default NameTag;</pre></td></tr>
+const ButtonStyle = {
+    color: 'white',
+    width: '80%',
+    margin: 12,
+    borderColor: '#daa520'
+}
+&nbsp;
+&nbsp;
+export default Event;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->

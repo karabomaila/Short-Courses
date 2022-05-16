@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652686805822" clover="3.2.0">
-  <project timestamp="1652686805822" name="All files">
-    <metrics statements="1809" coveredstatements="247" conditionals="313" coveredconditionals="21" methods="419" coveredmethods="38" elements="2541" coveredelements="306" complexity="0" loc="1809" ncloc="1809" packages="15" files="99" classes="99">
+<coverage generated="1652698478053" clover="3.2.0">
+  <project timestamp="1652698478053" name="All files">
+    <metrics statements="1820" coveredstatements="256" conditionals="313" coveredconditionals="21" methods="422" coveredmethods="39" elements="2555" coveredelements="316" complexity="0" loc="1820" ncloc="1820" packages="15" files="101" classes="101">
       <package name="src">
         <metrics statements="68" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="11" coveredmethods="0"/>
         <file name="App.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/App.js">
@@ -1755,11 +1755,11 @@
         </file>
       </package>
       <package name="src.components.Footer">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <file name="Footer.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Footer/Footer.jsx">
-          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
           <line num="3" count="2" type="stmt"/>
-          <line num="4" count="6" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
           <line num="29" count="2" type="stmt"/>
           <line num="39" count="2" type="stmt"/>
           <line num="47" count="2" type="stmt"/>
@@ -1920,8 +1920,8 @@
         </file>
         <file name="PersonalityTest.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/PersonalityTest.jsx">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="9" count="1" type="stmt"/>
           <line num="10" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
           <line num="28" count="1" type="stmt"/>
           <line num="38" count="1" type="stmt"/>
           <line num="48" count="1" type="stmt"/>
@@ -1929,12 +1929,29 @@
         </file>
       </package>
       <package name="src.components.myProfile.ExtPerTest">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <file name="PTestForm.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/PTestForm.jsx">
-          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="3" count="1" type="stmt"/>
+        <metrics statements="15" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <file name="Event.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/Event.jsx">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="4" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+        </file>
+        <file name="PTestForm.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/PTestForm.jsx">
+          <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="48" count="1" type="stmt"/>
+          <line num="59" count="1" type="stmt"/>
+        </file>
+        <file name="Quiz.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/Quiz.jsx">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
           <line num="29" count="1" type="stmt"/>
         </file>
       </package>

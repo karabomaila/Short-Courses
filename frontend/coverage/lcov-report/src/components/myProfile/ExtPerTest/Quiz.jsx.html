@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/myProfile/utils/FilterCourses.js</title>
+    <title>Code coverage report for src/components/myProfile/ExtPerTest/Quiz.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -16,7 +16,7 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/myProfile/utils</a> FilterCourses.js
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/myProfile/ExtPerTest</a> Quiz.jsx
     </h1>
     <div class='clearfix'>
     </div>
@@ -56,12 +56,11 @@
 31
 32
 33
-34
-35
-36
-37
-38
-39</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+34</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -69,75 +68,61 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-export default class FilterCourses {
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import Event from './Event';
 &nbsp;
-    constructor(){
-       
-    }
+const Quiz = ()=&gt;{
+    return(
+        &lt;div style = {MainStyle}&gt;
+            &lt;p style = {{fontWeight: 'bold', color: 'white', alignSelf: 'center'}}&gt;Personality Test&lt;/p&gt;
+            &lt;p style = {{color: 'white', alignSelf: 'center'}}&gt;Help us know more about you by taking the peronality test quiz.&lt;/p&gt;
+            &lt;div style = {EventStyle}&gt;
+                &lt;Event title = 'Take Quiz'/&gt;
+                &lt;Event title = 'View Prev'/&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    )
+}
 &nbsp;
-    Filter(list, id){
-        this.size = 0;
-        for(let i = 0; i &lt; list.length; i++){
-            if(list[i].id === id){
-                this.courses = list[i].courses;
-                this.size = list[i].courses.length;
-                break;
-            }
-        }
+const MainStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    margin: 22,
+    width: '90%',
+    minWidth: '90%',
+    padding: 12,
+    borderRadius: 9,
+    background: '#003b5c',
+    boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
+}
 &nbsp;
-        this.myCourses = new Array();
-        this.Rearrange(this.size);
-    }
+const EventStyle = {
+    display: 'flex',
+    flexDirection: 'row',
+}
 &nbsp;
-    Rearrange(size){
-        for(let i = 0; i &lt; size; i++){
-            let currCourse = this.courses[i];
-            let temp = currCourse.split("+");
-&nbsp;
-            const curr = {
-                courseName: temp[0],
-                courseID: temp[1]
-            }
-&nbsp;
-            this.myCourses.push(curr);
-        }
-    }
-&nbsp;
-    getMyCourses(){
-        return this.myCourses;
-    }
-}</pre></td></tr>
+export default Quiz</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
