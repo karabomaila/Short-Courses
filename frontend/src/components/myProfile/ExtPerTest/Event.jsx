@@ -3,8 +3,21 @@ import React from "react";
 
 const Event = (props) => {
 
+    const onClick = ()=>{
+        switch(props.click){
+            case 'main':
+                props.setModal('main');
+            case 'quiz':
+                props.setModal('quiz');
+
+            default:
+        }
+    }
+
     return(
-        <Button variant="outlined" style={ButtonStyle}>{props.title}</Button>
+        <Button variant="outlined" 
+        style={ButtonStyle}
+        onClick = {onClick}>{props.title}</Button>
     )
 }
 

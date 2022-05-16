@@ -1,17 +1,37 @@
 import React from 'react';
 import Event from './Event';
 
-const Quiz = ()=>{
+const Quiz = (props)=>{
+
+    if(props.modal == 'main'){
     return(
         <div style = {MainStyle}>
             <p style = {{fontWeight: 'bold', color: 'white', alignSelf: 'center'}}>Personality Test</p>
             <p style = {{color: 'white', alignSelf: 'center'}}>Help us know more about you by taking the peronality test quiz.</p>
             <div style = {EventStyle}>
-                <Event title = 'Take Quiz'/>
+                <Event title = 'Take Quiz' click = 'quiz' setModal = {props.setModal}/>
                 <Event title = 'View Prev'/>
             </div>
         </div>
     )
+    }else if(props.modal === 'quiz'){
+        return(
+            <div style = {MainStyle}>
+                01/99
+
+                <div style = {QStyle}>
+                    Questions here..
+                </div>
+    
+                <div style = {EventStyle}>
+                    <Event title = 'Yes'/>
+                    <Event title = 'Neutral'/>
+                    <Event title = 'No'/>
+                </div>
+                
+            </div>
+        )
+    }
 }
 
 const MainStyle = {
@@ -29,6 +49,24 @@ const MainStyle = {
 const EventStyle = {
     display: 'flex',
     flexDirection: 'row',
+    width: '50%',
+    alignSelf: 'center',
+    justifyContent: 'center'
+}
+
+const QStyle = {
+    display: 'flex',
+    borderRadius: 12,
+    borderStyle: 'solid',
+    borderColor: '#daa520',
+    height: '150px',
+    minHeight: '150px',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 12,
+    color: 'white',
+    fontWeight: 'bold'
+
 }
 
 export default Quiz

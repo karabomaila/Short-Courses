@@ -4,15 +4,19 @@ import analytics from './utils/analytics.png';
 import remove from './utils/remove.png';
 import PTestForm from './ExtPerTest/PTestForm';
 import Footer from '../Footer/Footer';
+import {useState} from 'react';
 import Quiz from './ExtPerTest/Quiz';
 
 
 const PersonalityTest = (props)=>{
+    const [modal, setModal] = useState('main');
+
+
     return(
         <div style = {MainStyle}>
             <p style = {TextStyle}>PERSONALITY TEST</p>
 
-            <Quiz />
+            <Quiz modal = {modal} setModal = {setModal}/>
             <PTestForm userID = {props.userID}/>
 
             <div style = {InfoBar}>
