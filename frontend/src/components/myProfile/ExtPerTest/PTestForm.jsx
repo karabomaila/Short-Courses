@@ -8,12 +8,14 @@ import AddMenu from './AddMenu';
 import Skills from './Skills';
 import Books from './Books';
 import Education from './Education';
+import Work from './Work';
 
 const PTestForm = (props)=>{
 
     const [skillVis, setSkillVis] = useState(false);
     const [bookVis, setBookVis] = useState(false);
     const [eduVis, setEduVis] = useState(false);
+    const [workVis, setWorkVis] = useState(false);
     const [value, setValue] = useState(new Date());
     const [gender, setGender] = useState('X');
 
@@ -54,7 +56,8 @@ const PTestForm = (props)=>{
             <Education visible = {eduVis}
             setVisible = {setEduVis}/>
             <h6 style = {H6Style}>Work</h6>
-            <AddMenu/>
+            <Work visible = {workVis}
+            setVisible = {setWorkVis}/>
         </div>
     )
 }

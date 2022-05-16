@@ -10,6 +10,8 @@ const AddMenu = (props)=>{
             props.booksVisible(true);
         }else if(props.click === 'edu'){
             props.eduVisible(true);
+        }else if(props.click === 'work'){
+            props.workVisible(true);
         }
     }
 
