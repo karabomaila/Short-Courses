@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/CourseCentre/FinHome.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/CourseCentre</a> FinHome.jsx
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import MyCourseCard from '../CoursesUI/MyCourseCard';</span>
+<span class="cstat-no" title="statement not covered" >import React from 'react';</span>
+import {useState} from 'react';
+<span class="cstat-no" title="statement not covered" >import Action from './Actions';</span>
+<span class="cstat-no" title="statement not covered" >import CommentCard from './CommentCard';</span>
+<span class="cstat-no" title="statement not covered" >import EnrolledCard from '../CoursesUI/EnrolledCard';</span>
+<span class="cstat-no" title="statement not covered" >import FeedbackDialog from '../Feedback/FeedbackDialog';</span>
+<span class="cstat-no" title="statement not covered" >import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';</span>
+<span class="cstat-no" title="statement not covered" >import Footer from '../Footer/Footer';</span>
+&nbsp;
+const FinHome = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()=&gt;<span class="cstat-no" title="statement not covered" ></span>{</span></span>
+    const [openFeedb, setOpenFeedb] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+    const [openAbout, setOpenAbout] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+    const courseName = <span class="cstat-no" title="statement not covered" >"Course Name";</span>
+    const data = <span class="cstat-no" title="statement not covered" >{decscription: "Des", duration: 12, outcomes: []};</span>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return(</span>
+        &lt;div style = {FinHomeStyle}&gt;
+            &lt;div style = {NavBarStyle}&gt;
+                 &lt;h3 style = {{margin: 7, color: 'white'}}&gt;COURSE NAME&lt;/h3&gt;
+                &lt;div style={ActionBarStyle}&gt;
+                        &lt;Action title = 'View' click = 'view'/&gt;
+                        &lt;Action title = 'Comment' click = 'comment'/&gt;
+                        &lt;Action title = 'Rate' click = 'rate' openFeedb = {setOpenFeedb}/&gt;
+                        &lt;Action title = 'About' click = 'about' openAbout = {setOpenAbout}/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            Comments on this course...
+&nbsp;
+            &lt;CommentCard/&gt;
+            &lt;CommentCard/&gt;
+            &lt;CommentCard/&gt;
+            &lt;CommentCard/&gt;
+            &lt;CommentCard/&gt;
+            &lt;CommentCard/&gt;
+            &lt;CommentCard/&gt;
+            &lt;CommentCard/&gt;
+&nbsp;
+&nbsp;
+            &lt;AboutCourseDialog data = {data} courseName = {courseName} open = {openAbout} close = {setOpenAbout}/&gt;
+            &lt;FeedbackDialog open = {openFeedb} close = {setOpenFeedb}/&gt;
+&nbsp;
+            &lt;Footer/&gt;
+        &lt;/div&gt;
+    )
+}
+&nbsp;
+const FinHomeStyle = <span class="cstat-no" title="statement not covered" >{</span>
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+}
+&nbsp;
+const NavBarStyle = <span class="cstat-no" title="statement not covered" >{</span>
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    background: '#003b5c',
+    marginBottom: 12,
+    alignItems: 'center'
+}
+&nbsp;
+const ActionBarStyle = <span class="cstat-no" title="statement not covered" >{</span>
+    display: 'flex',
+    flexDirection: 'row',
+    //margin: 5,
+    justifyContent: 'center'
+}
+export default FinHome;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 16 2022 09:40:05 GMT+0200 (South Africa Standard Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

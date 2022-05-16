@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/CreateCourse.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> CreateCourse.js
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Card,Button, Row, } from 'react-bootstrap';</span>
+<span class="cstat-no" title="statement not covered" >import { getDownloadURL, ref, uploadBytesResumable } from "@firebase/storage"</span>
+<span class="cstat-no" title="statement not covered" >import { storage } from "./firebase-config"</span>
+<span class="cstat-no" title="statement not covered" >import { useState, useRef } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import createID from './GenCourseID';</span>
+<span class="cstat-no" title="statement not covered" >import axios from 'axios';</span>
+import React from "react";
+&nbsp;
+&nbsp;
+&nbsp;
+function <span class="fstat-no" title="function not covered" >CreateCourse(props)<span class="cstat-no" title="statement not covered" >{</span></span>
+&nbsp;
+    //var prog = 0
+&nbsp;
+    const [progress, setProgress] = <span class="cstat-no" title="statement not covered" >useState(0);</span>
+    const [courseName, setCourseName] = <span class="cstat-no" title="statement not covered" >useState("");</span>
+&nbsp;
+    const picsRef = <span class="cstat-no" title="statement not covered" >useRef();</span>
+    const courseNameRef = <span class="cstat-no" title="statement not covered" >useRef();</span>
+    const emailRef = <span class="cstat-no" title="statement not covered" >useRef();</span>
+    const courseDescrptionRef = <span class="cstat-no" title="statement not covered" >useRef();</span>
+&nbsp;
+    const pictureshandler = (<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >e) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        e.preventDefault();</span>
+        const file1 = <span class="cstat-no" title="statement not covered" >e.target[0].files[0];</span>
+        const file2 = <span class="cstat-no" title="statement not covered" >e.target[0].files[1];</span>
+        const courseName = <span class="cstat-no" title="statement not covered" >e.target[1].value;</span>
+<span class="cstat-no" title="statement not covered" >        console.log(courseName);</span>
+<span class="cstat-no" title="statement not covered" >        uploadFiles(file1,file2)</span>
+      }
+&nbsp;
+    
+    var courseId = <span class="cstat-no" title="statement not covered" >createID(props.user.user_id, courseName);</span>
+      const uploadFiles = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(f</span>ile1,file2) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if(!file1 || !file2) <span class="cstat-no" title="statement not covered" >return;</span></span>
+        //courseId = createID(props.user.username, courseName);
+<span class="cstat-no" title="statement not covered" >        console.log(courseId)</span>
+        const storageRef1 = <span class="cstat-no" title="statement not covered" >ref(storage, `/Pictures/${courseId}Pic1`);</span>
+        const uploadTask1 = <span class="cstat-no" title="statement not covered" >uploadBytesResumable(storageRef1, file1);</span>
+&nbsp;
+        const storageRef2 = <span class="cstat-no" title="statement not covered" >ref(storage, `/Pictures/${courseId}Pic2`);</span>
+        const uploadTask2 = <span class="cstat-no" title="statement not covered" >uploadBytesResumable(storageRef2, file2);</span>
+&nbsp;
+        var temp = <span class="cstat-no" title="statement not covered" >{</span>
+          "user_id":props.user.user_id,
+          "crs_name":courseName,
+          "crs_description":document.getElementById("desId").value,
+          "crs_id":courseId,
+          "picture_1":courseId+"Pic1",
+          "picture_2":courseId+"Pic2"
+        }
+&nbsp;
+        
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        axios.post('CreateCourse',temp)</span>
+        .then((<span class="fstat-no" title="function not covered" >response) =&gt;{</span>
+<span class="cstat-no" title="statement not covered" >          if(response.data === "1 record inserted"){</span>
+<span class="cstat-no" title="statement not covered" >            props.handleClose();</span>
+<span class="cstat-no" title="statement not covered" >            window.location.reload(false);</span>
+          }
+&nbsp;
+        })
+        .catch((<span class="fstat-no" title="function not covered" >error) =&gt;{</span>
+<span class="cstat-no" title="statement not covered" >          console.log(error)</span>
+        })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        uploadTask1.on("state_changed", (<span class="fstat-no" title="function not covered" >snapshot) =&gt; {</span></span>
+            const prog = <span class="cstat-no" title="statement not covered" >Math.round((snapshot.bytesTransferred / snapshot.totalBytes)*100);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            setProgress(prog);</span>
+          }, 
+            (<span class="fstat-no" title="function not covered" >err) =&gt; <span class="cstat-no" title="statement not covered" >console.log(err),</span></span>
+<span class="fstat-no" title="function not covered" >            () =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >              getDownloadURL(uploadTask1.snapshot.ref).then((<span class="fstat-no" title="function not covered" >url) =&gt; <span class="cstat-no" title="statement not covered" >console.log(url))</span></span></span>
+            }
+          )
+<span class="cstat-no" title="statement not covered" >          picsRef.current.value = null;</span>
+<span class="cstat-no" title="statement not covered" >          courseNameRef.current.value = null;</span>
+<span class="cstat-no" title="statement not covered" >          emailRef.current.value = null;</span>
+<span class="cstat-no" title="statement not covered" >          courseDescrptionRef.current.value = null;</span>
+&nbsp;
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return(</span>
+        &lt;Card style={{ width: '30rem', color:'white',background: '#003B5C'}}&gt;
+       &lt;Card.Body&gt;
+       &lt;form id="post" enctype="multipart/form-data" onSubmit={pictureshandler} &gt;
+           
+           &lt;Row&gt;
+           &lt;label&gt;Two pictures &lt;/label&gt;
+           &lt;input type="file" name="images" id="" required class="form-control"  multiple ref={picsRef}/&gt;
+           &lt;/Row&gt;
+&nbsp;
+           &lt;Row&gt;
+           &lt;label&gt;Course Name&lt;/label&gt;
+           &lt;input type="text" name="name" id="nameId" onChange={(<span class="fstat-no" title="function not covered" >event) =&gt; {<span class="cstat-no" title="statement not covered" >setCourseName(event.target.value)}} ref={courseNameRef}/&gt;</span></span>
+           &lt;/Row&gt;
+&nbsp;
+           {/* &lt;Row&gt;
+           &lt;label&gt;Email&lt;/label&gt;
+           &lt;input type="email" name="email" ref={emailRef}/&gt;
+           &lt;/Row&gt; */}
+          &lt;Row&gt;
+          &lt;label&gt;Course Description&lt;/label&gt;
+          &lt;textarea name="description" id="desId" rows="4" ref={courseDescrptionRef}/&gt;
+          &lt;/Row&gt;
+          &lt;Row&gt;
+          &lt;label&gt;  &lt;/label&gt;
+          &lt;Button type="submit" value="Send" variant="dark" &gt;send&lt;/Button&gt;
+          &lt;/Row&gt;
+      
+    &lt;/form&gt;
+    &lt;h3&gt;Uploaded {progress} %&lt;/h3&gt;
+       &lt;/Card.Body&gt;
+      &lt;/Card&gt;
+    );
+}
+export default CreateCourse;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 16 2022 09:40:05 GMT+0200 (South Africa Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/CoursesUI/MyCoursesList.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/CoursesUI</a> MyCoursesList.jsx
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import MyCourseCard from './MyCourseCard';</span>
+import {useContext,useEffect,useState} from 'react';
+<span class="cstat-no" title="statement not covered" >import axios from 'axios'</span>
+&nbsp;
+const MyCoursesList = (<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >props)=&gt;<span class="cstat-no" title="statement not covered" >{</span></span></span>
+&nbsp;
+    const [MycoursesData,setMycoursesData] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    useEffect( <span class="fstat-no" title="function not covered" >async()=&gt;</span>{</span>
+&nbsp;
+        var temp=<span class="cstat-no" title="statement not covered" >{"user_id":props.user[0].username.split("@")[0]}</span>
+        
+      
+<span class="cstat-no" title="statement not covered" >        await axios.post('http://localhost:5000/mycourses',temp)</span>
+          .then((<span class="fstat-no" title="function not covered" >res)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >            console.log(res.data);</span>
+<span class="cstat-no" title="statement not covered" >            setMycoursesData(res.data)</span>
+  
+          }).catch(<span class="fstat-no" title="function not covered" >err</span>=&gt;{
+<span class="cstat-no" title="statement not covered" >            console.log(err)</span>
+          })
+          
+       },[setMycoursesData])
+  
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return(</span>
+        &lt;div&gt;
+            {MycoursesData.map(<span class="fstat-no" title="function not covered" >(d</span>ata,index) =&gt; 
+<span class="cstat-no" title="statement not covered" >          &lt;MyCourseCard</span>
+          key={index}
+          image1={data.picture_1}
+          description={data.crs_description} 
+          name={data.crs_name}
+          crs_id={data.crs_id}
+          user={props.user}
+         /&gt;)}
+        &lt;/div&gt;
+    )
+}
+&nbsp;
+export default MyCoursesList;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 16 2022 09:40:05 GMT+0200 (South Africa Standard Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
