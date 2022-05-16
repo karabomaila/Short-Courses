@@ -66,7 +66,7 @@ const ExposeView = (props) =>{
             </div>
 
         
-            <Footer/>
+            
         </div>
     )
 }

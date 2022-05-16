@@ -4,6 +4,7 @@ import analytics from './utils/analytics.png';
 import remove from './utils/remove.png';
 import PTestForm from './ExtPerTest/PTestForm';
 import Footer from '../Footer/Footer';
+import Quiz from './ExtPerTest/Quiz';
 
 
 const PersonalityTest = (props)=>{
@@ -11,8 +12,7 @@ const PersonalityTest = (props)=>{
         <div style = {MainStyle}>
             <p style = {TextStyle}>PERSONALITY TEST</p>
 
-           
-
+            <Quiz />
             <PTestForm userID = {props.userID}/>
 
             <div style = {InfoBar}>
@@ -20,7 +20,7 @@ const PersonalityTest = (props)=>{
                 <InfoCard image = {remove} title = 'Delete My Data'/>
             </div>
 
-            <Footer/>
+            
         </div>
     )
 }

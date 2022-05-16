@@ -43,7 +43,7 @@ const FinHome = ()=>{
             <AboutCourseDialog data = {data} courseName = {courseName} open = {openAbout} close = {setOpenAbout}/>
             <FeedbackDialog open = {openFeedb} close = {setOpenFeedb}/>
 
-            <Footer/>
+            
         </div>
     )
 }
