@@ -36,6 +36,7 @@ const MainStyle = {
     minHeight: '100vh',
     alignItems: 'center',
     background: '#edf4f5',
+    overflowY: 'scroll'
     
 }
 

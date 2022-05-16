@@ -4,6 +4,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker} from '@mui/x-date-pickers/DatePicker';
 import {InputLabel, MenuItem, FormControl, Select, TextField }from '@mui/material';
+import AddMenu from './AddMenu';
 
 const PTestForm = (props)=>{
 
@@ -38,9 +39,13 @@ const PTestForm = (props)=>{
            
             
             <h6 style = {H6Style}>Interests and Skills</h6>
+            <AddMenu/>
             <h6 style = {H6Style}>Favourite Books Read</h6>
+            <AddMenu/>
             <h6 style = {H6Style}>Education</h6>
+            <AddMenu/>
             <h6 style = {H6Style}>Work</h6>
+            <AddMenu/>
         </div>
     )
 }
