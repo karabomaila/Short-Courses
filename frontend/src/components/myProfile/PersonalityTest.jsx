@@ -15,8 +15,8 @@ const PersonalityTest = (props)=>{
     return(
         <div style = {MainStyle}>
             <p style = {TextStyle}>PERSONALITY TEST</p>
-
-            <Quiz modal = {modal} setModal = {setModal}/>
+            <Quiz modal = {modal} 
+            setModal = {setModal}/>
             <PTestForm userID = {props.userID}/>
 
             <div style = {InfoBar}>

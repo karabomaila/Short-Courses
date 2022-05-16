@@ -4,13 +4,12 @@ import React from "react";
 const Event = (props) => {
 
     const onClick = ()=>{
-        switch(props.click){
-            case 'main':
-                props.setModal('main');
-            case 'quiz':
-                props.setModal('quiz');
-
-            default:
+        if(props.click === 'main'){
+            props.setModal('main');
+        }else if(props.click === 'quiz'){
+            props.setModal('quiz');
+        }else if(props.click === 'view'){
+            props.setModal('view');
         }
     }
 
