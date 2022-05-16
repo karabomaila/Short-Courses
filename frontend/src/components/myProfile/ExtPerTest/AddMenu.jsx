@@ -1,11 +1,16 @@
 import React from 'react';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 
-const AddMenu = ()=>{
+const AddMenu = (props)=>{
+
+    const change = ()=>{
+        props.skillVisible(true);
+    }
+
     return(
         <div style = {AddStyle}>
             <div>
-                <AddCircleRoundedIcon sx = {{color: 'black'}}/>
+                <AddCircleRoundedIcon sx = {{color: 'black'}} onClick = {change}/>
             </div>
         </div>
     )
