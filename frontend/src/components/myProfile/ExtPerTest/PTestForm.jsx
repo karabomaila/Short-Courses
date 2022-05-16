@@ -6,10 +6,14 @@ import { DatePicker} from '@mui/x-date-pickers/DatePicker';
 import {InputLabel, MenuItem, FormControl, Select, TextField }from '@mui/material';
 import AddMenu from './AddMenu';
 import Skills from './Skills';
+import Books from './Books';
+import Education from './Education';
 
 const PTestForm = (props)=>{
 
     const [skillVis, setSkillVis] = useState(false);
+    const [bookVis, setBookVis] = useState(false);
+    const [eduVis, setEduVis] = useState(false);
     const [value, setValue] = useState(new Date());
     const [gender, setGender] = useState('X');
 
@@ -44,9 +48,11 @@ const PTestForm = (props)=>{
             <Skills visible = {skillVis} 
             setVisible = {setSkillVis}/>
             <h6 style = {H6Style}>Favourite Books Read</h6>
-            <AddMenu/>
+            <Books visible = {bookVis}
+            setVisible = {setBookVis}/>
             <h6 style = {H6Style}>Education</h6>
-            <AddMenu/>
+            <Education visible = {eduVis}
+            setVisible = {setEduVis}/>
             <h6 style = {H6Style}>Work</h6>
             <AddMenu/>
         </div>

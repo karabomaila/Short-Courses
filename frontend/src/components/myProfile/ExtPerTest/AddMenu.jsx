@@ -4,7 +4,13 @@ import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 const AddMenu = (props)=>{
 
     const change = ()=>{
-        props.skillVisible(true);
+        if(props.click === 'skills'){
+            props.skillVisible(true);
+        }else if(props.click === 'books'){
+            props.booksVisible(true);
+        }else if(props.click === 'edu'){
+            props.eduVisible(true);
+        }
     }
 
     return(

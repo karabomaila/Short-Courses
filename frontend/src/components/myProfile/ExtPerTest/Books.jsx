@@ -1,9 +1,9 @@
+import AddMenu from './AddMenu';
 import React from 'react';
 import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import AddMenu from './AddMenu';
 
-const Skills = (props)=>{
+const Books = (props)=>{
 
     const change = ()=>{
         props.setVisible(false);
@@ -13,38 +13,30 @@ const Skills = (props)=>{
         return(
             <div style = {MainStyle}>
                 <div style = {InputStyle}>
-                <TextField
-                label="Add Interests or Skills" 
-                variant="outlined"/>
+                <TextField width = '30%' label = 'Book Title' variant='standard'/>
+                </div>
+                <div style = {InputStyle}>
+                <TextField label = 'Book Author' variant='standard'/>
                 </div>
                 <div style = {ClickStyle}>
                 <CheckCircleOutlineIcon sx = {{color: 'black'}} onClick = {change}/>
                 </div>
-    
-               
             </div>
         )
     }else{
         return(
             <AddMenu 
-            click = 'skills'
-            skillVisible = {props.setVisible}/>
+            click = 'books'
+            booksVisible = {props.setVisible}/>
         )
     }
-
-    
+   
 }
 
-const MainStyle= {
+const MainStyle = {
     display: 'flex',
     flexDirection: 'column',
     marginLeft: 15,
-}
-
-const InputStyle = {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center'
 }
 
 const ClickStyle ={
@@ -55,4 +47,10 @@ const ClickStyle ={
     alignItems: 'center'
 }
 
-export default Skills;
+const InputStyle = {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+}
+
+export default Books;
