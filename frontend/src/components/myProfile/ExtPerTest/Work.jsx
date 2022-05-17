@@ -2,6 +2,7 @@ import AddMenu from './AddMenu';
 import React from 'react';
 import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import WorkView from './WorkView';
 
 const Work = (props)=>{
 
@@ -34,6 +35,7 @@ const Work = (props)=>{
         return(
             <AddMenu 
             click = 'work'
+            display = {WorkView}
             workVisible = {props.setVisible}/>
         )
     }

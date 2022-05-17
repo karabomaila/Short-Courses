@@ -53,7 +53,11 @@ const PTestForm = (props)=>{
             <h6 style = {H6Style}>Favourite Books Read</h6>
             <Books visible = {bookVis}
             setVisible = {setBookVis}/>
-           
+            <h6 style = {H6Style}>Education</h6>
+            <Education visible = {eduVis}
+            setVisible = {setEduVis}/>
+            <h6 style = {H6Style}>Work</h6>
+            <Work visible = {workVis}
             setVisible = {setWorkVis}/>
         </div>
     )
