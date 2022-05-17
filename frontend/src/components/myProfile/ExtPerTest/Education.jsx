@@ -6,6 +6,8 @@ import EducationView from './EducationView';
 
 const Education = (props)=>{
 
+    const data = [{name: 'Wits', qualification: 'Coms', years: '2020 - 2022'}, {name: 'Dan', qualification: 'NSC', years: '2015 - 2019'}];
+
     const change = ()=>{
         props.setVisible(false);
     }
@@ -35,7 +37,8 @@ const Education = (props)=>{
         return(
             <AddMenu 
             click = 'edu'
-            display = {EducationView}
+            type = 'edu'
+            data = {data}
             eduVisible = {props.setVisible}/>
         )
     }

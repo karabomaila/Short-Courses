@@ -6,6 +6,8 @@ import DisplayBooks from './DisplayBooks';
 
 const Books = (props)=>{
 
+    const data = [{title: 'Book1', author: 'Author1'}, {title: 'Book2', author: 'Author2'}];
+
     const change = ()=>{
         props.setVisible(false);
     }
@@ -28,7 +30,8 @@ const Books = (props)=>{
         return(
             <AddMenu 
             click = 'books'
-            display = {DisplayBooks}
+            type = 'books'
+            data = {data}
             booksVisible = {props.setVisible}/>
         )
     }

@@ -6,6 +6,8 @@ import ViewSkills from './ViewSkills';
 
 const Skills = (props)=>{
 
+    const data = ['Programming', 'Problem Solving']
+
     const change = ()=>{
         props.setVisible(false);
     }
@@ -29,7 +31,8 @@ const Skills = (props)=>{
         return(
             <AddMenu 
             click = 'skills'
-            display = {ViewSkills}
+            type = 'skills'
+            data = {data}
             skillVisible = {props.setVisible}/>
         )
     }

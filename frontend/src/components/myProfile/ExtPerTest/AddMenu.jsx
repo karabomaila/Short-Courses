@@ -1,5 +1,6 @@
 import React from 'react';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
+import Views from './Views';
 
 const AddMenu = (props)=>{
 
@@ -21,7 +22,7 @@ const AddMenu = (props)=>{
                 <AddCircleRoundedIcon sx = {{color: 'black'}} onClick = {change}/>
             </div>
             <div style = {{display: 'flex'}}>
-                <props.display/>
+                <Views type = {props.type} data = {props.data}/>
             </div>
            
         </div>

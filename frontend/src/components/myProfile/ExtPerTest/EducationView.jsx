@@ -1,16 +1,16 @@
 import React from 'react';
 import SchoolIcon from '@mui/icons-material/School';
 
-const EducationView = ()=>{
+const EducationView = (props)=>{
     return(
         <div style = {MainStyle}>
             <div style = {{display: 'flex'}}>
                 <SchoolIcon sx = {{color: '#daa520'}}/>
             </div>
             <div style = {TextStyle}>
-                <p style = {{fontWeight: 'bold', margin: 0, fontSize: 15, fontFamily: 'monospace'}}>Institution</p>
-                <p style = {{margin: 0, fontSize: 15}}>Qualification</p>
-                <p style = {{margin: 0, fontSize: 12}}>2020 - 2022</p>
+                <p style = {{fontWeight: 'bold', margin: 0, fontSize: 15, fontFamily: 'monospace'}}>{props.school.name}</p>
+                <p style = {{margin: 0, fontSize: 15}}>{props.school.qualification}</p>
+                <p style = {{margin: 0, fontSize: 12}}>{props.school.years}</p>
             </div>
         </div>
     )

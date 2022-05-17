@@ -6,6 +6,8 @@ import WorkView from './WorkView';
 
 const Work = (props)=>{
 
+    const data = [{name: 'Wits MSS', occupation: 'TLA', years: '2022 - 2022'}, {name: 'Wits RL', occupation: 'RM', years: '2021 - 2021'}];
+
     const change = ()=>{
         props.setVisible(false);
     }
@@ -35,7 +37,8 @@ const Work = (props)=>{
         return(
             <AddMenu 
             click = 'work'
-            display = {WorkView}
+            type = 'work'
+            data = {data}
             workVisible = {props.setVisible}/>
         )
     }
