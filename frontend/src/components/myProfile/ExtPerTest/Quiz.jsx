@@ -4,7 +4,7 @@ import Event from './Event';
 
 const Quiz = (props)=>{
 
-    const Questions = ['q1', 'q2'];
+    const Questions = ['Question1', 'Question2', 'Question3', 'Question4'];
     const [index, setIndex] = useState(0);
     const MAX_QS = Questions.length;
 
@@ -26,8 +26,7 @@ const Quiz = (props)=>{
     }else if(props.modal === 'quiz'){
         return(
             <div style = {MainStyle}>
-                01/99
-
+                <p style = {{color: 'white', fontWeight: 'bold'}}>Question {index + 1} of {MAX_QS}</p>
                 <div style = {QStyle}>
                     <p>{Questions[index]}</p>
                 </div>
