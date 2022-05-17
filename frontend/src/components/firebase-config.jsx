@@ -12,7 +12,7 @@ import { getStorage } from "@firebase/storage";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 //google account = witssdteam@gmail.com
-//password = @Wits2022ß
+//password = @Wits2022
 
 const firebaseConfig = {
   apiKey: "AIzaSyDOTpuBX6XHkTzmVEWkO3RszUO3Fo52g80",
