@@ -3,20 +3,34 @@ import InfoCard from './utils/InfoCard';
 import analytics from './utils/analytics.png';
 import remove from './utils/remove.png';
 import PTestForm from './ExtPerTest/PTestForm';
-import Footer from '../Footer/Footer';
+import {db} from '../firebase-config';
+import {doc, getDoc} from 'firebase/firestore';
 import {useState} from 'react';
 import Quiz from './ExtPerTest/Quiz';
+import { useEffect } from 'react';
 
 
 const PersonalityTest = (props)=>{
+    const [questions, setQuestions] = useState([]);
     const [modal, setModal] = useState('main');
 
+    
+    useEffect(() => {
+        const getQuestions = async ()=>{
+           let ref = doc(db, 'GlobalData', 'Quiz');
+           const temp = await getDoc(ref);
+           setQuestions(temp._document.data.value.mapValue.fields.Questions.arrayValue.values);
+        }
+        
+        getQuestions();
+    }, [])
 
     return(
         <div style = {MainStyle}>
             <p style = {TextStyle}>PERSONALITY TEST</p>
             <Quiz modal = {modal} 
-            setModal = {setModal}/>
+            setModal = {setModal}
+            questions = {questions}/>
             <PTestForm userID = {props.userID}/>
 
             <div style = {InfoBar}>

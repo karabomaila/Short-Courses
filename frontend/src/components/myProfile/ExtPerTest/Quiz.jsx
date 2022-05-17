@@ -3,8 +3,7 @@ import { useState } from 'react';
 import Event from './Event';
 
 const Quiz = (props)=>{
-
-    const Questions = ['Question1', 'Question2', 'Question3', 'Question4'];
+    const Questions = props.questions;
     const [index, setIndex] = useState(0);
     const MAX_QS = Questions.length;
 
@@ -28,7 +27,7 @@ const Quiz = (props)=>{
             <div style = {MainStyle}>
                 <p style = {{color: 'white', fontWeight: 'bold'}}>Question {index + 1} of {MAX_QS}</p>
                 <div style = {QStyle}>
-                    <p>{Questions[index]}</p>
+                    <p>{Questions[index].stringValue}</p>
                 </div>
     
                 <div style = {EventStyle}>
