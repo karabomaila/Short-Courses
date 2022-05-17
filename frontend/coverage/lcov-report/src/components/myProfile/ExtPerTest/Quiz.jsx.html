@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -56,8 +56,64 @@
 31
 32
 33
-34</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -72,6 +128,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -85,6 +175,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -92,17 +200,53 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import Event from './Event';
 &nbsp;
-const Quiz = ()=&gt;{
+const Quiz = (props)=&gt;{
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if(props.modal === 'main'){
     return(
         &lt;div style = {MainStyle}&gt;
             &lt;p style = {{fontWeight: 'bold', color: 'white', alignSelf: 'center'}}&gt;Personality Test&lt;/p&gt;
             &lt;p style = {{color: 'white', alignSelf: 'center'}}&gt;Help us know more about you by taking the peronality test quiz.&lt;/p&gt;
             &lt;div style = {EventStyle}&gt;
-                &lt;Event title = 'Take Quiz'/&gt;
-                &lt;Event title = 'View Prev'/&gt;
+                &lt;Event title = 'Take Quiz' 
+                click = 'quiz' 
+                setModal = {props.setModal}/&gt;
+                &lt;Event title = 'View Prev' 
+                click = 'view' 
+                setModal = {props.setModal}/&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     )
+    }else <span class="cstat-no" title="statement not covered" >if(props.modal === 'quiz'){</span>
+<span class="cstat-no" title="statement not covered" >        return(</span>
+            &lt;div style = {MainStyle}&gt;
+                01/99
+&nbsp;
+                &lt;div style = {QStyle}&gt;
+                    Questions here..
+                &lt;/div&gt;
+    
+                &lt;div style = {EventStyle}&gt;
+                    &lt;Event title = 'Yes'/&gt;
+                    &lt;Event title = 'Neutral'/&gt;
+                    &lt;Event title = 'No'/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }else <span class="cstat-no" title="statement not covered" >if(props.modal === 'view'){</span>
+<span class="cstat-no" title="statement not covered" >        return(</span>
+            &lt;div style = {MainStyle}&gt;
+                &lt;div style = {QStyle}&gt;
+                    Questions here..
+                &lt;/div&gt;
+                &lt;div style = {EventStyle}&gt;
+                    &lt;Event title = 'Done' 
+                    click = 'main' 
+                    setModal = {props.setModal}/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }
 }
 &nbsp;
 const MainStyle = {
@@ -120,6 +264,24 @@ const MainStyle = {
 const EventStyle = {
     display: 'flex',
     flexDirection: 'row',
+    width: '50%',
+    alignSelf: 'center',
+    justifyContent: 'center'
+}
+&nbsp;
+const QStyle = {
+    display: 'flex',
+    borderRadius: 12,
+    borderStyle: 'solid',
+    borderColor: '#daa520',
+    height: '150px',
+    minHeight: '150px',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 12,
+    color: 'white',
+    fontWeight: 'bold'
+&nbsp;
 }
 &nbsp;
 export default Quiz</pre></td></tr>
@@ -128,7 +290,7 @@ export default Quiz</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 16 2022 12:54:37 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 17 2022 19:12:07 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

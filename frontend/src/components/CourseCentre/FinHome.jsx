@@ -7,6 +7,7 @@ import EnrolledCard from '../CoursesUI/EnrolledCard';
 import FeedbackDialog from '../Feedback/FeedbackDialog';
 import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
 import Footer from '../Footer/Footer';
+import DisplayBooks from '../myProfile/ExtPerTest/DisplayBooks';
 
 const FinHome = ()=>{
     const [openFeedb, setOpenFeedb] = useState(false);
@@ -29,7 +30,6 @@ const FinHome = ()=>{
                 </div>
             </div>
             Comments on this course...
-
             <CommentCard/>
             <CommentCard/>
             <CommentCard/>

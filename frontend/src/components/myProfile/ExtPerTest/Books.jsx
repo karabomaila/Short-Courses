@@ -2,6 +2,7 @@ import AddMenu from './AddMenu';
 import React from 'react';
 import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import DisplayBooks from './DisplayBooks';
 
 const Books = (props)=>{
 
@@ -27,6 +28,7 @@ const Books = (props)=>{
         return(
             <AddMenu 
             click = 'books'
+            display = {DisplayBooks}
             booksVisible = {props.setVisible}/>
         )
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import AddMenu from './AddMenu';
+import ViewSkills from './ViewSkills';
 
 const Skills = (props)=>{
 
@@ -28,6 +29,7 @@ const Skills = (props)=>{
         return(
             <AddMenu 
             click = 'skills'
+            display = {ViewSkills}
             skillVisible = {props.setVisible}/>
         )
     }

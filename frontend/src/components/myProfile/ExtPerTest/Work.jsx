@@ -16,7 +16,7 @@ const Work = (props)=>{
                     <TextField label = 'Company Name' variant='standard'/>
                 </div>
                 <div style = {InputStyle}>
-                <TextField label = 'Occupation Name' variant='standard'/>
+                <TextField label = 'Occupation' variant='standard'/>
                 </div>
                 <div style = {InputStyle}>
                 <TextField label = 'Year Started' variant='standard'/>

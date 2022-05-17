@@ -20,6 +20,10 @@ const AddMenu = (props)=>{
             <div>
                 <AddCircleRoundedIcon sx = {{color: 'black'}} onClick = {change}/>
             </div>
+            <div style = {{display: 'flex'}}>
+                <props.display/>
+            </div>
+           
         </div>
     )
 }
