@@ -20,6 +20,7 @@ const MainStyle = {
     boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)',
     alignItems: 'center',
     marginTop: 12,
+    marginLeft: 12,
     padding: 3,
     borderRadius: 9
     
