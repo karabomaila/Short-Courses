@@ -21,7 +21,7 @@ const Skills = (props)=>{
                 variant="outlined"/>
                 </div>
                 <div style = {ClickStyle}>
-                <CheckCircleOutlineIcon sx = {{color: 'black'}} onClick = {change}/>
+                <CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/>
                 </div>
     
                

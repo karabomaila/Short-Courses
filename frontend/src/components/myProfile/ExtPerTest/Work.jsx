@@ -6,7 +6,7 @@ import WorkView from './WorkView';
 
 const Work = (props)=>{
 
-    const data = [{name: 'Wits MSS', occupation: 'TLA', years: '2022 - 2022'}, {name: 'Wits RL', occupation: 'RM', years: '2021 - 2021'}];
+    const data = [{name: 'Wits MSS', occupation: 'TLA', years: '2022 - 2022'}, {name: 'Wits RL', occupation: 'RM', years: '2021 - 2021'}, {name: 'Entelect', occupation: 'Software Engineer', years: '2023 - '}];
 
     const change = ()=>{
         props.setVisible(false);
@@ -28,7 +28,7 @@ const Work = (props)=>{
                 <TextField label = 'Year Completed' variant='standard'/>
                 </div>
                 <div style = {ClickStyle}>
-                <CheckCircleOutlineIcon sx = {{color: 'black'}} onClick = {change}/>
+                <CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/>
                 </div>
                 
             </div>

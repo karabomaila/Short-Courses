@@ -1,7 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
 import Event from './Event';
 
 const Quiz = (props)=>{
+
+    const Questions = ['q1', 'q2'];
+    const [index, setIndex] = useState(0);
+    const MAX_QS = Questions.length;
 
     if(props.modal === 'main'){
     return(
@@ -24,13 +29,28 @@ const Quiz = (props)=>{
                 01/99
 
                 <div style = {QStyle}>
-                    Questions here..
+                    <p>{Questions[index]}</p>
                 </div>
     
                 <div style = {EventStyle}>
-                    <Event title = 'Yes'/>
-                    <Event title = 'Neutral'/>
-                    <Event title = 'No'/>
+                    <Event title = 'Yes' 
+                    click = 'yes' 
+                    size = {MAX_QS}
+                    setModal = {props.setModal}
+                    setIndex = {setIndex} 
+                    index = {index}/>
+                    <Event title = 'Neutral' 
+                    click = 'neutral' 
+                    size = {MAX_QS}
+                    setModal = {props.setModal}
+                    setIndex = {setIndex} 
+                    index = {index}/>
+                    <Event title = 'No' 
+                    click = 'no' 
+                    size = {MAX_QS}
+                    setModal = {props.setModal}
+                    setIndex = {setIndex} 
+                    index = {index}/>
                 </div>
             </div>
         )
