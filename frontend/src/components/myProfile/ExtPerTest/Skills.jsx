@@ -6,7 +6,7 @@ import ViewSkills from './ViewSkills';
 
 const Skills = (props)=>{
 
-    const data = ['Programming', 'Problem Solving']
+    const data = ['Programming', 'Problem Solving', 'Computer Science', 'University', 'Witwatersrand', 'Machine Learning', 'Google']
 
     const change = ()=>{
         props.setVisible(false);

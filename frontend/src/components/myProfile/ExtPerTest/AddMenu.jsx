@@ -21,7 +21,7 @@ const AddMenu = (props)=>{
             <div>
                 <AddCircleRoundedIcon sx = {{color: 'black'}} onClick = {change}/>
             </div>
-            <div style = {{display: 'flex'}}>
+            <div style = {{display: 'flex', flexWrap: 'wrap'}}>
                 <Views type = {props.type} data = {props.data}/>
             </div>
            
