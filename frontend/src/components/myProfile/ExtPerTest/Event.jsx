@@ -10,7 +10,7 @@ const Event = (props) => {
             props.setModal('quiz');
         }else if(props.click === 'view'){
             props.setModal('view');
-        }else if(props.click === 'yes' || props.click === 'neutral' || props.click === 'no'){
+        }else if(props.click === 'yes' || props.click === 'nsure' || props.click === 'no'){
             let int = props.index + 1;
             if(int < props.size){
                 props.setIndex(int);

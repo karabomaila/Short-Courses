@@ -4,6 +4,7 @@ import Event from './Event';
 
 const Quiz = (props)=>{
     const Questions = props.questions;
+    
     const [index, setIndex] = useState(0);
     const MAX_QS = Questions.length;
 
@@ -37,8 +38,8 @@ const Quiz = (props)=>{
                     setModal = {props.setModal}
                     setIndex = {setIndex} 
                     index = {index}/>
-                    <Event title = 'Neutral' 
-                    click = 'neutral' 
+                    <Event title = 'Not Sure' 
+                    click = 'nsure' 
                     size = {MAX_QS}
                     setModal = {props.setModal}
                     setIndex = {setIndex} 
