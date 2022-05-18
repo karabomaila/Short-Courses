@@ -29,24 +29,6 @@ const PTestForm = (props)=>{
         <div style = {MainStyle}>
             <p style = {{margin: 12, alignSelf: 'center'}}>Data belonging to {props.userID}</p>
 
-            <h6 style = {H6Style}>Gender</h6>
-            <div>
-                <FormControl sx={{ m: 1, minWidth: 100 }}>
-                    <InputLabel>Gender</InputLabel>
-                    <Select
-                    value={gender}
-                    onChange={handleChange}
-                    autoWidth
-                    label="Gender"
-                    >
-                    <MenuItem value={'Male'}>Male</MenuItem>
-                    <MenuItem value={'Female'}>Female</MenuItem>
-                    <MenuItem value={'X'}>X</MenuItem>
-                    </Select>
-                </FormControl>
-            </div>
-            <h6 style = {H6Style}>Birthday</h6>
-            00/00/0000
             <h6 style = {H6Style}>Interests and Skills</h6>
             <Skills visible = {skillVis} 
             setVisible = {setSkillVis}/>

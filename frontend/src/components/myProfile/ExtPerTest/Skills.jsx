@@ -15,15 +15,14 @@ const Skills = (props)=>{
     if(props.visible){
         return(
             <div style = {MainStyle}>
+                 <div style = {ClickStyle}>
+                <CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/>
+                </div>
                 <div style = {InputStyle}>
                 <TextField
                 label="Add Interests or Skills" 
                 variant="outlined"/>
                 </div>
-                <div style = {ClickStyle}>
-                <CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/>
-                </div>
-    
                
             </div>
         )
