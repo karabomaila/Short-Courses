@@ -2,8 +2,9 @@ import AddMenu from './AddMenu';
 import React from 'react';
 import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import EducationView from './EducationView';
 import { useState } from 'react';
+import { db } from '../../firebase-config';
+import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 
 const Education = (props)=>{
 
@@ -13,11 +14,17 @@ const Education = (props)=>{
     const [year2, setYear2] = useState('');
     const data = [{name: 'Wits', qualification: 'Coms', years: '2020 - 2022'}, {name: 'Dan', qualification: 'NSC', years: '2015 - 2019'}];
 
+    const upload = async (newData)=>{
+        let ref = doc(db, 'About', props.userID);
+        await setDoc(ref, {education: arrayUnion(newData)}, {merge: true});
+    }
+
+
     const change = ()=>{
         props.setVisible(false);
 
         if(inst != '' && qual != '' && year1 != ''){
-            // send to database...
+            upload({institution: inst, qualification: qual, years: year1 + " - " + year2});
             setInst('');
             setQual('');
             setYear1('');
