@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import {db} from '../../firebase-config';
-import {doc, getDoc} from 'firebase/firestore';
+import {doc, getDoc, setDoc} from 'firebase/firestore';
 import { useEffect } from 'react';
 import Event from './Event';
 
@@ -20,7 +20,15 @@ const Quiz = (props)=>{
             const testRef = doc(db, "About", props.userID);
             const testData = await getDoc(testRef);
             let fields = testData._document.data.value.mapValue.fields;
-            setTest(fields.test.arrayValue.values);
+
+            if(fields.test == undefined){
+                setDoc(testRef, {test: [{Q: "No Data to display", A: 'Please take the quiz first'}]}, {merge: true});
+                const initTestData = await getDoc(testRef);
+                const initFields = initTestData._document.data.value.mapValue.fields;
+                setTest(initFields.test.arrayValue.values);
+            }else{
+                setTest(fields.test.arrayValue.values);
+            }
         }
         
         getTest();
