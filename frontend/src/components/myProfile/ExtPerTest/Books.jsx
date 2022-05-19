@@ -4,6 +4,8 @@ import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import DisplayBooks from './DisplayBooks';
 import { useState } from 'react';
+import { db } from '../../firebase-config';
+import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 
 const Books = (props)=>{
 
@@ -11,11 +13,16 @@ const Books = (props)=>{
     const [author, setAuthor] = useState('');
     const data = [{title: 'Book1', author: 'Author1'}, {title: 'Book2', author: 'Author2'}];
 
+    const upload = async (newData)=>{
+        let ref = doc(db, 'About', props.userID);
+        await setDoc(ref, {books: arrayUnion(newData)}, {merge: true});
+    }
+
     const change = ()=>{
         props.setVisible(false);
 
         if(author != '' && title != ''){
-            //  send to database...
+            upload({title: title, author: author});
             setTitle('');
             setAuthor('');
         }
