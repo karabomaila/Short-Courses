@@ -1,7 +1,18 @@
 import { Button } from "@mui/material";
+import { db } from '../../firebase-config.jsx';
+import {doc, setDoc} from 'firebase/firestore';
 import React from "react";
 
 const Event = (props) => {
+
+    const updateTest = async (data) =>{
+        let ref = doc(db, 'About', props.userID);
+        setDoc(ref, {test: data}, {merge: true});
+    }
+
+    const data =(question, answer) =>{
+        return({Q: question, A: answer});
+    }
 
     const onClick = ()=>{
         if(props.click === 'main'){
@@ -12,10 +23,16 @@ const Event = (props) => {
             props.setModal('view');
         }else if(props.click === 'yes' || props.click === 'nsure' || props.click === 'no'){
             let int = props.index + 1;
+            let tempArray = props.answer;
+            tempArray.push(data(props.question, props.click));
+            props.setAnswer(tempArray);
             if(int < props.size){
                 props.setIndex(int);
             }else{
+                console.log(props.answer);
                 props.setIndex(0);
+                updateTest(props.answer);
+                props.setAnswer([]);
                 props.setModal('main');
             }
         }

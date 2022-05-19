@@ -3,8 +3,11 @@ import { useState } from 'react';
 import Event from './Event';
 
 const Quiz = (props)=>{
+
+    const userID = '2381410@students.wits.ac.za';
+
     const Questions = props.questions;
-    
+    const [currAnswers, setCurrAnswers] = useState([]);
     const [index, setIndex] = useState(0);
     const MAX_QS = Questions.length;
 
@@ -35,18 +38,30 @@ const Quiz = (props)=>{
                     <Event title = 'Yes' 
                     click = 'yes' 
                     size = {MAX_QS}
+                    userID = {userID}
+                    question = {Questions[index].stringValue}
+                    answer = {currAnswers}
+                    setAnswer= {setCurrAnswers}
                     setModal = {props.setModal}
                     setIndex = {setIndex} 
                     index = {index}/>
                     <Event title = 'Not Sure' 
                     click = 'nsure' 
                     size = {MAX_QS}
+                    userID = {userID}
+                    question = {Questions[index].stringValue}
+                    answer = {currAnswers}
+                    setAnswer= {setCurrAnswers}
                     setModal = {props.setModal}
                     setIndex = {setIndex} 
                     index = {index}/>
                     <Event title = 'No' 
                     click = 'no' 
                     size = {MAX_QS}
+                    userID = {userID}
+                    question = {Questions[index].stringValue}
+                    answer = {currAnswers}
+                    setAnswer= {setCurrAnswers}
                     setModal = {props.setModal}
                     setIndex = {setIndex} 
                     index = {index}/>
