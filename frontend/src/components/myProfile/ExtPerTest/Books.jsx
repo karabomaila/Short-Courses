@@ -3,27 +3,45 @@ import React from 'react';
 import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import DisplayBooks from './DisplayBooks';
+import { useState } from 'react';
 
 const Books = (props)=>{
 
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
     const data = [{title: 'Book1', author: 'Author1'}, {title: 'Book2', author: 'Author2'}];
 
     const change = ()=>{
         props.setVisible(false);
+
+        if(author != '' && title != ''){
+            //  send to database...
+            setTitle('');
+            setAuthor('');
+        }
     }
+
 
     if(props.visible){
         return(
             <div style = {MainStyle}>
-                <div style = {InputStyle}>
-                <TextField width = '30%' label = 'Book Title' variant='standard'/>
-                </div>
-                <div style = {InputStyle}>
-                <TextField label = 'Book Author' variant='standard'/>
-                </div>
                 <div style = {ClickStyle}>
                 <CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/>
                 </div>
+                <div style = {InputStyle}>
+                <TextField width = '30%' 
+                label = 'Book Title' 
+                value={title}
+                onChange = {event => setTitle(event.target.value)}
+                variant='standard'/>
+                </div>
+                <div style = {InputStyle}>
+                <TextField label = 'Book Author' 
+                 value={author}
+                 onChange = {event => setAuthor(event.target.value)}
+                variant='standard'/>
+                </div>
+                
             </div>
         )
     }else{

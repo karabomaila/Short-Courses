@@ -3,15 +3,22 @@ import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import AddMenu from './AddMenu';
 import ViewSkills from './ViewSkills';
+import { useState } from 'react';
 
 const Skills = (props)=>{
-
+    const [newSkill, setNewSkill] = useState('');
     const data = ['Programming', 'Problem Solving', 'Computer Science', 'University', 'Witwatersrand', 'Machine Learning', 'Google']
 
     const change = ()=>{
         props.setVisible(false);
+
+        if(newSkill != ''){
+            // Send to database...
+            setNewSkill("");
+        }
     }
 
+    
     if(props.visible){
         return(
             <div style = {MainStyle}>
@@ -21,6 +28,8 @@ const Skills = (props)=>{
                 <div style = {InputStyle}>
                 <TextField
                 label="Add Interests or Skills" 
+                value={newSkill}
+                onChange = {event => setNewSkill(event.target.value)}
                 variant="outlined"/>
                 </div>
                

@@ -29,6 +29,7 @@ const PTestForm = (props)=>{
         <div style = {MainStyle}>
             <p style = {{margin: 12, alignSelf: 'center'}}>Data belonging to {props.userID}</p>
 
+
             <h6 style = {H6Style}>Interests and Skills</h6>
             <Skills visible = {skillVis} 
             setVisible = {setSkillVis}/>
