@@ -15,7 +15,6 @@ const Quiz = (props)=>{
     const MAX_QS = Questions.length;
     const MAX_TEST = test.length;
 
-
     useEffect(() => {
         const getTest = async () =>{
             const testRef = doc(db, "About", props.userID);
