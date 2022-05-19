@@ -4,16 +4,25 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import AddMenu from './AddMenu';
 import ViewSkills from './ViewSkills';
 import { useState } from 'react';
+import { db } from '../../firebase-config';
+import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 
 const Skills = (props)=>{
     const [newSkill, setNewSkill] = useState('');
     const data = ['Programming', 'Problem Solving', 'Computer Science', 'University', 'Witwatersrand', 'Machine Learning', 'Google']
 
+    const upload = async (newData) =>{
+
+        let ref = doc(db, 'About', props.userID);
+        await setDoc(ref, {skills: arrayUnion(newData)}, {merge: true});
+    }
+
+
     const change = ()=>{
         props.setVisible(false);
 
         if(newSkill != ''){
-            // Send to database...
+            upload(newSkill);
             setNewSkill("");
         }
     }

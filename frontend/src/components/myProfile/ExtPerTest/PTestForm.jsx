@@ -1,12 +1,5 @@
 import React from 'react';
 import {useState} from 'react';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
-
-import { CalendarPicker } from '@mui/x-date-pickers';
-import {InputLabel, MenuItem, FormControl, Select, TextField }from '@mui/material';
-import AddMenu from './AddMenu';
 import Skills from './Skills';
 import Books from './Books';
 import Education from './Education';
@@ -18,12 +11,8 @@ const PTestForm = (props)=>{
     const [bookVis, setBookVis] = useState(false);
     const [eduVis, setEduVis] = useState(false);
     const [workVis, setWorkVis] = useState(false);
-    const [value, setValue] = useState(new Date());
-    const [gender, setGender] = useState('X');
 
-    const handleChange = (event) => {
-    setGender(event.target.value);
-    };
+   
 
     return(
         <div style = {MainStyle}>
@@ -32,15 +21,19 @@ const PTestForm = (props)=>{
 
             <h6 style = {H6Style}>Interests and Skills</h6>
             <Skills visible = {skillVis} 
+            userID = {props.userID}
             setVisible = {setSkillVis}/>
             <h6 style = {H6Style}>Favourite Books Read</h6>
             <Books visible = {bookVis}
+            userID = {props.userID}
             setVisible = {setBookVis}/>
             <h6 style = {H6Style}>Education</h6>
             <Education visible = {eduVis}
+            userID = {props.userID}
             setVisible = {setEduVis}/>
             <h6 style = {H6Style}>Work</h6>
             <Work visible = {workVis}
+            userID = {props.userID}
             setVisible = {setWorkVis}/>
         </div>
     )
