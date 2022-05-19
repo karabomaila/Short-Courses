@@ -11,7 +11,10 @@ import { useEffect } from 'react';
 
 
 const PersonalityTest = (props)=>{
+
+    const userID = '2381410@students.wits.ac.za';
     const [questions, setQuestions] = useState([]);
+    const [test, setTest] = useState([]);
     const [modal, setModal] = useState('main');
 
     
@@ -21,7 +24,15 @@ const PersonalityTest = (props)=>{
            const temp = await getDoc(ref);
            setQuestions(temp._document.data.value.mapValue.fields.Questions.arrayValue.values);
         }
+
+        const getTest = async () =>{
+            const testRef = doc(db, "About", userID);
+            const testData = await getDoc(testRef);
+            let fields = testData._document.data.value.mapValue.fields;
+            setTest(fields.test.arrayValue.values);
+        }
         
+        getTest();
         getQuestions();
     }, [])
 
@@ -30,6 +41,7 @@ const PersonalityTest = (props)=>{
             <p style = {TextStyle}>PERSONALITY TEST</p>
             <Quiz modal = {modal} 
             setModal = {setModal}
+            test = {test}
             questions = {questions}/>
             <PTestForm userID = {props.userID}/>
 

@@ -21,6 +21,15 @@ const Event = (props) => {
             props.setModal('quiz');
         }else if(props.click === 'view'){
             props.setModal('view');
+        }else if(props.click === 'next'){
+            let int = props.nextIndex + 1;
+            if(int < props.len){
+                props.setNextIndex(int);
+            }else{
+                props.setNextIndex(0);
+                props.setModal('main');
+            }
+
         }else if(props.click === 'yes' || props.click === 'nsure' || props.click === 'no'){
             let int = props.index + 1;
             let tempArray = props.answer;
@@ -29,7 +38,6 @@ const Event = (props) => {
             if(int < props.size){
                 props.setIndex(int);
             }else{
-                console.log(props.answer);
                 props.setIndex(0);
                 updateTest(props.answer);
                 props.setAnswer([]);

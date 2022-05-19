@@ -9,7 +9,11 @@ const Quiz = (props)=>{
     const Questions = props.questions;
     const [currAnswers, setCurrAnswers] = useState([]);
     const [index, setIndex] = useState(0);
+    const [nextIndex, setNextIndex] = useState(0);
     const MAX_QS = Questions.length;
+    const MAX_TEST = props.test.length;
+
+    console.log(MAX_TEST)
 
     if(props.modal === 'main'){
     return(
@@ -71,13 +75,21 @@ const Quiz = (props)=>{
     }else if(props.modal === 'view'){
         return(
             <div style = {MainStyle}>
-                <div style = {QStyle}>
-                    Questions here..
+                <div style = {AStyle}>
+                    <p>Q: {props.test[nextIndex].mapValue.fields.Q.stringValue}</p>
+                    <p>A: {props.test[nextIndex].mapValue.fields.A.stringValue}</p>
                 </div>
                 <div style = {EventStyle}>
                     <Event title = 'Done' 
-                    click = 'main' 
-                    setModal = {props.setModal}/>
+                        click = 'main' 
+                        setNextIndex = {setNextIndex}
+                        setModal = {props.setModal}/>
+                     <Event title = 'Next'
+                        nextIndex = {nextIndex}
+                        setNextIndex = {setNextIndex}
+                        len = {MAX_TEST}
+                        click = 'next' 
+                        setModal = {props.setModal}/>
                 </div>
             </div>
         )
@@ -113,6 +125,23 @@ const QStyle = {
     minHeight: '150px',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 12,
+    color: 'white',
+    fontWeight: 'bold'
+
+}
+
+const AStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    borderRadius: 12,
+    borderStyle: 'solid',
+    borderColor: '#daa520',
+    height: '150px',
+    minHeight: '150px',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
     padding: 12,
     color: 'white',
     fontWeight: 'bold'
