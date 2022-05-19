@@ -4,6 +4,8 @@ import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import WorkView from './WorkView';
 import {useState} from 'react';
+import { db } from '../../firebase-config';
+import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 
 const Work = (props)=>{
     const [comp, setComp] = useState('');
@@ -12,12 +14,17 @@ const Work = (props)=>{
     const [year2, setYear2] = useState('');
     const data = [{name: 'Wits MSS', occupation: 'TLA', years: '2022 - 2022'}, {name: 'Wits RL', occupation: 'RM', years: '2021 - 2021'}, {name: 'Entelect', occupation: 'Software Engineer', years: '2023 - '}];
 
+    const upload = async (newData)=>{
+        let ref = doc(db, 'About', props.userID);
+        await setDoc(ref, {work: arrayUnion(newData)}, {merge: true});
+    }
+
+
     const change = ()=>{
         props.setVisible(false);
 
         if(comp != '' && occu != '' && year1 != ''){
-            // send to datbase...
-
+            upload({company: comp, occupation: occu, years: year1 + " - " + year2});
             setComp('');
             setOccu('');
             setYear1('');
