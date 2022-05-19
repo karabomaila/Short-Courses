@@ -1,19 +1,32 @@
 import React from 'react';
 import { useState } from 'react';
+import {db} from '../../firebase-config';
+import {doc, getDoc} from 'firebase/firestore';
+import { useEffect } from 'react';
 import Event from './Event';
 
 const Quiz = (props)=>{
-
-    const userID = '2381410@students.wits.ac.za';
-
+    const userID = props.userID;
     const Questions = props.questions;
     const [currAnswers, setCurrAnswers] = useState([]);
     const [index, setIndex] = useState(0);
     const [nextIndex, setNextIndex] = useState(0);
+    const [test, setTest] = useState([]);
     const MAX_QS = Questions.length;
-    const MAX_TEST = props.test.length;
+    const MAX_TEST = test.length;
 
-    console.log(MAX_TEST)
+
+    useEffect(() => {
+        const getTest = async () =>{
+            const testRef = doc(db, "About", props.userID);
+            const testData = await getDoc(testRef);
+            let fields = testData._document.data.value.mapValue.fields;
+            setTest(fields.test.arrayValue.values);
+        }
+        
+        getTest();
+       
+    }, [])
 
     if(props.modal === 'main'){
     return(
@@ -76,8 +89,8 @@ const Quiz = (props)=>{
         return(
             <div style = {MainStyle}>
                 <div style = {AStyle}>
-                    <p>Q: {props.test[nextIndex].mapValue.fields.Q.stringValue}</p>
-                    <p>A: {props.test[nextIndex].mapValue.fields.A.stringValue}</p>
+                    <p>Q: {test[nextIndex].mapValue.fields.Q.stringValue}</p>
+                    <p>A: {test[nextIndex].mapValue.fields.A.stringValue}</p>
                 </div>
                 <div style = {EventStyle}>
                     <Event title = 'Done' 
