@@ -26,9 +26,9 @@ function EnrolledNav(){
           style={{ height: '100vh' }}
           navbarScroll
         >
-           <Button variant="outline-light" size="sm" onClick={()=>navigate('/Home')}>Home</Button>
-          <Nav.Link href="/Enrolled"><Button variant="outline-light" size="sm">Enrolled</Button>{' '}</Nav.Link>
-          <Nav.Link href="/MyCourses"><Button variant="outline-light" size="sm">MyCourses</Button>{' '}</Nav.Link>
+           <Button data-testid="homeBtn" variant="outline-light" size="sm" onClick={()=>navigate('/Home')}>Home</Button>
+          <Nav.Link href="/Enrolled"><Button data-testid="enrolledBtn" variant="outline-light" size="sm">Enrolled</Button>{' '}</Nav.Link>
+          <Nav.Link href="/MyCourses"><Button data-testid="myCoursesBtn" variant="outline-light" size="sm">MyCourses</Button>{' '}</Nav.Link>
           <Nav.Link ><Button variant="outline-light" size="sm" onClick={handleShow}><h4><AiOutlinePlusCircle/></h4></Button>{' '}</Nav.Link>
         </Nav>
         <Modal show={show} onHide={handleClose}  dialogClassName="modal-90w">

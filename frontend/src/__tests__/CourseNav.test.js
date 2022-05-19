@@ -1,6 +1,8 @@
 import React from "react";
 import SecondPanel from "../components/SecondPanel";
 import Navigation from "../components/navigation";
+import CourseNav from "../components/CourseNav";
+import EnrolledNav from "../components/EnrolledNav";
 import Home from "../components/home";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
@@ -37,39 +39,39 @@ const accounts = [
   ];
 
 
-test("Seach btn", () => {
+test("Home Button", () => {
   const { getByTestId } = render(
     <BrowserRouter>
-      <Navigation user={accounts} />
+      <CourseNav user={accounts} />
     </BrowserRouter>);
 
-    const btnEl = getByTestId("searchBtn");
+    const homeBtn = getByTestId("homeBtn");
 
-    expect(btnEl.textContent).toBe("Search")
+    expect(homeBtn.textContent).toBe("Home")
 
 });
 
-test("Seach text", () => {
+test("Enrolled Button", () => {
   const { getByTestId } = render(
     <BrowserRouter>
-      <Navigation user={accounts} />
+      <CourseNav user={accounts} />
     </BrowserRouter>);
 
-    const searchText = getByTestId("searchText").getAttribute("placeholder");
+    const enrolledBtn = getByTestId("enrolledBtn");
 
-    expect(searchText).toBe("Search")
+    expect(enrolledBtn.textContent).toBe("Enrolled")
 
 });
 
-test("Explore", () => {
+test("MyCourse Button", () => {
     const { getByTestId } = render(
       <BrowserRouter>
-        <Home user={accounts} />
+        <CourseNav user={accounts} />
       </BrowserRouter>);
   
-      const btnEl = getByTestId("explore");
+      const myCoursesBtn = getByTestId("myCoursesBtn");
   
-      expect(btnEl.textContent).toBe("EXPLORE")
+      expect(myCoursesBtn.textContent).toBe("MyCourses")
   
   });
 

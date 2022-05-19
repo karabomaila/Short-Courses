@@ -24,9 +24,6 @@ function Navigation(props) {
   const navigate = useNavigate();
   const [name, setName] = useState(null);
   const { instance, accounts } = useMsal();
-  
-
-  
 
   return (
     <Navbar expand="lg" variant="dark" style={{ background: "#003B5C" }}>
@@ -60,7 +57,7 @@ function Navigation(props) {
                   My Courses
                 </Button>
                 <Button
-                data-testid="enrolledBtn"
+                  data-testid="enrolledBtn"
                   variant="outline-light"
                   size="sm"
                   onClick={() => {
@@ -75,6 +72,7 @@ function Navigation(props) {
           </Nav>
           <Form className="d-flex">
             <FormControl
+              data-testid="searchText"
               type="search"
               placeholder="Search"
               className="me-2"
@@ -84,7 +82,7 @@ function Navigation(props) {
               }}
             />
             <Button
-            data-testid="searchBtn"
+              data-testid="searchBtn"
               variant="dark"
               onClick={(event) => {
                 dataNav.getValue(event.target.value);
