@@ -8,11 +8,12 @@ import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 
 const Education = (props)=>{
 
+    let data = props.data;
     const [inst, setInst] = useState('');
     const [qual, setQual] = useState('');
     const [year1, setYear1] = useState('');
     const [year2, setYear2] = useState('');
-    const data = [{name: 'Wits', qualification: 'Coms', years: '2020 - 2022'}, {name: 'Dan', qualification: 'NSC', years: '2015 - 2019'}];
+   
 
     const upload = async (newData)=>{
         let ref = doc(db, 'About', props.userID);

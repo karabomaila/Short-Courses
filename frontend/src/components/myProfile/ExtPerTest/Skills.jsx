@@ -9,7 +9,7 @@ import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 
 const Skills = (props)=>{
     const [newSkill, setNewSkill] = useState('');
-    const data = ['Programming', 'Problem Solving', 'Computer Science', 'University', 'Witwatersrand', 'Machine Learning', 'Google']
+    let data = props.data;
 
     const upload = async (newData) =>{
 

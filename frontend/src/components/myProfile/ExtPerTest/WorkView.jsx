@@ -8,9 +8,9 @@ const WorkView = (props)=>{
                 <WorkIcon sx = {{color: '#daa520'}}/>
             </div>
             <div style = {TextStyle}>
-                <p style = {{fontWeight: 'bold', margin: 0, fontSize: 15, fontFamily: 'monospace'}}>{props.work.name}</p>
-                <p style = {{margin: 0, fontSize: 15}}>{props.work.occupation}</p>
-                <p style = {{margin: 0, fontSize: 12}}>{props.work.years}</p>
+                <p style = {{fontWeight: 'bold', margin: 0, fontSize: 15, fontFamily: 'monospace'}}>{props.work.mapValue.fields.company.stringValue}</p>
+                <p style = {{margin: 0, fontSize: 15}}>{props.work.mapValue.fields.occupation.stringValue}</p>
+                <p style = {{margin: 0, fontSize: 12}}>{props.work.mapValue.fields.years.stringValue}</p>
             </div>
         </div>
     )

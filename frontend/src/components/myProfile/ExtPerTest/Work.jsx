@@ -11,7 +11,7 @@ const Work = (props)=>{
     const [occu, setOccu] = useState('');
     const [year1, setYear1] = useState('');
     const [year2, setYear2] = useState('');
-    const data = [{name: 'Wits MSS', occupation: 'TLA', years: '2022 - 2022'}, {name: 'Wits RL', occupation: 'RM', years: '2021 - 2021'}, {name: 'Entelect', occupation: 'Software Engineer', years: '2023 - '}];
+    let data = props.data;
 
     const upload = async (newData)=>{
         let ref = doc(db, 'About', props.userID);

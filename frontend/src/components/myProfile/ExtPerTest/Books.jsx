@@ -10,7 +10,7 @@ const Books = (props)=>{
 
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
-    const data = [{title: 'Book1', author: 'Author1'}, {title: 'Book2', author: 'Author2'}];
+    let data = props.data;
 
     const upload = async (newData)=>{
         let ref = doc(db, 'About', props.userID);

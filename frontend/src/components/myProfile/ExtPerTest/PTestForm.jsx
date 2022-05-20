@@ -4,6 +4,9 @@ import Skills from './Skills';
 import Books from './Books';
 import Education from './Education';
 import Work from './Work';
+import {db} from '../../firebase-config';
+import {doc, getDoc} from 'firebase/firestore';
+import { useEffect } from 'react';
 
 const PTestForm = (props)=>{
 
@@ -12,7 +15,48 @@ const PTestForm = (props)=>{
     const [eduVis, setEduVis] = useState(false);
     const [workVis, setWorkVis] = useState(false);
 
+    const [skills, setSkills] = useState([]);
+    const [books, setBooks] = useState([]);
+    const [education, setEducation] = useState([]);
+    const [work, setWork] = useState([]);
+
+
+    useEffect(() => {
+        const getInfo = async () =>{
+            const ref = doc(db, "About", props.userID);
+            const data = await getDoc(ref);
+            let fields = data._document.data.value.mapValue.fields;
+         
+            if(fields.skills == undefined){
+
+            }else{
+                setSkills(fields.skills.arrayValue.values);
+            }
+
+            if(fields.books == undefined){
+                
+            }else{
+                setBooks(fields.books.arrayValue.values);
+            }
+
+            if(fields.education == undefined){
+                
+            }else{
+                setEducation(fields.education.arrayValue.values);
+            }
+
+            if(fields.work == undefined){
+                
+            }else{
+                setWork(fields.work.arrayValue.values);
+            }
+        }
+        
+        getInfo();
+       
+    }, [])
    
+    console.log(work)
 
     return(
         <div style = {MainStyle}>
@@ -22,18 +66,22 @@ const PTestForm = (props)=>{
             <h6 style = {H6Style}>Interests and Skills</h6>
             <Skills visible = {skillVis} 
             userID = {props.userID}
+            data = {skills}
             setVisible = {setSkillVis}/>
             <h6 style = {H6Style}>Favourite Books Read</h6>
             <Books visible = {bookVis}
             userID = {props.userID}
+            data = {books}
             setVisible = {setBookVis}/>
             <h6 style = {H6Style}>Education</h6>
             <Education visible = {eduVis}
             userID = {props.userID}
+            data = {education}
             setVisible = {setEduVis}/>
             <h6 style = {H6Style}>Work</h6>
             <Work visible = {workVis}
             userID = {props.userID}
+            data = {work}
             setVisible = {setWorkVis}/>
         </div>
     )

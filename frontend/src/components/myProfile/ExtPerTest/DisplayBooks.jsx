@@ -9,8 +9,8 @@ const DisplayBooks = (props)=>{
                 <BookIcon sx = {{color: '#daa520'}}/>
             </div>
             <div style = {TextStyle}>
-                <p style = {{fontWeight: 'bold', margin: 0, fontSize: 15, fontFamily: 'monospace'}}>{props.book.title}</p>
-                <p style = {{margin: 0, fontSize: 12}}>{props.book.author}</p>
+                <p style = {{fontWeight: 'bold', margin: 0, fontSize: 15, fontFamily: 'monospace'}}>{props.book.mapValue.fields.title.stringValue}</p>
+                <p style = {{margin: 0, fontSize: 12}}>{props.book.mapValue.fields.author.stringValue}</p>
             </div>
         </div>
     )
