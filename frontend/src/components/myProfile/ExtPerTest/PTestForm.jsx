@@ -5,7 +5,7 @@ import Books from './Books';
 import Education from './Education';
 import Work from './Work';
 import {db} from '../../firebase-config';
-import {doc, getDoc} from 'firebase/firestore';
+import {doc, getDoc, setDoc} from 'firebase/firestore';
 import { useEffect } from 'react';
 
 const PTestForm = (props)=>{
@@ -28,25 +28,37 @@ const PTestForm = (props)=>{
             let fields = data._document.data.value.mapValue.fields;
          
             if(fields.skills == undefined){
-
+                setDoc(ref, {skills: []}, {merge: true});
+                const initData = await getDoc(ref);
+                const initFields = initData._document.data.value.mapValue.fields;
+                setSkills(initFields.skills.arrayValue.values);
             }else{
                 setSkills(fields.skills.arrayValue.values);
             }
 
             if(fields.books == undefined){
-                
+                setDoc(ref, {books: new Array()}, {merge: true});
+                const initData = await getDoc(ref);
+                const initFields = initData._document.data.value.mapValue.fields;
+                setBooks(initFields.books.arrayValue.values);
             }else{
                 setBooks(fields.books.arrayValue.values);
             }
 
             if(fields.education == undefined){
-                
+                setDoc(ref, {education: new Array()}, {merge: true});
+                const initData = await getDoc(ref);
+                const initFields = initData._document.data.value.mapValue.fields;
+                setEducation(initFields.education.arrayValue.values);
             }else{
                 setEducation(fields.education.arrayValue.values);
             }
 
             if(fields.work == undefined){
-                
+                setDoc(ref, {work: new Array()}, {merge: true});
+                const initData = await getDoc(ref);
+                const initFields = initData._document.data.value.mapValue.fields;
+                setWork(initFields.work.arrayValue.values);
             }else{
                 setWork(fields.work.arrayValue.values);
             }
@@ -55,8 +67,6 @@ const PTestForm = (props)=>{
         getInfo();
        
     }, [])
-   
-    console.log(work)
 
     return(
         <div style = {MainStyle}>

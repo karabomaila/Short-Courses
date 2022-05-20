@@ -7,10 +7,11 @@ import { db } from '../../firebase-config';
 import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 
 const Books = (props)=>{
-
+    
+    let data = props.data;
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
-    let data = props.data;
+    
 
     const upload = async (newData)=>{
         let ref = doc(db, 'About', props.userID);

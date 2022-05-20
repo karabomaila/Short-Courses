@@ -3,7 +3,6 @@ import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import Views from './Views';
 
 const AddMenu = (props)=>{
-
     const change = ()=>{
         if(props.click === 'skills'){
             props.skillVisible(true);
