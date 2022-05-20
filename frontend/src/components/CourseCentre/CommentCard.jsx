@@ -1,17 +1,22 @@
 import React from 'react';
 
-const CommentCard = ()=>{
+const CommentCard = (props)=>{
+
+    let initials = ''
+    const array = props.comment.mapValue.fields.userName.stringValue.split(" ");
+    initials = array[0][0] + array[1][0];
+
     return(
         <div style = {CardOutline}>
             <div style = {CardLeft}>
-                    <span style = {Profile}>GM</span>
+                    <span style = {Profile}>{initials}</span>
             </div>
             <div style = {CardRight}>
                 <div style = {NameStyle}>
-                    Given Mathebula
+                    {props.comment.mapValue.fields.userName.stringValue}
                 </div>
                 <div style = {BodyStyle}>
-                    Body Goes Here... - Course Centre
+                    {props.comment.mapValue.fields.comment.stringValue}
                 </div>
             </div>
         </div>
