@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -83,7 +83,34 @@
 58
 59
 60
-61</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -92,20 +119,43 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,28 +197,53 @@
 import React from 'react';
 import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import DisplayBooks from './DisplayBooks';
+import { useState } from 'react';
+import { db } from '../../firebase-config';
+import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 &nbsp;
 const Books = (props)=&gt;{
+    
+    let data = props.data;
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
+    
 &nbsp;
-    const data = [{title: 'Book1', author: 'Author1'}, {title: 'Book2', author: 'Author2'}];
+    const upload = <span class="fstat-no" title="function not covered" >as</span>ync (newData)=&gt;{
+        let ref = <span class="cstat-no" title="statement not covered" >doc(db, 'About', props.userID);</span>
+<span class="cstat-no" title="statement not covered" >        await setDoc(ref, {books: arrayUnion(newData)}, {merge: true});</span>
+    }
 &nbsp;
     const change = <span class="fstat-no" title="function not covered" >()</span>=&gt;{
 <span class="cstat-no" title="statement not covered" >        props.setVisible(false);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if(author != '' &amp;&amp; title != ''){</span>
+<span class="cstat-no" title="statement not covered" >            upload({title: title, author: author});</span>
+<span class="cstat-no" title="statement not covered" >            setTitle('');</span>
+<span class="cstat-no" title="statement not covered" >            setAuthor('');</span>
+        }
     }
+&nbsp;
 &nbsp;
     <span class="missing-if-branch" title="if path not taken" >I</span>if(props.visible){
 <span class="cstat-no" title="statement not covered" >        return(</span>
             &lt;div style = {MainStyle}&gt;
-                &lt;div style = {InputStyle}&gt;
-                &lt;TextField width = '30%' label = 'Book Title' variant='standard'/&gt;
-                &lt;/div&gt;
-                &lt;div style = {InputStyle}&gt;
-                &lt;TextField label = 'Book Author' variant='standard'/&gt;
-                &lt;/div&gt;
                 &lt;div style = {ClickStyle}&gt;
                 &lt;CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/&gt;
                 &lt;/div&gt;
+                &lt;div style = {InputStyle}&gt;
+                &lt;TextField width = '30%' 
+                label = 'Book Title' 
+                value={title}
+                onChange = {<span class="fstat-no" title="function not covered" >ev</span>ent =&gt; <span class="cstat-no" title="statement not covered" >setTitle(event.target.value)}</span>
+                variant='standard'/&gt;
+                &lt;/div&gt;
+                &lt;div style = {InputStyle}&gt;
+                &lt;TextField label = 'Book Author' 
+                 value={author}
+                 onChange = {<span class="fstat-no" title="function not covered" >ev</span>ent =&gt; <span class="cstat-no" title="statement not covered" >setAuthor(event.target.value)}</span>
+                variant='standard'/&gt;
+                &lt;/div&gt;
+                
             &lt;/div&gt;
         )
     }else{
@@ -209,7 +284,7 @@ export default Books;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 19 2022 21:53:53 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri May 20 2022 14:26:13 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

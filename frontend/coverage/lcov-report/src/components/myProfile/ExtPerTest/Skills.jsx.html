@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -84,29 +84,65 @@
 59
 60
 61
-62</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,15 +186,31 @@ import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import AddMenu from './AddMenu';
 import ViewSkills from './ViewSkills';
+import { useState } from 'react';
+import { db } from '../../firebase-config';
+import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 &nbsp;
 const Skills = (props)=&gt;{
+    const [newSkill, setNewSkill] = useState('');
+    let data = props.data;
 &nbsp;
-    const data = ['Programming', 'Problem Solving', 'Computer Science', 'University', 'Witwatersrand', 'Machine Learning', 'Google']
+    const upload = <span class="fstat-no" title="function not covered" >as</span>ync (newData) =&gt;{
+&nbsp;
+        let ref = <span class="cstat-no" title="statement not covered" >doc(db, 'About', props.userID);</span>
+<span class="cstat-no" title="statement not covered" >        await setDoc(ref, {skills: arrayUnion(newData)}, {merge: true});</span>
+    }
+&nbsp;
 &nbsp;
     const change = <span class="fstat-no" title="function not covered" >()</span>=&gt;{
 <span class="cstat-no" title="statement not covered" >        props.setVisible(false);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if(newSkill != ''){</span>
+<span class="cstat-no" title="statement not covered" >            upload(newSkill);</span>
+<span class="cstat-no" title="statement not covered" >            setNewSkill("");</span>
+        }
     }
 &nbsp;
+    
     <span class="missing-if-branch" title="if path not taken" >I</span>if(props.visible){
 <span class="cstat-no" title="statement not covered" >        return(</span>
             &lt;div style = {MainStyle}&gt;
@@ -168,6 +220,8 @@ const Skills = (props)=&gt;{
                 &lt;div style = {InputStyle}&gt;
                 &lt;TextField
                 label="Add Interests or Skills" 
+                value={newSkill}
+                onChange = {<span class="fstat-no" title="function not covered" >ev</span>ent =&gt; <span class="cstat-no" title="statement not covered" >setNewSkill(event.target.value)}</span>
                 variant="outlined"/&gt;
                 &lt;/div&gt;
                
@@ -212,7 +266,7 @@ export default Skills;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 19 2022 21:53:53 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri May 20 2022 14:26:13 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

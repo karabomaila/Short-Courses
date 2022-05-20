@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -86,11 +86,59 @@
 61
 62
 63
-64</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -106,14 +154,70 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,17 +255,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import {useState} from 'react';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
-&nbsp;
-import { CalendarPicker } from '@mui/x-date-pickers';
-import {InputLabel, MenuItem, FormControl, Select, TextField }from '@mui/material';
-import AddMenu from './AddMenu';
 import Skills from './Skills';
 import Books from './Books';
 import Education from './Education';
 import Work from './Work';
+import {db} from '../../firebase-config';
+import {doc, getDoc, setDoc} from 'firebase/firestore';
+import { useEffect } from 'react';
 &nbsp;
 const PTestForm = (props)=&gt;{
 &nbsp;
@@ -169,28 +269,84 @@ const PTestForm = (props)=&gt;{
     const [bookVis, setBookVis] = useState(false);
     const [eduVis, setEduVis] = useState(false);
     const [workVis, setWorkVis] = useState(false);
-    const [value, setValue] = useState(new Date());
-    const [gender, setGender] = useState('X');
 &nbsp;
-    const handleChange = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {
-<span class="cstat-no" title="statement not covered" >    setGender(event.target.value);</span>
-    };
+    const [skills, setSkills] = useState([]);
+    const [books, setBooks] = useState([]);
+    const [education, setEducation] = useState([]);
+    const [work, setWork] = useState([]);
+&nbsp;
+&nbsp;
+    useEffect(() =&gt; {
+        const getInfo = async () =&gt;{
+            const ref = doc(db, "About", props.userID);
+            const data = await getDoc(ref);
+            let fields = <span class="cstat-no" title="statement not covered" >data._document.data.value.mapValue.fields;</span>
+         
+<span class="cstat-no" title="statement not covered" >            if(fields.skills == undefined){</span>
+<span class="cstat-no" title="statement not covered" >                setDoc(ref, {skills: []}, {merge: true});</span>
+                const initData = <span class="cstat-no" title="statement not covered" >await getDoc(ref);</span>
+                const initFields = <span class="cstat-no" title="statement not covered" >initData._document.data.value.mapValue.fields;</span>
+<span class="cstat-no" title="statement not covered" >                setSkills(initFields.skills.arrayValue.values);</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                setSkills(fields.skills.arrayValue.values);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if(fields.books == undefined){</span>
+<span class="cstat-no" title="statement not covered" >                setDoc(ref, {books: new Array()}, {merge: true});</span>
+                const initData = <span class="cstat-no" title="statement not covered" >await getDoc(ref);</span>
+                const initFields = <span class="cstat-no" title="statement not covered" >initData._document.data.value.mapValue.fields;</span>
+<span class="cstat-no" title="statement not covered" >                setBooks(initFields.books.arrayValue.values);</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                setBooks(fields.books.arrayValue.values);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if(fields.education == undefined){</span>
+<span class="cstat-no" title="statement not covered" >                setDoc(ref, {education: new Array()}, {merge: true});</span>
+                const initData = <span class="cstat-no" title="statement not covered" >await getDoc(ref);</span>
+                const initFields = <span class="cstat-no" title="statement not covered" >initData._document.data.value.mapValue.fields;</span>
+<span class="cstat-no" title="statement not covered" >                setEducation(initFields.education.arrayValue.values);</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                setEducation(fields.education.arrayValue.values);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if(fields.work == undefined){</span>
+<span class="cstat-no" title="statement not covered" >                setDoc(ref, {work: new Array()}, {merge: true});</span>
+                const initData = <span class="cstat-no" title="statement not covered" >await getDoc(ref);</span>
+                const initFields = <span class="cstat-no" title="statement not covered" >initData._document.data.value.mapValue.fields;</span>
+<span class="cstat-no" title="statement not covered" >                setWork(initFields.work.arrayValue.values);</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                setWork(fields.work.arrayValue.values);</span>
+            }
+        }
+        
+        getInfo();
+       
+    }, [])
 &nbsp;
     return(
         &lt;div style = {MainStyle}&gt;
             &lt;p style = {{margin: 12, alignSelf: 'center'}}&gt;Data belonging to {props.userID}&lt;/p&gt;
 &nbsp;
+&nbsp;
             &lt;h6 style = {H6Style}&gt;Interests and Skills&lt;/h6&gt;
             &lt;Skills visible = {skillVis} 
+            userID = {props.userID}
+            data = {skills}
             setVisible = {setSkillVis}/&gt;
             &lt;h6 style = {H6Style}&gt;Favourite Books Read&lt;/h6&gt;
             &lt;Books visible = {bookVis}
+            userID = {props.userID}
+            data = {books}
             setVisible = {setBookVis}/&gt;
             &lt;h6 style = {H6Style}&gt;Education&lt;/h6&gt;
             &lt;Education visible = {eduVis}
+            userID = {props.userID}
+            data = {education}
             setVisible = {setEduVis}/&gt;
             &lt;h6 style = {H6Style}&gt;Work&lt;/h6&gt;
             &lt;Work visible = {workVis}
+            userID = {props.userID}
+            data = {work}
             setVisible = {setWorkVis}/&gt;
         &lt;/div&gt;
     )
@@ -218,7 +374,7 @@ export default PTestForm;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 19 2022 21:53:53 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri May 20 2022 14:26:13 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

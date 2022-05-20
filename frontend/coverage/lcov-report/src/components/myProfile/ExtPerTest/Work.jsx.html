@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -89,34 +89,100 @@
 64
 65
 66
-67</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -159,35 +225,68 @@
 import React from 'react';
 import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import WorkView from './WorkView';
+import {useState} from 'react';
+import { db } from '../../firebase-config';
+import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 &nbsp;
 const Work = (props)=&gt;{
+    const [comp, setComp] = useState('');
+    const [occu, setOccu] = useState('');
+    const [year1, setYear1] = useState('');
+    const [year2, setYear2] = useState('');
+    let data = props.data;
 &nbsp;
-    const data = [{name: 'Wits MSS', occupation: 'TLA', years: '2022 - 2022'}, {name: 'Wits RL', occupation: 'RM', years: '2021 - 2021'}, {name: 'Entelect', occupation: 'Software Engineer', years: '2023 - '}];
+    const upload = <span class="fstat-no" title="function not covered" >as</span>ync (newData)=&gt;{
+        let ref = <span class="cstat-no" title="statement not covered" >doc(db, 'About', props.userID);</span>
+<span class="cstat-no" title="statement not covered" >        await setDoc(ref, {work: arrayUnion(newData)}, {merge: true});</span>
+    }
+&nbsp;
 &nbsp;
     const change = <span class="fstat-no" title="function not covered" >()</span>=&gt;{
 <span class="cstat-no" title="statement not covered" >        props.setVisible(false);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if(comp != '' &amp;&amp; occu != '' &amp;&amp; year1 != ''){</span>
+<span class="cstat-no" title="statement not covered" >            upload({company: comp, occupation: occu, years: year1 + " - " + year2});</span>
+<span class="cstat-no" title="statement not covered" >            setComp('');</span>
+<span class="cstat-no" title="statement not covered" >            setOccu('');</span>
+<span class="cstat-no" title="statement not covered" >            setYear1('');</span>
+<span class="cstat-no" title="statement not covered" >            setYear2('');</span>
+        }
     }
 &nbsp;
     <span class="missing-if-branch" title="if path not taken" >I</span>if(props.visible){
 <span class="cstat-no" title="statement not covered" >        return(</span>
             &lt;div style = {MainStyle}&gt;
-                &lt;div style = {InputStyle}&gt;
-                    &lt;TextField label = 'Company Name' variant='standard'/&gt;
-                &lt;/div&gt;
-                &lt;div style = {InputStyle}&gt;
-                &lt;TextField label = 'Occupation' variant='standard'/&gt;
-                &lt;/div&gt;
-                &lt;div style = {InputStyle}&gt;
-                &lt;TextField label = 'Year Started' variant='standard'/&gt;
-                &lt;/div&gt;
-                &lt;div style = {InputStyle}&gt;
-                &lt;TextField label = 'Year Completed' variant='standard'/&gt;
-                &lt;/div&gt;
-                &lt;div style = {ClickStyle}&gt;
+                 &lt;div style = {ClickStyle}&gt;
                 &lt;CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/&gt;
                 &lt;/div&gt;
+                &lt;div style = {InputStyle}&gt;
+                    &lt;TextField label = 'Company Name' 
+                    value = {comp}
+                    onChange = {<span class="fstat-no" title="function not covered" >ev</span>ent =&gt; <span class="cstat-no" title="statement not covered" >setComp(event.target.value)}</span>
+                    variant='standard'/&gt;
+                &lt;/div&gt;
+                &lt;div style = {InputStyle}&gt;
+                &lt;TextField label = 'Occupation' 
+                value = {occu}
+                onChange = {<span class="fstat-no" title="function not covered" >ev</span>ent =&gt; <span class="cstat-no" title="statement not covered" >setOccu(event.target.value)}</span>
+                variant='standard'/&gt;
+                &lt;/div&gt;
+                &lt;div style = {InputStyle}&gt;
+                &lt;TextField label = 'Year Started' 
+                value = {year1}
+                onChange = {<span class="fstat-no" title="function not covered" >ev</span>ent =&gt; <span class="cstat-no" title="statement not covered" >setYear1(event.target.value)}</span>
+                variant='standard'/&gt;
+                &lt;/div&gt;
+                &lt;div style = {InputStyle}&gt;
+                &lt;TextField label = 'Year Completed' 
+                 value = {year2}
+                 onChange = {<span class="fstat-no" title="function not covered" >ev</span>ent =&gt; <span class="cstat-no" title="statement not covered" >setYear2(event.target.value)}</span>
+                variant='standard'/&gt;
+                &lt;/div&gt;
+               
                 
+&nbsp;
             &lt;/div&gt;
         )
     }else{
@@ -227,7 +326,7 @@ export default Work;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 19 2022 21:53:53 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri May 20 2022 14:26:13 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>
