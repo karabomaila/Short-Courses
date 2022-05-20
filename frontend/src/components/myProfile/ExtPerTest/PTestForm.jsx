@@ -70,25 +70,25 @@ const PTestForm = (props)=>{
 
     return(
         <div style = {MainStyle}>
-            <p style = {{margin: 12, alignSelf: 'center'}}>Data belonging to {props.userID}</p>
+            <p style = {{margin: 12, alignSelf: 'center'}} data-testid = 'ptest-data'>Data belonging to {props.userID}</p>
 
 
-            <h6 style = {H6Style}>Interests and Skills</h6>
+            <h6 style = {H6Style} data-testid = 'ptest-txt1'>Interests and Skills</h6>
             <Skills visible = {skillVis} 
             userID = {props.userID}
             data = {skills}
             setVisible = {setSkillVis}/>
-            <h6 style = {H6Style}>Favourite Books Read</h6>
+            <h6 style = {H6Style}  data-testid = 'ptest-txt2'>Favourite Books Read</h6>
             <Books visible = {bookVis}
             userID = {props.userID}
             data = {books}
             setVisible = {setBookVis}/>
-            <h6 style = {H6Style}>Education</h6>
+            <h6 style = {H6Style}  data-testid = 'ptest-txt3'>Education</h6>
             <Education visible = {eduVis}
             userID = {props.userID}
             data = {education}
             setVisible = {setEduVis}/>
-            <h6 style = {H6Style}>Work</h6>
+            <h6 style = {H6Style}  data-testid = 'ptest-txt4'>Work</h6>
             <Work visible = {workVis}
             userID = {props.userID}
             data = {work}

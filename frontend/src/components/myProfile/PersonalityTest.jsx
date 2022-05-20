@@ -25,20 +25,13 @@ const PersonalityTest = (props)=>{
     }, [])
 
     return(
-        <div style = {MainStyle}>
-            <p style = {TextStyle}>PERSONALITY TEST</p>
+        <div style = {MainStyle} data-testid = "pers-div">
+            <p style = {TextStyle} data-testid = 'pers-head'>PERSONALITY TEST</p>
             <Quiz modal = {modal} 
             setModal = {setModal}
             userID = {props.userID}
             questions = {questions}/>
             <PTestForm userID = {props.userID}/>
-
-            <div style = {InfoBar}>
-                <InfoCard image = {analytics} title = 'Why We Collect Data?'/>
-                <InfoCard image = {remove} title = 'Delete My Data'/>
-            </div>
-
-            
         </div>
     )
 }
