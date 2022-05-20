@@ -69,6 +69,7 @@ const MyPortfolio = () =>{
                 view = {view}
                 setView = {setView}
                 userID = {userID} 
+                userName = {name}
                 courses = {courses} 
                 comments = {comments}
                 bio = {bio}

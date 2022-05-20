@@ -6,13 +6,21 @@ import CommentCard from './CommentCard';
 import EnrolledCard from '../CoursesUI/EnrolledCard';
 import FeedbackDialog from '../Feedback/FeedbackDialog';
 import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
-import Footer from '../Footer/Footer';
-import DisplayBooks from '../myProfile/ExtPerTest/DisplayBooks';
+import {useLocation,useNavigate } from 'react-router-dom';
+import AddComment from './AddComment';
 
 const FinHome = ()=>{
+
+    const {state} = useLocation();
+
+    const userName = state.userName;
+    const userID = state.userID;
+    const courseName = state.courseName;
+    const courseID = state.courseID;
+
     const [openFeedb, setOpenFeedb] = useState(false);
     const [openAbout, setOpenAbout] = useState(false);
-    const courseName = "Course Name";
+    const [openComment, setOpenComment] = useState(false);
     const data = {decscription: "Des", duration: 12, outcomes: []};
 
 
@@ -21,10 +29,10 @@ const FinHome = ()=>{
     return(
         <div style = {FinHomeStyle}>
             <div style = {NavBarStyle}>
-                 <h3 style = {{margin: 7, color: 'white'}}>COURSE NAME</h3>
+                 <h3 style = {{margin: 7, color: 'white'}}>{courseName}</h3>
                 <div style={ActionBarStyle}>
                         <Action title = 'View' click = 'view'/>
-                        <Action title = 'Comment' click = 'comment'/>
+                        <Action title = 'Comment' click = 'comment' openComment = {setOpenComment}/>
                         <Action title = 'Rate' click = 'rate' openFeedb = {setOpenFeedb}/>
                         <Action title = 'About' click = 'about' openAbout = {setOpenAbout}/>
                 </div>
@@ -42,6 +50,13 @@ const FinHome = ()=>{
 
             <AboutCourseDialog data = {data} courseName = {courseName} open = {openAbout} close = {setOpenAbout}/>
             <FeedbackDialog open = {openFeedb} close = {setOpenFeedb}/>
+            <AddComment open = {openComment} 
+                userID = {userID}
+                userName = {userName}
+                courseID = {courseID}
+                courseName = {courseName}
+                close = {setOpenComment}
+            />
 
             
         </div>

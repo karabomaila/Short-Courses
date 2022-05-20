@@ -8,6 +8,7 @@ const Display = (props) => {
         <div data-testid = 'display-expo' style={MainStyle}>
             <ExposeView 
             userID = {props.userID}
+            userName = {props.userName}
             courses = {props.courses} 
             comments = {props.comments}
             bio = {props.bio}

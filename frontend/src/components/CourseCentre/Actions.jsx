@@ -12,6 +12,8 @@ const Actions = (props)=>{
             case 'about':
                 props.openAbout(true);
                 break;
+            case 'comment':
+                props.openComment(true);
             default:
                 console.log('non');
         }

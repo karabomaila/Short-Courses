@@ -50,6 +50,8 @@ const ExposeView = (props) =>{
                 <CourseHelper 
                 key = {index} 
                 course = {item} 
+                userID = {props.userID}
+                userName = {props.userName}
                 />)}
                 
             </div>

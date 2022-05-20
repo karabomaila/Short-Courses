@@ -7,7 +7,9 @@ const CourseHelper = (props) => {
     let tag = NameTag(props.course.courseName);
 
     const onClick = () =>{
-        navigator('/CourseCentre');
+        navigator('/CourseCentre', 
+            {state: {userID: props.userID, userName: props.userName, 
+            courseID: props.course.courseID, courseName: props.course.courseName}});
         console.log(props.course.courseID);
     }
     return(
