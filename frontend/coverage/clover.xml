@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1653226111359" clover="3.2.0">
-  <project timestamp="1653226111359" name="All files">
-    <metrics statements="2078" coveredstatements="432" conditionals="403" coveredconditionals="45" methods="473" coveredmethods="61" elements="2954" coveredelements="538" complexity="0" loc="2078" ncloc="2078" packages="15" files="113" classes="113">
+<coverage generated="1653229309769" clover="3.2.0">
+  <project timestamp="1653229309769" name="All files">
+    <metrics statements="2069" coveredstatements="448" conditionals="403" coveredconditionals="47" methods="472" coveredmethods="65" elements="2944" coveredelements="560" complexity="0" loc="2069" ncloc="2069" packages="15" files="112" classes="112">
       <package name="src">
         <metrics statements="68" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="11" coveredmethods="0"/>
         <file name="App.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/App.js">
@@ -1476,7 +1476,7 @@
         </file>
       </package>
       <package name="src.components.CourseCentre">
-        <metrics statements="92" coveredstatements="33" conditionals="12" coveredconditionals="5" methods="13" coveredmethods="6"/>
+        <metrics statements="90" coveredstatements="38" conditionals="12" coveredconditionals="7" methods="13" coveredmethods="8"/>
         <file name="Actions.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CourseCentre/Actions.jsx">
           <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
           <line num="5" count="1" type="stmt"/>
@@ -1517,17 +1517,17 @@
         </file>
         <file name="CommentCard.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CourseCentre/CommentCard.jsx">
           <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="3" count="1" type="stmt"/>
-          <line num="5" count="8" type="stmt"/>
-          <line num="6" count="8" type="stmt"/>
-          <line num="7" count="8" type="stmt"/>
-          <line num="9" count="8" type="stmt"/>
-          <line num="27" count="1" type="stmt"/>
-          <line num="39" count="1" type="stmt"/>
-          <line num="47" count="1" type="stmt"/>
-          <line num="54" count="1" type="stmt"/>
-          <line num="67" count="1" type="stmt"/>
-          <line num="75" count="1" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="5" count="9" type="stmt"/>
+          <line num="6" count="9" type="stmt"/>
+          <line num="7" count="9" type="stmt"/>
+          <line num="9" count="9" type="stmt"/>
+          <line num="27" count="2" type="stmt"/>
+          <line num="39" count="2" type="stmt"/>
+          <line num="47" count="2" type="stmt"/>
+          <line num="54" count="2" type="stmt"/>
+          <line num="67" count="2" type="stmt"/>
+          <line num="75" count="2" type="stmt"/>
         </file>
         <file name="FinHome.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CourseCentre/FinHome.jsx">
           <metrics statements="42" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -1575,14 +1575,12 @@
           <line num="95" count="0" type="stmt"/>
         </file>
         <file name="ShowComments.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CourseCentre/ShowComments.jsx">
-          <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
-          <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
-          <line num="12" count="0" type="stmt"/>
+          <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
         </file>
       </package>
       <package name="src.components.CoursesUI">
@@ -1845,7 +1843,7 @@
         </file>
       </package>
       <package name="src.components.myProfile">
-        <metrics statements="93" coveredstatements="34" conditionals="4" coveredconditionals="3" methods="19" coveredmethods="5"/>
+        <metrics statements="88" coveredstatements="41" conditionals="4" coveredconditionals="3" methods="18" coveredmethods="6"/>
         <file name="Display.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/Display.jsx">
           <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
           <line num="5" count="1" type="stmt"/>
@@ -1879,23 +1877,15 @@
           <line num="105" count="2" type="stmt"/>
           <line num="117" count="2" type="stmt"/>
         </file>
-        <file name="Home.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/Home.jsx">
-          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="3" count="0" type="stmt"/>
-        </file>
         <file name="Menu.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/Menu.jsx">
-          <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="3" count="0" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
-          <line num="35" count="0" type="stmt"/>
-          <line num="43" count="0" type="stmt"/>
-          <line num="47" count="0" type="stmt"/>
-          <line num="52" count="0" type="stmt"/>
-          <line num="64" count="0" type="stmt"/>
+          <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="40" count="1" type="stmt"/>
+          <line num="44" count="1" type="stmt"/>
+          <line num="49" count="1" type="stmt"/>
+          <line num="61" count="1" type="stmt"/>
         </file>
         <file name="MyPortfolio.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/MyPortfolio.jsx">
           <metrics statements="40" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
@@ -2249,20 +2239,18 @@
         </file>
       </package>
       <package name="src.components.myProfile.utils">
-        <metrics statements="72" coveredstatements="45" conditionals="9" coveredconditionals="6" methods="15" coveredmethods="8"/>
+        <metrics statements="70" coveredstatements="49" conditionals="9" coveredconditionals="6" methods="15" coveredmethods="9"/>
         <file name="Action.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/utils/Action.jsx">
-          <metrics statements="11" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="2" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="7" count="0" type="stmt"/>
+          <metrics statements="9" coveredstatements="4" conditionals="3" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="6" count="8" type="stmt"/>
+          <line num="7" count="0" type="cond" truecount="0" falsecount="3"/>
           <line num="9" count="0" type="stmt"/>
           <line num="10" count="0" type="stmt"/>
           <line num="12" count="0" type="stmt"/>
           <line num="13" count="0" type="stmt"/>
-          <line num="19" count="0" type="stmt"/>
-          <line num="30" count="0" type="stmt"/>
+          <line num="19" count="8" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
         </file>
         <file name="CommentHelper.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/utils/CommentHelper.jsx">
           <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>

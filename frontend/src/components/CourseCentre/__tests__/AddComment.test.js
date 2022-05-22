@@ -1,9 +1,10 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import AddComment from '../AddComment';
+import ShowComments from '../ShowComments';
 import { act } from 'react-dom/test-utils';
 
-describe('ADD COMMENT Test', ()=>{
+describe('Add Comment Test', ()=>{
 
     test('Render Div', ()=>{
         const userID = '2381410';
@@ -68,11 +69,20 @@ describe('ADD COMMENT Test', ()=>{
         const btn = getByTestId('add-comment');
         fireEvent.click(btn);
         expect(btn).toHaveTextContent('Comment');
+    }); 
+});
+
+
+describe('Show Comments Test', ()=>{
+
+    test('When undefined ', ()=>{
+        const {getByTestId} = render(<ShowComments comments = {undefined}/>)
     });
 
-
-
-        
+    test('Show Data', ()=>{
+        const data = [{mapValue:{fields: {userName:{stringValue: "Tamlin Love"}, comment:{stringValue: "Last"}}}}];
+        const {getByTestId} = render(<ShowComments comments = {data}/>)
+    });
 });
 
 
