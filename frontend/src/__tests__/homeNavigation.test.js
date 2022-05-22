@@ -37,7 +37,7 @@ const accounts = [
   ];
 
 
-test("Seach btn ", () => {
+test("Seach btn", () => {
   const { getByTestId } = render(
     <BrowserRouter>
       <Navigation user={accounts} />
@@ -46,6 +46,18 @@ test("Seach btn ", () => {
     const btnEl = getByTestId("searchBtn");
 
     expect(btnEl.textContent).toBe("Search")
+
+});
+
+test("Seach text", () => {
+  const { getByTestId } = render(
+    <BrowserRouter>
+      <Navigation user={accounts} />
+    </BrowserRouter>);
+
+    const searchText = getByTestId("searchText").getAttribute("placeholder");
+
+    expect(searchText).toBe("Search")
 
 });
 

@@ -3,3 +3,6 @@
 ./backend/node_modules
 .idea
 node_modules
+./frontend/coverage
+coverage
+

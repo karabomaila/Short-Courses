@@ -160,6 +160,7 @@ function CardView(props) {
         </Card.Body>
       </Card>
 
+
       <AboutCourseDialog 
       open = {openAboutDialog} 
       close = {setOpenAboutDialog} 

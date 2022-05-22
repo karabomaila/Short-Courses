@@ -5,8 +5,14 @@ import { db } from '../firebase-config.jsx';
 import {collection, getDocs, doc, getDoc} from 'firebase/firestore';
 import {useLocation,useNavigate } from 'react-router-dom';
 import React from "react";
+import ProfileLoader from '../ScreenLoader/ProfileLoader.jsx';
 
 const MyPortfolio = () =>{
+    const start = Date.now();
+    console.log('Start: '+ start);
+
+    const [view, setView] = useState('ExposeView');
+    
     const {state} = useLocation();
     const name = state.acc[0].name;
     const userID = state.acc[0].username;
@@ -42,19 +48,28 @@ const MyPortfolio = () =>{
         }
         getComments();
     }, [])
+
+    /*
+    if(state.visible){
+        return(<ProfileLoader/>)
+    }*/
     
     return(
         <div style = {MyPortfolioStyle}>
+           
             <div className='pin' style = {LeftPanelStyle} >
                 <Menu 
                 name = {name}
-                //displayWindow = {displayWindow} 
-                //setDisplay = {setDisplay}
+                view = {view}
+                setView = {setView}
                 />
             </div>
             <div style = {RightPanelStyle}>
                 <Display 
+                view = {view}
+                setView = {setView}
                 userID = {userID} 
+                userName = {name}
                 courses = {courses} 
                 comments = {comments}
                 bio = {bio}
@@ -68,7 +83,8 @@ const MyPortfolioStyle = {
     display: 'flex',
     flexDirection: 'row', 
     background: 'gray', 
-    height: '100vh'
+    height: '100vh',
+    minHeight: '100vh'
 
 }
 
@@ -77,12 +93,14 @@ const LeftPanelStyle = {
     display: 'flex',
     background: 'gray',
     height: '100vh',
+    minHeight: '100vh'
     //position: 'fixed'
 }
 
 const RightPanelStyle = {
     flex: 3.5,
     height: '100vh',
+    //minHeight: '100vh',
     background: 'white',
     overflowY: 'scroll'
 }

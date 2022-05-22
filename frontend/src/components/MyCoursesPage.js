@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import {Fab} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import MyCourseList from "./MyCourseList";
+import MyCoursesList from "./CoursesUI/MyCoursesList";
 import EnrolledAppBar from "./EnrolledAppBar";
 import CreateCourse from "./CreateCourse";
 import {useLocation,useNavigate } from 'react-router-dom';
@@ -39,18 +39,30 @@ function MyCourses(){
 
     return(
 
-        <>
-        <EnrolledAppBar title="My Courses" modal={true} user={state.user}/>
-        <div>
-        <MyCourseList user={state.user}/>
-            <Fab color="primary" aria-label="add" style={fabStyle} onClick={handleShow}>
-                <AddIcon />
-            </Fab>
+        <div style = {{display: 'flex'}}>
+        <div style = {{display: 'flex', marginBottom: 12}}>
+        <EnrolledAppBar title="My Courses" modal={true} user={state.user} />
+        </div>
+        <div style = {listStyle}>
+            <MyCoursesList user={state.user}/>
+            
         </div>
 
+        <Fab color="primary" aria-label="add" style={fabStyle} onClick={handleShow}>
+                <AddIcon />
+            </Fab>
         
-        </>
+        </div>
         
     );
 }
+
+const listStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    margin: 12,
+    justifyContent: 'center'
+}
+
+
 export default MyCourses;

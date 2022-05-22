@@ -11,11 +11,23 @@ describe('Display Test', ()=>{
     const comments = [];
 
 
-    test('Div Test', ()=>{
+    test('Display Expo Test', ()=>{
         const {getByTestId} = render(<Display userID = {userID} 
-            courses = {courses} comments = {comments} bio = {bio} setBio = {setBio}/>);
+            courses = {courses} comments = {comments} 
+            bio = {bio} setBio = {setBio} view = {'ExposeView'}/>);
 
-        const d = getByTestId('display-div');
+
+        const d = getByTestId('display-expo');
+        expect(d).toBeTruthy();
+    })
+
+    test('Display Perso Test', ()=>{
+        const {getByTestId} = render(<Display userID = {userID} 
+            courses = {courses} comments = {comments} 
+            bio = {bio} setBio = {setBio} view = {'PersonalityTest'}/>);
+
+
+        const d = getByTestId('display-perso');
         expect(d).toBeTruthy();
     })
 })

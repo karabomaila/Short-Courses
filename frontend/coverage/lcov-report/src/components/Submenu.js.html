@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/Submenu.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> Submenu.js
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React,{useState} from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import { NavItem } from 'react-bootstrap';</span>
+<span class="cstat-no" title="statement not covered" >import styled from 'styled-components';</span>
+<span class="cstat-no" title="statement not covered" >import {Link} from 'react-router-dom'</span>
+<span class="cstat-no" title="statement not covered" >import axios from 'axios';</span>
+&nbsp;
+&nbsp;
+function <span class="fstat-no" title="function not covered" >Submenu({item,setCurrSlide}) <span class="cstat-no" title="statement not covered" >{</span></span>
+&nbsp;
+    const setSlide = (<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >item)=&gt;{</span></span>
+<span class="cstat-no" title="statement not covered" >        setCurrSlide(item.body)</span>
+<span class="cstat-no" title="statement not covered" >        console.log(item.body)</span>
+    }
+    
+&nbsp;
+    const SidebarLink=<span class="cstat-no" title="statement not covered" >styled.div`</span>
+    display:flex;
+    color:#e1e9fc;
+    justify-content;
+    align-items:center;
+    padding:20px;
+    list-style:none;
+    height:60px;
+    text-decoration:none;
+    font-size:18px;
+&nbsp;
+    &amp;:hover{
+        background:#252831;
+        border-left:4px solid #632ce4;
+        cursor:pointer;
+    }
+    `;
+&nbsp;
+    const SideBarLabel = <span class="cstat-no" title="statement not covered" >styled.span`</span>
+    margin-left:16px;
+    margin-right:30px;
+    `;
+&nbsp;
+    const Dropdown=<span class="cstat-no" title="statement not covered" >styled.div`</span>
+    background:#414757;
+    height:60px;
+    padding-left:3rem;
+    display:flex;
+    align-items:center;
+    text-decorations:none;
+    color:#f5f5f5;
+    font-size:18px;
+&nbsp;
+    &amp;:hover{
+        background:#632ce4;
+        cursor:pointer:
+    }
+    `;
+&nbsp;
+    const [sub,setSub]=<span class="cstat-no" title="statement not covered" >useState(false);</span>
+    const showSub=<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()=&gt;<span class="cstat-no" title="statement not covered" ></span>setSub(!sub)</span></span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;&gt;
+     &lt;SidebarLink onClick={item.slides &amp;&amp; showSub}&gt;
+        
+             {item.icon}
+             &lt;SideBarLabel&gt;{item.chapter}&lt;/SideBarLabel&gt;
+        &lt;div&gt;
+            {item.slides &amp;&amp; sub
+             ? item.iconOpened
+            :item.slides
+            ? item.iconClosed
+            :null}
+        &lt;/div&gt;
+        &lt;/SidebarLink&gt;
+        {sub &amp;&amp; item.slides.map(<span class="fstat-no" title="function not covered" >(i</span>tem,index)=&gt;{
+<span class="cstat-no" title="statement not covered" >            return(</span>
+                &lt;Dropdown key={index}&gt;
+                    {item.icon}
+                    &lt;SideBarLabel style={{cursor:'pointer'}} key={index} onClick={(<span class="fstat-no" title="function not covered" >e)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >                        e.preventDefault()</span>
+<span class="cstat-no" title="statement not covered" >                        setSlide(item)</span>
+                    }}&gt;{item.title}&lt;/SideBarLabel&gt;
+                &lt;/Dropdown&gt;
+            )
+        })}
+     
+    &lt;/&gt;
+  )
+}
+&nbsp;
+export default Submenu</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri May 20 2022 22:50:04 GMT+0200 (South Africa Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

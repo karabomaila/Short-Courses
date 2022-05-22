@@ -1,18 +1,42 @@
 import ExposeView from "./ExposeView.jsx";
 import React from "react";
+import PersonalityTest from "./PersonalityTest.jsx";
 
 const Display = (props) => {
-    return(
-        <div data-testid = 'display-div' style={{display: 'flex', flexDirection: 'column'}}>
+    if(props.view === 'ExposeView'){
+        return(
+        <div data-testid = 'display-expo' style={MainStyle}>
             <ExposeView 
             userID = {props.userID}
+            userName = {props.userName}
             courses = {props.courses} 
             comments = {props.comments}
             bio = {props.bio}
             setBio = {props.setBio}
             />
         </div>
-    )
+        )
+    }else if(props.view === 'PersonalityTest'){
+        return(
+            <div data-testid = 'display-perso' style={MainStyle}>
+                <PersonalityTest 
+                userID = {props.userID}
+                courses = {props.courses} 
+                comments = {props.comments}
+                bio = {props.bio}
+                setBio = {props.setBio}
+                />
+            </div>
+        )
+    }
+    
+}
+
+const MainStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100vh',
+    minHeight: '100vh'
 }
 
 export default Display;

@@ -7,6 +7,7 @@ import {doc, setDoc} from 'firebase/firestore';
 import React from "react";
 import FilterCourses from './utils/FilterCourses';
 import FilterComments from './utils/FilterComments';
+import Footer from '../Footer/Footer';
 
 const ExposeView = (props) =>{
     
@@ -49,6 +50,8 @@ const ExposeView = (props) =>{
                 <CourseHelper 
                 key = {index} 
                 course = {item} 
+                userID = {props.userID}
+                userName = {props.userName}
                 />)}
                 
             </div>
@@ -63,7 +66,9 @@ const ExposeView = (props) =>{
                 comment = {item} 
                 />)}
             </div>
-                    
+
+        
+            
         </div>
     )
 }

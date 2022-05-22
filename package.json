@@ -4,7 +4,7 @@
   "description": "We have 3 tables: USERS, COURSES and ENROLLED",
   "main": "index.js",
   "scripts": {
-    "test": "cd frontend/ && npm install && npm test",
+    "test": "cd frontend/ && npm install && npm test -- --coverage",
     "installbackend": "cd backend | npm i",
     "installfrontend": "cd frontend | npm i"
   },
@@ -19,7 +19,12 @@
   },
   "homepage": "https://github.com/Lindokuhle777/Short-Courses#readme",
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/styled-engine": "^5.7.0",
+    "@mui/x-date-pickers": "^5.0.0-alpha.3",
     "azure": "^2.3.1-preview",
+    "date-fns": "^2.28.0",
     "styled-components": "^5.3.5"
   }
 }

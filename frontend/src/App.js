@@ -13,6 +13,7 @@ import CreateCourseAgain from './components/CreateCourseAgain';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import MyPortfolio from './components/myProfile/MyPortfolio';
+import FinHome from './components/CourseCentre/FinHome';
 import Useless from './components/Feedback/useless';
 import React from "react";
 
@@ -33,6 +34,7 @@ function App() {
            <Route path='/CreateCourse' element={<CreateCourseAgain/>}/>
            <Route path='/MyCourses' element={<MyCourses/>} />
            <Route path='/MyPortfolio' element={<MyPortfolio/>} />
+           <Route path='/CourseCentre' element={<FinHome/>}/>
            <Route path='/TagsDemo' element ={<Useless/>}/>
            <Route path='/Slides/:id' element={
                      <Siderbar/>
