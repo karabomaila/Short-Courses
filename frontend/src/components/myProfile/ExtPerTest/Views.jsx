@@ -6,7 +6,7 @@ import WorkView from "./WorkView";
 
 const Views = (props)=>{
     if(props.type === 'skills'){
-        if(props.data == undefined){
+        if(props.data === undefined){
             return(<></>);
         }
             return(
@@ -20,7 +20,7 @@ const Views = (props)=>{
             )
     
     }else if(props.type === 'books'){
-            if(props.data == undefined){
+            if(props.data === undefined){
                 return(<></>);
             }
 
@@ -36,7 +36,7 @@ const Views = (props)=>{
         
 
     }else if(props.type === 'edu'){
-        if(props.data == undefined){
+        if(props.data === undefined){
             return(<></>);
         }
             return(
@@ -50,7 +50,7 @@ const Views = (props)=>{
             )
        
     }else if(props.type === 'work'){
-        if(props.data == undefined){
+        if(props.data === undefined){
             return(<></>);
         }
             return(

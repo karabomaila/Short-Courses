@@ -2,15 +2,16 @@ import React from 'react';
 import { TextField } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import AddMenu from './AddMenu';
-import ViewSkills from './ViewSkills';
 import { useState } from 'react';
 import { db } from '../../firebase-config';
 import { doc, setDoc, arrayUnion } from 'firebase/firestore';
 
 const Skills = (props)=>{
     const [newSkill, setNewSkill] = useState('');
-    let data = props.data;
 
+    const x = "Hello";
+    let data = props.data;
+ 
     const upload = async (newData) =>{
 
         let ref = doc(db, 'About', props.userID);
@@ -30,9 +31,9 @@ const Skills = (props)=>{
     
     if(props.visible){
         return(
-            <div style = {MainStyle}>
+            <div data-testid = "test-skill-div" style = {MainStyle} >
                  <div style = {ClickStyle}>
-                <CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/>
+                <CheckCircleOutlineIcon data-testid = "test-skill-icon" sx = {{color: 'green'}} onClick = {change}/>
                 </div>
                 <div style = {InputStyle}>
                 <TextField

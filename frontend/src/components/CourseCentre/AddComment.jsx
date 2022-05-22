@@ -35,14 +35,13 @@ const AddComment = (props)=>{
     }
 
     return(
-        <div>
+        <div data-testid = "add-div">
         <Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={props.open} onClose={onClose}>
             <DialogTitle>
                 Add Comment
             </DialogTitle>
             <DialogContent>
-               
-                <TextField
+                <TextField data-testid = "add-input"
                     label="New Comment"
                     multiline
                     fullWidth
@@ -54,8 +53,8 @@ const AddComment = (props)=>{
                
             </DialogContent>
             <DialogActions>
-                <Button variant = 'outlined' onClick = {onClose}>Cancel</Button>
-                <Button variant = 'outlined' onClick = {onComment}>Comment</Button>
+                <Button variant = 'outlined' onClick = {onClose}  data-testid = "add-cancel">Cancel</Button>
+                <Button variant = 'outlined' onClick = {onComment}  data-testid = "add-comment">Comment</Button>
             </DialogActions>
         </Dialog>
     </div>

@@ -9,13 +9,13 @@ const CommentCard = (props)=>{
     return(
         <div style = {CardOutline}>
             <div style = {CardLeft}>
-                    <span style = {Profile}>{initials}</span>
+                    <span style = {Profile} data-testid = "com-test-ini">{initials}</span>
             </div>
             <div style = {CardRight}>
-                <div style = {NameStyle}>
+                <div style = {NameStyle} data-testid = "com-test-usr">
                     {props.comment.mapValue.fields.userName.stringValue}
                 </div>
-                <div style = {BodyStyle}>
+                <div style = {BodyStyle}data-testid = "com-test-com">
                     {props.comment.mapValue.fields.comment.stringValue}
                 </div>
             </div>
