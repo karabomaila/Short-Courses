@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-undef */
-
 import { TextField, Button, Typography, Paper } from "@mui/material";
 import React, { useState, useRef } from "react";
 import Slide from "@mui/material/Slide";
@@ -14,10 +12,6 @@ import {
   getStorage,
 } from "@firebase/storage";
 import createID from "./GenCourseID";
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
 function Firstpanel({ handletab, setCourse }) {
   const [showimageupload, setshowimageupload] = useState(false);
@@ -87,7 +81,7 @@ function Firstpanel({ handletab, setCourse }) {
       }}
     >
       <Paper
-      elevation={20}
+        elevation={20}
         style={{
           backgroundColor: "#ffffff",
           width: "50%",
@@ -103,8 +97,7 @@ function Firstpanel({ handletab, setCourse }) {
         }}
       >
         <TextField
-        value=""
-        data-testid='courseName'
+          data-testid="courseName"
           id="courseName"
           label="Course name"
           variant="outlined"
@@ -121,7 +114,7 @@ function Firstpanel({ handletab, setCourse }) {
         />
         <div>
           <Button
-          data-testid="addImageBtn"
+            data-testid="addImageBtn"
             variant="contained"
             style={{ margin: "10px 5px 30px 50px" }}
             onClick={onclick}
@@ -152,14 +145,11 @@ function Firstpanel({ handletab, setCourse }) {
                 />
               </div>
               <Button
-                
                 variant="contained"
                 id="faith"
                 type="submit"
                 style={{ margin: "2px 10px 30px 90px", display: "none" }}
-              >
-               
-              </Button>
+              ></Button>
             </form>
             <Button
               data-testid="uploadBtn"
