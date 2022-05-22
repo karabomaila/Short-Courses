@@ -3,12 +3,12 @@
 <head>
     <title>Code coverage report for src/components/CardViewList.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(..\..\sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,12 +16,12 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> CardViewList.js
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> CardViewList.js
     </h1>
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -70,7 +70,33 @@
 45
 46
 47
-48</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+48</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -84,19 +110,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -104,46 +117,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useContext, useEffect,useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import CardView from "./cardView";
-import { Box, CircularProgress } from "@mui/material";
-import DataContext from "./DataContext";
-import { useIsAuthenticated } from "@azure/msal-react";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { useContext, useEffect,useState } from "react";</span>
+<span class="cstat-no" title="statement not covered" >import { Container, Row, Col } from "react-bootstrap";</span>
+<span class="cstat-no" title="statement not covered" >import CardView from "./cardView";</span>
+<span class="cstat-no" title="statement not covered" >import { Box, CircularProgress } from "@mui/material";</span>
+<span class="cstat-no" title="statement not covered" >import DataContext from "./DataContext";</span>
+<span class="cstat-no" title="statement not covered" >import { useIsAuthenticated } from "@azure/msal-react";</span>
 import { useMsal } from "@azure/msal-react";
-import { callMsGraph } from "../graph";
-import { loginRequest } from "../authConfig";
-import axios from "axios";
+<span class="cstat-no" title="statement not covered" >import { callMsGraph } from "../graph";</span>
+<span class="cstat-no" title="statement not covered" >import { loginRequest } from "../authConfig";</span>
+<span class="cstat-no" title="statement not covered" >import axios from "axios";</span>
 import React from "react";
 &nbsp;
 &nbsp;
-function CardViewList(props) {
-  const dataCard = useContext(DataContext);
-  const MyDatabase = dataCard.Data;
+function <span class="fstat-no" title="function not covered" >CardViewList(props) {</span>
+  const dataCard = <span class="cstat-no" title="statement not covered" >useContext(DataContext);</span>
+  const MyDatabase = <span class="cstat-no" title="statement not covered" >dataCard.Data;</span>
   
   
   
   
   
-  return (
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;Container&gt;
       {MyDatabase.length !== 0 ? (
         &lt;Row&gt;
-          {MyDatabase.map((data, index) =&gt; (
-            &lt;Col key={index}&gt;
+          {MyDatabase.map(<span class="fstat-no" title="function not covered" >(d</span>ata, index) =&gt; (
+<span class="cstat-no" title="statement not covered" >            &lt;Col key={index}&gt;</span>
               &lt;CardView
                 image1={data.picture_1}
                 image2={data.picture_1}
@@ -156,7 +156,7 @@ function CardViewList(props) {
           ))}
         &lt;/Row&gt;
       ) : (
-<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;Box style={{ marginLeft: "48%", marginTop: "10%"}}&gt;</span>
+        &lt;Box style={{ marginLeft: "48%", marginTop: "10%"}}&gt;
           &lt;CircularProgress /&gt;
         &lt;/Box&gt;
       )}
@@ -170,10 +170,10 @@ export default CardViewList;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 22 2022 16:21:49 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 22 2022 18:46:51 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
-<script src="../../prettify.js"></script>
+<script src="..\..\prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -181,6 +181,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="../../sorter.js"></script>
+<script src="..\..\sorter.js"></script>
 </body>
 </html>

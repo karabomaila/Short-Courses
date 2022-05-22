@@ -3,12 +3,12 @@
 <head>
     <title>Code coverage report for src/components/Picture.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(..\..\sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,7 +16,7 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> Picture.js
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> Picture.js
     </h1>
     <div class='clearfix'>
     </div>
@@ -87,13 +87,13 @@
 62
 63
 64
-65</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+65</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,20 +151,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
-import { useDrag } from "react-dnd";
-import { IconButton,Button,Card } from "@mui/material";
-import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React from "react";</span>
+<span class="cstat-no" title="statement not covered" >import { useDrag } from "react-dnd";</span>
+<span class="cstat-no" title="statement not covered" >import { IconButton,Button,Card } from "@mui/material";</span>
+<span class="cstat-no" title="statement not covered" >import DragIndicatorIcon from '@mui/icons-material/DragIndicator';</span>
 &nbsp;
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Picture(</span>{ id, url,type,handleClickOpen,handleClickOpen3 }) {
+function <span class="fstat-no" title="function not covered" >Picture({ id, url,type,handleClickOpen,handleClickOpen3 }) <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >{</span></span></span>
 &nbsp;
   const temp = <span class="cstat-no" title="statement not covered" >[1]</span>
 &nbsp;
-  const [{ isDragging }, drag] = <span class="cstat-no" title="statement not covered" >useDrag(<span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+  const [{ isDragging }, drag] = <span class="cstat-no" title="statement not covered" >useDrag(<span class="fstat-no" title="function not covered" >() =&gt; (<span class="cstat-no" title="statement not covered" ></span>{</span></span>
     type: "image",
     item: { id: id },
-    collect: <span class="fstat-no" title="function not covered" >(m</span>onitor) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+    collect: (<span class="fstat-no" title="function not covered" >monitor) =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
       isDragging: !!monitor.isDragging(),
     }),
   }));
@@ -190,7 +190,7 @@ function <span class="fstat-no" title="function not covered" >Picture(</span>{ i
      
 &nbsp;
       &lt;div&gt;
-      {temp.map(<span class="fstat-no" title="function not covered" >(c</span>urrent) =&gt; {
+      {temp.map((<span class="fstat-no" title="function not covered" >current) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        if(type==="title"){</span>
 <span class="cstat-no" title="statement not covered" >          return &lt;div ref={drag} style={divStyle}&gt;&lt;h5 style={h5style}&gt;&lt;DragIndicatorIcon/&gt;Title&lt;/h5&gt;&lt;/div&gt;</span>
         }
@@ -221,10 +221,10 @@ export default Picture;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 22 2022 16:21:49 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 22 2022 18:46:51 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
-<script src="../../prettify.js"></script>
+<script src="..\..\prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -232,6 +232,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="../../sorter.js"></script>
+<script src="..\..\sorter.js"></script>
 </body>
 </html>

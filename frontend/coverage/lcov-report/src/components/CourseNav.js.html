@@ -3,12 +3,12 @@
 <head>
     <title>Code coverage report for src/components/CourseNav.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(..\..\sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,12 +16,12 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> CourseNav.js
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> CourseNav.js
     </h1>
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -102,26 +102,26 @@
 77
 78
 79
-80</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+80</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,26 +181,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import Profile from './profile';
-import { AiOutlinePlusCircle } from "react-icons/ai";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Navbar, Container, Nav, Button } from 'react-bootstrap';</span>
+<span class="cstat-no" title="statement not covered" >import Profile from './profile';</span>
+<span class="cstat-no" title="statement not covered" >import { AiOutlinePlusCircle } from "react-icons/ai";</span>
 import { Modal } from 'react-bootstrap';
-import { useContext, useState, useEffect } from 'react';
-import CardViewList from './CardViewList';
-import CreateCourse from './CreateCourse';
-import { useLocation, useNavigate } from 'react-router-dom';
+<span class="cstat-no" title="statement not covered" >import { useContext, useState, useEffect } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import CardViewList from './CardViewList';</span>
+<span class="cstat-no" title="statement not covered" >import CreateCourse from './CreateCourse';</span>
+<span class="cstat-no" title="statement not covered" >import { useLocation, useNavigate } from 'react-router-dom';</span>
 import React from "react";
 &nbsp;
-function CourseNav(props) {
-  const [show, setShow] = useState(false);
-  const [user, setUser] = useState(false);
+function <span class="fstat-no" title="function not covered" >CourseNav(props) <span class="cstat-no" title="statement not covered" >{</span></span>
+  const [show, setShow] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const [user, setUser] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
 &nbsp;
-  const navigate = useNavigate();
+  const navigate = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
 &nbsp;
 &nbsp;
-  const handleClose = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setShow(false);</span>
-  const handleShow = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setShow(true);</span>
-  return (
+  const handleClose = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>setShow(false);</span></span>
+  const handleShow = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>setShow(true);</span></span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
 &nbsp;
     &lt;Navbar expand="lg" variant="dark" className="my-0 flex" style={{ background: '#003B5C' }}&gt;
 &nbsp;
@@ -217,24 +217,24 @@ function CourseNav(props) {
             variant="outline-light"
             size="sm"
             style={{ marginRight: '10px' }}
-            onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate('/', { state: { user: props.user } })}</span>&gt;Home&lt;/Button&gt;
+            onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>navigate('/', { state: { user: props.user } })}&gt;Home&lt;/Button&gt;</span>
           &lt;Button
             data-testid="enrolledBtn"
             variant="outline-light"
             size="sm" style={{ marginRight: '10px' }}
-            onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate('/Enrolled', { state: { user: props.user } })}</span>&gt;Enrolled&lt;/Button&gt;
+            onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>navigate('/Enrolled', { state: { user: props.user } })}&gt;Enrolled&lt;/Button&gt;</span>
           &lt;Button
             data-testid="myCoursesBtn"
             variant="outline-light"
             size="sm"
-            onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate('/MyCourses', { state: { user: props.user } })}</span>&gt;MyCourses&lt;/Button&gt;
+            onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>navigate('/MyCourses', { state: { user: props.user } })}&gt;MyCourses&lt;/Button&gt;</span>
 &nbsp;
 &nbsp;
         &lt;/Nav&gt;
 &nbsp;
         {props.modal ? (
 &nbsp;
-<span class="branch-0 cbranch-no" title="branch not covered" >          &lt;Modal show={show} onHide={handleClose} dialogClassName="modal-90w"&gt;</span>
+          &lt;Modal show={show} onHide={handleClose} dialogClassName="modal-90w"&gt;
             &lt;Modal.Header closeButton&gt;CREATE A COURSE HERE!!&lt;/Modal.Header&gt;
             &lt;Modal.Body&gt;
               &lt;CreateCourse /&gt;
@@ -266,10 +266,10 @@ export default CourseNav;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 22 2022 16:21:49 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 22 2022 18:46:51 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
-<script src="../../prettify.js"></script>
+<script src="..\..\prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -277,6 +277,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="../../sorter.js"></script>
+<script src="..\..\sorter.js"></script>
 </body>
 </html>
