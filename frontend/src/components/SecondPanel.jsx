@@ -1055,6 +1055,7 @@ function SecondPanel(props) {
               </>
             )}
           </div>
+          
         </div>
 
         <div style={{ textAlign: "center" }}>
@@ -1063,6 +1064,7 @@ function SecondPanel(props) {
           </Typography>
           {board.length !== 0 ? list("right") : null}
         </div>
+        
       </div>
 
       <div style={rightDiv}>
@@ -1220,6 +1222,7 @@ function SecondPanel(props) {
           </>
         )}
       </div>
+      
 
       <Dialog
         open={open}
