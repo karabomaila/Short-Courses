@@ -1,7 +1,4 @@
 import React from 'react'
-import InfoCard from './utils/InfoCard';
-import analytics from './utils/analytics.png';
-import remove from './utils/remove.png';
 import PTestForm from './ExtPerTest/PTestForm';
 import {db} from '../firebase-config';
 import {doc, getDoc} from 'firebase/firestore';
@@ -14,7 +11,6 @@ const PersonalityTest = (props)=>{
     const [questions, setQuestions] = useState([]);
     const [modal, setModal] = useState('main');
 
-    
     useEffect(() => {
         const getQuestions = async ()=>{
            let ref = doc(db, 'GlobalData', 'Quiz');

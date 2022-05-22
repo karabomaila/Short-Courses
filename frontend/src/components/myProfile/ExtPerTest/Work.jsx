@@ -22,7 +22,7 @@ const Work = (props)=>{
     const change = ()=>{
         props.setVisible(false);
 
-        if(comp != '' && occu != '' && year1 != ''){
+        if(comp !== '' && occu !== '' && year1 !== ''){
             upload({company: comp, occupation: occu, years: year1 + " - " + year2});
             setComp('');
             setOccu('');
@@ -33,9 +33,9 @@ const Work = (props)=>{
 
     if(props.visible){
         return(
-            <div style = {MainStyle}>
+            <div style = {MainStyle} data-testid = "test-work-div">
                  <div style = {ClickStyle}>
-                <CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/>
+                <CheckCircleOutlineIcon data-testid = "test-work-icon" sx = {{color: 'green'}} onClick = {change}/>
                 </div>
                 <div style = {InputStyle}>
                     <TextField label = 'Company Name' 

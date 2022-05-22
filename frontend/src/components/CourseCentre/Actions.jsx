@@ -20,7 +20,7 @@ const Actions = (props)=>{
     }
 
     return(
-        <Button variant = 'outlined' style = {Style} onClick = {onClick}>{props.title}</Button>
+        <Button data-testid = "act-btn" variant = 'outlined' style = {Style} onClick = {onClick}>{props.title}</Button>
     )
 }
 
