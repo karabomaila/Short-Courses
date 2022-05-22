@@ -1,8 +1,10 @@
 import React from "react";
 import CourseNav from "../components/CourseNav";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent,cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+afterEach(cleanup)
 
 const accounts = [
     {

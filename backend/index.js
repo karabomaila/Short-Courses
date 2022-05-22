@@ -166,6 +166,7 @@ app.post("/mycourses", (req, res) => {
 
 app.post("/enrolled", (req, res) => {
   const user_id = req.body.user_id;
+  // console.log(user_id)
 
   pool.query(
     "Select crs_code from enroll where user_id = $1",
@@ -173,6 +174,8 @@ app.post("/enrolled", (req, res) => {
     (error, results) => {
       if (!error) {
         const data = []; // will add every object here
+        console.log(results)
+
 
         // number of caurses the user is taking
         for (let i = 0; i < results.rowCount; i++) {
@@ -186,16 +189,19 @@ app.post("/enrolled", (req, res) => {
                 data.push(result.rows[0]); // adding all the enrolled course to one json
 
                 if (i == results.rowCount - 1) {
+
                   res.send(data);
                 }
               } else {
                 console.log(err.message);
+                console.log("hi")
               }
             }
           );
         }
       } else {
         console.log(err.message);
+        console.log("hiHi")
       }
     }
   );

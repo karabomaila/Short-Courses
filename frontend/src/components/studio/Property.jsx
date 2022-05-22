@@ -46,6 +46,7 @@ function Property(props) {
                   <Typography style={{ marginRight: "10px" }}>x</Typography>
                   <textarea
                     id="x"
+                    data-testid="x"
                     rows="1"
                     type='number'
                     value={props.item.position.left}
@@ -60,6 +61,7 @@ function Property(props) {
                   <Typography style={{ marginRight: "10px" }}>y</Typography>
                   <textarea
                     id="y"
+                    data-testid="y"
                     rows="1"
                     type='number'
                     value={props.item.position.top}
@@ -116,7 +118,8 @@ function Property(props) {
                 
                   id={item[0]}
                   rows="1"
-                  type="number"
+                  data-testid={item[0]}
+                  
                   value={item[1]}
                   style={{ resize: "none", width: "auto" }}
                   onChange={(event)=>{

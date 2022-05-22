@@ -1,5 +1,8 @@
 import $ from "jquery";
-import "jquery-ui-dist/jquery-ui";
+import jQuery from 'jquery';
+window.jQuery = $;
+// import "jquery-ui-dist/jquery-ui";
+require("jquery-ui-dist/jquery-ui");
 
 
 
@@ -21,11 +24,13 @@ const renderTools = (canvasTools) => {
   }
 
   $("#canvas").empty();
-  $("#canvas").resizable({
-    maxWidth: window.innerWidth * 0.672,
-    minWidth: window.innerWidth * 0.672,
-    handles: "se",
-  });
+
+  
+  // $("#canvas").resizable({
+  //   maxWidth: window.innerWidth * 0.672,
+  //   minWidth: window.innerWidth * 0.672,
+  //   handles: "se",
+  // });
 
   for (var t in canvasTools) {
     let currTool = canvasTools[t];
@@ -36,6 +41,48 @@ const renderTools = (canvasTools) => {
       if (currTool.type === "text") {
         //   console.log(currTool.fontSize)
         html = $("<div></div>")
+        .resizable({
+          helper: "ui-resizable-helper",
+          resize: (event, ui) => {
+            console.log(ui.helper.width)
+            var id = ui.element[0].id;
+
+            for (var i in canvasTools) {
+              if (canvasTools[i]._id == id) {
+                if (document.getElementById("width") != undefined)
+                  document.getElementById("width").value = parseFloat(
+                    ui.size.width
+                  );
+                if (document.getElementById("height") != undefined)
+                  document.getElementById("height").value = parseFloat(
+                    ui.size.height
+                  );
+              }
+            }
+          },
+          
+
+          stop: function (event, ui) {
+            const u = document.getElementById(currTool._id - 1000);
+            document.getElementById(currTool._id - 1000).focus();
+            u.style.cssText = `resize:none;width:${
+              ui.size.width - 20
+            }px;height:${ui.size.height - 20}px;font-size:${
+              currTool.fontSize
+            }`;
+            var id = ui.element[0].id;
+
+            for (var i in canvasTools) {
+              if (canvasTools[i]._id == id) {
+                
+                canvasTools[i].width = ui.size.width;
+                canvasTools[i].height = ui.size.height;
+              }
+            }
+            renderTools(canvasTools);
+          },
+          handles: "se",
+        })
           .css({
             position: "absolute",
             border: "10px solid white",
@@ -63,48 +110,6 @@ const renderTools = (canvasTools) => {
               })
               .attr("id", currTool._id - 1000)
           )
-          .resizable({
-            helper: "ui-resizable-helper",
-            resize: (event, ui) => {
-              console.log(ui.helper.width)
-              var id = ui.element[0].id;
-
-              for (var i in canvasTools) {
-                if (canvasTools[i]._id == id) {
-                  if (document.getElementById("width") != undefined)
-                    document.getElementById("width").value = parseFloat(
-                      ui.size.width
-                    );
-                  if (document.getElementById("height") != undefined)
-                    document.getElementById("height").value = parseFloat(
-                      ui.size.height
-                    );
-                }
-              }
-            },
-            
-
-            stop: function (event, ui) {
-              const u = document.getElementById(currTool._id - 1000);
-              document.getElementById(currTool._id - 1000).focus();
-              u.style.cssText = `resize:none;width:${
-                ui.size.width - 20
-              }px;height:${ui.size.height - 20}px;font-size:${
-                currTool.fontSize
-              }`;
-              var id = ui.element[0].id;
-
-              for (var i in canvasTools) {
-                if (canvasTools[i]._id == id) {
-                  
-                  canvasTools[i].width = ui.size.width;
-                  canvasTools[i].height = ui.size.height;
-                }
-              }
-              renderTools(canvasTools);
-            },
-            handles: "se",
-          })
           .attr("id", currTool._id);
 
           

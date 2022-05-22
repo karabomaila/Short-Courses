@@ -100,6 +100,7 @@ export default function SimpleAccordion(props) {
             <ListItem
               // key={index}
               // disableRipple={true}
+              data-testid={index.toString() +item.type}
               button
               secondaryAction={<IconButton
                 onClick={(event) => {
@@ -123,7 +124,7 @@ export default function SimpleAccordion(props) {
               <ListItemIcon>
                 {getIcon(item.type)}
               </ListItemIcon>
-              <ListItemText primary={item.type} style={{ color: "#000000" }} />
+              <ListItemText primary={item.type} data-testid={index.toString() +item.type+ "text"} style={{ color: "#000000" }} />
               
             </ListItem>
             <Divider />
@@ -135,7 +136,7 @@ export default function SimpleAccordion(props) {
 
   return (
     <div style={{ marginTop: "60px" }}>
-      <Accordion style={{backgroundColor: "#f2f2f2"}}>
+      <Accordion style={{backgroundColor: "#f2f2f2"}} data-testid="propertiesAcc">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="pane1a-content"
@@ -159,7 +160,7 @@ export default function SimpleAccordion(props) {
         </AccordionDetails>
       </Accordion>
 
-      <Accordion style={{backgroundColor: "#f2f2f2"}}>
+      <Accordion style={{backgroundColor: "#f2f2f2"}} data-testid="componentsAcc">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
