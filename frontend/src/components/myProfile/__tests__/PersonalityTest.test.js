@@ -10,7 +10,7 @@ describe('Personality Test', ()=>{
         const d = getByTestId('pers-div');
         expect(d).toBeTruthy();
     });
-
+    
     test('Test Show Heading', ()=>{
         const {getByTestId} = render(<PersonalityTest userID = 'a0074560@wits.ac.za' />);
         const head = getByTestId('pers-head');

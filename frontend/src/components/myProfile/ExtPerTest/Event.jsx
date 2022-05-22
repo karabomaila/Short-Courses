@@ -48,8 +48,10 @@ const Event = (props) => {
 
     return(
         <Button variant="outlined" 
+        data-testid={props.click}
         style={ButtonStyle}
-        onClick = {onClick}>{props.title}</Button>
+        onClick = {onClick}>{props.title}
+        </Button>
     )
 }
 
