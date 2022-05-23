@@ -36,9 +36,9 @@ const Education = (props)=>{
 
     if(props.visible){
         return(
-            <div style = {MainStyle}>
+            <div style = {MainStyle} data-testid = "test-edu-div">
                 <div style = {ClickStyle}>
-                <CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/>
+                <CheckCircleOutlineIcon data-testid = "test-edu-icon" sx = {{color: 'green'}} onClick = {change}/>
                 </div>
                 <div style = {InputStyle}>
                     <TextField label = 'Institution Name' 
