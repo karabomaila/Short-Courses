@@ -14,6 +14,7 @@ const Event = (props) => {
         return({Q: question, A: answer});
     }
 
+
     const onClick = ()=>{
         if(props.click === 'main'){
             props.setModal('main');
@@ -48,7 +49,7 @@ const Event = (props) => {
 
     return(
         <Button variant="outlined" 
-        data-testid={props.click}
+        data-testid={'test-' + props.click}
         style={ButtonStyle}
         onClick = {onClick}>{props.title}
         </Button>
