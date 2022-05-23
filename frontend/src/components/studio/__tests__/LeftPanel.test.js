@@ -6,7 +6,7 @@ import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Leftpanel from "../Leftpanel";
-import { fi } from "date-fns/locale";
+
 
 const accounts = [
     {

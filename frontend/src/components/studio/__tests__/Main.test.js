@@ -73,6 +73,17 @@ const canvasTools = [
     width: 300,
     height: 200,
   },
+  {
+    _id: 1653279988289,
+    position: {
+      top: 122,
+      left: 264,
+    },
+    type: "video",
+    url: "https://www.youtube.com/embed/0Y11K7KSC80",
+    width: 300,
+    height: 200,
+  },
 ];
 
 test("icons present", () => {
@@ -99,21 +110,8 @@ test("canvas", () => {
     </BrowserRouter>
   );
 
-  const canvas = screen.getByTestId("canvasTest");
-
-  const text = screen.getByTestId("Texttest");
-  fireEvent.mouseDown(text, { which: 1, button: 0 });
-  fireEvent.dragStart(text);
-  screen.debug();
-  fireEvent.dragEnter(canvas);
-  fireEvent.drop(canvas);
-  fireEvent.dragLeave(canvas);
-  fireEvent.dragEnd(text);
-
   const propertiesAcc = screen.getByTestId("propertiesAcc");
   fireEvent.click(propertiesAcc);
-
-  
 
   // expect(listItem).toBeInTheDocument();
 
@@ -125,31 +123,147 @@ test("canvas", () => {
   // expect(listItem).toBe
 });
 
-// test("Force", () => {
-//   render(
-//     <BrowserRouter>
-//       <DragAndDropTemp
-//         canvasTools={canvasTools}
-//         despatch={()=>{}}
-//         setCanvasTools={()=>{}}
-//         setOpen4={()=>{}}
-//         setDisplayAlert={()=>{}}
-//         chapters={[]}
-//         edit={false}
-//         saveSlide={()=>{}}
-//       />
-//     </BrowserRouter>
-//   );
+test("image tool", () => {
+  render(
+    <BrowserRouter>
+      <Main {...props} />
+    </BrowserRouter>
+  );
 
-//   const text2 = screen.getByPlaceholderText("Text")
+  const prop = screen.getByTestId("propertiesAcc");
+  fireEvent.click(prop);
 
-//   const text = screen.getByTestId("Texttest");
-//   const video = screen.getByTestId("Videotest");
-//   const image = screen.getByTestId("Imagetest");
+  const comp = screen.getByTestId("componentsAcc");
+  fireEvent.click(comp);
 
-//   expect(text).toBeInTheDocument();
-//   expect(video).toBeInTheDocument();
-//   expect(image).toBeInTheDocument();
-// //   expect(text2 ).toBeInTheDocument();
+  const listItem = screen.getByTestId("0text");
+  fireEvent.click(listItem);
 
-// });
+  const width = screen.getByTestId("width");
+  fireEvent.change(width,{target:{value:"354"}})
+
+  const height = screen.getByTestId("height");
+  fireEvent.change(height,{target:{value:"354"}})
+
+  const top = screen.getByTestId("y");
+  fireEvent.change(top,{target:{value:218}});
+
+  const left = screen.getByTestId("x");
+  fireEvent.change(left,{target:{value:156}});
+
+  
+
+  const textElem = screen.getByPlaceholderText("Text");
+  const textDiv = screen.getByTestId("1653242196015");
+
+  expect(width.value).toBe("354");
+  expect(height.value).toBe("354")
+  expect(top.value).toBe("218");
+  expect(left.value).toBe("156");
+  expect(textElem.style.width).toBe("334px");
+  expect(textElem.style.height).toBe("334px");
+  expect(textDiv.style.top).toBe("218px");
+  expect(textDiv.style.left).toBe("156px");
+
+
+  
+  // const top = screen.getByTestId("y");
+  // fireEvent.change(top,{target:{value:218}});
+  
+
+  
+  
+});
+
+
+test("Text tool", () => {
+  render(
+    <BrowserRouter>
+      <Main {...props} />
+    </BrowserRouter>
+  );
+
+  const prop = screen.getByTestId("propertiesAcc");
+  fireEvent.click(prop);
+
+  const comp = screen.getByTestId("componentsAcc");
+  fireEvent.click(comp);
+
+  const listItem = screen.getByTestId("1image");
+  fireEvent.click(listItem);
+
+  const width = screen.getByTestId("width");
+  fireEvent.change(width,{target:{value:"354"}})
+
+  const height = screen.getByTestId("height");
+  fireEvent.change(height,{target:{value:"354"}})
+
+  const top = screen.getByTestId("y");
+  fireEvent.change(top,{target:{value:218}});
+
+  const left = screen.getByTestId("x");
+  fireEvent.change(left,{target:{value:156}});
+
+  
+
+  const textElem = screen.getByTestId((1653242197288-1000).toString());
+  const textDiv = screen.getByTestId("1653242197288");
+
+  expect(width.value).toBe("354");
+  expect(height.value).toBe("354")
+  expect(top.value).toBe("218");
+  expect(left.value).toBe("156");
+  expect(textElem.style.width).toBe("334px");
+  expect(textElem.style.height).toBe("334px");
+  expect(textDiv.style.top).toBe("218px");
+  expect(textDiv.style.left).toBe("156px");
+
+
+  
+});
+
+test("video tool", () => {
+  render(
+    <BrowserRouter>
+      <Main {...props} />
+    </BrowserRouter>
+  );
+
+  const prop = screen.getByTestId("propertiesAcc");
+  fireEvent.click(prop);
+
+  const comp = screen.getByTestId("componentsAcc");
+  fireEvent.click(comp);
+
+  const listItem = screen.getByTestId("2video");
+  fireEvent.click(listItem);
+
+  const width = screen.getByTestId("width");
+  fireEvent.change(width,{target:{value:"354"}})
+
+  const height = screen.getByTestId("height");
+  fireEvent.change(height,{target:{value:"354"}})
+
+  const top = screen.getByTestId("y");
+  fireEvent.change(top,{target:{value:218}});
+
+  const left = screen.getByTestId("x");
+  fireEvent.change(left,{target:{value:156}});
+
+  
+
+  const textElem = screen.getByTestId((1653279988289-1000).toString());
+  const textDiv = screen.getByTestId("1653279988289");
+
+  expect(width.value).toBe("354");
+  expect(height.value).toBe("354")
+  expect(top.value).toBe("218");
+  expect(left.value).toBe("156");
+  expect(textElem.style.width).toBe("334px");
+  expect(textElem.style.height).toBe("334px");
+  expect(textDiv.style.top).toBe("218px");
+  expect(textDiv.style.left).toBe("156px");
+
+
+  
+});

@@ -15,7 +15,6 @@ import {
   Alert,
   MenuItem,
   Paper,
-  SwipeableDrawer,
   TextField,
   AccordionSummary,
   AccordionDetails,
@@ -25,11 +24,6 @@ import {
 import {
   collection,
   addDoc,
-  getDocs,
-  where,
-  query,
-  updateDoc,
-  doc,
 } from "@firebase/firestore";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { storage, db } from "../firebase-config";
@@ -43,7 +37,7 @@ import renderTools from "./renderTools";
 import TagsDialog from "../tags/TagsDialog";
 import axios from "axios";
 
-const mins = [2, 5, 10, 15, 20, 30, 40, 50, 60];
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -101,10 +95,7 @@ function Leftpanel(props) {
   });
 
   const handleShow = async () => {
-    //Simnandi
-    //alert("Simnandi");
-    // console.log(slides);
-    // console.log(chapters);
+    
 
     var finalChapters = [];
 
@@ -113,11 +104,7 @@ function Leftpanel(props) {
       finalChapters.push({ ...chapter, slides: temp });
     });
 
-    // console.log(finalChapters);
-    // //setShow(true);
-
-    // console.log();
-
+    
     try{
       axios
       .post("http://localhost:5000/CreateCourse", {
@@ -144,10 +131,6 @@ function Leftpanel(props) {
     }catch(e){
       alert(e)
     }
-
-    
-
-    // ==================== Handling the tags... ============================
     
   };
 
