@@ -20,6 +20,7 @@ export default function MenuAppBar(props) {
             aria-label="menu"
             sx={{ mr: 2 }}
             onClick={props.toggleDrawer("left", true)}
+            data-testid = "showPanel"
           >
             <MenuIcon />
           </IconButton>

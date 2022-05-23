@@ -1,5 +1,5 @@
 import $ from "jquery";
-import "jquery-ui-dist/jquery-ui";
+// import "jquery-ui-dist/jquery-ui";
 import React, { useEffect, useState, useRef } from "react";
 import { tools } from "./tools";
 import Tool from "./Tool";
@@ -30,6 +30,9 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import TextField from "@mui/material/TextField";
+
+window.jQuery = $;
+require("jquery-ui-dist/jquery-ui");
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;

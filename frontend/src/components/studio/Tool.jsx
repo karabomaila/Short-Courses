@@ -1,7 +1,10 @@
 import $ from "jquery";
-import "jquery-ui-dist/jquery-ui";
+// import "jquery-ui-dist/jquery-ui";
 import React, { useEffect } from "react";
 import { Tooltip } from "@mui/material";
+window.jQuery = $;
+require("jquery-ui-dist/jquery-ui");
+
 
 const toolStyle = {
   cursor: "move",

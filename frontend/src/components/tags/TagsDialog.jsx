@@ -38,20 +38,6 @@ const TagsDialog = (props) => {
     }, [])
 
 
-    useEffect(() => {
-        console.log('sabelo')
-        instance
-          .acquireTokenSilent({
-            ...loginRequest,
-            account: accounts[0],
-          })
-          .then((response) => {
-            callMsGraph(response.accessToken).then((response) =>
-              setGraphData(response)
-            );
-          });
-      }, [setGraphData, instance, accounts]);
-
     let initArray = props.courseName.split(' ');
     let TagArray = new Array();
 
