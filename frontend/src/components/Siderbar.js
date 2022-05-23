@@ -25,25 +25,9 @@ import { MdLibraryBooks } from "react-icons/md";
 import * as RiIcons from "react-icons/ri";
 import axios from "axios";
 import {useParams,useLocation} from 'react-router-dom';
-import Note from './Notes'  
+import Notes from './Notes'  
 
-const temp_slides = [
-  {
-    id: 1,
-    type: "title",
-    content: "Title1",
-  },
-  {
-    id: 2,
-    type: "subtitle",
-    content: "subTitle1",
-  },
-  {
-    id: 3,
-    type: "subtitle",
-    content: "subTitle2",
-  },
-]
+
 
 const textareaStyle = {
   resize: "both",

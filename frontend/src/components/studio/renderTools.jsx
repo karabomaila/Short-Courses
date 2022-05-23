@@ -1,6 +1,6 @@
 import $ from "jquery";
-import jQuery from 'jquery';
 window.jQuery = $;
+
 // import "jquery-ui-dist/jquery-ui";
 require("jquery-ui-dist/jquery-ui");
 
