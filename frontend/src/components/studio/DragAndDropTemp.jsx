@@ -296,6 +296,7 @@ function DragAndDrop(props) {
               }
             }
           }}
+          data-testid = "SaveButton2"
         >
           Save
         </Button>
