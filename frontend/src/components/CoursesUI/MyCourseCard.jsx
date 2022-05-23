@@ -1,13 +1,11 @@
 import Actions from "./Actions"
 import React from 'react';
-import wits from './wits.png'
 import ActionDel from "./ActionDel";
 import { db } from "../firebase-config";
 import {collection,addDoc,getDocs,where,query,updateDoc, doc,} from "@firebase/firestore";
 import {getDownloadURL,ref,uploadBytesResumable,getStorage,} from "@firebase/storage";
 import { useNavigate, useLocation } from "react-router-dom";
 import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
-import GetInfo from "../AboutCourse/GetInfo";
 import { useState, useEffect } from "react";
 
 
@@ -69,7 +67,7 @@ const MyCourseCard = (props)=>{
   }, [setImageURL]);
 
     return(
-        <div style = {MainStyle}>
+        <div style = {MainStyle} data-testid = "my-ui-div">
             <div style = {ImageStyle}>
                 <img src = {imageURL} width = '100%' height = '100%'/>
             </div>

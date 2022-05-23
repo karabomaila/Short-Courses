@@ -19,7 +19,7 @@ const FeedbackDialog = (props)=>{
     }
 
     return(
-        <div>
+        <div data-testid = "feed-div">
             <Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={props.open} onClose={onClose}>
                 <DialogTitle>
                     Feedback

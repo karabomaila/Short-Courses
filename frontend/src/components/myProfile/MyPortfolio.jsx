@@ -5,7 +5,6 @@ import { db } from '../firebase-config.jsx';
 import {collection, getDocs, doc, getDoc} from 'firebase/firestore';
 import {useLocation,useNavigate } from 'react-router-dom';
 import React from "react";
-import ProfileLoader from '../ScreenLoader/ProfileLoader.jsx';
 
 const MyPortfolio = () =>{
     const start = Date.now();

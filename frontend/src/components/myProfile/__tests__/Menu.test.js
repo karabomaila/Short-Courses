@@ -18,6 +18,13 @@ describe('Menu Test', ()=>{
         expect(user.innerHTML).toEqual(name);
     });
 
+    test('Exposeview Button', ()=>{
+        const name = 'Given Mathebula'
+        const {getByTestId} = render(<Menu name = {name}/>);
+        const d = getByTestId("men-div");
+        expect(d).toBeTruthy();
+    });
+
 });
 
 

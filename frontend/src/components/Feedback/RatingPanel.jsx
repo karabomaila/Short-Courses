@@ -47,7 +47,7 @@ const RatingPanel = (props)=>{
       props.setRate(event.target.value);
   }
     return(
-        <div style = {MainStyle}>
+        <div style = {MainStyle} data-testid = "rate-div">
           <Rating
             name="highlight-selected-only"
             defaultValue={3}

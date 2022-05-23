@@ -103,7 +103,6 @@ function Firstpanel({ handletab, setCourse }) {
         }}
       >
         <TextField
-        value=""
         data-testid='courseName'
           id="courseName"
           label="Course name"

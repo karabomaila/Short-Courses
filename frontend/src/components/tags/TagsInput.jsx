@@ -35,14 +35,15 @@ const TagsInput = (props)=>{
     }
 
     return(
-        <div style = {{display: 'flex', flexDirection: 'column'}}>
+        <div style = {{display: 'flex', flexDirection: 'column'}} data-testid = "tgs-div">
         <div style = {InputStyle}>
             <TextField value = {input} 
             onChange = {onChange} 
             id="newtag" 
             label="#NewTag" 
             variant="outlined" 
-            data-testid = 'test-textfield'/>
+            inputProps={{ "data-testid": "test-textfield" }}
+            />
             <Button variant = 'outlined' 
             style = {{marginLeft: 12}} 
             onClick = {onAdd}

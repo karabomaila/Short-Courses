@@ -5,7 +5,7 @@ import CourseAppBar from './CourseAppBar';
 import axios from 'axios';
 import SlideCard from './SlideCard'
 import AddIcon from '@mui/icons-material/Add';
-import ViewSlides from './ViewSlides';
+
 import CreateSlides from './CreateSlides';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { db } from './firebase-config'
