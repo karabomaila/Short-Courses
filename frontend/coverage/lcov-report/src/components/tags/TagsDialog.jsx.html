@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -101,20 +101,7 @@
 76
 77
 78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+79</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,49 +123,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">80x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -186,7 +160,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -227,49 +201,36 @@ import { loginRequest } from "./MicrosoftGraph/authConfig";
  * By NO ONE I mean Lindokuhle...
 &nbsp;
 */
-const TagsDialog = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
-    const navigator = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
-    const [tags, setTags] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
-    const REF_COLLECTION = <span class="cstat-no" title="statement not covered" >collection(db, "CourseTags");</span>
+const TagsDialog = (props) =&gt; {
+    const navigator = useNavigate();
+    const [tags, setTags] = useState([]);
+    const REF_COLLECTION = collection(db, "CourseTags");
 &nbsp;
-    const isAuthenticated = <span class="cstat-no" title="statement not covered" >useIsAuthenticated();</span>
-    const { instance, accounts } = <span class="cstat-no" title="statement not covered" >useMsal();</span>
-    const [graphData, setGraphData] = <span class="cstat-no" title="statement not covered" >useState(null);</span>
+    const isAuthenticated = useIsAuthenticated();
+    const { instance, accounts } = useMsal();
+    const [graphData, setGraphData] = useState(null);
     
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-        const getTags = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync ()=&gt;{</span>
-            const data = <span class="cstat-no" title="statement not covered" >await getDocs(REF_COLLECTION);</span>
+    useEffect(() =&gt; {
+        const getTags = async ()=&gt;{
+            const data = await getDocs(REF_COLLECTION);
 <span class="cstat-no" title="statement not covered" >            setTags(data.docs.map(<span class="fstat-no" title="function not covered" >(d</span>oc) =&gt; (<span class="cstat-no" title="statement not covered" >{...doc.data(), id: doc.id})</span>));</span>
         }
-<span class="cstat-no" title="statement not covered" >        getTags();</span>
+        getTags();
     }, [])
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        console.log('sabelo')</span>
-<span class="cstat-no" title="statement not covered" >        instance</span>
-          .acquireTokenSilent({
-            ...loginRequest,
-            account: accounts[0],
-          })
-          .then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {
-<span class="cstat-no" title="statement not covered" >            callMsGraph(response.accessToken).then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >              setGraphData(response)</span>
-            );
-          });
-      }, [setGraphData, instance, accounts]);
+    
+    let initArray = props.courseName.split(' ');
+    let TagArray = new Array();
 &nbsp;
-    let initArray = <span class="cstat-no" title="statement not covered" >props.courseName.split(' ');</span>
-    let TagArray = <span class="cstat-no" title="statement not covered" >new Array();</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    for(let i = 0; i &lt; initArray.length; i++){</span>
-<span class="cstat-no" title="statement not covered" >        TagArray.push('#' + initArray[i]);</span>
+    for(let i = 0; i &lt; initArray.length; i++){
+        TagArray.push('#' + initArray[i]);
     }
 &nbsp;
-    const [fullWidth, setFullWidth] = <span class="cstat-no" title="statement not covered" >React.useState(true);</span>
-    const [maxWidth, setMaxWidth] = <span class="cstat-no" title="statement not covered" >React.useState('sm');</span>
+    const [fullWidth, setFullWidth] = React.useState(true);
+    const [maxWidth, setMaxWidth] = React.useState('sm');
 &nbsp;
-    const onClose = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt;{</span>
+    const onClose = <span class="fstat-no" title="function not covered" >()</span> =&gt;{
 <span class="cstat-no" title="statement not covered" >        props.close(false);</span>
         let uploadTag = <span class="cstat-no" title="statement not covered" >new Helpers();</span>
 <span class="cstat-no" title="statement not covered" >        uploadTag.PushTag(tags, TagArray, props.courseID);</span>
@@ -277,7 +238,7 @@ const TagsDialog = <span class="fstat-no" title="function not covered" >(p</span
 <span class="cstat-no" title="statement not covered" >        navigator("/MyCourses", { state: { user: accounts } });</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return(</span>
+    return(
         &lt;div&gt;
         &lt;Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={props.open} onClose={onClose}&gt;
             &lt;DialogTitle&gt;Add Tags&lt;/DialogTitle&gt;
@@ -302,7 +263,7 @@ export default TagsDialog;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 23 2022 09:34:20 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 23 2022 10:03:04 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

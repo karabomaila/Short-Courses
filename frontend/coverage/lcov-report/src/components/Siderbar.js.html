@@ -385,23 +385,11 @@
 360
 361
 362
-363
-364
-365
-366
-367
-368
-369
-370
-371
-372
-373
-374
-375
-376</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+363</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -423,26 +411,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -638,6 +611,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -775,8 +749,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React from "react";</span>
 import { useState, useEffect} from "react";
+<span class="cstat-no" title="statement not covered" >import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';</span>
 <span class="cstat-no" title="statement not covered" >import styled from "styled-components";</span>
-<span class="cstat-no" title="statement not covered" >import { link } from "react-router-dom";</span>
+import { link } from "react-router-dom";
 <span class="cstat-no" title="statement not covered" >import * as FaIcons from "react-icons/fa";</span>
 <span class="cstat-no" title="statement not covered" >import * as AiIcons from "react-icons/ai";</span>
 <span class="cstat-no" title="statement not covered" >import Comments from "./Comments";</span>
@@ -799,24 +774,9 @@ import { useState, useEffect} from "react";
 <span class="cstat-no" title="statement not covered" >import * as RiIcons from "react-icons/ri";</span>
 <span class="cstat-no" title="statement not covered" >import axios from "axios";</span>
 import {useParams,useLocation} from 'react-router-dom';
+<span class="cstat-no" title="statement not covered" >import Notes from './Notes'  </span>
 &nbsp;
-const temp_slides = <span class="cstat-no" title="statement not covered" >[</span>
-  {
-    id: 1,
-    type: "title",
-    content: "Title1",
-  },
-  {
-    id: 2,
-    type: "subtitle",
-    content: "subTitle1",
-  },
-  {
-    id: 3,
-    type: "subtitle",
-    content: "subTitle2",
-  },
-]
+&nbsp;
 &nbsp;
 const textareaStyle = <span class="cstat-no" title="statement not covered" >{</span>
   resize: "both",
@@ -1000,15 +960,15 @@ function <span class="fstat-no" title="function not covered" >Siderbar() <span c
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;&gt;
-      &lt;Nav&gt;
-        &lt;NavIcon&gt;
-          &lt;FaIcons.FaBars onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>showSidebar()} /&gt;</span>
+      &lt;Nav data-testid="nav"&gt;
+        &lt;NavIcon data-testid="navIcon"&gt;
+          &lt;FaIcons.FaBars data-testid="showbtn" onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>showSidebar()} /&gt;</span>
         &lt;/NavIcon&gt;
       &lt;/Nav&gt;
-      &lt;SidebarNav sidebar={sidebar}&gt;
-        &lt;SidebarWrap&gt;
+      &lt;SidebarNav sidebar={sidebar} data-testid="sidebar"&gt;
+        &lt;SidebarWrap data-testid="wrap"&gt;
           &lt;NavIcon&gt;
-            &lt;AiIcons.AiOutlineClose onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>showSidebar()} /&gt;</span>
+            &lt;AiIcons.AiOutlineClose data-testid="hidebtn" onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>showSidebar()} /&gt;</span>
           &lt;/NavIcon&gt;
           {data.map(<span class="fstat-no" title="function not covered" >(i</span>tem, index) =&gt; {
             // setCurrSlide(item.slides)
@@ -1022,6 +982,7 @@ function <span class="fstat-no" title="function not covered" >Siderbar() <span c
         } duration-300  bg-WitsBlue text-base `}
       &gt;
         &lt;div
+           data-testid="run"
           className={`${
             sidebar ? "w-100" : "w-100"
           } duration-300 p-2  bg-WitsBlue text-base  justify-content: center`}
@@ -1140,7 +1101,7 @@ function <span class="fstat-no" title="function not covered" >Siderbar() <span c
             &lt;FcSms onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>setOpen(!open)} /&gt;</span>
           &lt;/NavIcon&gt;
 &nbsp;
-          &lt;Comments /&gt;
+          &lt;Notes/&gt;
         &lt;/SidebarWrap&gt;
       &lt;/SidebarNav1&gt;
     &lt;/&gt;
@@ -1154,7 +1115,7 @@ export default Siderbar;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 23 2022 09:34:20 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 23 2022 10:03:04 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>
