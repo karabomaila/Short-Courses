@@ -69,6 +69,27 @@ describe('Event Test', ()=>{
         fireEvent.click(btn);
     })
 
+    test('Test 7 Major', ()=>{
+
+        const MAX_QS = 2;
+        const userID = '2381410';
+
+
+        const {getByTestId} = render(<Event title = 'Yes' 
+        click = 'yes' 
+        size = {MAX_QS}
+        userID = {userID}
+        question = {'Yes or no?'}
+        answer = {new Array()}
+        setAnswer= {useHook}
+        setModal = {useHook}
+        setIndex = {useHook} 
+        index = {2}/>);
+
+        const btn = getByTestId('test-yes');
+        fireEvent.click(btn);
+    })
+
 
 
 
