@@ -61,175 +61,180 @@ const canvasTools = [
     },
 ];
 
-// test("Datafirst", () => {
-//   const { getByTestId } = render(
-//     <BrowserRouter>
-//       <Leftpanel canvasTools={canvasTools} despatch= {()=>{}} setCanvasTools={()=>{}} course={{name:"Coursename", courseID:"26385385", description:"description"}} user={accounts} />
-//     </BrowserRouter>);
-
-//     const btnEl = getByTestId("Datafirst");
-
-//     expect(btnEl.textContent).toBe("Please create a chapter first")
-
-// });
-
-test("Seach text", () => {
+test("DataOutcomes", () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
         </BrowserRouter>);
 
-    const searchText = getByTestId("DataOutcomes");
-
-    expect(searchText.textContent).toBe("Please specify the learning outcomes of this chapter")
+    const DataOutcomes = getByTestId("DataOutcomes");
+    expect(DataOutcomes.textContent).toBe("Please specify the learning outcomes of this chapter")
 
 });
 
-test("Seach text", () => {
+test("Hearder", () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
         </BrowserRouter>);
 
-    const button = getByTestId("showPanel");
-    fireEvent.click(button)
-    const searchText = getByTestId("hearder");
+    const showPanel = getByTestId("showPanel");
+    fireEvent.click(showPanel)
 
-    expect(searchText.textContent).toBe("Course Content")
+    const hearder = getByTestId("hearder");
+    expect(hearder.textContent).toBe("Course Content")
 
 });
 
-test("Seach text", () => {
+test("NewChapterButton", () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
         </BrowserRouter>);
 
-    const button = getByTestId("showPanel");
-    fireEvent.click(button)
-    const searchText = getByTestId("NewChapterButton");
+    const showPanel = getByTestId("showPanel");
+    fireEvent.click(showPanel)
 
-    expect(searchText.textContent).toBe("New Chapter")
+    const NewChapterButton = getByTestId("NewChapterButton");
+    expect(NewChapterButton.textContent).toBe("New Chapter")
 
 });
 
-// test("Seach text", () => {
-//     const { getByTestId } = render(
-//         <BrowserRouter>
-//             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
-//         </BrowserRouter>);
-
-//     const button = getByTestId("showPanel");
-//     fireEvent.click(button)
-//     const searchText = getByTestId("OutcomesButton");
-
-//     expect(searchText.textContent).toBe("Outcomes")
-
-// });
-
-test("Seach text", () => {
+test("AddButton", () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
         </BrowserRouter>);
 
-    const searchText = getByTestId("AddButton");
-
-    expect(searchText.textContent).toBe("Add")
+    const AddButton = getByTestId("AddButton");
+    expect(AddButton.textContent).toBe("Add")
 
 });
 
-test("Seach text", () => {
+test("CancelButton", () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
         </BrowserRouter>);
 
-    const searchText = getByTestId("CancelButton");
-
-    expect(searchText.textContent).toBe("CANCEL")
+    const CancelButton = getByTestId("CancelButton");
+    expect(CancelButton.textContent).toBe("CANCEL")
 
 });
 
-test("Seach text", () => {
+test("SaveSlide", () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
         </BrowserRouter>);
 
-    const searchText = getByTestId("SaveSlide");
-
-    expect(searchText.textContent).toBe("Save Slide")
+    const SaveSlide = getByTestId("SaveSlide");
+    expect(SaveSlide.textContent).toBe("Save Slide")
 
 });
 
-test("Seach text", () => {
+test("EstimatedDuration", () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
         </BrowserRouter>);
 
-    const searchText = getByTestId("EstimatedDuration");
-
-    expect(searchText.textContent).toBe("Estimated slide duration")
+    const EstimatedDuration = getByTestId("EstimatedDuration");
+    expect(EstimatedDuration.textContent).toBe("Estimated slide duration")
 
 });
 
-test("Seach text", () => {
+test("SaveButton", () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
         </BrowserRouter>);
 
-    const searchText = getByTestId("SaveButton");
-
-    expect(searchText.textContent).toBe("Save")
+    const SaveButton = getByTestId("SaveButton");
+    expect(SaveButton.textContent).toBe("Save")
 
 });
 
-test("Seach text", () => {
+test("NextButton", () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
         </BrowserRouter>);
 
-    const searchText = getByTestId("NextButton");
+    const NextButton = getByTestId("NextButton");
 
-    expect(searchText.textContent).toBe("NEXT")
+    expect(NextButton.textContent).toBe("NEXT")
 
 });
 
-test("Seach text", () => {
+test("ChapterName ", () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
         </BrowserRouter>);
 
-    const searchText = getByTestId("ChapterName");
-
-    expect(searchText.textContent).toBe("ChapterName")
+    const ChapterName = getByTestId("ChapterName").getAttribute("placeholder");
+    expect(ChapterName).toBe("ChapterName")
 
 });
 
-// test("Seach text", () => {
-//     const { getByTestId } = render(
-//         <BrowserRouter>
-//             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
-//         </BrowserRouter>);
+test("NewSlideButton", () => {
+    const { getByTestId } = render(
+        <BrowserRouter>
+            <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
+        </BrowserRouter>);
 
-//     const button = getByTestId("showPanel");
-//     fireEvent.click(button)
-//     const button2 = getByTestId("NewChapterButton");
-//     fireEvent.click(button2)
-//     const ChapterName = getByTestId("ChapterName");
-//     fireEvent.change(ChapterName,{target:{value: "Chapter3"}})
-//     const NextButton = getByTestId("NextButton");
-//     fireEvent.click(NextButton)
-//     const Accordion = getByTestId("Accordion");
-//     fireEvent.click(Accordion)
-//     // Accordion
+    const ChapterName = getByTestId("ChapterName");
+    fireEvent.change(ChapterName, { target: { value: "Chapter3" } })
 
-//     const searchText = getByTestId("NewSlideButton");
-//     expect(searchText.textContent).toBe("New Slide")
+    const NextButton = getByTestId("NextButton");
+    fireEvent.click(NextButton)
 
-// });
+    const showPanel = getByTestId("showPanel");
+    fireEvent.click(showPanel)
+
+    const Accordion = getByTestId("Accordion");
+    fireEvent.click(Accordion)
+    // Accordion
+
+    const NewSlideButton = getByTestId("NewSlideButton");
+    expect(NewSlideButton.textContent).toBe("New Slide")
+
+});
+
+test("OutcomesButton", () => {
+    const { getByTestId } = render(
+        <BrowserRouter>
+            <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
+        </BrowserRouter>);
+
+    const ChapterName = getByTestId("ChapterName");
+    fireEvent.change(ChapterName, { target: { value: "Chapter3" } })
+
+    const NextButton = getByTestId("NextButton");
+    fireEvent.click(NextButton)
+
+    const showPanel = getByTestId("showPanel");
+    fireEvent.click(showPanel)
+
+    const Accordion = getByTestId("Accordion");
+    fireEvent.click(Accordion)
+
+    const OutcomesButton = getByTestId("OutcomesButton");
+    expect(OutcomesButton.textContent).toBe("Outcomes")
+
+});
+
+test("Datafirst", () => {
+    const { getByTestId } = render(
+        <BrowserRouter>
+            <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
+        </BrowserRouter>);
+
+    const SaveButton = getByTestId("SaveButton");
+    fireEvent.click(SaveButton)
+
+    const btnEl = getByTestId("Datafirst");
+    expect(btnEl.textContent).toBe("Please create a chapter first")
+
+});

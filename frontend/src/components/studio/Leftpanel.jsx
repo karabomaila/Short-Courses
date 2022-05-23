@@ -468,12 +468,11 @@ function Leftpanel(props) {
                 <TextField
                   variant="filled"
                   id="ChapterName"
-                  label="ChapterName"
+                  placeholder="ChapterName"
                   style={{ width: "100%" }}
-                  data-testid="ChapterName"
-                  value={""}
+                  // data-testid="ChapterName"
+                  inputProps={{ "data-testid": "ChapterName" }}
                 >
-                  {""}
                 </TextField>
               </div>
 

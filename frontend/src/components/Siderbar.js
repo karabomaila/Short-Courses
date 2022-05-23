@@ -368,7 +368,7 @@ function Siderbar() {
             <FcSms onClick={() => setOpen(!open)} />
           </NavIcon>
 
-          <Notes/>
+          {/* <Notes/> */}
         </SidebarWrap>
       </SidebarNav1>
     </>
