@@ -1,11 +1,7 @@
 import React from "react";
-import SecondPanel from "../components/SecondPanel";
 import Course from "../components/EnrolledCourse";
-import Home from "../components/home";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const accounts = [

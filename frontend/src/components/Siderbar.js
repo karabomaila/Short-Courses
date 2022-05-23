@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect} from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from "styled-components";
 import { link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
@@ -24,24 +25,9 @@ import { MdLibraryBooks } from "react-icons/md";
 import * as RiIcons from "react-icons/ri";
 import axios from "axios";
 import {useParams,useLocation} from 'react-router-dom';
+import Notes from './Notes'  
 
-const temp_slides = [
-  {
-    id: 1,
-    type: "title",
-    content: "Title1",
-  },
-  {
-    id: 2,
-    type: "subtitle",
-    content: "subTitle1",
-  },
-  {
-    id: 3,
-    type: "subtitle",
-    content: "subTitle2",
-  },
-]
+
 
 const textareaStyle = {
   resize: "both",
@@ -225,15 +211,15 @@ function Siderbar() {
 
   return (
     <>
-      <Nav>
-        <NavIcon>
-          <FaIcons.FaBars onClick={() => showSidebar()} />
+      <Nav data-testid="nav">
+        <NavIcon data-testid="navIcon">
+          <FaIcons.FaBars data-testid="showbtn" onClick={() => showSidebar()} />
         </NavIcon>
       </Nav>
-      <SidebarNav sidebar={sidebar}>
-        <SidebarWrap>
+      <SidebarNav sidebar={sidebar} data-testid="sidebar">
+        <SidebarWrap data-testid="wrap">
           <NavIcon>
-            <AiIcons.AiOutlineClose onClick={() => showSidebar()} />
+            <AiIcons.AiOutlineClose data-testid="hidebtn" onClick={() => showSidebar()} />
           </NavIcon>
           {data.map((item, index) => {
             // setCurrSlide(item.slides)
@@ -247,6 +233,7 @@ function Siderbar() {
         } duration-300  bg-WitsBlue text-base `}
       >
         <div
+           data-testid="run"
           className={`${
             sidebar ? "w-100" : "w-100"
           } duration-300 p-2  bg-WitsBlue text-base  justify-content: center`}
@@ -365,7 +352,7 @@ function Siderbar() {
             <FcSms onClick={() => setOpen(!open)} />
           </NavIcon>
 
-          <Comments />
+          <Notes/>
         </SidebarWrap>
       </SidebarNav1>
     </>

@@ -1,0 +1,359 @@
+<body>
+  <div>
+    <div>
+      <div
+        style="
+          max-width: 688.128px;
+          min-width: 688.128px;
+          background-color: white;
+          border: 2px solid black;
+          display: flex;
+          flex-direction: row;
+          margin-top: 5%;
+          margin-left: 5%;
+          margin-right: 5%;
+        "
+      >
+        <h3
+          class="text ui-draggable ui-draggable-handle"
+          data-testid="Texttest"
+          id="draggable1"
+          style="
+            cursor: move;
+            padding: 3px;
+            margin: 5px;
+            text-align: center;
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+          "
+        >
+          <svg
+            aria-hidden="true"
+            aria-label="Text"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-mui-internal-clone-element="true"
+            data-testid="TitleIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 4v3h5.5v12h3V7H19V4z" />
+          </svg>
+        </h3>
+        <h3
+          class="image ui-draggable ui-draggable-handle"
+          data-testid="Imagetest"
+          id="draggable2"
+          style="
+            cursor: move;
+            padding: 3px;
+            margin: 5px;
+            text-align: center;
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+          "
+        >
+          <svg
+            aria-hidden="true"
+            aria-label="Image"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-mui-internal-clone-element="true"
+            data-testid="ImageIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+            />
+          </svg>
+        </h3>
+        <h3
+          class="video ui-draggable ui-draggable-handle"
+          data-testid="Videotest"
+          id="draggable3"
+          style="
+            cursor: move;
+            padding: 3px;
+            margin: 5px;
+            text-align: center;
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+          "
+        >
+          <svg
+            aria-hidden="true"
+            aria-label="Video"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-mui-internal-clone-element="true"
+            data-testid="VideoCameraBackIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M18 10.48V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4.48l4 3.98v-11l-4 3.98zM5 16l2.38-3.17L9 15l2.62-3.5L15 16H5z"
+            />
+          </svg>
+        </h3>
+        <button
+          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+          style="
+            position: absolute;
+            right: 50px;
+            color: black;
+            border: 2px solid black;
+          "
+          tabindex="0"
+          type="button"
+        >
+          Save
+          <span class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root" />
+        </button>
+      </div>
+      <div
+        class="ui-resizable ui-droppable"
+        data-testid="canvasTest"
+        id="canvas"
+        style="
+          max-width: 688.128px;
+          min-width: 688.128px;
+          background-color: white;
+          border: 2px solid black;
+          margin-left: 5%;
+          margin-right: 5%;
+          margin-bottom: 5px;
+          min-height: 537.5999999999999px;
+        "
+      >
+        <div
+          class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+          style="z-index: 90"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    class="MuiModal-root MuiModal-hidden MuiDialog-root css-ew73zq-MuiModal-root-MuiDialog-root"
+    role="presentation"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop"
+      style="opacity: 0; visibility: hidden"
+    />
+    <div data-test="sentinelStart" tabindex="0" />
+    <div
+      class="MuiDialog-container MuiDialog-scrollPaper css-hz1bth-MuiDialog-container"
+      role="presentation"
+      style="
+        visibility: hidden;
+        webkit-transform: translateY(768px);
+        transform: translateY(768px);
+      "
+      tabindex="-1"
+    >
+      <div
+        aria-describedby="alert-dialog-slide-descriptionn"
+        aria-labelledby="mui-4"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm css-1t1j96h-MuiPaper-root-MuiDialog-paper"
+        role="dialog"
+      >
+        <div style="background-color: rgb(0, 59, 92)">
+          <h2
+            class="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-bdhsul-MuiTypography-root-MuiDialogTitle-root"
+            id="mui-4"
+            style="color: white; text-align: center"
+          >
+            Video url
+          </h2>
+          <div class="MuiDialogContent-root css-ypiqx9-MuiDialogContent-root">
+            <div styl... console.log
+            node_modules/@testing-library/dom/dist/pretty-dom.js:91
+            <body>
+              <div>
+                <div>
+                  <div
+                    style="
+                      max-width: 688.128px;
+                      min-width: 688.128px;
+                      background-color: white;
+                      border: 2px solid black;
+                      display: flex;
+                      flex-direction: row;
+                      margin-top: 5%;
+                      margin-left: 5%;
+                      margin-right: 5%;
+                    "
+                  >
+                    <h3
+                      class="text ui-draggable ui-draggable-handle"
+                      data-testid="Texttest"
+                      id="draggable1"
+                      style="
+                        cursor: move;
+                        padding: 3px;
+                        margin: 5px;
+                        text-align: center;
+                        z-index: 2;
+                        display: flex;
+                        flex-direction: row;
+                      "
+                    >
+                      <svg
+                        aria-hidden="true"
+                        aria-label="Text"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="TitleIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 4v3h5.5v12h3V7H19V4z" />
+                      </svg>
+                    </h3>
+                    <h3
+                      class="image ui-draggable ui-draggable-handle"
+                      data-testid="Imagetest"
+                      id="draggable2"
+                      style="
+                        cursor: move;
+                        padding: 3px;
+                        margin: 5px;
+                        text-align: center;
+                        z-index: 2;
+                        display: flex;
+                        flex-direction: row;
+                      "
+                    >
+                      <svg
+                        aria-hidden="true"
+                        aria-label="Image"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="ImageIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+                        />
+                      </svg>
+                    </h3>
+                    <h3
+                      class="video ui-draggable ui-draggable-handle"
+                      data-testid="Videotest"
+                      id="draggable3"
+                      style="
+                        cursor: move;
+                        padding: 3px;
+                        margin: 5px;
+                        text-align: center;
+                        z-index: 2;
+                        display: flex;
+                        flex-direction: row;
+                      "
+                    >
+                      <svg
+                        aria-hidden="true"
+                        aria-label="Video"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="VideoCameraBackIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M18 10.48V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4.48l4 3.98v-11l-4 3.98zM5 16l2.38-3.17L9 15l2.62-3.5L15 16H5z"
+                        />
+                      </svg>
+                    </h3>
+                    <button
+                      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+                      style="
+                        position: absolute;
+                        right: 50px;
+                        color: black;
+                        border: 2px solid black;
+                      "
+                      tabindex="0"
+                      type="button"
+                    >
+                      Save
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <div
+                    class="ui-resizable ui-droppable"
+                    data-testid="canvasTest"
+                    id="canvas"
+                    style="
+                      max-width: 688.128px;
+                      min-width: 688.128px;
+                      background-color: white;
+                      border: 2px solid black;
+                      margin-left: 5%;
+                      margin-right: 5%;
+                      margin-bottom: 5px;
+                      min-height: 537.5999999999999px;
+                    "
+                  >
+                    <div
+                      class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+                      style="z-index: 90"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="MuiModal-root MuiModal-hidden MuiDialog-root css-ew73zq-MuiModal-root-MuiDialog-root"
+                role="presentation"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiBackdrop-root css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop"
+                  style="opacity: 0; visibility: hidden"
+                />
+                <div data-test="sentinelStart" tabindex="0" />
+                <div
+                  class="MuiDialog-container MuiDialog-scrollPaper css-hz1bth-MuiDialog-container"
+                  role="presentation"
+                  style="
+                    visibility: hidden;
+                    webkit-transform: translateY(768px);
+                    transform: translateY(768px);
+                  "
+                  tabindex="-1"
+                >
+                  <div
+                    aria-describedby="alert-dialog-slide-descriptionn"
+                    aria-labelledby="mui-4"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm css-1t1j96h-MuiPaper-root-MuiDialog-paper"
+                    role="dialog"
+                  >
+                    <div style="background-color: rgb(0, 59, 92)">
+                      <h2
+                        class="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-bdhsul-MuiTypography-root-MuiDialogTitle-root"
+                        id="mui-4"
+                        style="color: white; text-align: center"
+                      >
+                        Video url
+                      </h2>
+                      <div
+                        class="MuiDialogContent-root css-ypiqx9-MuiDialogContent-root"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </body>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

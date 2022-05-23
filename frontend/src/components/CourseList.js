@@ -15,8 +15,9 @@ function CourseList(props) {
     
     var temp = { user_id: props.user[0].username.split("@")[0] };
 
+
     axios
-      .post("/enrolled", temp)
+      .post("http://localhost:5000/enrolled", temp)
       .then((res) => {
         console.log(res.data);
         setEnrolledData(res.data);
@@ -29,6 +30,7 @@ function CourseList(props) {
   return (
     <Container style={{ marginTop: "100px" }}>
       <Row>
+        {console.log(EnrolledData)}
         {EnrolledData.map((data, index) => (
           <Col>
             <Course

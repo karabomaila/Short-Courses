@@ -38,7 +38,7 @@ const ExposeView = (props) =>{
             <TextField 
             label="Biography" 
             multiline fullWidth 
-            value = {props.bio} 
+            value = {props.bio}
             data-testid = 'exp-test-bio'
             onChange = {onChange}/>
             </div>

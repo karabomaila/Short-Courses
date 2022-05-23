@@ -35,6 +35,7 @@ function CreateCourse(props){
         if(!file1 || !file2) return;
         //courseId = createID(props.user.username, courseName);
         console.log(courseId)
+        
         const storageRef1 = ref(storage, `/Pictures/${courseId}Pic1`);
         const uploadTask1 = uploadBytesResumable(storageRef1, file1);
 

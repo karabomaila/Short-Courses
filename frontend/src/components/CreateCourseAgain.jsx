@@ -5,13 +5,16 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Firstpanel from "./Firstpanel";
-import SecondPanel from "./SecondPanel";
-import { useLocation, useNavigate } from "react-router-dom";
+import Main from "./studio/Main";
+import { storage, db } from "./firebase-config";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import {
+  collection,
+} from "@firebase/firestore";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-  const {state} = useLocation();
-  console.log(state);
+  const { state } = useLocation();
 
   return (
     <div
@@ -36,22 +39,16 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
+
 
 export default function CreateCourse() {
   const [value, setValue] = React.useState(0);
-  const {state} = useLocation();
-  const [course,setCourse] = React.useState({});
+  const slidesCollectionRef = collection(db, "slides");
+  const { state } = useLocation();
+  const [course, setCourse] = React.useState({});
+  
 
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  
 
   const handletab = (event, num) => {
     setValue(num);
@@ -59,20 +56,11 @@ export default function CreateCourse() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      {/* <Box sx={{ borderBottom: 1, borderColor: 'divider' }} style={{width: '100%',position:"fixed"}}>
-        <div >
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" style={{ margin:"auto"}} >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          
-        </Tabs>
-        </div>
-      </Box> */}
       <TabPanel value={value} index={0}>
         <Firstpanel handletab={handletab} setCourse={setCourse} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <SecondPanel handletab={handletab} course={course} user={state.user} />
+        <Main handletab={handletab} course={course} user={state.user} />
       </TabPanel>
     </Box>
   );

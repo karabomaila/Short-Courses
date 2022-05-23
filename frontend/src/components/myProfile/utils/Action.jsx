@@ -22,7 +22,8 @@ const Action = (prop) => {
         width: '80%',
         margin: 12,
         borderColor: 'white'}} 
-        onClick = {onClick} 
+        onClick = {onClick}
+        data-testid={prop.click} 
         >{prop.title}</Button>
     )
 }

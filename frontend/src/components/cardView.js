@@ -59,9 +59,10 @@ function CardView(props) {
     const q = query(slidesCollectionRef, where("courseID", "==", props.crs_id));
     const data = await getDocs(q);
 
-    let tmp = data.docs[0]._document.data.value.mapValue.fields;
+    let tmp = data.docs[0] !==undefined? data.docs[0]._document.data.value.mapValue.fields:null;
     // setDescription(tmp.description.stringValue);
 
+    if(tmp!==null){
     let tmpImages = [];
     tmp.images.arrayValue.values.map((curr) => {
       tmpImages.push({
@@ -70,7 +71,7 @@ function CardView(props) {
       });
     });
     setImageURL1(tmpImages[0].url);
-    setImageURL2(tmpImages[0].url);
+    setImageURL2(tmpImages[0].url);}
   };
 
   
@@ -112,7 +113,7 @@ function CardView(props) {
     if (isAuthenticated) {
       console.log(accounts[0].username.split("@")[0]);
       axios
-        .post("enroll", {
+        .post("http://localhost:5000/enroll", {
           user_id: accounts[0].username.split("@")[0],
           crs_id: props.crs_id,
         })

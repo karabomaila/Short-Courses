@@ -15,7 +15,7 @@ const Menu = (props) => {
             <Action title = 'Expose View' 
             setView = {props.setView} 
             click = {'ExposeView'}/>
-            <Action title = 'Personality Test' 
+            <Action title = 'Personality Test'
             setView = {props.setView} 
             click = {'PersonalityTest'}/>
             <Action title = 'MyCourses' 

@@ -1,11 +1,7 @@
 import React from "react";
-import SecondPanel from "../components/SecondPanel";
 import MyCourseView from "../components/MyCourseView";
-import Home from "../components/home";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const data = {
