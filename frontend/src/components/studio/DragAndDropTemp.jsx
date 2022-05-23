@@ -332,7 +332,7 @@ function DragAndDrop(props) {
           Save
         </Button>
       </div>
-      <div id="canvas" style={canvas}></div>
+      <div id="canvas" data-testid="canvasTest" style={canvas}></div>
 
       <Dialog
         open={openVidDialog}

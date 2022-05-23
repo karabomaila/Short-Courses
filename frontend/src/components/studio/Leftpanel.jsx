@@ -87,7 +87,7 @@ const leftDiv = {
 function Leftpanel(props) {
   const [openTagsDialog, setOpenTagsDialog] = React.useState(false);
   const slidesCollectionRef = collection(db, "slides");
-  const [currSlideMins, setCurrSlideMins] = React.useState();
+  const [currSlideMins, setCurrSlideMins] = React.useState(2);
   const [outcomes, setOutcomes] = React.useState([]); //Learning outcomes of the current chapter
   const [chapters, setChapters] = React.useState([]); //List of all the chapters
   const [slides, setSlides] = React.useState([]);
@@ -113,31 +113,42 @@ function Leftpanel(props) {
       finalChapters.push({ ...chapter, slides: temp });
     });
 
-    console.log(finalChapters);
-    //setShow(true);
+    // console.log(finalChapters);
+    // //setShow(true);
 
-    console.log();
+    // console.log();
 
-    axios
+    try{
+      axios
       .post("http://localhost:5000/CreateCourse", {
         user_id: props.user[0].username.split("@")[0],
         crs_id: props.course.courseID,
         crs_name: props.course.name,
       })
       .then(async (res) => {
-        alert(res);
+        // alert(res);
         console.log(res);
         if (res.data === "1 record inserted") {
           await addDoc(slidesCollectionRef, {
             ...props.course,
             content: [...finalChapters],
           });
+          setOpenTagsDialog(true);
         }
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.error(err);
+
+      });
+
+    }catch(e){
+      alert(e)
+    }
+
+    
 
     // ==================== Handling the tags... ============================
-    setOpenTagsDialog(true);
+    
   };
 
   const handleClickOpen2 = () => {
@@ -249,9 +260,6 @@ function Leftpanel(props) {
     setDisplayAlert(false);
   };
 
-  React.useEffect(() => {
-    console.log(props.course);
-  }, []);
 
   const list = () => (
     <Box>
@@ -428,7 +436,10 @@ function Leftpanel(props) {
         color="primary"
         aria-label="add"
         style={fabStyle}
-        onClick={handleShow}
+        onClick={(event) =>{
+          event.preventDefault();
+          handleShow()
+        }}
       >
         <DoneIcon />
       </Fab>
@@ -466,7 +477,7 @@ function Leftpanel(props) {
                   id="ChapterName"
                   label="ChapterName"
                   style={{ width: "100%" }}
-                />
+                >{""}</TextField>
               </div>
 
               <Typography variant="h5">
@@ -582,10 +593,10 @@ function Leftpanel(props) {
               value={currSlideMins}
               onChange={handleChangeSelect}
             >
-              {mins.map((item, index) => {
+              {[2, 5, 10, 15, 20, 30, 40, 50, 60].map((itemm, index) => {
                 return (
-                  <MenuItem value={item} key={index}>
-                    {item}
+                  <MenuItem value={itemm} key={index}>
+                    {itemm}
                   </MenuItem>
                 );
               })}

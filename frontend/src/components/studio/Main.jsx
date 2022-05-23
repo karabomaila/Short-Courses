@@ -23,14 +23,6 @@ function Main(props) {
   }, []);
 
   
-
-  
-  
-  
-
-  useEffect(() => {
-    // console.log(canvasTools)
-  },[canvasTools, despatch])
   
   return (
     <div style={mainDiv}>
