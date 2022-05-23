@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import PTestForm from '../PTestForm';
-// import Quiz from '../Quiz'
 
 describe('Personality Test Form', () => {
 
@@ -41,16 +40,5 @@ describe('Personality Test Form', () => {
         expect(data.innerHTML).toEqual('Work')
     })
 
-    // test('View Quiz Button', () => {
-    //     const questions = []
-    //     const { getByTestId } = render(<Quiz modal="Main"
-    //         setModal = "Main"
-    //         userID='a0074560@wits.ac.za'
-    //         questions = "Main" />);
-    //     const data = getByTestId('ptest-txt4');
-    //     expect(data.innerHTML).toEqual('just');
-    // })
 
 })
-
-// cd frontend/src/components/myProfile/ExtPerTest
