@@ -5,13 +5,13 @@ import React from "react";
 
 const Menu = (props) => {
     return(
-        <div style = {MenuStyle}>
+        <div style = {MenuStyle} data-testid = "men-div">
             <img src = {Profile} width = {100} height = {100} style = {ProfileSyle}/>
             <div style = {UserNameStyle} data-testid = "men-name">{props.name}</div>
             <div style = {AboutCourses}>
                 <div style = {CourseTag}>MyCourses 12</div>
                 <div style = {CourseTag}>Enrolled 8</div>
-            </div>
+            </div >
             <Action title = 'Expose View' 
             setView = {props.setView} 
             click = {'ExposeView'}/>

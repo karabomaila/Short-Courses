@@ -7,7 +7,7 @@ import {doc, setDoc} from 'firebase/firestore';
 import React from "react";
 import FilterCourses from './utils/FilterCourses';
 import FilterComments from './utils/FilterComments';
-import Footer from '../Footer/Footer';
+
 
 const ExposeView = (props) =>{
     

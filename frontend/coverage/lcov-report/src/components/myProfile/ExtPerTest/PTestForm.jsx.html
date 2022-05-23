@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/myProfile/ExtPerTest/PTestForm.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/myProfile/ExtPerTest</a> PTestForm.jsx
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import {useState} from 'react';
+import Skills from './Skills';
+import Books from './Books';
+import Education from './Education';
+import Work from './Work';
+import {db} from '../../firebase-config';
+import {doc, getDoc, setDoc} from 'firebase/firestore';
+import { useEffect } from 'react';
+&nbsp;
+const PTestForm = (props)=&gt;{
+&nbsp;
+    const [skillVis, setSkillVis] = useState(false);
+    const [bookVis, setBookVis] = useState(false);
+    const [eduVis, setEduVis] = useState(false);
+    const [workVis, setWorkVis] = useState(false);
+&nbsp;
+    const [skills, setSkills] = useState([]);
+    const [books, setBooks] = useState([]);
+    const [education, setEducation] = useState([]);
+    const [work, setWork] = useState([]);
+&nbsp;
+&nbsp;
+    useEffect(() =&gt; {
+        const getInfo = async () =&gt;{
+            const ref = doc(db, "About", props.userID);
+            const data = await getDoc(ref);
+            let fields = <span class="cstat-no" title="statement not covered" >data._document.data.value.mapValue.fields;</span>
+         
+<span class="cstat-no" title="statement not covered" >            if(fields.skills == undefined){</span>
+<span class="cstat-no" title="statement not covered" >                setDoc(ref, {skills: []}, {merge: true});</span>
+                const initData = <span class="cstat-no" title="statement not covered" >await getDoc(ref);</span>
+                const initFields = <span class="cstat-no" title="statement not covered" >initData._document.data.value.mapValue.fields;</span>
+<span class="cstat-no" title="statement not covered" >                setSkills(initFields.skills.arrayValue.values);</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                setSkills(fields.skills.arrayValue.values);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if(fields.books == undefined){</span>
+<span class="cstat-no" title="statement not covered" >                setDoc(ref, {books: new Array()}, {merge: true});</span>
+                const initData = <span class="cstat-no" title="statement not covered" >await getDoc(ref);</span>
+                const initFields = <span class="cstat-no" title="statement not covered" >initData._document.data.value.mapValue.fields;</span>
+<span class="cstat-no" title="statement not covered" >                setBooks(initFields.books.arrayValue.values);</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                setBooks(fields.books.arrayValue.values);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if(fields.education == undefined){</span>
+<span class="cstat-no" title="statement not covered" >                setDoc(ref, {education: new Array()}, {merge: true});</span>
+                const initData = <span class="cstat-no" title="statement not covered" >await getDoc(ref);</span>
+                const initFields = <span class="cstat-no" title="statement not covered" >initData._document.data.value.mapValue.fields;</span>
+<span class="cstat-no" title="statement not covered" >                setEducation(initFields.education.arrayValue.values);</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                setEducation(fields.education.arrayValue.values);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if(fields.work == undefined){</span>
+<span class="cstat-no" title="statement not covered" >                setDoc(ref, {work: new Array()}, {merge: true});</span>
+                const initData = <span class="cstat-no" title="statement not covered" >await getDoc(ref);</span>
+                const initFields = <span class="cstat-no" title="statement not covered" >initData._document.data.value.mapValue.fields;</span>
+<span class="cstat-no" title="statement not covered" >                setWork(initFields.work.arrayValue.values);</span>
+            }else{
+<span class="cstat-no" title="statement not covered" >                setWork(fields.work.arrayValue.values);</span>
+            }
+        }
+        
+        getInfo();
+       
+    }, [])
+&nbsp;
+    return(
+        &lt;div style = {MainStyle}&gt;
+            &lt;p style = {{margin: 12, alignSelf: 'center'}} data-testid = 'ptest-data'&gt;Data belonging to {props.userID}&lt;/p&gt;
+&nbsp;
+&nbsp;
+            &lt;h6 style = {H6Style} data-testid = 'ptest-txt1'&gt;Interests and Skills&lt;/h6&gt;
+            &lt;Skills visible = {skillVis} 
+            userID = {props.userID}
+            data = {skills}
+            setVisible = {setSkillVis}/&gt;
+            &lt;h6 style = {H6Style}  data-testid = 'ptest-txt2'&gt;Favourite Books Read&lt;/h6&gt;
+            &lt;Books visible = {bookVis}
+            userID = {props.userID}
+            data = {books}
+            setVisible = {setBookVis}/&gt;
+            &lt;h6 style = {H6Style}  data-testid = 'ptest-txt3'&gt;Education&lt;/h6&gt;
+            &lt;Education visible = {eduVis}
+            userID = {props.userID}
+            data = {education}
+            setVisible = {setEduVis}/&gt;
+            &lt;h6 style = {H6Style}  data-testid = 'ptest-txt4'&gt;Work&lt;/h6&gt;
+            &lt;Work visible = {workVis}
+            userID = {props.userID}
+            data = {work}
+            setVisible = {setWorkVis}/&gt;
+        &lt;/div&gt;
+    )
+}
+&nbsp;
+const MainStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    //alignItems: 'center',
+    marginTop: 22,
+    width: '90%',
+    minWidth: '90%',
+    borderRadius: 9,
+    boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
+}
+&nbsp;
+const H6Style = {
+    fontWeight: 'bold',
+    marginLeft: 15
+}
+&nbsp;
+export default PTestForm;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 23 2022 11:52:05 GMT+0200 (South Africa Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

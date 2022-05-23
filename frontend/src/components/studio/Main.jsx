@@ -23,12 +23,6 @@ function Main(props) {
   }, []);
 
   
-
-  
-  
-  
-
- 
   
   return (
     <div style={mainDiv}>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/EnrolledNav.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> EnrolledNav.js
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Navbar, Container, Nav,Button } from 'react-bootstrap';
+import Profile from './profile';
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { Modal } from 'react-bootstrap';
+import { useContext,useState} from 'react';
+import CreateCourse from './CreateCourse';
+import { useNavigate } from 'react-router-dom';
+import React from "react";
+&nbsp;
+&nbsp;
+function EnrolledNav(){
+&nbsp;
+    const [show, setShow] = useState(false);
+    const handleClose = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setShow(false);</span>
+    const handleShow = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setShow(true);</span>
+    const navigate = useNavigate();
+  return(
+   
+    &lt;Navbar  expand="lg" variant="dark" className="flex-column my-0" style={{ background: '#003B5C', maxHeight: '100vh' }}&gt;
+    &lt;Container fluid className="flex-column "&gt;
+      &lt;Navbar.Brand href="#"&gt;&lt;Profile/&gt;&lt;/Navbar.Brand&gt;
+      &lt;Navbar.Toggle aria-controls="navbarScroll" /&gt;
+      &lt;Navbar.Collapse id="navbarScroll"className="flex-column"&gt;
+        &lt;Nav
+          className="me-auto my-2 my-lg-0 flex-column"
+          style={{ height: '100vh' }}
+          navbarScroll
+        &gt;
+           &lt;Button data-testid="homeBtn" variant="outline-light" size="sm" onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt;<span class="cstat-no" title="statement not covered" >navigate('/Home')}</span>&gt;Home&lt;/Button&gt;
+          &lt;Nav.Link href="/Enrolled"&gt;&lt;Button data-testid="enrolledBtn" variant="outline-light" size="sm"&gt;Enrolled&lt;/Button&gt;{' '}&lt;/Nav.Link&gt;
+          &lt;Nav.Link href="/MyCourses"&gt;&lt;Button data-testid="myCoursesBtn" variant="outline-light" size="sm"&gt;MyCourses&lt;/Button&gt;{' '}&lt;/Nav.Link&gt;
+          &lt;Nav.Link &gt;&lt;Button variant="outline-light" size="sm" onClick={handleShow}&gt;&lt;h4&gt;&lt;AiOutlinePlusCircle/&gt;&lt;/h4&gt;&lt;/Button&gt;{' '}&lt;/Nav.Link&gt;
+        &lt;/Nav&gt;
+        &lt;Modal show={show} onHide={handleClose}  dialogClassName="modal-90w"&gt;
+         &lt;Modal.Header closeButton&gt;CREATE A COURSE HERE!!&lt;/Modal.Header&gt;
+         &lt;Modal.Body&gt;
+          &lt;CreateCourse/&gt;
+         &lt;/Modal.Body&gt;
+         
+       &lt;/Modal&gt;
+        
+      &lt;/Navbar.Collapse&gt;
+    &lt;/Container&gt;
+  &lt;/Navbar&gt;
+&nbsp;
+    
+   
+  );  
+}
+export default EnrolledNav;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 23 2022 11:52:05 GMT+0200 (South Africa Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/tags/TagsDialog.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/tags</a> TagsDialog.jsx
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">80x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Button,Dialog, DialogTitle, DialogContent, DialogActions,DialogContentText} from '@mui/material';
+import * as React from 'react';
+import TagsInput from './TagsInput';
+import {db} from "../firebase-config";
+import {useState, useEffect} from 'react';
+import {doc, setDoc, collection, getDocs} from "firebase/firestore"; 
+import Helpers from '../FirebaseAPIs/Helpers';
+import {useNavigate} from 'react-router-dom';
+import { useIsAuthenticated } from "@azure/msal-react";
+import { useMsal } from "@azure/msal-react";
+import { callMsGraph } from "./MicrosoftGraph/graph";
+import { loginRequest } from "./MicrosoftGraph/authConfig";
+&nbsp;
+/*
+ * ONLY This file should be called on the studio
+  after creating a course...
+ * Pass in course code and name as props
+ * Pass in the Open and close useState - as seen on the "useless.jsx"
+ * No one should edit anything on these files 
+ * By NO ONE I mean Lindokuhle...
+&nbsp;
+*/
+const TagsDialog = (props) =&gt; {
+    const navigator = useNavigate();
+    const [tags, setTags] = useState([]);
+    const REF_COLLECTION = collection(db, "CourseTags");
+&nbsp;
+    const isAuthenticated = useIsAuthenticated();
+    const { instance, accounts } = useMsal();
+    const [graphData, setGraphData] = useState(null);
+    
+    useEffect(() =&gt; {
+        const getTags = async ()=&gt;{
+            const data = await getDocs(REF_COLLECTION);
+<span class="cstat-no" title="statement not covered" >            setTags(data.docs.map(<span class="fstat-no" title="function not covered" >(d</span>oc) =&gt; (<span class="cstat-no" title="statement not covered" >{...doc.data(), id: doc.id})</span>));</span>
+        }
+        getTags();
+    }, [])
+&nbsp;
+&nbsp;
+    
+    let initArray = props.courseName.split(' ');
+    let TagArray = new Array();
+&nbsp;
+    for(let i = 0; i &lt; initArray.length; i++){
+        TagArray.push('#' + initArray[i]);
+    }
+&nbsp;
+    const [fullWidth, setFullWidth] = React.useState(true);
+    const [maxWidth, setMaxWidth] = React.useState('sm');
+&nbsp;
+    const onClose = <span class="fstat-no" title="function not covered" >()</span> =&gt;{
+<span class="cstat-no" title="statement not covered" >        props.close(false);</span>
+        let uploadTag = <span class="cstat-no" title="statement not covered" >new Helpers();</span>
+<span class="cstat-no" title="statement not covered" >        uploadTag.PushTag(tags, TagArray, props.courseID);</span>
+        // Lead back to homepage...
+<span class="cstat-no" title="statement not covered" >        navigator("/MyCourses", { state: { user: accounts } });</span>
+    }
+&nbsp;
+    return(
+        &lt;div&gt;
+        &lt;Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={props.open} onClose={onClose}&gt;
+            &lt;DialogTitle&gt;Add Tags&lt;/DialogTitle&gt;
+            &lt;DialogContent&gt;
+            &lt;DialogContentText&gt;
+                Add few tags to your course to improve search appearance. e.g #ShortCourses, #DFMPC
+            &lt;/DialogContentText&gt;
+                &lt;TagsInput tagArray = {TagArray} /&gt;
+                
+            &lt;/DialogContent&gt;
+            &lt;DialogActions&gt;
+                &lt;Button variant = 'outlined' onClick={onClose}&gt;FINISH&lt;/Button&gt;
+            &lt;/DialogActions&gt;
+      &lt;/Dialog&gt;
+        &lt;/div&gt;
+    )
+}
+&nbsp;
+export default TagsDialog;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 23 2022 11:52:05 GMT+0200 (South Africa Standard Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

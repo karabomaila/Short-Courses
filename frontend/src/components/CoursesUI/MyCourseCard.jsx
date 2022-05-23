@@ -1,6 +1,5 @@
-import Actions from "./Actions";
-import React from "react";
-import wits from "./wits.png";
+import Actions from "./Actions"
+import React from 'react';
 import ActionDel from "./ActionDel";
 import { db } from "../firebase-config";
 import {
@@ -19,8 +18,7 @@ import {
   getStorage,
 } from "@firebase/storage";
 import { useNavigate, useLocation } from "react-router-dom";
-import AboutCourseDialog from "../AboutCourse/AboutCourseDialog";
-import GetInfo from "../AboutCourse/GetInfo";
+import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
 import { useState, useEffect } from "react";
 
 const MyCourseCard = (props) => {
@@ -79,37 +77,27 @@ const MyCourseCard = (props) => {
     }
   }, [setImageURL]);
 
-  return (
-    <div style={MainStyle}>
-      <div style={ImageStyle}>
-        <img src={imageURL} width="100%" height="100%" />
-      </div>
-      <div style={TitleStyle}>{props.name}</div>
-      <div style={ActionStyle}>
-        <Actions
-          title="View"
-          name={props.name}
-          user={props.user}
-          crs_id={props.crs_id}
-          click="view"
-        />
-        <Actions
-          title="Edit"
-          click="edit"
-          name={props.name}
-          user={props.user}
-          crs_id={props.crs_id}
-        />
-        <Actions
-          title="Info"
-          info={info}
-          setDataObject={setDataObject}
-          crs_id={props.crs_id}
-          setOpenAbout={setOpenAbout}
-          click="info"
-        />
-        <ActionDel title="Del" click="del" />
-      </div>
+    return(
+        <div style = {MainStyle} data-testid = "my-ui-div">
+            <div style = {ImageStyle}>
+                <img src = {imageURL} width = '100%' height = '100%'/>
+            </div>
+            <div style = {TitleStyle}>{props.name}</div>
+            <div style = {ActionStyle}>
+                <Actions title = 'View' 
+                name = {props.name}
+                user = {props.user}
+                crs_id = {props.crs_id}
+                click = 'view'/>
+                <Actions title = 'Edit' click = 'edit'/>
+                <Actions title = 'Info' 
+                info = {info}
+                setDataObject = {setDataObject}
+                crs_id = {props.crs_id}
+                setOpenAbout = {setOpenAbout}
+                click = 'info'/>
+                <ActionDel title = 'Del' click = 'del'/>
+            </div>
 
       <AboutCourseDialog
         open={openAbout}

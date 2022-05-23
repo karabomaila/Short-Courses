@@ -59,8 +59,44 @@ const toolSty = {
   marginTop: "5%",
   marginLeft: "5%",
   marginRight: "5%",
-  
 };
+
+const tmpTanvasTools = [
+  {
+    _id: 1653242196015,
+    position: {
+      top: 115,
+      left: 220,
+    },
+    type: "text",
+    content: "",
+    fontSize: 20,
+    width: 100,
+    height: 50,
+  },
+  {
+    _id: 1653242197288,
+    position: {
+      top: 0,
+      left: 460,
+    },
+    type: "image",
+    url: "https://media.istockphoto.com/photos/business-man-pushing-large-stone-up-to-hill-business-heavy-tasks-and-picture-id825383494?k=20&m=825383494&s=612x612&w=0&h=tEqZ5HFZcM3lmDm_cmI7hOeceiqy9gYrkyLTTkrXdY4=",
+    width: 300,
+    height: 200,
+  },
+  {
+    _id: 1653279988289,
+    position: {
+      top: 122,
+      left: 264,
+    },
+    type: "video",
+    url: "https://www.youtube.com/embed/0Y11K7KSC80",
+    width: 300,
+    height: 200,
+  },
+];
 
 function DragAndDrop(props) {
   const picsRef = useRef();
@@ -168,92 +204,15 @@ function DragAndDrop(props) {
     setOpenPicDialog(false);
   };
 
-  // useEffect(async () => {
-  //   // var crs_id = courseID
-  //   const q = query(
-  //     slidesCollectionRef,
-  //     where("courseID", "==", "23757367CGV6")
-  //   );
-
-  //   const data = await getDocs(q);
-  //   //console.log(data.docs.map((doc) => JSON.stringify(doc.data())));
-  //   // setSlides(data.docs.map((doc,index)=>{
-  //   //   return {...doc.data(), id: doc.id}
-  //   // }))
-  //   console.log(data.docs);
-  //   let final = {};
-  //   let tmp = data.docs[0]._document.data.value.mapValue.fields;
-  //   let chap = tmp.content.arrayValue.values[0].mapValue.fields;
-  //   // let slide = chap.slides.arrayValue.values[0].mapValue.fields
-  //   // console.log(slide.body.arrayValue.values[1].mapValue.fields)
-  //   let tmpChaps = [];
-  //   tmp.content.arrayValue.values.map((item, index) => {
-  //     let tmp2 = item.mapValue.fields;
-  //     let outcomes = [];
-  //     tmp2.outcomes.arrayValue.values.map((item2) => {
-  //       let outcome = item2.stringValue;
-  //       outcomes.push(outcome);
-  //     });
-  //     let tmpSlides = [];
-  //     tmp2.slides.arrayValue.values.map((tmpSlide) => {
-  //       // let outcome = item2.stringValue
-  //       let slide = tmpSlide.mapValue.fields;
-  //       let tmpBody = [];
-  //       slide.body.arrayValue.values.map((bodyItem) => {
-  //         let temp2 = bodyItem.mapValue.fields;
-  //         let ft = {
-  //           id: temp2.id.integerValue,
-  //           type: temp2.type.stringValue,
-  //         };
-  //         if (parseInt(ft.id) <= 3) {
-  //           ft = { ...ft, content: temp2.content.stringValue };
-  //         } else {
-  //           ft = { ...ft, url: temp2.url.stringValue };
-  //         }
-  //         tmpBody.push(ft);
-  //       });
-  //       let tmpSlidee = {
-  //         id: slide.id.integerValue,
-  //         chapter: slide.chapter.integerValue,
-  //         name: slide.name.stringValue,
-  //         duration: slide.duration.integerValue,
-  //         body: tmpBody,
-  //       };
-  //       tmpSlides.push(tmpSlidee);
-  //     });
-  //     let tmpChap = {
-  //       id: tmp2.id.integerValue,
-  //       name: tmp2.name.stringValue,
-  //       slides: tmpSlides,
-  //       outcomes: outcomes,
-  //     };
-  //     tmpChaps.push(tmpChap);
-  //   });
-  //   // console.log(tmp)
-  //   let tmpImages = [];
-  //   tmp.images.arrayValue.values.map((curr) => {
-  //     tmpImages.push({
-  //       id: curr.mapValue.fields.id.integerValue,
-  //       url: curr.mapValue.fields.url.stringValue,
-  //     });
-  //   });
-
-  //   let finalCourse = {
-  //     name: tmp.name.stringValue,
-  //     courseID: tmp.courseID.stringValue,
-  //     description: tmp.description.stringValue,
-  //     content: tmpChaps,
-  //     images: tmpImages,
-  //   };
-  //   console.log(finalCourse);
-  // });
-
   useEffect(() => {
     $("#canvas").resizable({
       maxWidth: window.innerWidth * 0.672,
       minWidth: window.innerWidth * 0.672,
       handles: "se",
     });
+
+    props.setCanvasTools(tmpTanvasTools);
+    renderTools(tmpTanvasTools);
 
     $("#canvas").droppable({
       drop: (event, ui) => {
@@ -268,7 +227,7 @@ function DragAndDrop(props) {
 
         if (ui.helper.hasClass("text")) {
           currTool.type = "text";
-          currTool.content ="";
+          currTool.content = "";
           currTool.fontSize =
             currTool.fontSize !== undefined ? currTool.fontSize : 20;
           currTool.width = currTool.width !== undefined ? currTool.width : 100;
@@ -317,7 +276,13 @@ function DragAndDrop(props) {
         })}
         <Button
           variant="outlined"
-          style={{ position: "absolute", right: "50px",color: "black",borderColor:'black',border:'2px solid black' }}
+          style={{
+            position: "absolute",
+            right: "50px",
+            color: "black",
+            borderColor: "black",
+            border: "2px solid black",
+          }}
           onClick={(event) => {
             event.preventDefault();
 
@@ -335,7 +300,7 @@ function DragAndDrop(props) {
           Save
         </Button>
       </div>
-      <div id="canvas" style={canvas}></div>
+      <div id="canvas" data-testid="canvasTest" style={canvas}></div>
 
       <Dialog
         open={openVidDialog}
@@ -427,7 +392,6 @@ function DragAndDrop(props) {
                     <input
                       type="file"
                       name="images"
-                      
                       required
                       className="form-control"
                       multiple
@@ -493,8 +457,6 @@ function DragAndDrop(props) {
           uploading image {progress}%
         </Alert>
       </Snackbar>
-
-      
     </div>
   );
 }

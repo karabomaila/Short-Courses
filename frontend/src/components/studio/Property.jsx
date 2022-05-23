@@ -48,7 +48,7 @@ function Property(props) {
                     id="x"
                     data-testid="x"
                     rows="1"
-                    type='number'
+                    
                     value={props.item.position.left}
                     style={{ resize: "none", width: "auto" }}
                     onChange={(event)=>{
@@ -63,7 +63,7 @@ function Property(props) {
                     id="y"
                     data-testid="y"
                     rows="1"
-                    type='number'
+                    
                     value={props.item.position.top}
                     style={{ resize: "none", width: "auto" }}
                     onChange={(event)=>{
@@ -84,6 +84,7 @@ function Property(props) {
                   <FormControl variant="standard"  size="small" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel id="demo-simple-select-label">{item[0]}</InputLabel>
                     <Select
+                      data-testid="fontSize"
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                       value={props.age}

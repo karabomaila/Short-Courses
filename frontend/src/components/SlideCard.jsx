@@ -1,6 +1,5 @@
 import { CssBaseline, Paper, Slide, Typography } from '@mui/material';
 import React ,{useState,useEffect} from 'react';
-import ViewSlides from './ViewSlides';
 import Dialog from '@mui/material/Dialog';
 
 
@@ -41,7 +40,7 @@ function SlideCard({slide,student,id,getSlides}) {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        <ViewSlides id={id} handleClose={handleClose} title={slide.Title} content={slide.Body} student={student} getSlides={getSlides}/>
+        
         
       </Dialog>
     

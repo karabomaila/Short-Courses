@@ -5,7 +5,7 @@ import wits from './wits.png'
 
 const EnrolledCard = ()=>{
     return(
-        <div style = {MainStyle}>
+        <div style = {MainStyle} data-testid = "en-ui-div">
             <div style = {ImageStyle}>
                 <img src = {wits} width = '100%' height = '100%'/>
             </div>

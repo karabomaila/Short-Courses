@@ -38,6 +38,7 @@ const TagsDialog = (props) => {
     }, [])
 
 
+    
     let initArray = props.courseName.split(' ');
     let TagArray = new Array();
 

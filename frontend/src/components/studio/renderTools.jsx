@@ -1,6 +1,6 @@
 import $ from "jquery";
-import jQuery from 'jquery';
 window.jQuery = $;
+
 // import "jquery-ui-dist/jquery-ui";
 require("jquery-ui-dist/jquery-ui");
 
@@ -40,7 +40,7 @@ const renderTools = (canvasTools) => {
 
       if (currTool.type === "text") {
         //   console.log(currTool.fontSize)
-        html = $("<div></div>")
+        html = $(`<div data-testid=${currTool._id}></div>`)
         .resizable({
           helper: "ui-resizable-helper",
           resize: (event, ui) => {
@@ -123,7 +123,7 @@ const renderTools = (canvasTools) => {
                
         })
       } else if (currTool.type === "video" && currTool.url !== "") {
-        html = $("<div></div>")
+        html = $(`<div data-testid=${currTool._id}></div>`)
           .css({
             position: "absolute",
             border: "10px solid white",
@@ -137,7 +137,7 @@ const renderTools = (canvasTools) => {
           })
           .append(
             $(
-              `<iframe src=${currTool.url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+              `<iframe src=${currTool.url} data-testid=${currTool._id - 1000} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
             )
               .css({
                 width: currTool.width,
@@ -188,7 +188,7 @@ const renderTools = (canvasTools) => {
           height: currTool.height -20,
         });
       } else if (currTool.type === "image" && currTool.url !== "") {
-        html = $("<div></div>")
+        html = $(`<div data-testid=${currTool._id}></div>`)
           .css({
             position: "absolute",
             border: "5px solid white",
@@ -201,7 +201,7 @@ const renderTools = (canvasTools) => {
             overFlow: "scroll",
           })
           .append(
-            $(`<img src=${currTool.url} ></img>`)
+            $(`<img src=${currTool.url} data-testid=${currTool._id -1000} ></img>`)
               .css({
                 width: currTool.width,
                 height: currTool.height,

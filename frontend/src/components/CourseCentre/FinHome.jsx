@@ -1,7 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import Action from './Actions';
-import CommentCard from './CommentCard';
 import { db } from '../firebase-config';
 import { doc, getDoc, setDoc} from "firebase/firestore";
 import FeedbackDialog from '../Feedback/FeedbackDialog';

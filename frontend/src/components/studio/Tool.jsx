@@ -26,8 +26,10 @@ function Tool({ tool }) {
     });
   }, [$]);
 
+  
+
   return (
-    <h3 style={toolStyle} id={tool.draggable} className={tool.className}>
+    <h3 style={toolStyle} id={tool.draggable}  className={tool.className} data-testid={tool.name+"test"}>
       <Tooltip title={tool.name}>{tool.icon}</Tooltip>
       
     </h3>
