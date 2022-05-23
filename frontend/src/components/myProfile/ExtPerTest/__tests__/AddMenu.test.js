@@ -34,6 +34,40 @@ describe('Add Menu Test', ()=>{
     const icon = getByTestId('add-icon');
     fireEvent.click(icon);
     });
+
+
+    test('onClick Skills', ()=>{
+        const data = [{stringValue: 'Skill'}];
+        const {getByTestId} = render(<AddMenu click = 'skills'
+        type = 'skills'
+        data = {data}
+        skillVisible = {useHook}/>)
+
+    const icon = getByTestId('add-icon');
+    fireEvent.click(icon);
+    });
+
+    test('onClick Work', ()=>{
+        const data = [{mapValue: {fields: {company:{stringValue: 'Company'}, occupation:{stringValue: 'Occupation'}, years:{stringValue: '2022-'}}}}];
+        const {getByTestId} = render(<AddMenu click = 'work'
+        type = 'work'
+        data = {data}
+        workVisible = {useHook}/>)
+
+    const icon = getByTestId('add-icon');
+    fireEvent.click(icon);
+    });
+
+    test('onClick Education', ()=>{
+        const data = [{mapValue: {fields: {institution:{stringValue: 'Company'}, qualification:{stringValue: 'Occupation'}, years:{stringValue: '2022-'}}}}];
+        const {getByTestId} = render(<AddMenu click = 'edu'
+        type = 'edu'
+        data = {data}
+        eduVisible = {useHook}/>)
+
+    const icon = getByTestId('add-icon');
+    fireEvent.click(icon);
+    });
 });
 
 

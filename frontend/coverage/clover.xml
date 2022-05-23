@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1653298439201" clover="3.2.0">
-  <project timestamp="1653298439201" name="All files">
-    <metrics statements="2097" coveredstatements="665" conditionals="443" coveredconditionals="93" methods="482" coveredmethods="122" elements="3022" coveredelements="880" complexity="0" loc="2097" ncloc="2097" packages="14" files="120" classes="120">
+<coverage generated="1653299095202" clover="3.2.0">
+  <project timestamp="1653299095202" name="All files">
+    <metrics statements="2097" coveredstatements="676" conditionals="443" coveredconditionals="98" methods="482" coveredmethods="128" elements="3022" coveredelements="902" complexity="0" loc="2097" ncloc="2097" packages="14" files="120" classes="120">
       <package name="src">
         <metrics statements="64" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="11" coveredmethods="0"/>
         <file name="App.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/App.js">
@@ -1601,20 +1601,20 @@
         </file>
       </package>
       <package name="src.components.myProfile.ExtPerTest">
-        <metrics statements="248" coveredstatements="151" conditionals="81" coveredconditionals="35" methods="44" coveredmethods="19"/>
+        <metrics statements="248" coveredstatements="162" conditionals="81" coveredconditionals="40" methods="44" coveredmethods="25"/>
         <file name="AddMenu.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/AddMenu.jsx">
-          <metrics statements="12" coveredstatements="7" conditionals="8" coveredconditionals="2" methods="2" coveredmethods="2"/>
+          <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="7" methods="2" coveredmethods="2"/>
           <line num="5" count="5" type="stmt"/>
-          <line num="6" count="38" type="stmt"/>
-          <line num="7" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="8" count="0" type="stmt"/>
-          <line num="9" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="6" count="41" type="stmt"/>
+          <line num="7" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="3" type="cond" truecount="2" falsecount="0"/>
           <line num="10" count="1" type="stmt"/>
-          <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="12" count="0" type="stmt"/>
-          <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="14" count="0" type="stmt"/>
-          <line num="18" count="38" type="stmt"/>
+          <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="18" count="41" type="stmt"/>
           <line num="31" count="5" type="stmt"/>
         </file>
         <file name="Books.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/Books.jsx">
@@ -1679,9 +1679,9 @@
           <line num="96" count="3" type="stmt"/>
         </file>
         <file name="EducationView.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/EducationView.jsx">
-          <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="4" count="5" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
           <line num="19" count="5" type="stmt"/>
           <line num="31" count="5" type="stmt"/>
         </file>
@@ -1822,35 +1822,35 @@
           <line num="73" count="4" type="stmt"/>
         </file>
         <file name="ViewSkills.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/ViewSkills.jsx">
-          <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="4" count="5" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
           <line num="17" count="5" type="stmt"/>
           <line num="29" count="5" type="stmt"/>
         </file>
         <file name="Views.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/Views.jsx">
-          <metrics statements="21" coveredstatements="14" conditionals="16" coveredconditionals="11" methods="5" coveredmethods="2"/>
+          <metrics statements="21" coveredstatements="17" conditionals="16" coveredconditionals="11" methods="5" coveredmethods="5"/>
           <line num="7" count="5" type="stmt"/>
-          <line num="8" count="38" type="cond" truecount="2" falsecount="0"/>
-          <line num="9" count="9" type="cond" truecount="1" falsecount="1"/>
+          <line num="8" count="41" type="cond" truecount="2" falsecount="0"/>
+          <line num="9" count="10" type="cond" truecount="1" falsecount="1"/>
           <line num="10" count="0" type="stmt"/>
-          <line num="12" count="9" type="stmt"/>
-          <line num="15" count="0" type="stmt"/>
-          <line num="22" count="29" type="cond" truecount="2" falsecount="0"/>
+          <line num="12" count="10" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="22" count="31" type="cond" truecount="2" falsecount="0"/>
           <line num="23" count="11" type="cond" truecount="1" falsecount="1"/>
           <line num="24" count="0" type="stmt"/>
           <line num="27" count="11" type="stmt"/>
           <line num="30" count="2" type="stmt"/>
-          <line num="38" count="18" type="cond" truecount="2" falsecount="0"/>
-          <line num="39" count="9" type="cond" truecount="1" falsecount="1"/>
+          <line num="38" count="20" type="cond" truecount="2" falsecount="0"/>
+          <line num="39" count="10" type="cond" truecount="1" falsecount="1"/>
           <line num="40" count="0" type="stmt"/>
-          <line num="42" count="9" type="stmt"/>
-          <line num="45" count="0" type="stmt"/>
-          <line num="52" count="9" type="cond" truecount="1" falsecount="1"/>
-          <line num="53" count="9" type="cond" truecount="1" falsecount="1"/>
+          <line num="42" count="10" type="stmt"/>
+          <line num="45" count="1" type="stmt"/>
+          <line num="52" count="10" type="cond" truecount="1" falsecount="1"/>
+          <line num="53" count="10" type="cond" truecount="1" falsecount="1"/>
           <line num="54" count="0" type="stmt"/>
-          <line num="56" count="9" type="stmt"/>
-          <line num="59" count="0" type="stmt"/>
+          <line num="56" count="10" type="stmt"/>
+          <line num="59" count="1" type="stmt"/>
         </file>
         <file name="Work.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/Work.jsx">
           <metrics statements="27" coveredstatements="14" conditionals="7" coveredconditionals="2" methods="7" coveredmethods="1"/>
@@ -1883,9 +1883,9 @@
           <line num="94" count="4" type="stmt"/>
         </file>
         <file name="WorkView.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/myProfile/ExtPerTest/WorkView.jsx">
-          <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="4" count="5" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
           <line num="19" count="5" type="stmt"/>
           <line num="31" count="5" type="stmt"/>
         </file>
