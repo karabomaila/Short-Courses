@@ -61,6 +61,20 @@ const canvasTools = [
     },
 ];
 
+// test("Datafirst", () => {
+//     const { getByTestId } = render(
+//         <BrowserRouter>
+//             <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
+//         </BrowserRouter>);
+
+//     const SaveButton = getByTestId("SaveButton");
+//     fireEvent.click(SaveButton)
+
+//     const btnEl = getByTestId("Datafirst");
+//     expect(btnEl.textContent).toBe("Please create a chapter first")
+
+// });
+
 test("DataOutcomes", () => {
     const { getByTestId } = render(
         <BrowserRouter>
@@ -225,16 +239,4 @@ test("OutcomesButton", () => {
 
 });
 
-test("Datafirst", () => {
-    const { getByTestId } = render(
-        <BrowserRouter>
-            <Leftpanel canvasTools={canvasTools} despatch={() => { }} setCanvasTools={() => { }} course={{ name: "Coursename", courseID: "26385385", description: "description" }} user={accounts} />
-        </BrowserRouter>);
 
-    const SaveButton = getByTestId("SaveButton");
-    fireEvent.click(SaveButton)
-
-    const btnEl = getByTestId("Datafirst");
-    expect(btnEl.textContent).toBe("Please create a chapter first")
-
-});

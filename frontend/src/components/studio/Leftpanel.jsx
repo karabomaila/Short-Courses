@@ -381,7 +381,7 @@ function Leftpanel(props) {
       <AppBar toggleDrawer={toggleDrawer} courseName={props.course.name} />
       <Snackbar
         open={displayAlert}
-        autoHideDuration={6000}
+        autoHideDuration={15000}
         onClose={handleCloseAlert}
       >
         <Alert
