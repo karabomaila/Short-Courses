@@ -11,6 +11,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import MyPortfolio from './components/myProfile/MyPortfolio';
 import FinHome from './components/CourseCentre/FinHome';
 import React from "react";
+import Hub from './components/LearningHub/Hub'
 import Main from './components/studio/Main'
 
 
@@ -31,6 +32,7 @@ function App() {
            <Route path='/MyCourses' element={<MyCourses/>} />
            <Route path='/MyPortfolio' element={<MyPortfolio/>} />
            <Route path='/Studio' element={<Main/>} />
+           <Route path='/Hub' element={<Hub/>}/>
            <Route path='/CourseCentre' element={<FinHome/>}/>
            <Route path='/Slides/:id' element={
                      <Siderbar/>
