@@ -72,12 +72,102 @@
 47
 48
 49
-50</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,18 +213,63 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import Actions from "./Actions"</span>
 <span class="cstat-no" title="statement not covered" >import React from 'react';</span>
-<span class="cstat-no" title="statement not covered" >import wits from './wits.png'</span>
+<span class="cstat-no" title="statement not covered" >import {db} from '../firebase-config';</span>
+<span class="cstat-no" title="statement not covered" >import {collection, where, query, getDocs} from 'firebase/firestore';</span>
+import { useState, useEffect } from "react";
+<span class="cstat-no" title="statement not covered" >import {</span>
+    getDownloadURL,
+    ref,
+    uploadBytesResumable,
+    getStorage,
+  } from "@firebase/storage";
 &nbsp;
 &nbsp;
-const EnrolledCard = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()=&gt;</span>{</span>
+const EnrolledCard = (<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >props)=&gt;<span class="cstat-no" title="statement not covered" >{</span></span></span>
+    const [dataObject, setDataObject] = <span class="cstat-no" title="statement not covered" >useState({});</span>
+    const INFO_REF = <span class="cstat-no" title="statement not covered" >collection(db, "slides");</span>
+    const slidesCollectionRef = <span class="cstat-no" title="statement not covered" >collection(db, "slides");</span>
+    const [imageURL, setImageURL] = <span class="cstat-no" title="statement not covered" >useState("");</span>
+&nbsp;
+    const lindo = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async () =&gt; </span>{</span>
+      const q = <span class="cstat-no" title="statement not covered" >query(slidesCollectionRef, where("courseID", "==", props.crs_id));</span>
+      const data = <span class="cstat-no" title="statement not covered" >await getDocs(q);</span>
+  
+      let tmp = <span class="cstat-no" title="statement not covered" >data.docs[0]._document.data.value.mapValue.fields;</span>
+      //setDescription(tmp.description.stringValue);
+  
+      let tmpImages = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >      tmp.images.arrayValue.values.map((<span class="fstat-no" title="function not covered" >curr) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        tmpImages.push({</span>
+          id: curr.mapValue.fields.id.integerValue,
+          url: curr.mapValue.fields.url.stringValue,
+        });
+      });
+<span class="cstat-no" title="statement not covered" >      setImageURL(tmpImages[0].url);</span>
+    };
+  
+<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >async () =&gt; </span>{</span>
+      const storage = <span class="cstat-no" title="statement not covered" >getStorage();</span>
+<span class="cstat-no" title="statement not covered" >      if (props.image1 === null) {</span>
+<span class="cstat-no" title="statement not covered" >        lindo(</span>);
+      } else {
+<span class="cstat-no" title="statement not covered" >        await getDownloadURL(ref(storage, `Pictures/${props.image1}`)).then(</span>
+          (<span class="fstat-no" title="function not covered" >url) =&gt; {</span>
+            //console.log(url)
+<span class="cstat-no" title="statement not covered" >            setImageURL(url);</span>
+          }
+        );
+      }
+    }, [setImageURL]);
+&nbsp;
+&nbsp;
 <span class="cstat-no" title="statement not covered" >    return(</span>
         &lt;div style = {MainStyle} data-testid = "en-ui-div"&gt;
             &lt;div style = {ImageStyle}&gt;
-                &lt;img src = {wits} width = '100%' height = '100%'/&gt;
+                &lt;img src = {imageURL} alt = {'Course Image'}width = '100%' height = '100%'/&gt;
             &lt;/div&gt;
-            &lt;div style = {TitleStyle}&gt;Course Name&lt;/div&gt;
+            &lt;div style = {TitleStyle}&gt;{props.name}&lt;/div&gt;
             &lt;div style = {ActionStyle}&gt;
-                &lt;Actions title = 'Learn'/&gt;
+                &lt;Actions title = 'Learn' click = 'learn'/&gt;
                 &lt;Actions title = 'Info'/&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -176,7 +311,7 @@ export default EnrolledCard;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 23 2022 11:52:05 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed May 25 2022 01:24:40 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

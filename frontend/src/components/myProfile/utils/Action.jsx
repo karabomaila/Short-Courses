@@ -1,9 +1,7 @@
 import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import React from "react";
 
 const Action = (prop) => {
-    const navigate = useNavigate();
 
     const onClick = ()=>{
         switch (prop.click){
@@ -14,7 +12,6 @@ const Action = (prop) => {
                 prop.setView('PersonalityTest');
                 break;
             case 'Enrolled':
-                navigate('/Hub');
             default:
 
         }

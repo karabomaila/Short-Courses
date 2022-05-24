@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Course from "./EnrolledCourse";
 import DataContext from "./DataContext";
+import EnrolledCard from './CoursesUI/EnrolledCard';
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
@@ -28,7 +29,27 @@ function CourseList(props) {
   }, [setEnrolledData]);
 
   return (
-    <Container style={{ marginTop: "100px" }}>
+
+    <div style = {{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', marginTop: 55}}>
+      {EnrolledData.map((data, index)=>
+          <EnrolledCard 
+           key = {index}
+           image1={data.picture_1}
+           description={data.crs_description}
+           name={data.crs_name}
+           crs_id={data.crs_id}
+           user={props.user}
+          />
+      )}
+    </div>
+
+    
+  );
+}
+export default CourseList;
+
+/*
+<Container style={{ marginTop: "100px" }}>
       <Row>
         {console.log(EnrolledData)}
         {EnrolledData.map((data, index) => (
@@ -45,6 +66,5 @@ function CourseList(props) {
         ))}
       </Row>
     </Container>
-  );
-}
-export default CourseList;
+
+*/

@@ -1,17 +1,62 @@
 import Actions from "./Actions"
 import React from 'react';
-import wits from './wits.png'
+import {db} from '../firebase-config';
+import {collection, where, query, getDocs} from 'firebase/firestore';
+import { useState, useEffect } from "react";
+import {
+    getDownloadURL,
+    ref,
+    uploadBytesResumable,
+    getStorage,
+  } from "@firebase/storage";
 
 
-const EnrolledCard = ()=>{
+const EnrolledCard = (props)=>{
+    const [dataObject, setDataObject] = useState({});
+    const INFO_REF = collection(db, "slides");
+    const slidesCollectionRef = collection(db, "slides");
+    const [imageURL, setImageURL] = useState("");
+
+    const lindo = async () => {
+      const q = query(slidesCollectionRef, where("courseID", "==", props.crs_id));
+      const data = await getDocs(q);
+  
+      let tmp = data.docs[0]._document.data.value.mapValue.fields;
+      //setDescription(tmp.description.stringValue);
+  
+      let tmpImages = [];
+      tmp.images.arrayValue.values.map((curr) => {
+        tmpImages.push({
+          id: curr.mapValue.fields.id.integerValue,
+          url: curr.mapValue.fields.url.stringValue,
+        });
+      });
+      setImageURL(tmpImages[0].url);
+    };
+  
+    useEffect(async () => {
+      const storage = getStorage();
+      if (props.image1 === null) {
+        lindo();
+      } else {
+        await getDownloadURL(ref(storage, `Pictures/${props.image1}`)).then(
+          (url) => {
+            //console.log(url)
+            setImageURL(url);
+          }
+        );
+      }
+    }, [setImageURL]);
+
+
     return(
         <div style = {MainStyle} data-testid = "en-ui-div">
             <div style = {ImageStyle}>
-                <img src = {wits} width = '100%' height = '100%'/>
+                <img src = {imageURL} alt = {'Course Image'}width = '100%' height = '100%'/>
             </div>
-            <div style = {TitleStyle}>Course Name</div>
+            <div style = {TitleStyle}>{props.name}</div>
             <div style = {ActionStyle}>
-                <Actions title = 'Learn'/>
+                <Actions title = 'Learn' click = 'learn'/>
                 <Actions title = 'Info'/>
             </div>
         </div>
