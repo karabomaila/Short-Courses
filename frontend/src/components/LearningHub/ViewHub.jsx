@@ -4,11 +4,14 @@ import ScienceIcon from '@mui/icons-material/Science';
 import { useState } from 'react';
 import Notes from './Notes';
 import Slide from './Slide';
+import Navigation from './Navigation';
+import Stack from './Stack';
 
 const ViewHub = (props)=>{
 
     // user must be able to switch between slides.... - line 39....
     const [panelButton, setPanelButton] = useState('Navigate');
+    const [onDisplay, setOnDisplay] = useState(props.slidesArray[0].content);
 
     const onPanelChange = ()=>{
         if(panelButton == 'Navigate'){
@@ -31,10 +34,10 @@ const ViewHub = (props)=>{
 
             <div style = {Panel}>
                 <div style = {LeftPanel}>
-                   <Notes/>
+                   <Stack type = {panelButton} array = {props.slidesArray} setOnDisplay = {setOnDisplay}/>
                 </div>
                 <div style = {RightPanel}>
-                    <Slide slidesArray = {props.slidesArray[0].content}/>
+                    <Slide slidesArray = {onDisplay}/>
                 </div>
             </div>
 

@@ -1,8 +1,7 @@
-import { Button } from '@mui/material';
 import React from 'react';
 import ScienceIcon from '@mui/icons-material/Science';
 import {db} from '../firebase-config';
-import {collection, where, query, getDocs} from 'firebase/firestore';
+import {collection, where, query, getDocs, getDoc, doc, setDoc} from 'firebase/firestore';
 import { useState } from 'react';
 import ViewHub from './ViewHub';
 import Chapter from './Chapter'
@@ -14,9 +13,17 @@ const Hub = ()=>{
     const [getIndex, setGetIndex] = useState(0);
     const [view, setView] = useState(false);
 
+    const userID = "2381410@students.wits.ac.za";
+    const courseID = "23757366CGV6";
+
+    const initNotes = {
+        
+        courses: [{courseID: courseID, chapters: new Array()}]
+    }
+
     useEffect(() => {
         const getData = async ()=>{
-            const q = query(collection(db, "slides"), where("courseID", "==", "23552855Noe8"));
+            const q = query(collection(db, "slides"), where("courseID", "==", courseID));
             const data = await getDocs(q);
             data.forEach((doc) => {
                 setCourseName(doc.data().name);
@@ -24,7 +31,22 @@ const Hub = ()=>{
               });
           
         }
+
+        const getNotes = async ()=>{
+            const docRef = doc(db, "Notes", userID);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            } else {
+            // create a new collection... 
+            // doc.data() will be undefined in this case
+            await setDoc(doc(db, "Notes", userID), initNotes);
+            console.log("No such document!");
+            }
+        }
         getData();
+        getNotes();
     }, [])
 
     if(view){
