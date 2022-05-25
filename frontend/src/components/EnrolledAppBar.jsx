@@ -21,7 +21,7 @@ import Navigation from './navigation';
 const EnrolledAppBar = (props) => {
   
   return (
-    <AppBar style={{backgroundColor: '#003b5c',textAlign: 'center'}}>
+    <AppBar style={{backgroundColor: '#007377',textAlign: 'center'}}>
       <Container  style={{display: 'flex', flexDirection: 'row',textAlign: 'center'}}>
           <CourseNav modal ={props.modal} user={props.user}/>
           <Typography variant="h3" style={{padding:'5px',marginLeft:'200px'}}>{props.title}</Typography>

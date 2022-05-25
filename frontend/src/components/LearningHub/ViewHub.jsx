@@ -54,7 +54,7 @@ const MainStyle = {
 const NavStyle = {
     display: 'flex',
     flexDirection: 'row',
-    background: '#003b5c',
+    background: '#007377',
     alignItems: 'center',
     padding: 3
 }

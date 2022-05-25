@@ -71,6 +71,7 @@ const MainStyle = {
     alignSelf: 'center',
     height: '410px',
     borderRadius: 9,
+    marginLeft: 20,
     boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
 }
 

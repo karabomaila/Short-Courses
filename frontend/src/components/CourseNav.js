@@ -19,7 +19,7 @@ function CourseNav(props) {
   const handleShow = () => setShow(true);
   return (
 
-    <Navbar expand="lg" variant="dark" className="my-0 flex" style={{ background: '#003B5C' }}>
+    <Navbar expand="lg" variant="dark" className="my-0 flex" style={{ background: '#007377' }}>
 
       <Profile />
       <Navbar.Toggle aria-controls="navbarScroll" />

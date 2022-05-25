@@ -26,7 +26,7 @@ function Navigation(props) {
   const { instance, accounts } = useMsal();
 
   return (
-    <Navbar expand="lg" variant="dark" style={{ background: "#003B5C" }}>
+    <Navbar expand="lg" variant="dark" style={{ background: "#007377" }}>
       <Container fluid>
         {isAuthenticated ? (
           <Profile name={name} />

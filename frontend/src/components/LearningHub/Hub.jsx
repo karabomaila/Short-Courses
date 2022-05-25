@@ -1,6 +1,7 @@
 import React from 'react';
 import ScienceIcon from '@mui/icons-material/Science';
 import {db} from '../firebase-config';
+import {useLocation,useNavigate } from 'react-router-dom';
 import {collection, where, query, getDocs, getDoc, doc, setDoc} from 'firebase/firestore';
 import { useState } from 'react';
 import ViewHub from './ViewHub';
@@ -8,13 +9,14 @@ import Chapter from './Chapter'
 import { useEffect } from 'react';
 
 const Hub = ()=>{
+    const {state} = useLocation();
     const [chaptersArray, setChaptersArray] = useState([]);
     const [courseName, setCourseName] = useState('');
     const [getIndex, setGetIndex] = useState(0);
     const [view, setView] = useState(false);
 
     const userID = "2381410@students.wits.ac.za";
-    const courseID = "23757366CGV6";
+    const courseID = "23552854Jct6";
 
     const initNotes = {
         
@@ -85,7 +87,7 @@ const MainStyle = {
 const NavStyle = {
     display: 'flex',
     flexDirection: 'row',
-    background: '#003b5c',
+    background: '#007377',
     alignItems: 'center',
     marginBottom: 12,
     padding: 3
