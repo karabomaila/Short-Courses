@@ -8,7 +8,7 @@ require("jquery-ui-dist/jquery-ui");
 
 const toolStyle = {
   cursor: "move",
-  
+  color: "white",
   padding: "3px",
   margin: "5px",
   textAlign: "center",
@@ -19,7 +19,9 @@ const toolStyle = {
 
 function Tool({ tool }) {
   useEffect(() => {
-    
+
+
+    console.log("sure")
     $(`#${tool.draggable}`).draggable({
       containment: $("#canvas"),
       helper: "clone",

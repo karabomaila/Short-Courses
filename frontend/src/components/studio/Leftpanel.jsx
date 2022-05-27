@@ -21,10 +21,7 @@ import {
   Accordion,
   Snackbar,
 } from "@mui/material";
-import {
-  collection,
-  addDoc,
-} from "@firebase/firestore";
+import { collection, addDoc } from "@firebase/firestore";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { storage, db } from "../firebase-config";
 import DragAndDropTemp from "./DragAndDropTemp";
@@ -36,8 +33,6 @@ import Slide from "@mui/material/Slide";
 import renderTools from "./renderTools";
 import TagsDialog from "../tags/TagsDialog";
 import axios from "axios";
-
-
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -62,6 +57,7 @@ const mainDiv = {
   bottom: "0px",
   resize: true,
   overflowY: "auto",
+  paddingBottom: "50px",
 };
 
 const leftDiv = {
@@ -95,8 +91,6 @@ function Leftpanel(props) {
   });
 
   const handleShow = async () => {
-    
-
     var finalChapters = [];
 
     chapters.map((chapter, index) => {
@@ -104,34 +98,30 @@ function Leftpanel(props) {
       finalChapters.push({ ...chapter, slides: temp });
     });
 
-    
-    try{
+    try {
       axios
-      .post("http://localhost:5000/CreateCourse", {
-        user_id: props.user[0].username.split("@")[0],
-        crs_id: props.course.courseID,
-        crs_name: props.course.name,
-      })
-      .then(async (res) => {
-        // alert(res);
-        console.log(res);
-        if (res.data === "1 record inserted") {
-          await addDoc(slidesCollectionRef, {
-            ...props.course,
-            content: [...finalChapters],
-          });
-          setOpenTagsDialog(true);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-
-      });
-
-    }catch(e){
-      alert(e)
+        .post("http://localhost:5000/CreateCourse", {
+          user_id: props.user[0].username.split("@")[0],
+          crs_id: props.course.courseID,
+          crs_name: props.course.name,
+        })
+        .then(async (res) => {
+          // alert(res);
+          console.log(res);
+          if (res.data === "1 record inserted") {
+            await addDoc(slidesCollectionRef, {
+              ...props.course,
+              content: [...finalChapters],
+            });
+            setOpenTagsDialog(true);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } catch (e) {
+      alert(e);
     }
-    
   };
 
   const handleClickOpen2 = () => {
@@ -171,9 +161,7 @@ function Leftpanel(props) {
       setSlides([...slides, tmpSlide]);
       props.setCanvasTools([]);
       renderTools([]);
-
     } else {
-
       console.log(edit);
 
       let TmpNewSlides = [];
@@ -242,7 +230,6 @@ function Leftpanel(props) {
   const handleCloseAlert = (event) => {
     setDisplayAlert(false);
   };
-
 
   const list = () => (
     <Box>
@@ -364,7 +351,11 @@ function Leftpanel(props) {
                     textAlign: "center",
                   }}
                 >
-                  <Typography variant="h4" style={{ color: "#003b5c" }} data-testid="NoChapters">
+                  <Typography
+                    variant="h4"
+                    style={{ color: "#003b5c" }}
+                    data-testid="NoChapters"
+                  >
                     No chapters
                   </Typography>
                 </div>
@@ -378,7 +369,15 @@ function Leftpanel(props) {
 
   return (
     <div style={mainDiv}>
-      <AppBar toggleDrawer={toggleDrawer} courseName={props.course.name} />
+      <AppBar
+        toggleDrawer={toggleDrawer}
+        courseName={props.course.name}
+        setDisplayAlert={setDisplayAlert}
+        setOpen4={setOpen4}
+        saveSlide={saveSlide}
+        chapters={chapters}
+        edit={edit}
+      />
       <Snackbar
         open={displayAlert}
         autoHideDuration={15000}
@@ -403,6 +402,7 @@ function Leftpanel(props) {
         chapters={chapters}
         edit={edit}
         saveSlide={saveSlide}
+        style={{ marginTop: "100px" }}
       />
 
       <div>
@@ -423,9 +423,9 @@ function Leftpanel(props) {
         color="primary"
         aria-label="add"
         style={fabStyle}
-        onClick={(event) =>{
+        onClick={(event) => {
           event.preventDefault();
-          handleShow()
+          handleShow();
         }}
       >
         <DoneIcon />
@@ -464,10 +464,8 @@ function Leftpanel(props) {
                   id="ChapterName"
                   placeholder="ChapterName"
                   style={{ width: "100%" }}
-                  // data-testid="ChapterName"
                   inputProps={{ "data-testid": "ChapterName" }}
-                >
-                </TextField>
+                ></TextField>
               </div>
 
               <Typography variant="h5" data-testid="DataOutcomes">
@@ -524,7 +522,9 @@ function Leftpanel(props) {
             </Paper>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose2} data-testid="NextButton">NEXT</Button>
+            <Button onClick={handleClose2} data-testid="NextButton">
+              NEXT
+            </Button>
             <Button
               onClick={(event) => {
                 document.getElementById("ChapterName").value = "";
@@ -556,7 +556,11 @@ function Leftpanel(props) {
             backgroundColor: "#003b5c",
           }}
         >
-          <Typography variant="h5" style={{ margin: "5px", color: "#ffffff" }} data-testid="SaveSlide">
+          <Typography
+            variant="h5"
+            style={{ margin: "5px", color: "#ffffff" }}
+            data-testid="SaveSlide"
+          >
             Save Slide
           </Typography>
           <TextField
@@ -579,7 +583,9 @@ function Leftpanel(props) {
               borderRadius: "5px",
             }}
           >
-            <InputLabel id="demo" data-testid="EstimatedDuration">Estimated slide duration</InputLabel>
+            <InputLabel id="demo" data-testid="EstimatedDuration">
+              Estimated slide duration
+            </InputLabel>
             <Select
               labelId="demoSelect"
               value={currSlideMins}

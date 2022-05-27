@@ -17,6 +17,7 @@ code {
 }
 
 
+
 textarea{ 
   outline: none;
   /* border-color: #719ECE; */
@@ -37,8 +38,9 @@ textarea:focus{
 
 
 
-img:focus {
-  outline: 9px solid blue;
+img:active {
+  border: 15px solid blue;
+  width: 500px;
 }
 
 

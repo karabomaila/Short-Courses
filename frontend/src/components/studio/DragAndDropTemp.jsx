@@ -42,61 +42,17 @@ const canvas = {
   maxWidth: window.innerWidth * 0.672,
   minWidth: window.innerWidth * 0.672,
   backgroundColor: "white",
-  border: "2px solid black",
+  border: "1px solid black",
   marginLeft: "5%",
+  top:'100px',
   marginRight: "5%",
   marginBottom: "5px",
-  minHeight: `${window.innerHeight * 0.7}px`,
+  minHeight: `${window.innerHeight * 0.8}px`,
 };
 
-const toolSty = {
-  maxWidth: window.innerWidth * 0.672,
-  minWidth: window.innerWidth * 0.672,
-  backgroundColor: "white",
-  border: "2px solid black",
-  display: "flex",
-  flexDirection: "row",
-  marginTop: "5%",
-  marginLeft: "5%",
-  marginRight: "5%",
-};
 
-const tmpTanvasTools = [
-  {
-    _id: 1653242196015,
-    position: {
-      top: 115,
-      left: 220,
-    },
-    type: "text",
-    content: "",
-    fontSize: 20,
-    width: 100,
-    height: 50,
-  },
-  {
-    _id: 1653242197288,
-    position: {
-      top: 0,
-      left: 460,
-    },
-    type: "image",
-    url: "https://media.istockphoto.com/photos/business-man-pushing-large-stone-up-to-hill-business-heavy-tasks-and-picture-id825383494?k=20&m=825383494&s=612x612&w=0&h=tEqZ5HFZcM3lmDm_cmI7hOeceiqy9gYrkyLTTkrXdY4=",
-    width: 300,
-    height: 200,
-  },
-  {
-    _id: 1653279988289,
-    position: {
-      top: 122,
-      left: 264,
-    },
-    type: "video",
-    url: "https://www.youtube.com/embed/0Y11K7KSC80",
-    width: 300,
-    height: 200,
-  },
-];
+
+
 
 function DragAndDrop(props) {
   const picsRef = useRef();
@@ -149,6 +105,7 @@ function DragAndDrop(props) {
       // console.log(temp)
       props.setCanvasTools(temp);
       renderTools(temp);
+      document.getElementById("imageURL").value="";
     }
     setOpenPicDialog(false);
   };
@@ -179,7 +136,7 @@ function DragAndDrop(props) {
       ref(storage, `/Courses/${tmpCourseName}/${tmpUserID}/${file1.name}`)
     );
 
-    //console.log(g)
+    console.log(url)
     return url;
   };
 
@@ -199,6 +156,8 @@ function DragAndDrop(props) {
       },
     ];
 
+    console.log("singapha")
+
     props.setCanvasTools(temp);
     renderTools(temp);
     setOpenPicDialog(false);
@@ -211,8 +170,8 @@ function DragAndDrop(props) {
       handles: "se",
     });
 
-    props.setCanvasTools(tmpTanvasTools);
-    renderTools(tmpTanvasTools);
+    // props.setCanvasTools(tmpTanvasTools);
+    // renderTools(tmpTanvasTools);
 
     $("#canvas").droppable({
       drop: (event, ui) => {
@@ -269,38 +228,9 @@ function DragAndDrop(props) {
   });
 
   return (
-    <div>
-      <div style={toolSty}>
-        {tools.map((tool, index) => {
-          return <Tool key={index} tool={tool} />;
-        })}
-        <Button
-          variant="outlined"
-          style={{
-            position: "absolute",
-            right: "50px",
-            color: "black",
-            borderColor: "black",
-            border: "2px solid black",
-          }}
-          onClick={(event) => {
-            event.preventDefault();
-
-            if (props.chapters.length === 0) {
-              props.setDisplayAlert(true);
-            } else {
-              if (props.edit === null) {
-                props.setOpen4(true);
-              } else {
-                props.saveSlide();
-              }
-            }
-          }}
-        >
-          Save
-        </Button>
-      </div>
-      <div id="canvas" data-testid="canvasTest" style={canvas}></div>
+    <div >
+      
+      <Paper id="canvas" elevation={5} data-testid="canvasTest" style={canvas}></Paper>
 
       <Dialog
         open={openVidDialog}

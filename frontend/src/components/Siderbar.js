@@ -1,11 +1,12 @@
 import React from "react";
-import { useState, useEffect} from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import { link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import Comments from "./Comments";
+import fetchSlides from "./FetchSlides";
 // import { Data } from "./Data";
 import Submenu from "./Submenu";
 import { FcSms } from "react-icons/fc";
@@ -24,10 +25,8 @@ import { FiBookOpen, FiBook } from "react-icons/fi";
 import { MdLibraryBooks } from "react-icons/md";
 import * as RiIcons from "react-icons/ri";
 import axios from "axios";
-import {useParams,useLocation} from 'react-router-dom';
-import Notes from './Notes'  
-
-
+import { useParams, useLocation } from "react-router-dom";
+import Notes from "./Notes";
 
 const textareaStyle = {
   resize: "both",
@@ -92,122 +91,291 @@ const Content = styled.div`
   z-index: 10;
 `;
 
+const f = {
+  id: {
+    integerValue: "0",
+  },
+  name: {
+    stringValue: "Richard",
+  },
+  content: {
+    arrayValue: {
+      values: [
+        {
+          mapValue: {
+            fields: {
+              content: {
+                stringValue: "Richard 101",
+              },
+              _id: {
+                integerValue: "1653247288336",
+              },
+              fontSize: {
+                integerValue: "20",
+              },
+              type: {
+                stringValue: "text",
+              },
+              height: {
+                integerValue: "54",
+              },
+              width: {
+                integerValue: "421",
+              },
+              position: {
+                mapValue: {
+                  fields: {
+                    top: {
+                      integerValue: "0",
+                    },
+                    left: {
+                      doubleValue: 294.6000099182129,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+        {
+          mapValue: {
+            fields: {
+              url: {
+                stringValue: "https://www.youtube.com/embed/1xPu_a3WRSQ",
+              },
+              type: {
+                stringValue: "video",
+              },
+              height: {
+                integerValue: "200",
+              },
+              position: {
+                mapValue: {
+                  fields: {
+                    left: {
+                      doubleValue: 96.60000991821289,
+                    },
+                    top: {
+                      integerValue: "135",
+                    },
+                  },
+                },
+              },
+              width: {
+                integerValue: "300",
+              },
+              _id: {
+                integerValue: "1653247581269",
+              },
+            },
+          },
+        },
+        {
+          mapValue: {
+            fields: {
+              height: {
+                integerValue: "81",
+              },
+              _id: {
+                integerValue: "1653247606204",
+              },
+              position: {
+                mapValue: {
+                  fields: {
+                    top: {
+                      integerValue: "328",
+                    },
+                    left: {
+                      doubleValue: 102.59999465942383,
+                    },
+                  },
+                },
+              },
+              type: {
+                stringValue: "text",
+              },
+              content: {
+                stringValue: "This Is Richard Here Introducing Us To COMS",
+              },
+              fontSize: {
+                integerValue: "20",
+              },
+              width: {
+                integerValue: "299",
+              },
+            },
+          },
+        },
+        {
+          mapValue: {
+            fields: {
+              height: {
+                integerValue: "200",
+              },
+              position: {
+                mapValue: {
+                  fields: {
+                    top: {
+                      integerValue: "140",
+                    },
+                    left: {
+                      doubleValue: 539.6000099182129,
+                    },
+                  },
+                },
+              },
+              width: {
+                integerValue: "300",
+              },
+              url: {
+                stringValue:
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGVf4wEGNcp2DO72fI_xKMijDVjClNzLm2zA&usqp=CAU",
+              },
+              type: {
+                stringValue: "image",
+              },
+              _id: {
+                integerValue: "1653247870535",
+              },
+            },
+          },
+        },
+        {
+          mapValue: {
+            fields: {
+              type: {
+                stringValue: "text",
+              },
+              width: {
+                integerValue: "291",
+              },
+              content: {
+                stringValue: "Here Is A Picture Of Richard",
+              },
+              position: {
+                mapValue: {
+                  fields: {
+                    top: {
+                      doubleValue: 333.0000305175781,
+                    },
+                    left: {
+                      doubleValue: 556.6000099182129,
+                    },
+                  },
+                },
+              },
+              _id: {
+                integerValue: "1653247888735",
+              },
+              fontSize: {
+                integerValue: "20",
+              },
+              height: {
+                integerValue: "59",
+              },
+            },
+          },
+        },
+      ],
+    },
+  },
+  chapter: {
+    integerValue: "0",
+  },
+};
+
 function Siderbar() {
   const [sidebar, setSidebar] = useState(false);
   const [open, setOpen] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
-  const [data,setData] = useState([])
+  const [data, setData] = useState([]);
   const slidesCollectionRef = collection(db, "slides");
-  const [currSlide,setCurrSlide] = useState([]);
-  const {state} = useLocation();
-  console.log(state.user[0].username.split("@")[0])
-  console.log(state.crs_id)
+  const [currSlide, setCurrSlide] = useState([]);
+  const { state } = useLocation();
+  console.log(state.user[0].username.split("@")[0]);
+  console.log(state.crs_id);
 
-  
-
-  useEffect(()=>{
-
+  useEffect(() => {
     // var crs_id = courseID
-    const lindo = async ()=>{
-      const q = query(slidesCollectionRef, where("courseID", "==", state.crs_id))
-    const data = await getDocs(q);
-    // console.log(data)
-    let tmp = data.docs[0]._document.data.value.mapValue.fields
-    let tmpChaps = []
-    tmp.content.arrayValue.values.map((item,index)=>{
-      let tmp2 = item.mapValue.fields
-      let outcomes = []
-      tmp2.outcomes.arrayValue.values.map(item2=>{
-        let outcome = item2.stringValue
-        outcomes.push(outcome)
-      })
-      let tmpSlides =[]
-      tmp2.slides.arrayValue.values.map(tmpSlide=>{
-        // let outcome = item2.stringValue
-        let slide = tmpSlide.mapValue.fields
-        let tmpBody = []
-        slide.body.arrayValue.values.map(bodyItem=>{
-          let temp2 = bodyItem.mapValue.fields
-          let ft = {
-            id:temp2.id.integerValue,
-            type:temp2.type.stringValue,
-          }
-          if(parseInt(ft.id)<=3){
-            ft = {...ft,content:temp2.content.stringValue}
-          }else{
-            ft = {...ft,url:temp2.url.stringValue}
-
-          }
-          tmpBody.push(ft)
-
-        })
-        let tmpSlidee = {
-          id:slide.id.integerValue,
-          chapter:slide.chapter.integerValue,
-          name:slide.name.stringValue,
-          duration:slide.duration.integerValue,
-          body:tmpBody
-        }
-        tmpSlides.push(tmpSlidee)
-
-      })
-      let tmpChap = {
-        id:tmp2.id.integerValue,
-        name:tmp2.name.stringValue,
-        slides:tmpSlides,
-        outcomes:outcomes
-      }
-      tmpChaps.push(tmpChap)
-      
-    })
-    // console.log(tmp)
-    let tmpImages = []
-    tmp.images.arrayValue.values.map(curr=>{
-      tmpImages.push({
-        id:curr.mapValue.fields.id.integerValue,
-        url:curr.mapValue.fields.url.stringValue
-      })
-
-    })
-
-    let finalCourse = {
-      name:tmp.name.stringValue,
-      courseID:tmp.courseID.stringValue,
-      description:tmp.description.stringValue,
-      content:tmpChaps,
-      images:tmpImages
-    }
-    // console.log(finalCourse)
-    let tmpData = [];
-    setCurrSlide(finalCourse.content[0].slides[0].body)
-
-    finalCourse.content.map((chapter, index) => {
-      // console.log(chapter)
-      let slides = [];
-      chapter.slides.map((slide, index) => {
-        // console.log(slide)
-        slides.push({ title: slide.name, icon: <MdLibraryBooks />,body:slide.body });
+    const lindo = async () => {
+      const q = query(
+        slidesCollectionRef,
+        where("courseID", "==", state.crs_id)
+      );
+      const data = await getDocs(q);
+      // console.log(data)
+      let tmp = data.docs[0]._document.data.value.mapValue.fields;
+      let tmpChaps = [];
+      tmp.content.arrayValue.values.map((item, index) => {
+        let tmp2 = item.mapValue.fields;
+        let outcomes = [];
+        tmp2.outcomes.arrayValue.values.map((item2) => {
+          let outcome = item2.stringValue;
+          outcomes.push(outcome);
+        });
+        let tmpSlides = [];
+        tmp2.slides.arrayValue.values.map((tmpSlide) => {
+          // let outcome = item2.stringValue
+          let slide = tmpSlide.mapValue.fields;
+          tmpSlides.push(fetchSlides(slide));
+        });
+        let tmpChap = {
+          id: tmp2.id.integerValue,
+          name: tmp2.name.stringValue,
+          slides: tmpSlides,
+          outcomes: outcomes,
+        };
+        tmpChaps.push(tmpChap);
       });
-      
-      let temp = {
-        chapter: chapter.name,
-        icon: <FiBookOpen />,
-        iconClosed: <RiIcons.RiArrowDownSFill />,
-        iconOpened: <RiIcons.RiArrowUpSFill />,
-        slides: slides,
-        open: false,
+      // console.log(tmp)
+      let tmpImages = [];
+      tmp.images.arrayValue.values.map((curr) => {
+        tmpImages.push({
+          id: curr.mapValue.fields.id.integerValue,
+          url: curr.mapValue.fields.url.stringValue,
+        });
+      });
+
+      let finalCourse = {
+        name: tmp.name.stringValue,
+        courseID: tmp.courseID.stringValue,
+        description: tmp.description.stringValue,
+        content: tmpChaps,
+        images: tmpImages,
       };
-      tmpData.push(temp);
-    });
-    // console.log(tmpData);
-    console.log("hi")
-    setData(tmpData);}
+      console.log(finalCourse.content[0].slides[0].slides)
+      let tmpData = [];
+      setCurrSlide(finalCourse.content[0].slides[0].slides);
+
+      finalCourse.content.map((chapter, index) => {
+        // console.log(chapter)
+        let slides = [];
+        chapter.slides.map((slide, index) => {
+          // console.log(slide)
+          slides.push({
+            title: slide.name,
+            icon: <MdLibraryBooks />,
+            body: slide.body,
+          });
+        });
+
+        let temp = {
+          chapter: chapter.name,
+          icon: <FiBookOpen />,
+          iconClosed: <RiIcons.RiArrowDownSFill />,
+          iconOpened: <RiIcons.RiArrowUpSFill />,
+          slides: slides,
+          open: false,
+        };
+        tmpData.push(temp);
+      });
+      // console.log(tmpData);
+      console.log("hi");
+      setData(tmpData);
+    };
 
     lindo();
-    
-  },[setCurrSlide])
-
-  
+  }, [setCurrSlide]);
 
   return (
     <>
@@ -219,11 +387,16 @@ function Siderbar() {
       <SidebarNav sidebar={sidebar} data-testid="sidebar">
         <SidebarWrap data-testid="wrap">
           <NavIcon>
-            <AiIcons.AiOutlineClose data-testid="hidebtn" onClick={() => showSidebar()} />
+            <AiIcons.AiOutlineClose
+              data-testid="hidebtn"
+              onClick={() => showSidebar()}
+            />
           </NavIcon>
           {data.map((item, index) => {
             // setCurrSlide(item.slides)
-            return <Submenu item={item} key={index} setCurrSlide={setCurrSlide} />;
+            return (
+              <Submenu item={item} key={index} setCurrSlide={setCurrSlide} />
+            );
           })}
         </SidebarWrap>
       </SidebarNav>
@@ -233,90 +406,44 @@ function Siderbar() {
         } duration-300  bg-WitsBlue text-base `}
       >
         <div
-           data-testid="run"
+          data-testid="run"
           className={`${
             sidebar ? "w-100" : "w-100"
           } duration-300 p-2  bg-WitsBlue text-base  justify-content: center`}
         >
-          {currSlide.map((slide, index) =>{
-          
-            if (slide.type === "title") {
-              console.log(slide)
+          {currSlide.map((slide, index) => {
+            if (slide.type === "text") {
+              console.log(slide);
               return (
                 <h1
                   autoFocus
                   key={index}
-                  id={
-                    index.toString() +
-                    "1" +
-                    slide.type
-                  }
-                  
+                  id={index.toString() + "1" + slide.type}
                   style={{
-                    ...textareaStyle,
-                    textAlign: "center",
+                    fontSize:slide.fontSize,
+                    maxWidth: slide.width,
+                    maxHeight: slide.height,
+                    position:"absolute",
+                    top: slide.top,
+                    left: slide.left
                   }}
-                  
-                >{slide.content}</h1>
+                >
+                  {slide.content}
+                </h1>
               );
-            }
-            else if (slide.type === "subtitle") {
-              
+            }  else if (slide.type === "image") {
               return (
-                <h3
-                  autoFocus
-                  key={index}
-                  id={
-                    
-                    index.toString() +
-                    "1" +
-                  slide.type
-                  }
-                  
-                  style={{
-                    ...textareaStyle,
-                    textAlign: "center",
-                  }}
-                  
-                >{slide.content}</h3>
-              );
-            }
-            else if (slide.type === "paragraph") {
-              
-              return (
-                <p
-                  autoFocus
-                  key={index}
-                  id={
-                    
-                    index.toString() +
-                    "1" +
-                    slide.type
-                  }
-
-                  style={{
-                    ...textareaStyle,
-                    textAlign: "center",
-                  }}
-                  value={slide.content}
-                >{slide.content}</p>
-              );
-            }
-            else if (slide.type === "image") {
-              return (
-                <div style={{ resize: "both", overflow: "auto" }}>
+                <div style={{overflow: "auto" }}>
                   <img
                     style={{
-                      border: "2px solid black",
-                      maxWidth: "95%",
-                      maxHeight: "95%",
+                      maxWidth: slide.width,
+                      maxHeight: slide.height,
+                      position:"absolute",
+                      top: slide.top,
+                      left: slide.left
                     }}
                     key={index}
-                    id={
-                      index.toString() +
-                      "1" +
-                      slide.type
-                    }
+                    id={index.toString() + "1" + slide.type}
                     src={slide.url}
                   ></img>
                 </div>
@@ -326,12 +453,13 @@ function Siderbar() {
                 <div>
                   <iframe
                     key={index}
-                    id={
-                      index.toString() +
-                      "1" +
-                      slide.type
-                    }
-                    style={{ resize: "both", overflow: "auto" }}
+                    id={index.toString() + "1" + slide.type}
+                    style={{
+                      maxWidth: slide.width,
+                      maxHeight: slide.height,
+                      top: slide.top,
+                      left: slide.left
+                    }}
                     src={slide.url}
                     title="YouTube video player"
                     frameborder="0"
@@ -341,7 +469,6 @@ function Siderbar() {
                 </div>
               );
             }
-
           })}
         </div>
       </Content>

@@ -44,7 +44,7 @@ const renderTools = (canvasTools) => {
         .resizable({
           helper: "ui-resizable-helper",
           resize: (event, ui) => {
-            console.log(ui.helper.width)
+            // console.log(ui.helper.width)
             var id = ui.element[0].id;
 
             for (var i in canvasTools) {

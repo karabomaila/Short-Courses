@@ -100,6 +100,7 @@ export default function SimpleAccordion(props) {
             <ListItem
               // key={index}
               // disableRipple={true}
+              
               data-testid={index.toString() +item.type}
               button
               secondaryAction={<IconButton
@@ -110,11 +111,19 @@ export default function SimpleAccordion(props) {
               >
                 <ClearIcon />
               </IconButton>}
+
               key={index}
+              id={index.toString() + "id"}
               style={{ backgroundColor: "white" }}
+              onMouseOver={(event,m)=>{
+                document.getElementById(item._id - 1000).click();
+                // document.getElementById(item._id - 1000).style.cssText+="border:6px solid red;"
+                
+                
+              }}
               onClick={(e) => {
                 // e.preventDefault();
-                document.getElementById(item._id - 1000).focus();
+                document.getElementById(item._id - 1000).click();
                 setCurrentToolIndex(index);
                 setProperties([item]);
                 // console.log([item])

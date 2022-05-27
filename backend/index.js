@@ -78,6 +78,25 @@ app.post("/users/login", (req, res) => {
 app.post("/enroll", (req, res) => {
   const course_id = req.body.crs_id;
   const user_id = req.body.user_id;
+  // console.log(course_id);
+  // console.log(user_id);
+
+  pool.query(`INSERT INTO enroll (crs_code, user_id)
+  VALUES ($1, $2)`,
+[course_id,2381410], (err, results) => {
+    if (err) {
+      // res.status(400); 
+      console.log(err);
+      throw err;
+    }else{
+      console.log(results);
+    }
+    // res.status(202);
+
+
+    // res.send(results.rows);
+  });
+  
 
   //check if user is registered
   pool.query(
@@ -92,6 +111,7 @@ app.post("/enroll", (req, res) => {
 
       // not registered, register by force
       else if (results.rows.length == 0) {
+        
         pool.query(
           `INSERT INTO users (user_id , password, first_name)
                 VALUES ($1, $2, $3)`,
@@ -105,6 +125,9 @@ app.post("/enroll", (req, res) => {
           }
         );
         // we in by force
+      }else{
+        console.log("ingenile2")
+
       }
 
       pool.query(
