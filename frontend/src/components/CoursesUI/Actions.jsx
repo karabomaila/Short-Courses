@@ -7,8 +7,6 @@ import { useNavigate } from 'react-router-dom';
 const Actions = (props)=>{
     const navigate = useNavigate();
     
-    
-
     const onClick = ()=>{
         switch (props.click){
             case 'view':
@@ -28,7 +26,8 @@ const Actions = (props)=>{
             case 'edit':
                 // console.log(props)
                 navigate('/CreateCourse',{ state: { user: props.user,courseInfo:props } });
-
+            case 'learn':
+                navigate('/Hub', {state: {courseID:  props.crs_id}});
             default:
         }
         

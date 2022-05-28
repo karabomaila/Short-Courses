@@ -32,7 +32,7 @@ const Menu = (props) => {
 const MenuStyle = {
     width: '100%',
     display: 'flex',
-    background: '#003b5c',
+    background: '#007377',
     alignItems: 'center',
     flexDirection: 'column'
 }

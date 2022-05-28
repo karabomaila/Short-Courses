@@ -86,7 +86,7 @@ const NavBarStyle = {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    background: '#003b5c',
+    background: '#007377', //#003b5c'
     marginBottom: 12,
     alignItems: 'center'
 }

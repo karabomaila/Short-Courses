@@ -11,6 +11,7 @@ const Action = (prop) => {
             case 'PersonalityTest':
                 prop.setView('PersonalityTest');
                 break;
+            case 'Enrolled':
             default:
 
         }

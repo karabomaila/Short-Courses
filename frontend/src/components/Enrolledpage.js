@@ -15,7 +15,10 @@ function Enrolled(){
         <>
         <EnrolledAppBar title={"Enrolled"} user={state.user}/>
         
+        <div style = {{display: 'flex', margin: 20}}>
         <CourseList user={state.user}/> 
+        </div>
+        
 
         </>
     )
