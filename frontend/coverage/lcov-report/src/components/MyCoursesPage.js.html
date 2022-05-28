@@ -3,12 +3,12 @@
 <head>
     <title>Code coverage report for src/components/MyCoursesPage.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(..\..\sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,7 +16,7 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> MyCoursesPage.js
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> MyCoursesPage.js
     </h1>
     <div class='clearfix'>
     </div>
@@ -87,21 +87,13 @@
 62
 63
 64
-65
-66
-67
-68
-69</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+65</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,7 +117,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -159,17 +151,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Container, Row,Col } from "react-bootstrap";</span>
-<span class="cstat-no" title="statement not covered" >import CardViewList from "./CardViewList";</span>
-<span class="cstat-no" title="statement not covered" >import Course from "./EnrolledCourse";</span>
-<span class="cstat-no" title="statement not covered" >import EnrolledNav from "./EnrolledNav";</span>
-<span class="cstat-no" title="statement not covered" >import { useState } from 'react';</span>
-import { Modal } from 'react-bootstrap';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { useState } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import { Modal } from 'react-bootstrap';</span>
 <span class="cstat-no" title="statement not covered" >import {Fab} from '@mui/material';</span>
 <span class="cstat-no" title="statement not covered" >import AddIcon from '@mui/icons-material/Add';</span>
 <span class="cstat-no" title="statement not covered" >import MyCoursesList from "./CoursesUI/MyCoursesList";</span>
 <span class="cstat-no" title="statement not covered" >import EnrolledAppBar from "./EnrolledAppBar";</span>
-<span class="cstat-no" title="statement not covered" >import CreateCourse from "./CreateCourse";</span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >import {useLocation,useNavigate } from 'react-router-dom';</span>
 import React from "react";
 &nbsp;
@@ -193,7 +181,7 @@ function <span class="fstat-no" title="function not covered" >MyCourses()<span c
 <span class="cstat-no" title="statement not covered" >    console.log(state);</span>
     const navigate = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
 &nbsp;
-    const handleClose = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>setShow(false);</span></span>
+    
     const handleShow = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>{</span>
 <span class="cstat-no" title="statement not covered" >        navigate('/CreateCourse',{ state: { user: state.user } });</span>
     }
@@ -233,10 +221,10 @@ export default MyCourses;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed May 25 2022 01:24:40 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat May 28 2022 02:30:10 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
-<script src="../../prettify.js"></script>
+<script src="..\..\prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -244,6 +232,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="../../sorter.js"></script>
+<script src="..\..\sorter.js"></script>
 </body>
 </html>

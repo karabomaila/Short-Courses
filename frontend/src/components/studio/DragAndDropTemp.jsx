@@ -50,6 +50,43 @@ const canvas = {
   minHeight: `${window.innerHeight * 0.8}px`,
 };
 
+const tmpCanvasTools = [
+  {
+    _id: 1653242196015,
+    position: {
+      top: 115,
+      left: 220,
+    },
+    type: "text",
+    content: "",
+    fontSize: 20,
+    width: 100,
+    height: 50,
+  },
+  {
+    _id: 1653242197288,
+    position: {
+      top: 0,
+      left: 460,
+    },
+    type: "image",
+    url: "https://media.istockphoto.com/photos/business-man-pushing-large-stone-up-to-hill-business-heavy-tasks-and-picture-id825383494?k=20&m=825383494&s=612x612&w=0&h=tEqZ5HFZcM3lmDm_cmI7hOeceiqy9gYrkyLTTkrXdY4=",
+    width: 300,
+    height: 200,
+  },
+  {
+    _id: 1653279988289,
+    position: {
+      top: 122,
+      left: 264,
+    },
+    type: "video",
+    url: "https://www.youtube.com/embed/0Y11K7KSC80",
+    width: 300,
+    height: 200,
+  },
+];
+
 
 
 
@@ -170,8 +207,8 @@ function DragAndDrop(props) {
       handles: "se",
     });
 
-    // props.setCanvasTools(tmpTanvasTools);
-    // renderTools(tmpTanvasTools);
+    props.setCanvasTools(tmpCanvasTools);
+    renderTools(tmpCanvasTools);
 
     $("#canvas").droppable({
       drop: (event, ui) => {

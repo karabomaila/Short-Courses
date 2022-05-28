@@ -29,6 +29,7 @@ export default function MenuAppBar(props) {
               return <Tool key={index} tool={tool} />;
             })}
             <Button
+              data-testid="SaveButton2"
               onClick={(event) => {
                 event.preventDefault();
 

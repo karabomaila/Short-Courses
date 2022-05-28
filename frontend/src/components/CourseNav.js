@@ -4,19 +4,17 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { Modal } from 'react-bootstrap';
 import { useContext, useState, useEffect } from 'react';
 import CardViewList from './CardViewList';
-import CreateCourse from './CreateCourse';
 import { useLocation, useNavigate } from 'react-router-dom';
 import React from "react";
 
 function CourseNav(props) {
   const [show, setShow] = useState(false);
-  const [user, setUser] = useState(false);
+  
 
   const navigate = useNavigate();
 
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  
   return (
 
     <Navbar expand="lg" variant="dark" className="my-0 flex" style={{ background: '#007377' }}>
@@ -48,26 +46,6 @@ function CourseNav(props) {
 
 
         </Nav>
-
-        {props.modal ? (
-
-          <Modal show={show} onHide={handleClose} dialogClassName="modal-90w">
-            <Modal.Header closeButton>CREATE A COURSE HERE!!</Modal.Header>
-            <Modal.Body>
-              <CreateCourse />
-            </Modal.Body>
-          </Modal>
-
-        ) : (
-
-          <Modal size="lg" show={show} onHide={handleClose}  >
-            <Modal.Header closeButton>FIND YOUR FAVOURATE COURSE HERE!!</Modal.Header>
-            <Modal.Body>
-              <CardViewList />
-            </Modal.Body>
-          </Modal>
-
-        )}
 
       </Navbar.Collapse>
 

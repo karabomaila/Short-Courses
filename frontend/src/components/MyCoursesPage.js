@@ -1,14 +1,10 @@
-import { Container, Row,Col } from "react-bootstrap";
-import CardViewList from "./CardViewList";
-import Course from "./EnrolledCourse";
-import EnrolledNav from "./EnrolledNav";
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import {Fab} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import MyCoursesList from "./CoursesUI/MyCoursesList";
 import EnrolledAppBar from "./EnrolledAppBar";
-import CreateCourse from "./CreateCourse";
+
 import {useLocation,useNavigate } from 'react-router-dom';
 import React from "react";
 
@@ -32,7 +28,7 @@ function MyCourses(){
     console.log(state);
     const navigate = useNavigate();
 
-    const handleClose = () => setShow(false);
+    
     const handleShow = () => {
         navigate('/CreateCourse',{ state: { user: state.user } });
     }

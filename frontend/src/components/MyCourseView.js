@@ -10,8 +10,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Profile from "./profile";
 import { Card, Carousel, Modal } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
-import Course from "./Course";
-import { Grid } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { storage } from "./firebase-config";

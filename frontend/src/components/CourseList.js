@@ -47,24 +47,3 @@ function CourseList(props) {
   );
 }
 export default CourseList;
-
-/*
-<Container style={{ marginTop: "100px" }}>
-      <Row>
-        {console.log(EnrolledData)}
-        {EnrolledData.map((data, index) => (
-          <Col>
-            <Course
-              key={index}
-              image1={data.picture_1}
-              description={data.crs_description}
-              name={data.crs_name}
-              crs_id={data.crs_id}
-              user={props.user}
-            />
-          </Col>
-        ))}
-      </Row>
-    </Container>
-
-*/

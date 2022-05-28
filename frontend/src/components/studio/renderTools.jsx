@@ -7,7 +7,7 @@ require("jquery-ui-dist/jquery-ui");
 
 
 const renderTools = (canvasTools) => {
-  console.log(canvasTools);
+  // console.log(canvasTools);
 
   
 
