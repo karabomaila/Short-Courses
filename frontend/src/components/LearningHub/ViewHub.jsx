@@ -11,7 +11,6 @@ import Navigation from './Navigation';
 
 const ViewHub = (props)=>{
 
-    // user must be able to switch between slides.... - line 39....
     const [onDisplay, setOnDisplay] = useState(props.slidesArray[0].content);
 
     const [showNav, setShowNav] = useState(false);
@@ -25,9 +24,8 @@ const ViewHub = (props)=>{
         setShowNotes(true);
     }
 
-
     return(
-        <div style = {MainStyle}>
+        <div style = {MainStyle} data-testid = "viewhub-div">
             <div style = {NavStyle}>
                 <ScienceIcon fontSize='large' sx = {{color: 'white'}}/>
                 <p style ={{color: 'white', fontWeight: 'bold', margin: 10}}>Learning Hub</p>
@@ -35,8 +33,6 @@ const ViewHub = (props)=>{
             </div>
 
             <div style = {Panel}>
-                
-
                 {showNav && 
                     <div style = {LeftPanel}>
                         <Navigation 
@@ -57,7 +53,6 @@ const ViewHub = (props)=>{
                 }
             </div>
 
-
             {!showNav && 
                  <Fab variant="extended" style = {navFabStyle} onClick = {onNav}>
                  <NavigationIcon sx={{ mr: 1 , color: '#007377'}} />
@@ -65,16 +60,12 @@ const ViewHub = (props)=>{
                   </Fab>
             }
            
-
             {!showNotes &&
                  <Fab variant="extended" style = {noteFabStyle} onClick = {onNotes}>
                  <NotesIcon sx={{ mr: 1, color: '#007377'}} />
                  Notes
                   </Fab>
             }
-           
-
-            
         </div>
     );
 }

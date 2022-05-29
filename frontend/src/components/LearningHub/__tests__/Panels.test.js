@@ -5,6 +5,7 @@ import Notes from "../Notes";
 import Slideshow from '../Slideshow';
 import Slide from '../Slide';
 import Chapter from '../Chapter';
+import ViewHub from '../ViewHub';
 
 describe('Navigation Test', ()=>{
 
@@ -107,4 +108,18 @@ describe('Chapter Test', ()=>{
     })
 })
 
+describe('ViewHub Test', ()=>{
+    const useHook = (bool)=>{
+        let flag = false;
+        return flag = bool;
+    }
 
+    const slidesArray = [{content: ["a", "b"]}];
+
+    test('Render Div', ()=>{
+        const {getByTestId} = render(<ViewHub slidesArray={slidesArray} setView = {useHook}/>);
+        const d = getByTestId('viewhub-div');
+        expect(d).toBeTruthy();
+    })
+
+})
