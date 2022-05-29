@@ -18,7 +18,7 @@ const Chapter = (props)=>{
 
 
     return(
-        <div style = {MainStyle} onClick = {onView}>
+        <div style = {MainStyle} onClick = {onView} data-testid = 'chap-div'>
             <div style = {IconStyle}>
                 <ArtTrackIcon fontSize='large' sx = {{color: iconColour, }}/>
             </div>

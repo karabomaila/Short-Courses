@@ -8,8 +8,8 @@ const Slideshow = (props)=>{
     }
 
     return(
-        <div style = {{display: 'flex', marginLeft: 12}} onClick = {onClick}>
-            <SlideshowIcon sx = {{color: '#daa520'}}/>
+        <div style = {{display: 'flex', marginLeft: 12}} onClick = {onClick} data-testid = "slideshow-div">
+            <SlideshowIcon sx = {{color: '#daa520'}} data-testid = "slideshow-icon"/>
             {props.slide.name}
         </div>
         

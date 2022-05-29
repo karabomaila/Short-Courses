@@ -102,6 +102,7 @@ const MainStyle = {
     flexDirection: 'column',
     //alignItems: 'center',
     marginTop: 22,
+    marginBottom: 22,
     width: '90%',
     minWidth: '90%',
     borderRadius: 9,

@@ -3,6 +3,7 @@ import Iframe from 'react-iframe'
 
 const Video = (props)=>{
     return(
+        <div data-testid = 'vid-div'>
             <Iframe url= {props.url}
                 width="600px"
                 height="450px"
@@ -10,6 +11,7 @@ const Video = (props)=>{
                 display="initial"
                 position="relative"
             />
+        </div>
     );
 }
 

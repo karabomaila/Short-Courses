@@ -8,10 +8,9 @@ const Action = (prop) => {
             case 'ExposeView':
                 prop.setView('ExposeView');
                 break;
-            case 'PersonalityTest':
-                prop.setView('PersonalityTest');
+            case 'Notes':
+                prop.setView('Notes');
                 break;
-            case 'Enrolled':
             default:
 
         }
@@ -28,13 +27,5 @@ const Action = (prop) => {
         >{prop.title}</Button>
     )
 }
-
-const ButtonStyle = {
-    color: 'white',
-    width: '80%',
-    margin: 12,
-    borderColor: 'white'
-}
-
 
 export default Action;

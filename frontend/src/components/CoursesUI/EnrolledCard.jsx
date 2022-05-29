@@ -3,12 +3,7 @@ import React from 'react';
 import {db} from '../firebase-config';
 import {collection, where, query, getDocs} from 'firebase/firestore';
 import { useState, useEffect } from "react";
-import {
-    getDownloadURL,
-    ref,
-    uploadBytesResumable,
-    getStorage,
-  } from "@firebase/storage";
+import {getDownloadURL,ref,getStorage} from "@firebase/storage";
 
 
 const EnrolledCard = (props)=>{
@@ -56,7 +51,10 @@ const EnrolledCard = (props)=>{
             </div>
             <div style = {TitleStyle}>{props.name}</div>
             <div style = {ActionStyle}>
-                <Actions title = 'Learn' click = 'learn'/>
+                <Actions title = 'Learn' 
+                click = 'learn' 
+                courseID = {props.crs_id} 
+                userID = {props.user}/>
                 <Actions title = 'Info'/>
             </div>
         </div>

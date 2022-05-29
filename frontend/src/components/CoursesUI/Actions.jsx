@@ -27,7 +27,7 @@ const Actions = (props)=>{
                 // console.log(props)
                 navigate('/CreateCourse',{ state: { user: props.user,courseInfo:props } });
             case 'learn':
-                navigate('/Hub', {state: {courseID:  props.crs_id}});
+                navigate('/Hub', {state: {courseID: props.courseID, userID: props.userID[0].username}});
             default:
         }
         

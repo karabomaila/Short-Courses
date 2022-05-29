@@ -56,29 +56,7 @@ describe('Menu Test', () => {
 
     });
 
-    test("Personality Test Button", () => {
-        const name = 'Nkosinathi Chuma'
-        const { getByTestId } = render(<Menu name={name}/>)
-        const PersonalityTestBtn = getByTestId("PersonalityTest");
-        expect(PersonalityTestBtn.textContent).toBe("Personality Test")
 
-    });
-
-    test("MyCourses Button", () => {
-        const name = 'Nkosinathi Chuma'
-        const { getByTestId } = render(<Menu name={name}/>)
-        const MyCoursesBtn = getByTestId("MyCourses");
-        expect(MyCoursesBtn.textContent).toBe("MyCourses");
-
-    });
-
-    test("Enrolled Button", () => {
-        const name = 'Nkosinathi Chuma'
-        const { getByTestId } = render(<Menu name={name}/>)
-        const EnrolledBtn = getByTestId("Enrolled");
-        expect(EnrolledBtn.textContent).toBe("Enrolled");
-
-    });
 
 });
 

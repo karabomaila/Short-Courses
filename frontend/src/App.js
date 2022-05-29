@@ -6,7 +6,6 @@ import {BrowserRouter ,Routes,Route} from 'react-router-dom';
 import Explore from './components/Explore';
 import CreateCourseAgain from './components/CreateCourseAgain';
 import MyPortfolio from './components/myProfile/MyPortfolio';
-import FinHome from './components/CourseCentre/FinHome';
 import React from "react";
 import Hub from './components/LearningHub/Hub'
 import Main from './components/studio/Main'
@@ -30,7 +29,6 @@ function App() {
            <Route path='/MyPortfolio' element={<MyPortfolio/>} />
            <Route path='/Studio' element={<Main/>} />
            <Route path='/Hub' element={<Hub/>}/>
-           <Route path='/CourseCentre' element={<FinHome/>}/>
            
            
           </Routes>

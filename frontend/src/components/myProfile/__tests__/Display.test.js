@@ -16,18 +16,17 @@ describe('Display Test', ()=>{
             courses = {courses} comments = {comments} 
             bio = {bio} setBio = {setBio} view = {'ExposeView'}/>);
 
-
         const d = getByTestId('display-expo');
         expect(d).toBeTruthy();
-    })
+    });
 
-    test('Display Perso Test', ()=>{
+    test('Display Notes Test', ()=>{
         const {getByTestId} = render(<Display userID = {userID} 
             courses = {courses} comments = {comments} 
-            bio = {bio} setBio = {setBio} view = {'PersonalityTest'}/>);
+            bio = {bio} setBio = {setBio} view = {'Notes'}/>);
 
-
-        const d = getByTestId('display-perso');
+        const d = getByTestId('display-notes');
         expect(d).toBeTruthy();
-    })
+    });
+
 })

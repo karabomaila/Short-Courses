@@ -15,16 +15,10 @@ const Menu = (props) => {
             <Action title = 'Expose View' 
             setView = {props.setView} 
             click = {'ExposeView'}/>
-            <Action title = 'Personality Test'
+            <Action title = 'Notes' 
             setView = {props.setView} 
-            click = {'PersonalityTest'}/>
-            <Action title = 'MyCourses' 
-            setView = {props.setView} 
-            click = {'MyCourses'}/>
-            <Action title = 'Enrolled' 
-            setView = {props.setView} 
-            click = {'Enrolled'}/>
-            
+            click = {'Notes'}/>
+           
         </div>
     )
 }
