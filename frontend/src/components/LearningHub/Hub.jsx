@@ -2,7 +2,8 @@ import React from 'react';
 import ScienceIcon from '@mui/icons-material/Science';
 import {db} from '../firebase-config';
 import {useLocation} from 'react-router-dom';
-import {collection, where, query, getDocs, getDoc, doc, setDoc} from 'firebase/firestore';
+import {collection, where, query, getDocs, getDoc, 
+                    doc, setDoc, arrayUnion, updateDoc} from 'firebase/firestore';
 import { useState } from 'react';
 import ViewHub from './ViewHub';
 import Chapter from './Chapter'
@@ -17,6 +18,7 @@ const Hub = ()=>{
 
     const userID = state.userID;
     const courseID = state.courseID;
+    let notes = new Array();
     
     const initNotes = {
         courses: [{courseID: courseID, chapters: new Array()}]
@@ -38,21 +40,40 @@ const Hub = ()=>{
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data());
+                //check if the current course is there...
+                let flag = true;
+                notes = docSnap.data().courses;
+                for(let i = 0; i < notes.length; i++){
+                    if(notes[i].courseID === courseID){
+                        // The course has notes... 
+                        flag = false;
+                        break;
+                    }
+                }
+
+                if(flag){
+                    // when the course has no notes...
+                    await updateDoc(docRef, {courses: arrayUnion({courseID: courseID, chapters: new Array()})});
+                }
+
             } else {
-            // create a new collection... 
-            // doc.data() will be undefined in this case
-            await setDoc(doc(db, "Notes", userID), initNotes);
-            console.log("No such document!");
+                // create a new collection... 
+                // doc.data() will be undefined in this case
+                await setDoc(doc(db, "Notes", userID), initNotes);
+                console.log("No such document!");
             }
         }
+
         getData();
         getNotes();
     }, [])
 
     if(view){
         // pass in props for the chapter wanna view... 
-        return(<ViewHub setView = {setView} slidesArray = {chaptersArray[getIndex].slides}/>);
+        return(<ViewHub setView = {setView} 
+            slidesArray = {chaptersArray[getIndex].slides}
+            courseID = {courseID}
+            userID = {userID}/>);
     }
 
     return(
