@@ -53,7 +53,8 @@ const Hub = ()=>{
 
                 if(flag){
                     // when the course has no notes...
-                    await updateDoc(docRef, {courses: arrayUnion({courseID: courseID, chapters: new Array()})});
+                    await updateDoc(docRef, 
+                        {courses: arrayUnion({courseID: courseID, chapters: new Array()})});
                 }
 
             } else {
