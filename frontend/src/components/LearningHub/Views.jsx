@@ -14,7 +14,7 @@ const Views = (props)=>{
     }else{
         // Unkown type...
         return(<>
-            *** Unkown type ***
+            *** Unkown Type ***
         </>);
     }
 }

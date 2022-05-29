@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1653836442401" clover="3.2.0">
-  <project timestamp="1653836442401" name="All files">
-    <metrics statements="1588" coveredstatements="600" conditionals="315" coveredconditionals="101" methods="359" coveredmethods="122" elements="2262" coveredelements="823" complexity="0" loc="1588" ncloc="1588" packages="15" files="97" classes="97">
+<coverage generated="1653837181926" clover="3.2.0">
+  <project timestamp="1653837181926" name="All files">
+    <metrics statements="1553" coveredstatements="600" conditionals="306" coveredconditionals="101" methods="347" coveredmethods="122" elements="2206" coveredelements="823" complexity="0" loc="1553" ncloc="1553" packages="15" files="94" classes="94">
       <package name="src">
         <metrics statements="61" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="11" coveredmethods="0"/>
         <file name="App.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/App.js">
@@ -91,7 +91,7 @@
         </file>
       </package>
       <package name="src.components">
-        <metrics statements="440" coveredstatements="90" conditionals="49" coveredconditionals="7" methods="108" coveredmethods="18"/>
+        <metrics statements="405" coveredstatements="90" conditionals="40" coveredconditionals="7" methods="96" coveredmethods="18"/>
         <file name="CardViewList.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CardViewList.js">
           <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
           <line num="15" count="1" type="stmt"/>
@@ -454,29 +454,6 @@
           <line num="36" count="0" type="stmt"/>
           <line num="56" count="0" type="stmt"/>
         </file>
-        <file name="Rightpanel.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Rightpanel.jsx">
-          <metrics statements="20" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="5" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="3" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="8" count="0" type="stmt"/>
-          <line num="24" count="0" type="stmt"/>
-          <line num="39" count="0" type="stmt"/>
-          <line num="41" count="0" type="stmt"/>
-          <line num="43" count="0" type="stmt"/>
-          <line num="44" count="0" type="stmt"/>
-          <line num="47" count="0" type="stmt"/>
-          <line num="49" count="0" type="stmt"/>
-          <line num="52" count="0" type="stmt"/>
-          <line num="53" count="0" type="stmt"/>
-          <line num="56" count="0" type="stmt"/>
-          <line num="62" count="0" type="stmt"/>
-          <line num="63" count="0" type="stmt"/>
-          <line num="65" count="0" type="stmt"/>
-        </file>
         <file name="SlideCard.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/SlideCard.jsx">
           <metrics statements="12" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
@@ -491,17 +468,6 @@
           <line num="18" count="0" type="stmt"/>
           <line num="19" count="0" type="stmt"/>
           <line num="25" count="0" type="stmt"/>
-        </file>
-        <file name="api.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/api.js">
-          <metrics statements="8" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="4" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="38" count="0" type="cond" truecount="0" falsecount="1"/>
-          <line num="39" count="0" type="stmt"/>
-          <line num="49" count="0" type="stmt"/>
-          <line num="50" count="0" type="stmt"/>
-          <line num="53" count="0" type="stmt"/>
-          <line num="54" count="0" type="stmt"/>
         </file>
         <file name="cardView.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/cardView.js">
           <metrics statements="48" coveredstatements="26" conditionals="10" coveredconditionals="2" methods="14" coveredmethods="5"/>
@@ -599,16 +565,6 @@
           <line num="38" count="0" type="stmt"/>
           <line num="44" count="6" type="stmt"/>
           <line num="60" count="0" type="stmt"/>
-        </file>
-        <file name="slideView.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/slideView.js">
-          <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="3" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="8" count="0" type="stmt"/>
-          <line num="12" count="0" type="stmt"/>
         </file>
       </package>
       <package name="src.components.AboutCourse">
