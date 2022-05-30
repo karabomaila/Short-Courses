@@ -12,16 +12,16 @@ import { useEffect } from 'react';
 const Hub = ()=>{
     const {state} = useLocation();
     const [chaptersArray, setChaptersArray] = useState([]);
-    const [courseName, setCourseName] = useState('');
     const [getIndex, setGetIndex] = useState(0);
     const [view, setView] = useState(false);
 
     const userID = state.userID;
     const courseID = state.courseID;
+    const courseName = state.courseName;
     let notes = new Array();
     
     const initNotes = {
-        courses: [{courseID: courseID, chapters: new Array()}]
+        courses: [{courseID: courseID, courseName: courseName, notes: 'Write Something...'}]
     }
 
     useEffect(() => {
@@ -29,7 +29,6 @@ const Hub = ()=>{
             const q = query(collection(db, "slides"), where("courseID", "==", courseID));
             const data = await getDocs(q);
             data.forEach((doc) => {
-                setCourseName(doc.data().name);
                 setChaptersArray(doc.data().content);
               });
           
@@ -54,17 +53,13 @@ const Hub = ()=>{
                 if(flag){
                     // when the course has no notes...
                     await updateDoc(docRef, 
-                        {courses: arrayUnion({courseID: courseID, chapters: new Array()})});
-
-                    await updateDoc(docRef, 
-                        {courses: arrayUnion('val')}, {merge: true});
+                        {courses: arrayUnion({courseID: courseID, courseName: courseName, notes: 'Write Something...'})});
                 }
 
             } else {
                 // create a new collection... 
                 // doc.data() will be undefined in this case
                 await setDoc(doc(db, "Notes", userID), initNotes);
-                console.log("No such document!");
             }
         }
 

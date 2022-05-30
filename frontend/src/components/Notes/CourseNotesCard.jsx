@@ -1,14 +1,20 @@
 import React from 'react';
 
-const CourseNotesCard = ()=>{
+const CourseNotesCard = (props)=>{
+
+    const onView = ()=>{
+        props.setView(true);
+        props.setInfo(props.data);
+    }
+
     return(
-        <div style = {MainStyle}>
+        <div style = {MainStyle} onClick = {onView}>
             <div style = {CircleStyle}>
                 <span style = {SpanStyle}>
-                    <p style = {{margin: 12, color: 'white', fontWeight: 'bold', fontSize: 40}}>AA</p>
+                    <p style = {{margin: 12, color: 'white', fontWeight: 'bold', fontSize: 40}}>{props.data.courseName[0]}</p>
                 </span>
             </div>
-            <p style = {NameStyle}>Course Name</p>
+            <p style = {NameStyle}>{props.data.courseName}</p>
         </div>
     );
 }
@@ -21,7 +27,9 @@ const MainStyle={
     boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)',
     width: '200px',
     height: '300px',
-    marginTop: 12
+    marginTop: 12,
+    marginRight: 12,
+    marginLeft: 12
 }
 
 const CircleStyle ={

@@ -1,19 +1,44 @@
 import React from 'react'
-import CourseNotesCard from './CourseNotesCard';
+import { useState } from 'react';
+import { db } from '../firebase-config';
+import {getDoc, doc} from 'firebase/firestore';
+import { useEffect } from 'react';
+import ViewNotes from './ViewNotes';
+import ShowNotes from './ShowNotes';
 
-const Notes =()=>{
+const Notes =(props)=>{
+    const [view, setView] = useState(false);
+    const [notes, setNotes] = useState([]);
+    const [info, setInfo] = useState({});
+    let flag = false;
+
+    useEffect(() => {
+        
+        const getNotes = async ()=>{
+            const docRef = doc(db, "Notes", props.userID);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                setNotes(docSnap.data().courses);
+                flag = true;
+            }
+        }
+        getNotes();
+    }, [])
+
+    console.log(notes)
     return(
         <div style = {MainStyle}>
-            Notes
+            {!view &&
+            <p style = {{color: 'black', fontWeight: 'bold', alignSelf: 'center', margin: 15}}>NOTES</p>
+            }
+            {!view &&
+                <ShowNotes notes = {notes} setView = {setView} setInfo = {setInfo} flag = {flag}/>
+            }
 
-            <div style = {ListStyle}>
-                <CourseNotesCard/>
-                <CourseNotesCard/>
-                <CourseNotesCard/>
-                <CourseNotesCard/>
-                <CourseNotesCard/>
-                <CourseNotesCard/>
-            </div>`
+            {view &&
+            <ViewNotes setView = {setView} info = {info}/>
+            }
            
         </div>
     )
@@ -27,13 +52,7 @@ const MainStyle ={
     overflowY: 'scroll'
 }
 
-const ListStyle ={
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    margin: 12
-}
+
 
 
 export default Notes;

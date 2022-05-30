@@ -19,7 +19,7 @@ const Display = (props) => {
     }else if(props.view === 'Notes'){
         return(
             <div data-testid = 'display-notes' style={MainStyle}>
-                <Notes/>
+                <Notes userID = {props.userID}/>
             </div>
         );
     }

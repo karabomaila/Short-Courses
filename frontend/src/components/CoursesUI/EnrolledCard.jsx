@@ -54,7 +54,8 @@ const EnrolledCard = (props)=>{
                 <Actions title = 'Learn' 
                 click = 'learn' 
                 courseID = {props.crs_id} 
-                userID = {props.user}/>
+                userID = {props.user}
+                courseName = {props.name}/>
                 <Actions title = 'Info'/>
             </div>
         </div>
