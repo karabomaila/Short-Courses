@@ -9,6 +9,7 @@ import MyPortfolio from './components/myProfile/MyPortfolio';
 import React from "react";
 import Hub from './components/LearningHub/Hub'
 import Main from './components/studio/Main'
+import PlusHome from './components/Studio++/PlusHome';
 
 
 
@@ -29,7 +30,7 @@ function App() {
            <Route path='/MyPortfolio' element={<MyPortfolio/>} />
            <Route path='/Studio' element={<Main/>} />
            <Route path='/Hub' element={<Hub/>}/>
-           
+           <Route path='/Studio++' element={<PlusHome/>}/>
            
           </Routes>
          
