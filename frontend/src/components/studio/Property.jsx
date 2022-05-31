@@ -47,6 +47,7 @@ function Property(props) {
                   <textarea
                     id="x"
                     data-testid="x"
+                    
                     rows="1"
                     
                     value={props.item.position.left}
