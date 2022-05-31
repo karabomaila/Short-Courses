@@ -12,7 +12,7 @@ export default function MenuAppBar(props) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
-        <Toolbar style={{ backgroundColor: "#003b5c" }}>
+        <Toolbar style={{ backgroundColor: '#007377' }}>
           <IconButton
             size="large"
             edge="start"
@@ -24,11 +24,14 @@ export default function MenuAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
+          <p style ={{color: 'white', fontWeight: 'bold', margin: 10, fontSize: 28}}>STUDIO</p>
           <Stack direction="row" spacing={7}>
             {tools.map((tool, index) => {
               return <Tool key={index} tool={tool} />;
             })}
             <Button
+              variant="outlined"
+              style = {{color: 'white', borderColor: 'white'}}
               data-testid="SaveButton2"
               onClick={(event) => {
                 event.preventDefault();

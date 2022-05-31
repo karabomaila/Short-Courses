@@ -1,5 +1,6 @@
 import { TextField, Button, Typography, Paper } from "@mui/material";
 import React, { useState, useRef } from "react";
+import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 import Slide from "@mui/material/Slide";
 import CreateID from "./GenCourseID";
 import { useMsal } from "@azure/msal-react";
@@ -74,12 +75,17 @@ function Firstpanel({ handletab, setCourse }) {
   return (
     <div
       style={{
-        backgroundColor: "#003b5c",
+        backgroundColor: '#edf4f5',
         margin: "0px",
         minHeight: "100vh",
-        paddingTop: "50px",
+        
       }}
     >
+
+      <div style = {NavStyle}>
+          <BubbleChartIcon fontSize='large' sx = {{color: 'white'}}/>
+          <p style ={{color: 'white', fontWeight: 'bold', margin: 10, fontSize: 24}}>STUDIO</p>
+        </div>
       <Paper
         elevation={20}
         style={{
@@ -208,5 +214,15 @@ const container = {
   padding: "30px",
   borderRadius: "5px",
 };
+
+const NavStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  background: '#007377',
+  alignItems: 'center',
+  marginBottom: 12,
+  padding: 3,
+  width: '100%'
+}
 
 export default Firstpanel;

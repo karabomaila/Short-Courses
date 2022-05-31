@@ -50,7 +50,7 @@ const fabStyle = {
 
 const mainDiv = {
   position: "absolute",
-  backgroundColor: "#edeef0",
+  backgroundColor: '#edf4f5',
   width: "75%",
   maxHeight: "100%",
   top: "0px",
@@ -68,7 +68,7 @@ const leftDiv = {
   display: "flex",
   flexDirection: "column",
   overflowY: "auto",
-  backgroundColor: "#003b5c",
+  backgroundColor: '#007377',
   minWidth: "25%",
   maxWidth: "25%",
   height: "100vh",
