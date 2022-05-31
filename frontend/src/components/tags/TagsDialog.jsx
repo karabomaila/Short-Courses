@@ -54,7 +54,7 @@ const TagsDialog = (props) => {
         let uploadTag = new Helpers();
         uploadTag.PushTag(tags, TagArray, props.courseID);
         // Lead back to homepage...
-        navigator("/MyCourses", { state: { user: accounts } });
+        navigator("/Studio++", { state: {courseID: props.courseID, courseName: props.courseName, user: accounts } });
     }
 
     return(

@@ -5,17 +5,28 @@ import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import DefaultEvaluation from '../Evaluation/DefaultEvaluation';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import {DndProvider, useDrop} from 'react-dnd';
 import { HTML5Backend} from 'react-dnd-html5-backend';
+import { useNavigate } from 'react-router-dom';
 import CreateNewForm from '../Evaluation/CreateNewForm';
 
 const PlusHome = ()=>{
+    const {state} = useLocation();
+    const navigate = useNavigate();
     const [create, setCreate] = useState(false);
+
+    const user = state.user;
+    const courseID = state.courseID;
+    const courseName = state.courseName;
 
     const onCreate =()=>{
         setCreate(true);
     }
 
+    const onFinish = ()=>{
+        navigate('/MyCourses', {state: {user: user}})
+    }
 
     return(
         <DndProvider backend={HTML5Backend}>
@@ -31,15 +42,19 @@ const PlusHome = ()=>{
             <p style = {{fontWeight: 'bold'}}>Default Evaluation Form</p>
             }
             {!create &&
-            <DefaultEvaluation />
+            <DefaultEvaluation courseName = {courseName}/>
             }
 
             {create &&
-                <CreateNewForm setCreate = {setCreate}/>
+                <CreateNewForm setCreate = {setCreate}
+                courseID = {courseID}
+                courseName = {courseName}
+                user = {user}
+                />
             }
             
             {!create &&
-            <Fab variant="extended" style = {FabStyle}>
+            <Fab variant="extended" style = {FabStyle} onClick = {onFinish}>
                  <DoneIcon sx={{ mr: 1, color: '#007377'}} />
                  Use Default Form
             </Fab>

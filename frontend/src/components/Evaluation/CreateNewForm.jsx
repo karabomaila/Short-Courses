@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DoneIcon from '@mui/icons-material/Done';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Fab from '@mui/material/Fab';
@@ -8,12 +9,17 @@ import {useDrop} from 'react-dnd';
 import Dragable from './Dragable';
 import DropDialog from './DropDialog';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import empty from './drag_empty.webp';
 import EasyView from './EasyView';
+import ViewForm from './ViewForm';
 
 const CreateNewForm = (props)=>{
+    const navigate = useNavigate();
     const [droppedItems, setDroppedItems] = useState([]);
     const [openDialog, setOpenDialog] = useState(false);
+    const [checked, setChecked] = useState(true);
+    const [visible, setVisible] = useState(false);
     const [type, setType] = useState('');
     const list = ['slider', 'radio', 'box'];
 
@@ -34,8 +40,21 @@ const CreateNewForm = (props)=>{
         setOpenDialog(true);
     }
 
+    const onView = ()=>{
+        setVisible(!visible);
+    }
+
+    const onCheck = (event)=>{
+        setChecked(!checked, event.target.checked);
+    }
+
+    const onFinish = ()=>{
+        navigate('/MyCourses', {state: {user: props.user}})
+    }
+
     return(
         <div style = {HomeStyle}>
+            
             <div style={Panel}>
                 <div style = {LeftPanel}>
                 <div style = {nav}>
@@ -48,12 +67,14 @@ const CreateNewForm = (props)=>{
                         id = {item}/>
                     )}
                     <div style = {{display: 'flex'}}>
-                        <Checkbox sx = {{color: "teal"}} defaultChecked/>
+                        <Checkbox checked={checked} 
+                        sx = {{color: "teal"}} 
+                        onChange = {onCheck}/>
                         <p style = {TextStyle}>Include Feedback</p>
                     </div>
                 </div>
 
-                {droppedItems.length > 0 &&
+                {droppedItems.length > 0 && !visible &&
                      <div ref = {drop} style = {RightPanel}>
                      {droppedItems.map((item, index) =>
                          <EasyView 
@@ -72,8 +93,15 @@ const CreateNewForm = (props)=>{
                 </div>
                 }
 
+            {visible &&
+                <div ref ={drop} style = {ViewPanel}>
+                    <ViewForm data = {droppedItems} 
+                    checked = {checked} 
+                    courseName = {props.courseName}/>
+                </div>
+                
+            }
             </div>
-
 
 
             <DropDialog open = {openDialog} 
@@ -82,14 +110,21 @@ const CreateNewForm = (props)=>{
             setDroppedItems = {setDroppedItems} 
             droppedItems = {droppedItems}/>
 
-            {droppedItems.length > 0 &&
-                 <Fab variant="extended" style = {FFStyle}>
+            {droppedItems.length > 0 && !visible &&
+                 <Fab variant="extended" style = {FFStyle} onClick = {onView}>
                     <VisibilityIcon sx={{ mr: 1, color: '#007377'}} />
                     View
                 </Fab>
             }
+
+            {visible > 0 &&
+                 <Fab variant="extended" style = {FFStyle} onClick = {onView}>
+                    <VisibilityOffIcon sx={{ mr: 1, color: '#007377'}} />
+                    Hide
+                </Fab>
+            }
            
-            <Fab variant="extended" style = {FabStyle}>
+            <Fab variant="extended" style = {FabStyle} onClick = {onFinish}>
                  <DoneIcon sx={{ mr: 1, color: '#007377'}} />
                  Submit
             </Fab>
@@ -122,6 +157,17 @@ const RightPanel ={
     marginRight: 3,
     padding: 9,
     borderStyle:'ridge',
+    marginLeft: 12,
+    marginRight: 12
+}
+
+const ViewPanel ={
+    display: 'flex',
+    flexDirection: 'column',
+    overflowY: 'scroll',
+    flex: 3.5,
+    marginRight: 3,
+    padding: 9,
     marginLeft: 12,
     marginRight: 12
 }
@@ -192,7 +238,5 @@ const nav = {
     borderTopLeftRadius: 12,
     borderTopRightRadius: 12
 }
-
-
 
 export default CreateNewForm;
