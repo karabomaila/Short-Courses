@@ -209,6 +209,7 @@ function DragAndDrop(props) {
 
     props.setCanvasTools(tmpCanvasTools);
     renderTools(tmpCanvasTools);
+    
 
     $("#canvas").droppable({
       drop: (event, ui) => {
