@@ -1,25 +1,73 @@
 import React from 'react';
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
-import { Button } from '@mui/material';
+import DoneIcon from '@mui/icons-material/Done';
+import AddIcon from '@mui/icons-material/Add';
+import Fab from '@mui/material/Fab';
+import DefaultEvaluation from '../Evaluation/DefaultEvaluation';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import {DndProvider, useDrop} from 'react-dnd';
+import { HTML5Backend} from 'react-dnd-html5-backend';
+import { useNavigate } from 'react-router-dom';
+import CreateNewForm from '../Evaluation/CreateNewForm';
 
 const PlusHome = ()=>{
+    const {state} = useLocation();
+    const navigate = useNavigate();
+    const [create, setCreate] = useState(false);
+
+    const user = state.user;
+    const courseID = state.courseID;
+    const courseName = state.courseName;
+
+    const onCreate =()=>{
+        setCreate(true);
+    }
+
+    const onFinish = ()=>{
+        navigate('/MyCourses', {state: {user: user}})
+    }
+
     return(
+        <DndProvider backend={HTML5Backend}>
         <div style = {MainStyle}>
             <div style = {NavStyle}>
                 <BubbleChartIcon fontSize='large' sx = {{color: 'white'}}/>
                 <p style ={{color: 'white', fontWeight: 'bold', margin: 10}}>STUDIO++</p>
             </div>
 
+            {create ? 
+             <p style = {{fontWeight: 'bold'}}>New Evaluation Form</p>
+            : 
+            <p style = {{fontWeight: 'bold'}}>Default Evaluation Form</p>
+            }
+            {!create &&
+            <DefaultEvaluation courseName = {courseName}/>
+            }
 
-            <div style = {EvalStyle}>
-            <p style = {{fontWeight:"bold", color:'#003b5c', alignSelf: 'center'}}>EVALUATION</p>
-            <div style = {{display: 'flex', justifyContent: 'center'}}>
-                <Button >Use Default</Button>
-                <Button >Create New Form</Button>
-            </div>
+            {create &&
+                <CreateNewForm setCreate = {setCreate}
+                courseID = {courseID}
+                courseName = {courseName}
+                user = {user}
+                />
+            }
             
+            {!create &&
+            <Fab variant="extended" style = {FabStyle} onClick = {onFinish}>
+                 <DoneIcon sx={{ mr: 1, color: '#007377'}} />
+                 Use Default Form
+            </Fab>
+            }
+
+            {!create &&
+            <Fab variant="extended" style = {NFabStyle} onClick = {onCreate}>
+                 <AddIcon sx={{ mr: 1, color: '#007377'}} />
+                 Create New Form
+            </Fab>
+            }
         </div>
-        </div>
+        </DndProvider>
     );
 }
 
@@ -27,19 +75,8 @@ const MainStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
-}
-
-const EvalStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    margin: 22,
-    width: '70%',
-    minWidth: '70%',
-    padding: 12,
-    borderRadius: 9,
-    background: 'white',
-    boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
+    justifyContent: 'center',
+    
 }
 
 const NavStyle = {
@@ -51,5 +88,25 @@ const NavStyle = {
     padding: 3,
     width: '100%'
 }
+
+const NFabStyle = {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 85,
+    left: 'auto',
+    position: 'fixed',
+    backgroundColor: 'white'
+  };
+
+const FabStyle = {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed',
+    backgroundColor: 'white'
+  };
 
 export default PlusHome;
