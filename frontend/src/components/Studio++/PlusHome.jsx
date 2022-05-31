@@ -1,6 +1,9 @@
 import React from 'react';
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
-import { Button } from '@mui/material';
+import DoneIcon from '@mui/icons-material/Done';
+import AddIcon from '@mui/icons-material/Add';
+import Fab from '@mui/material/Fab';
+import DefaultEvaluation from '../Evaluation/DefaultEvaluation';
 
 const PlusHome = ()=>{
     return(
@@ -10,15 +13,18 @@ const PlusHome = ()=>{
                 <p style ={{color: 'white', fontWeight: 'bold', margin: 10}}>STUDIO++</p>
             </div>
 
-
-            <div style = {EvalStyle}>
-            <p style = {{fontWeight:"bold", color:'#003b5c', alignSelf: 'center'}}>EVALUATION</p>
-            <div style = {{display: 'flex', justifyContent: 'center'}}>
-                <Button >Use Default</Button>
-                <Button >Create New Form</Button>
-            </div>
+            <p style = {{fontWeight: 'bold'}}>Default Evaluation Form</p>
+            <DefaultEvaluation />
             
-        </div>
+            <Fab variant="extended" style = {FabStyle}>
+                 <DoneIcon sx={{ mr: 1, color: '#007377'}} />
+                 Use Default Form
+            </Fab>
+
+            <Fab variant="extended" style = {NFabStyle}>
+                 <AddIcon sx={{ mr: 1, color: '#007377'}} />
+                 Create New Form
+            </Fab>
         </div>
     );
 }
@@ -27,19 +33,8 @@ const MainStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
-}
-
-const EvalStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    margin: 22,
-    width: '70%',
-    minWidth: '70%',
-    padding: 12,
-    borderRadius: 9,
-    background: 'white',
-    boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
+    justifyContent: 'center',
+    
 }
 
 const NavStyle = {
@@ -51,5 +46,25 @@ const NavStyle = {
     padding: 3,
     width: '100%'
 }
+
+const NFabStyle = {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 85,
+    left: 'auto',
+    position: 'fixed',
+    backgroundColor: 'white'
+  };
+
+const FabStyle = {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed',
+    backgroundColor: 'white'
+  };
 
 export default PlusHome;
