@@ -8,6 +8,7 @@ import EvaluationSlider from './EvaluationSlider';
 const DefaultEvaluation=()=>{
     return(
         <div style = {MainStyle}>
+            <p style = {{fontWeight: 'bold'}}>Course Name Evaluation</p>
             <EvaluationSlider content = 'The slides were well prepared/presented'/>
             <EvaluationSlider content = 'The course stimulated my interest in the field related to the course'/>
             <EvaluationSlider content = 'The course had variety of instructional methods to reach the course objective '/>
@@ -22,7 +23,10 @@ const DefaultEvaluation=()=>{
 
 const MainStyle ={
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    padding: 18,
+    marginBottom: 20,
+    boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)',
 }
 
 export default DefaultEvaluation;
