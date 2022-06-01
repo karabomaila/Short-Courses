@@ -2,6 +2,7 @@ import React from 'react';
 import MyCourseCard from './MyCourseCard';
 import {useContext,useEffect,useState} from 'react';
 import axios from 'axios'
+import { FaColumns } from 'react-icons/fa';
 
 const MyCoursesList = (props)=>{
 
@@ -25,7 +26,7 @@ const MyCoursesList = (props)=>{
   
 
     return(
-        <div>
+        <div style = {MainStyle}>
             {MycoursesData.map((data,index) => 
           <MyCourseCard
           key={index}
@@ -37,6 +38,14 @@ const MyCoursesList = (props)=>{
          />)}
         </div>
     )
+}
+
+const MainStyle ={
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  flexWrap: 'wrap',
+  marginTop: 90
 }
 
 export default MyCoursesList;

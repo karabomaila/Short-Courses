@@ -28,22 +28,16 @@ function MyCourses(){
     console.log(state);
     const navigate = useNavigate();
 
+    // <EnrolledAppBar title="My Courses" modal={true} user={state.user} />
     
     const handleShow = () => {
         navigate('/CreateCourse',{ state: { user: state.user } });
     }
 
     return(
-
-        <div style = {{display: 'flex'}}>
-        <div style = {{display: 'flex', marginBottom: 12}}>
+        <div style = {{display: 'flex', flexDirection: 'column'}}>
         <EnrolledAppBar title="My Courses" modal={true} user={state.user} />
-        </div>
-        <div style = {listStyle}>
-            <MyCoursesList user={state.user}/>
-            
-        </div>
-
+        <MyCoursesList user={state.user}/>
         <Fab color="primary" aria-label="add" style={fabStyle} onClick={handleShow}>
                 <AddIcon />
             </Fab>
@@ -56,7 +50,7 @@ function MyCourses(){
 const listStyle = {
     display: 'flex',
     flexWrap: 'wrap',
-    margin: 12,
+    marginTop: 50,
     justifyContent: 'center'
 }
 

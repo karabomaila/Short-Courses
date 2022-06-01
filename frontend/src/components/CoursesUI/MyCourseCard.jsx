@@ -117,6 +117,7 @@ const MainStyle = {
   //background: 'blue',
   alignSelf: "center",
   height: "410px",
+  marginTop: 18,
   //minHeight: '50%'
   borderRadius: 9,
   boxShadow: " 0 4px 8px 0 rgba(0, 0, 0, 0.5)",
