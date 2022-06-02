@@ -7,7 +7,7 @@ import EvaluationSlider from './EvaluationSlider';
 
 const DefaultEvaluation=(props)=>{
     return(
-        <div style = {MainStyle}>
+        <div style = {MainStyle} data-testid = 'def-div'>
             <p style = {{fontWeight: 'bold'}}>{props.courseName} Evaluation</p>
             <EvaluationSlider content = 'The slides were well prepared/presented'/>
             <EvaluationSlider content = 'The course stimulated my interest in the field related to the course'/>
