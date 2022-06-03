@@ -35,7 +35,7 @@ const MyCourseCard = (props) => {
     getData();
   }, []);
 
-  const { state } = useLocation();
+  
   console.log(props);
   const slidesCollectionRef = collection(db, "slides");
   const [description, setDescription] = useState(props.description);

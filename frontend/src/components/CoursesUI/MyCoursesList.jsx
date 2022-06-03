@@ -26,7 +26,7 @@ const MyCoursesList = (props)=>{
   
 
     return(
-        <div style = {MainStyle}>
+        <div data-testid = 'list-course' style = {MainStyle}>
             {MycoursesData.map((data,index) => 
           <MyCourseCard
           key={index}
