@@ -30,7 +30,7 @@ const PlusHome = ()=>{
 
     return(
         <DndProvider backend={HTML5Backend}>
-        <div style = {MainStyle}>
+        <div data-testid = "++-div" style = {MainStyle}>
             <div style = {NavStyle}>
                 <BubbleChartIcon fontSize='large' sx = {{color: 'white'}}/>
                 <p style ={{color: 'white', fontWeight: 'bold', margin: 10}}>STUDIO++</p>

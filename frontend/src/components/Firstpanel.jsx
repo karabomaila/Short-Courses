@@ -73,7 +73,7 @@ function Firstpanel({ handletab, setCourse }) {
   };
 
   return (
-    <div
+    <div data-testid = 'first-panel-div'
       style={{
         backgroundColor: '#edf4f5',
         margin: "0px",
@@ -187,7 +187,7 @@ function Firstpanel({ handletab, setCourse }) {
           )}
         </div>
         <div>
-          <Button
+          <Button 
             variant="outlined"
             data-testid="nextBtn"
             style={{

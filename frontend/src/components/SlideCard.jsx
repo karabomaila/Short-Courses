@@ -19,13 +19,9 @@ function SlideCard({slide,student,id,getSlides}) {
     setOpen(false);
   };
 
-  
-
-
   return (
-    <>
-    
-    <Paper elavation={5} style={{marginTop:'15px',padding:'6px'}} onClick={handleClickOpen} >
+    <div data-testid = "slide-div">
+    <Paper data-testid = 'slide-paper' elavation={5} style={{marginTop:'15px',padding:'6px'}} onClick={handleClickOpen} >
       <CssBaseline/>
       <div style={{display: 'flex', flexDirection: 'column'}}>
         <Typography variant="h4">{slide.Title}</Typography>
@@ -40,12 +36,8 @@ function SlideCard({slide,student,id,getSlides}) {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        
-        
       </Dialog>
-    
-   
-    </>
+    </div>
   )
 }
 
