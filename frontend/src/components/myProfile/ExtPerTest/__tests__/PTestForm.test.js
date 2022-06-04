@@ -4,6 +4,12 @@ import PTestForm from '../PTestForm';
 
 describe('Personality Test Form', () => {
 
+    test('Render Div', ()=>{
+        const { getByTestId } = render(<PTestForm userID='2381410@students.wits.ac.za' />);
+        const d = getByTestId('p-test-div');
+        expect(d).toBeTruthy();
+    });
+
     test('Data username - Test', () => {
         const { getByTestId } = render(<PTestForm userID='2381410@students.wits.ac.za' />);
         const data = getByTestId('ptest-data');

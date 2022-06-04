@@ -69,7 +69,7 @@ const PTestForm = (props)=>{
     }, [])
 
     return(
-        <div style = {MainStyle}>
+        <div data-testid = 'p-test-div' style = {MainStyle}>
             <p style = {{margin: 12, alignSelf: 'center'}} data-testid = 'ptest-data'>Data belonging to {props.userID}</p>
 
 
