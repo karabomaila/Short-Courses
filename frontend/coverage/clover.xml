@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654327397857" clover="3.2.0">
-  <project timestamp="1654327397857" name="All files">
-    <metrics statements="1667" coveredstatements="793" conditionals="374" coveredconditionals="146" methods="377" coveredmethods="155" elements="2418" coveredelements="1094" complexity="0" loc="1667" ncloc="1667" packages="17" files="107" classes="107">
+<coverage generated="1654329557433" clover="3.2.0">
+  <project timestamp="1654329557433" name="All files">
+    <metrics statements="1635" coveredstatements="800" conditionals="372" coveredconditionals="146" methods="374" coveredmethods="158" elements="2381" coveredelements="1104" complexity="0" loc="1635" ncloc="1635" packages="17" files="105" classes="105">
       <package name="src">
-        <metrics statements="62" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="11" coveredmethods="0"/>
+        <metrics statements="54" coveredstatements="3" conditionals="10" coveredconditionals="0" methods="8" coveredmethods="0"/>
         <file name="App.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/App.js">
           <metrics statements="13" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
@@ -19,15 +19,6 @@
           <line num="11" count="0" type="stmt"/>
           <line num="12" count="0" type="stmt"/>
           <line num="15" count="0" type="stmt"/>
-        </file>
-        <file name="CheckBoxWithLabel.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/CheckBoxWithLabel.js">
-          <metrics statements="6" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="3" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="10" count="0" type="stmt"/>
         </file>
         <file name="authConfig.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/authConfig.js">
           <metrics statements="14" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -45,11 +36,6 @@
           <line num="41" count="0" type="stmt"/>
           <line num="54" count="2" type="stmt"/>
           <line num="62" count="2" type="stmt"/>
-        </file>
-        <file name="dummy.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/dummy.jsx">
-          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
         </file>
         <file name="graph.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/graph.js">
           <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -92,7 +78,7 @@
         </file>
       </package>
       <package name="src.components">
-        <metrics statements="355" coveredstatements="93" conditionals="40" coveredconditionals="8" methods="85" coveredmethods="19"/>
+        <metrics statements="331" coveredstatements="100" conditionals="40" coveredconditionals="8" methods="85" coveredmethods="22"/>
         <file name="CardViewList.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CardViewList.js">
           <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
           <line num="15" count="1" type="stmt"/>
@@ -101,43 +87,20 @@
           <line num="27" count="1" type="stmt"/>
         </file>
         <file name="CourseAppBar.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CourseAppBar.jsx">
-          <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="3" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="8" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
-          <line num="10" count="0" type="stmt"/>
-          <line num="11" count="0" type="stmt"/>
-          <line num="12" count="0" type="stmt"/>
-          <line num="13" count="0" type="stmt"/>
-          <line num="14" count="0" type="stmt"/>
-          <line num="16" count="0" type="stmt"/>
-          <line num="17" count="0" type="stmt"/>
-          <line num="21" count="0" type="stmt"/>
-          <line num="23" count="0" type="stmt"/>
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
         </file>
         <file name="CourseList.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CourseList.js">
-          <metrics statements="16" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="3" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="11" count="0" type="stmt"/>
-          <line num="13" count="0" type="stmt"/>
-          <line num="15" count="0" type="stmt"/>
-          <line num="17" count="0" type="stmt"/>
-          <line num="20" count="0" type="stmt"/>
+          <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
           <line num="23" count="0" type="stmt"/>
           <line num="24" count="0" type="stmt"/>
           <line num="27" count="0" type="stmt"/>
-          <line num="31" count="0" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
           <line num="35" count="0" type="stmt"/>
         </file>
         <file name="CourseNav.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CourseNav.js">
@@ -232,8 +195,8 @@
         </file>
         <file name="DataContext.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/DataContext.js">
           <metrics statements="22" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="8" coveredmethods="0"/>
-          <line num="21" count="2" type="stmt"/>
-          <line num="26" count="2" type="stmt"/>
+          <line num="21" count="3" type="stmt"/>
+          <line num="26" count="3" type="stmt"/>
           <line num="45" count="0" type="stmt"/>
           <line num="47" count="0" type="stmt"/>
           <line num="49" count="0" type="stmt"/>
@@ -306,11 +269,10 @@
           <line num="13" count="0" type="stmt"/>
         </file>
         <file name="Explore.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Explore.jsx">
-          <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
           <line num="2" count="0" type="stmt"/>
-          <line num="3" count="0" type="stmt"/>
-          <line num="8" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
         </file>
         <file name="FetchSlides.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/FetchSlides.js">
           <metrics statements="17" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -467,10 +429,10 @@
         </file>
         <file name="firebase-config.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/firebase-config.jsx">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="17" count="14" type="stmt"/>
-          <line num="28" count="14" type="stmt"/>
-          <line num="30" count="14" type="stmt"/>
-          <line num="31" count="14" type="stmt"/>
+          <line num="17" count="15" type="stmt"/>
+          <line num="28" count="15" type="stmt"/>
+          <line num="30" count="15" type="stmt"/>
+          <line num="31" count="15" type="stmt"/>
         </file>
         <file name="home.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/home.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -577,7 +539,7 @@
         </file>
         <file name="Actions.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CoursesUI/Actions.jsx">
           <metrics statements="12" coveredstatements="12" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
-          <line num="7" count="4" type="stmt"/>
+          <line num="7" count="5" type="stmt"/>
           <line num="8" count="6" type="stmt"/>
           <line num="10" count="6" type="stmt"/>
           <line num="11" count="1" type="cond" truecount="5" falsecount="0"/>
@@ -588,11 +550,11 @@
           <line num="28" count="1" type="stmt"/>
           <line num="30" count="1" type="stmt"/>
           <line num="36" count="6" type="stmt"/>
-          <line num="46" count="4" type="stmt"/>
+          <line num="46" count="5" type="stmt"/>
         </file>
         <file name="EnrolledCard.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CoursesUI/EnrolledCard.jsx">
           <metrics statements="24" coveredstatements="15" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="2"/>
-          <line num="9" count="1" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
           <line num="10" count="1" type="stmt"/>
           <line num="11" count="1" type="stmt"/>
           <line num="12" count="1" type="stmt"/>
@@ -612,10 +574,10 @@
           <line num="37" count="1" type="stmt"/>
           <line num="40" count="0" type="stmt"/>
           <line num="47" count="1" type="stmt"/>
-          <line num="65" count="1" type="stmt"/>
-          <line num="77" count="1" type="stmt"/>
-          <line num="84" count="1" type="stmt"/>
-          <line num="89" count="1" type="stmt"/>
+          <line num="65" count="2" type="stmt"/>
+          <line num="77" count="2" type="stmt"/>
+          <line num="84" count="2" type="stmt"/>
+          <line num="89" count="2" type="stmt"/>
         </file>
         <file name="MyCourseCard.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/CoursesUI/MyCourseCard.jsx">
           <metrics statements="36" coveredstatements="25" conditionals="2" coveredconditionals="1" methods="8" coveredmethods="4"/>

@@ -30,7 +30,7 @@ function CourseList(props) {
 
   return (
 
-    <div style = {{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', marginTop: 55}}>
+    <div data-testid = 'course-list-div' style = {{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', marginTop: 55}}>
       {EnrolledData.map((data, index)=>
           <EnrolledCard 
            key = {index}
