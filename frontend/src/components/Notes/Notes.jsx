@@ -26,9 +26,8 @@ const Notes =(props)=>{
         getNotes();
     }, [])
 
-    console.log(notes)
     return(
-        <div style = {MainStyle}>
+        <div data-testid = 'nts-div' style = {MainStyle}>
             {!view &&
             <p style = {{color: 'black', fontWeight: 'bold', alignSelf: 'center', margin: 15}}>NOTES</p>
             }

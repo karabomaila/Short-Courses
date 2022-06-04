@@ -8,7 +8,7 @@ const CourseNotesCard = (props)=>{
     }
 
     return(
-        <div style = {MainStyle} onClick = {onView}>
+        <div data-testid = 'cnts-div' style = {MainStyle} onClick = {onView}>
             <div style = {CircleStyle}>
                 <span style = {SpanStyle}>
                     <p style = {{margin: 12, color: 'white', fontWeight: 'bold', fontSize: 40}}>{props.data.courseName[0]}</p>

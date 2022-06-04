@@ -21,6 +21,12 @@ describe('Action Test', ()=>{
         const btn = getByTestId('Notes');
         fireEvent.click(btn);
     });
+
+    test('onClick Nothing', ()=>{
+        const {getByTestId} = render(<Action title = 'Nothing' click = 'Nothing' setView = {useHook}/>);
+        const btn = getByTestId('Nothing');
+        fireEvent.click(btn);
+    });
 });
 
 
