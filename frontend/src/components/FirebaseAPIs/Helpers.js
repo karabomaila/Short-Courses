@@ -12,15 +12,6 @@ export default class Helpers{
         }
     }
     
-
-    // Method to be called to add comments... 
-    PushComment = async (userID, courseName, courseID, commentText) =>{
-        let payload = courseName + "+" + courseID  + "+" + commentText;
-        let document = "Comments";
-        const REF = doc(db, document, userID);
-        await updateDoc(REF, {comms: arrayUnion(payload)});
-    }
-
     /*
     
     ========================================================================================================

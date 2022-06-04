@@ -33,7 +33,9 @@ const Books = (props)=>{
         return(
             <div style = {MainStyle}>
                 <div style = {ClickStyle}>
-                <CheckCircleOutlineIcon sx = {{color: 'green'}} onClick = {change}/>
+                <CheckCircleOutlineIcon data-testid = 'books-change' 
+                sx = {{color: 'green'}} 
+                onClick = {change}/>
                 </div>
                 <div style = {InputStyle}>
                 <TextField width = '30%' 

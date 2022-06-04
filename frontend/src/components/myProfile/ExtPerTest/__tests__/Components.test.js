@@ -5,14 +5,21 @@ import Work from '../Work';
 import Education from '../Education';
 
 describe("Skills Test", ()=>{
+
+    const useHook = (bool)=>{
+        let flag = false;
+        return flag = bool;
+    }
+
     test("Test Icon", ()=>{
         const visible = true;
         const userID = "2381410";
         const data = [{}];
         const {getByTestId} = render(<Skills visible = {visible} 
+            setVisible = {useHook}
             userID = {userID} data = {data}/>);
         const icon = getByTestId( "test-skill-icon");
-        expect(icon).toBeTruthy();
+        fireEvent.click(icon);
     });
 
     test("Test Icon", ()=>{
@@ -27,14 +34,21 @@ describe("Skills Test", ()=>{
 });
 
 describe("Work Test", ()=>{
+
+    const useHook = (bool)=>{
+        let flag = false;
+        return flag = bool;
+    }
+
     test("Test Icon", ()=>{
         const visible = true;
         const userID = "2381410";
         const data = [{}];
         const {getByTestId} = render(<Work visible = {visible} 
+            setVisible = {useHook}
             userID = {userID} data = {data}/>);
         const icon = getByTestId( "test-work-icon");
-        expect(icon).toBeTruthy();
+        fireEvent.click(icon);
     });
 
     test("Test Main Div", ()=>{
@@ -49,14 +63,21 @@ describe("Work Test", ()=>{
 });
 
 describe("Education Test", ()=>{
+
+    const useHook = (bool)=>{
+        let flag = false;
+        return flag = bool;
+    }
+
     test("Test Icon", ()=>{
         const visible = true;
         const userID = "2381410";
         const data = [{}];
         const {getByTestId} = render(<Education visible = {visible} 
+            setVisible = {useHook}
             userID = {userID} data = {data}/>);
         const icon = getByTestId("test-edu-icon");
-        expect(icon).toBeTruthy();
+        fireEvent.click(icon);
     });
 
     test("Test Main Div", ()=>{
