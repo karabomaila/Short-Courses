@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654467554099" clover="3.2.0">
-  <project timestamp="1654467554099" name="All files">
-    <metrics statements="1615" coveredstatements="874" conditionals="376" coveredconditionals="156" methods="370" coveredmethods="181" elements="2361" coveredelements="1211" complexity="0" loc="1615" ncloc="1615" packages="17" files="104" classes="104">
+<coverage generated="1654469213754" clover="3.2.0">
+  <project timestamp="1654469213755" name="All files">
+    <metrics statements="1612" coveredstatements="893" conditionals="378" coveredconditionals="167" methods="370" coveredmethods="184" elements="2360" coveredelements="1244" complexity="0" loc="1612" ncloc="1612" packages="17" files="104" classes="104">
       <package name="src">
         <metrics statements="54" coveredstatements="3" conditionals="10" coveredconditionals="0" methods="8" coveredmethods="0"/>
         <file name="App.js" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/App.js">
@@ -637,73 +637,73 @@
         <metrics statements="116" coveredstatements="100" conditionals="44" coveredconditionals="31" methods="30" coveredmethods="18"/>
         <file name="CreateNewForm.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/CreateNewForm.jsx">
           <metrics statements="36" coveredstatements="28" conditionals="12" coveredconditionals="6" methods="11" coveredmethods="4"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
-          <line num="19" count="1" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
-          <line num="21" count="1" type="stmt"/>
-          <line num="22" count="1" type="stmt"/>
-          <line num="23" count="1" type="stmt"/>
-          <line num="24" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="19" count="2" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="21" count="2" type="stmt"/>
+          <line num="22" count="2" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="26" count="2" type="stmt"/>
           <line num="28" count="0" type="stmt"/>
-          <line num="29" count="2" type="stmt"/>
-          <line num="34" count="1" type="stmt"/>
+          <line num="29" count="4" type="stmt"/>
+          <line num="34" count="2" type="stmt"/>
           <line num="35" count="0" type="stmt"/>
-          <line num="38" count="1" type="stmt"/>
+          <line num="38" count="2" type="stmt"/>
           <line num="39" count="0" type="stmt"/>
           <line num="40" count="0" type="stmt"/>
-          <line num="43" count="1" type="stmt"/>
+          <line num="43" count="2" type="stmt"/>
           <line num="44" count="0" type="stmt"/>
-          <line num="47" count="1" type="stmt"/>
+          <line num="47" count="2" type="stmt"/>
           <line num="48" count="0" type="stmt"/>
-          <line num="51" count="1" type="stmt"/>
+          <line num="51" count="2" type="stmt"/>
           <line num="52" count="0" type="stmt"/>
-          <line num="55" count="1" type="stmt"/>
-          <line num="65" count="3" type="stmt"/>
+          <line num="55" count="2" type="stmt"/>
+          <line num="65" count="6" type="stmt"/>
           <line num="80" count="0" type="stmt"/>
-          <line num="135" count="1" type="stmt"/>
-          <line num="142" count="1" type="stmt"/>
-          <line num="152" count="1" type="stmt"/>
-          <line num="164" count="1" type="stmt"/>
-          <line num="175" count="1" type="stmt"/>
-          <line num="189" count="1" type="stmt"/>
-          <line num="199" count="1" type="stmt"/>
-          <line num="209" count="1" type="stmt"/>
-          <line num="214" count="1" type="stmt"/>
-          <line num="222" count="1" type="stmt"/>
-          <line num="232" count="1" type="stmt"/>
+          <line num="135" count="2" type="stmt"/>
+          <line num="142" count="2" type="stmt"/>
+          <line num="152" count="2" type="stmt"/>
+          <line num="164" count="2" type="stmt"/>
+          <line num="175" count="2" type="stmt"/>
+          <line num="189" count="2" type="stmt"/>
+          <line num="199" count="2" type="stmt"/>
+          <line num="209" count="2" type="stmt"/>
+          <line num="214" count="2" type="stmt"/>
+          <line num="222" count="2" type="stmt"/>
+          <line num="232" count="2" type="stmt"/>
         </file>
         <file name="DefaultEvaluation.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/DefaultEvaluation.jsx">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="8" count="1" type="stmt"/>
-          <line num="9" count="1" type="stmt"/>
-          <line num="24" count="1" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="4" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
         </file>
         <file name="Dragable.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/Dragable.jsx">
           <metrics statements="10" coveredstatements="10" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
-          <line num="8" count="1" type="stmt"/>
-          <line num="9" count="3" type="stmt"/>
-          <line num="12" count="6" type="stmt"/>
-          <line num="16" count="3" type="cond" truecount="2" falsecount="0"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="26" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="27" count="1" type="stmt"/>
-          <line num="33" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="34" count="1" type="stmt"/>
-          <line num="44" count="1" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="6" type="stmt"/>
+          <line num="12" count="12" type="stmt"/>
+          <line num="16" count="6" type="cond" truecount="2" falsecount="0"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="26" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="27" count="2" type="stmt"/>
+          <line num="33" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="44" count="2" type="stmt"/>
         </file>
         <file name="DropDialog.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/DropDialog.jsx">
           <metrics statements="25" coveredstatements="22" conditionals="14" coveredconditionals="8" methods="2" coveredmethods="2"/>
-          <line num="6" count="2" type="stmt"/>
-          <line num="8" count="5" type="stmt"/>
-          <line num="9" count="5" type="stmt"/>
-          <line num="10" count="5" type="stmt"/>
-          <line num="11" count="5" type="stmt"/>
-          <line num="12" count="5" type="stmt"/>
-          <line num="13" count="5" type="stmt"/>
-          <line num="14" count="5" type="stmt"/>
-          <line num="16" count="5" type="stmt"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="8" count="6" type="stmt"/>
+          <line num="9" count="6" type="stmt"/>
+          <line num="10" count="6" type="stmt"/>
+          <line num="11" count="6" type="stmt"/>
+          <line num="12" count="6" type="stmt"/>
+          <line num="13" count="6" type="stmt"/>
+          <line num="14" count="6" type="stmt"/>
+          <line num="16" count="6" type="stmt"/>
           <line num="17" count="3" type="stmt"/>
           <line num="18" count="3" type="cond" truecount="2" falsecount="0"/>
           <line num="19" count="1" type="cond" truecount="2" falsecount="4"/>
@@ -719,50 +719,50 @@
           <line num="36" count="3" type="stmt"/>
           <line num="37" count="3" type="stmt"/>
           <line num="38" count="3" type="stmt"/>
-          <line num="41" count="5" type="stmt"/>
+          <line num="41" count="6" type="stmt"/>
         </file>
         <file name="EasyView.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/EasyView.jsx">
           <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-          <line num="4" count="2" type="stmt"/>
+          <line num="4" count="3" type="stmt"/>
           <line num="5" count="3" type="cond" truecount="2" falsecount="0"/>
           <line num="6" count="1" type="stmt"/>
           <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
           <line num="24" count="1" type="stmt"/>
           <line num="34" count="1" type="stmt"/>
-          <line num="46" count="2" type="stmt"/>
-          <line num="51" count="2" type="stmt"/>
+          <line num="46" count="3" type="stmt"/>
+          <line num="51" count="3" type="stmt"/>
         </file>
         <file name="EvaluationCheckbox.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/EvaluationCheckbox.jsx">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="5" count="3" type="stmt"/>
-          <line num="6" count="5" type="stmt"/>
-          <line num="14" count="3" type="stmt"/>
-          <line num="19" count="3" type="stmt"/>
+          <line num="5" count="4" type="stmt"/>
+          <line num="6" count="14" type="stmt"/>
+          <line num="14" count="4" type="stmt"/>
+          <line num="19" count="4" type="stmt"/>
         </file>
         <file name="EvaluationFeedback.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/EvaluationFeedback.jsx">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="5" count="3" type="stmt"/>
-          <line num="7" count="2" type="stmt"/>
-          <line num="19" count="3" type="stmt"/>
-          <line num="25" count="3" type="stmt"/>
+          <line num="5" count="4" type="stmt"/>
+          <line num="7" count="5" type="stmt"/>
+          <line num="19" count="4" type="stmt"/>
+          <line num="25" count="4" type="stmt"/>
         </file>
         <file name="EvaluationRadio.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/EvaluationRadio.jsx">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="6" count="3" type="stmt"/>
-          <line num="8" count="4" type="stmt"/>
-          <line num="20" count="3" type="stmt"/>
-          <line num="25" count="3" type="stmt"/>
+          <line num="6" count="4" type="stmt"/>
+          <line num="8" count="7" type="stmt"/>
+          <line num="20" count="4" type="stmt"/>
+          <line num="25" count="4" type="stmt"/>
         </file>
         <file name="EvaluationSlider.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/EvaluationSlider.jsx">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="4" count="3" type="stmt"/>
-          <line num="6" count="5" type="stmt"/>
-          <line num="18" count="3" type="stmt"/>
-          <line num="23" count="3" type="stmt"/>
+          <line num="4" count="4" type="stmt"/>
+          <line num="6" count="14" type="stmt"/>
+          <line num="18" count="4" type="stmt"/>
+          <line num="23" count="4" type="stmt"/>
         </file>
         <file name="Input.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/Input.jsx">
           <metrics statements="10" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="1"/>
-          <line num="6" count="3" type="stmt"/>
+          <line num="6" count="4" type="stmt"/>
           <line num="8" count="11" type="cond" truecount="2" falsecount="0"/>
           <line num="9" count="6" type="stmt"/>
           <line num="14" count="0" type="stmt"/>
@@ -771,18 +771,18 @@
           <line num="31" count="0" type="stmt"/>
           <line num="35" count="5" type="stmt"/>
           <line num="40" count="0" type="stmt"/>
-          <line num="47" count="3" type="stmt"/>
+          <line num="47" count="4" type="stmt"/>
         </file>
         <file name="ViewForm.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Evaluation/ViewForm.jsx">
           <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
-          <line num="7" count="2" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
           <line num="9" count="3" type="stmt"/>
           <line num="13" count="6" type="cond" truecount="2" falsecount="0"/>
           <line num="14" count="2" type="stmt"/>
           <line num="15" count="4" type="cond" truecount="2" falsecount="0"/>
           <line num="16" count="2" type="stmt"/>
           <line num="18" count="2" type="stmt"/>
-          <line num="32" count="2" type="stmt"/>
+          <line num="32" count="3" type="stmt"/>
         </file>
       </package>
       <package name="src.components.FirebaseAPIs">
@@ -1058,35 +1058,32 @@
         </file>
       </package>
       <package name="src.components.Studio++">
-        <metrics statements="26" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="23" coveredstatements="19" conditionals="12" coveredconditionals="11" methods="3" coveredmethods="3"/>
         <file name="PlusHome.jsx" path="/Users/given/Desktop/Code/React/Short-Courses/frontend/src/components/Studio++/PlusHome.jsx">
-          <metrics statements="26" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="3" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="3" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="8" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
-          <line num="10" count="0" type="stmt"/>
-          <line num="12" count="0" type="stmt"/>
-          <line num="14" count="0" type="stmt"/>
-          <line num="15" count="0" type="stmt"/>
-          <line num="16" count="0" type="stmt"/>
-          <line num="17" count="0" type="stmt"/>
-          <line num="19" count="0" type="stmt"/>
-          <line num="20" count="0" type="stmt"/>
-          <line num="21" count="0" type="stmt"/>
-          <line num="23" count="0" type="stmt"/>
-          <line num="24" count="0" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
+          <metrics statements="23" coveredstatements="19" conditionals="12" coveredconditionals="11" methods="3" coveredmethods="3"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="4" type="stmt"/>
+          <line num="17" count="4" type="stmt"/>
+          <line num="19" count="4" type="stmt"/>
+          <line num="20" count="4" type="stmt"/>
+          <line num="21" count="4" type="stmt"/>
+          <line num="23" count="4" type="cond" truecount="1" falsecount="1"/>
+          <line num="24" count="4" type="stmt"/>
+          <line num="25" count="4" type="stmt"/>
+          <line num="26" count="4" type="stmt"/>
           <line num="28" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
           <line num="31" count="0" type="stmt"/>
-          <line num="74" count="0" type="stmt"/>
-          <line num="82" count="0" type="stmt"/>
-          <line num="92" count="0" type="stmt"/>
-          <line num="102" count="0" type="stmt"/>
+          <line num="34" count="4" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="38" count="4" type="stmt"/>
+          <line num="39" count="1" type="stmt"/>
+          <line num="42" count="4" type="stmt"/>
+          <line num="85" count="1" type="stmt"/>
+          <line num="93" count="1" type="stmt"/>
+          <line num="103" count="1" type="stmt"/>
+          <line num="113" count="1" type="stmt"/>
         </file>
       </package>
       <package name="src.components.myProfile">

@@ -11,14 +11,25 @@ import { HTML5Backend} from 'react-dnd-html5-backend';
 import { useNavigate } from 'react-router-dom';
 import CreateNewForm from '../Evaluation/CreateNewForm';
 
-const PlusHome = ()=>{
-    const {state} = useLocation();
+const PlusHome = (props)=>{
+    
     const navigate = useNavigate();
     const [create, setCreate] = useState(false);
 
-    const user = state.user;
-    const courseID = state.courseID;
-    const courseName = state.courseName;
+    let user = {};
+    let courseID = '';
+    let courseName = '';
+
+    if(props.user !== undefined){
+        user = props.user;
+        courseID = props.courseID;
+        courseName = props.courseName;
+    }else{
+        const {state} = useLocation();
+        user = state.user;
+        courseID = state.courseID;
+        courseName = state.courseName;
+    }
 
     const onCreate =()=>{
         setCreate(true);
@@ -54,14 +65,14 @@ const PlusHome = ()=>{
             }
             
             {!create &&
-            <Fab variant="extended" style = {FabStyle} onClick = {onFinish}>
+            <Fab data-testid = 'fab-onfinish' variant="extended" style = {FabStyle} onClick = {onFinish}>
                  <DoneIcon sx={{ mr: 1, color: '#007377'}} />
                  Use Default Form
             </Fab>
             }
 
             {!create &&
-            <Fab variant="extended" style = {NFabStyle} onClick = {onCreate}>
+            <Fab data-testid = 'fab-oncreate' variant="extended" style = {NFabStyle} onClick = {onCreate}>
                  <AddIcon sx={{ mr: 1, color: '#007377'}} />
                  Create New Form
             </Fab>
