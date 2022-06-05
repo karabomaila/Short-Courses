@@ -92,9 +92,9 @@ function Firstpanel({ handletab, setCourse }) {
           backgroundColor: "#ffffff",
           width: "50%",
           height: "80%",
-          border: "5px",
+          border: "8px",
           borderRadius: "15px",
-          borderColor: "#000000",
+          borderColor: "#007377",
           margin: "auto",
           borderRadius: "4",
           pading: "1rem",
@@ -122,7 +122,7 @@ function Firstpanel({ handletab, setCourse }) {
           <Button
             data-testid="addImageBtn"
             variant="contained"
-            style={{ margin: "10px 5px 30px 50px" }}
+            style={{ margin: "10px 5px 30px 50px",backgroundColor:"#007377" }}
             onClick={onclick}
           >
             Add Image{" "}
@@ -161,7 +161,7 @@ function Firstpanel({ handletab, setCourse }) {
               data-testid="uploadBtn"
               variant="contained"
               onClick={handleBtn}
-              style={{ margin: "2px 10px 30px 90px" }}
+              style={{ margin: "2px 10px 30px 90px" ,backgroundColor: "#007377"}}
             >
               upload
             </Button>
@@ -188,10 +188,10 @@ function Firstpanel({ handletab, setCourse }) {
         </div>
         <div>
           <Button 
-            variant="outlined"
+            variant="contained"
             data-testid="nextBtn"
             style={{
-              backgroundColor: "#ffffff",
+              backgroundColor: "#007377",
               margin: "10px 50px 50px 500px ",
               marginBottom: "10px",
             }}
@@ -210,7 +210,7 @@ const container = {
   margin: "30px auto",
   overflow: "auto",
   height: "100px",
-  border: "1px solid steelblue",
+  border: "3px solid #007377",
   padding: "30px",
   borderRadius: "5px",
 };
