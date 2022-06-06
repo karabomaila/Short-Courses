@@ -1,7 +1,7 @@
 
 # DFMPC Short Courses
 [![CircleCI](https://circleci.com/gh/Lindokuhle777/Short-Courses.svg?style=svg)](https://app.circleci.com/pipelines/github/Lindokuhle777/Short-Courses)
-[![Coverage Status](https://coveralls.io/repos/github/React-Sight/React-Sight/badge.svg?branch=master)](https://coveralls.io/github/React-Sight/React-Sight?branch=master)
+[![Codecov](https://img.shields.io/codecov/c/github/Lindokuhle777/Short-Courses)](https://codecov.io/github/Lindokuhle777/Short-Courses/commit/1a9e06eb94c4d9ed9ede8ded3ffceba418eb63e1)
 ![npm](https://img.shields.io/npm/v/npm)
 
 
