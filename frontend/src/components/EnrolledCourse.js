@@ -1,29 +1,24 @@
-import { Card, Button, Carousel, Modal, Nav } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
-import { storage, db } from "./firebase-config";
+import { db } from "./firebase-config";
 import {
   getDownloadURL,
   ref,
-  uploadBytesResumable,
   getStorage,
 } from "@firebase/storage";
 import { useState, useEffect } from "react";
 import React from "react";
 import {
   collection,
-  addDoc,
   getDocs,
   where,
   query,
-  updateDoc,
-  doc,
 } from "@firebase/firestore";
 
 function Course(props) {
-  console.log(props)
+  
   const [imageURL, setImageURL] = useState("");
-  const [backUpImageURL, setBackUpImageURL] = useState("");
   const slidesCollectionRef = collection(db, "slides");
   const [ description,setDescription] = useState(props.description);
 
@@ -44,11 +39,7 @@ function Course(props) {
     setImageURL(tmpImages[0].url);
   };
 
-  // useEffect(() => {
-
-  // }, [setBackUpImageURL]);
-
-  useEffect(async () => {
+  const firebaseFunc = async ()=>{
     const storage = getStorage();
     if (props.image1 === null) {
       lindo();
@@ -61,11 +52,18 @@ function Course(props) {
         }
       );
     }
+
+  };
+
+
+  useEffect( () => {
+    firebaseFunc();
   }, [setImageURL]);
 
   const { state } = useLocation();
 
   const navigate = useNavigate();
+
   return (
     <Container>
       <>
@@ -90,28 +88,7 @@ function Course(props) {
               <Row>
                 <Card.Text data-testid="des">{description}</Card.Text>
               </Row>
-              <Row>
-                <Col></Col>
-                <Col className="my-2 mx-2">
-                  {" "}
-                  <Button
-                    data-testid="getStartedBtn"
-                    variant="dark"
-                    onClick={() => {
-                      navigate(`/Slides/${props.name}`, {
-                        state: {
-                          student: true,
-                          user: props.user,
-                          crs_id: props.crs_id,
-                        },
-                      });
-                    }}
-                  >
-                    GET STARTED
-                  </Button>{" "}
-                </Col>
-                <Col></Col>
-              </Row>
+              
             </Container>
           </Card.Body>
         </Card>

@@ -13,8 +13,6 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useIsAuthenticated } from "@azure/msal-react";
 import { useMsal } from "@azure/msal-react";
-import { callMsGraph } from "../graph";
-import { loginRequest } from "../authConfig";
 import SignInButton from "./SSO/SignInButton";
 import { useState, useEffect } from "react";
 import { UserDataContext } from "./ContextAPI/UserDataContext";
@@ -33,12 +31,14 @@ function Navigation(props) {
   }
 
   useEffect(()=>{
-      
+    if(isAuthenticated){
       const obj = {
         userID: accounts[0].username,
         name: accounts[0].name
       }
       setUser(obj);
+    }
+      
   }, [user, setUser]);
 
   return (

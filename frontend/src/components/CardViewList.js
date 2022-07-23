@@ -3,21 +3,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import CardView from "./cardView";
 import { Box, CircularProgress } from "@mui/material";
 import DataContext from "./DataContext";
-import { useIsAuthenticated } from "@azure/msal-react";
-import { useMsal } from "@azure/msal-react";
-import { callMsGraph } from "../graph";
-import { loginRequest } from "../authConfig";
-import axios from "axios";
 import React from "react";
 
 
 function CardViewList(props) {
   const dataCard = useContext(DataContext);
   const MyDatabase = dataCard.Data;
-  
-  
-  
-  
   
   return (
     <Container>
