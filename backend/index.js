@@ -1,14 +1,39 @@
-const express = require("express");
-const { pool } = require("./db");
-const app = express();
-const cors = require("cors");
+import cors from 'cors';
+import express from 'express';
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore'
+import { db } from './firebase-config.js';
 
+const app = express();
 //to be updated for sso 
 // middleware
 app.use(express.json());
 app.use(cors());
 
 const PORT = process.env.PORT || 5000;
+
+const getData = async ()=>{
+  const usersCollectionRef = collection(db, 'slides');
+
+  const data = await getDocs(usersCollectionRef);
+  // console.log(data);
+
+  return data
+}
+
+app.get("/getAllCourses", async(req, res) => {
+  const response = [];
+
+  const data = await getData();
+  
+  data.forEach((doc)=>{
+   response.push(doc.data());
+  })
+
+  res.send(response);
+
+  
+});
+
 
 
 app.get("/users", (req, res) => {
