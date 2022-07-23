@@ -33,11 +33,14 @@ function Navigation(props) {
   }
 
   useEffect(()=>{
+    if(isAuthenticated){
       const obj = {
         userID: accounts[0].username,
         name: accounts[0].name
       }
       setUser(obj);
+    }
+      
   }, [user, setUser]);
 
   return (
