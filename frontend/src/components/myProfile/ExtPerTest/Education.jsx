@@ -38,7 +38,9 @@ const Education = (props)=>{
         return(
             <div style = {MainStyle} data-testid = "test-edu-div">
                 <div style = {ClickStyle}>
-                <CheckCircleOutlineIcon data-testid = "test-edu-icon" sx = {{color: 'green'}} onClick = {change}/>
+                <CheckCircleOutlineIcon data-testid = "test-edu-icon" 
+                sx = {{color: 'green'}} 
+                onClick = {change}/>
                 </div>
                 <div style = {InputStyle}>
                     <TextField label = 'Institution Name' 

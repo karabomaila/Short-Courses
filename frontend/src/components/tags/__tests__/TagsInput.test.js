@@ -38,7 +38,7 @@ describe('TagsInput - Textfiels', ()=>{
             const textfield = getByTestId("test-textfield");
             const btn = getByTestId("test-tags-button");
     
-            await fireEvent.change(textfield, {target: {value: 'hashtag'}});
+            fireEvent.change(textfield, {target: {value: 'hashtag'}});
             fireEvent.click(btn);
     
             expect(btn).toHaveTextContent('Add');
@@ -66,15 +66,3 @@ describe('TagsInput - Textfiels', ()=>{
    
     
 })
-
-/*
-describe('TagsInput - Button', ()=>{
-    const tagArray = ['#new', '#tag'];
-    const {getByTestId} = render(<TagsInput tagArray = {tagArray}/>);
-    const button = getByTestId("test-tags-button");
-
-    test('Buttom Renders', ()=>{
-        expect(button).toBeTruthy();
-    })
-})
-*/

@@ -4,7 +4,7 @@ import RightPanelAccordion from "./RightPanelAccordion";
 
 const mainDiv = {
   position: "absolute",
-  backgroundColor: "#003b5c",
+  backgroundColor: '#f4fdff',
   left: "75%",
   right:'0px',
   bottom: "0px",

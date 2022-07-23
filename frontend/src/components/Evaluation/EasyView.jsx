@@ -4,7 +4,7 @@ import React from 'react';
 const EasyView = (props)=>{
     if(props.item.type === 'radio'){
         return(
-            <div style = {MainStyle}>
+            <div data-testid = 'easy-radio-div' style = {MainStyle}>
                  <p style = {TypeStyle}>Radio Group</p>
                  <div style = {{display: 'flex'}}>
                      <p style = {{color: 'gray', marginLeft: 10, marginTop: 0, marginRight: 12}}>Content: </p>
@@ -22,7 +22,7 @@ const EasyView = (props)=>{
         )
     }else if(props.item.type === 'box'){
         return(
-            <div style = {MainStyle}>
+            <div data-testid = 'easy-box-div' style = {MainStyle}>
                 <p style = {TypeStyle}>Checkbox</p>
                 <div style = {{display: 'flex'}}>
                      <p style = {{color: 'gray', marginLeft: 10, marginTop: 0, marginRight: 12}}>Content: </p>
@@ -32,7 +32,7 @@ const EasyView = (props)=>{
         )
     }else{
         return(
-            <div style = {MainStyle}>
+            <div data-testid = 'easy-slider-div' style = {MainStyle}>
                  <p style = {TypeStyle}>Slider</p>
                  <div style = {{display: 'flex'}}>
                      <p style = {{color: 'gray', marginLeft: 10, marginTop: 0, marginRight: 12}}>Content: </p>

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import * as React from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 
 function Profile(props) {
@@ -19,10 +20,13 @@ function Profile(props) {
   const { instance,accounts } = useMsal();
   // console.log(accounts)
   const [namee,setNamee] = React.useState(null);
+  const [char, setChar] = useState("");
   React.useEffect(()=>{
     setNamee((s)=>{
       try{
-        return accounts[0].name
+        setChar(accounts[0].name[0]);
+        return accounts[0].name;
+
       }
       catch(e){
         console.error(e);
@@ -44,9 +48,9 @@ function Profile(props) {
   return (
     <>
       <div style={{cursor:'pointer',color:'white'}}>
-        <h4 onClick={handleClick} style={{marginRight:'10px'}}>
-            <FaUserCircle />{" " + namee}
-        </h4>
+            <span style = {styles.Tag} onClick = {handleClick}>
+              <p style = {{margin: 0, fontSize: 20, fontWeight: '500'}}>{char}</p>
+            </span>
       </div>
       <Menu
         id="basic-menu"
@@ -63,4 +67,23 @@ function Profile(props) {
     </>
   );
 }
+
+
+const styles = {
+    Tag:{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 40,
+      height: 40,
+      borderRadius: '200%',
+      borderStyle: "solid",
+      borderColor: 'white',
+      alignSelf: 'center',
+      marginRight: 11
+    }
+}
+
+
 export default Profile;

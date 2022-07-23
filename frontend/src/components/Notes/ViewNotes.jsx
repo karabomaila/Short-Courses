@@ -9,9 +9,9 @@ const ViewNotes = (props)=>{
     }
 
     return(
-        <div style = {MainStyle}>
+        <div data-testid = 'vnts-div' style = {MainStyle}>
             <div style = {ToolsStyle}>
-                <div style = {{display: 'flex', marginRight: 7, marginLeft: 5}} onClick = {onBack}>
+                <div data-testid = 'vnt-back' style = {{display: 'flex', marginRight: 7, marginLeft: 5}} onClick = {onBack}>
                     <ArrowBackIcon sx = {{color: 'white'}}/> Back
                 </div>
                 <div style = {{display: 'flex', marginRight: 5, marginLeft: 7}}>

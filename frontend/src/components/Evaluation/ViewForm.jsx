@@ -7,7 +7,7 @@ import EvaluationFeedback from './EvaluationFeedback';
 const ViewForm = (props)=>{
 
     return(
-        <div style = {MainStyle}>
+        <div data-testid = 'view-form' style = {MainStyle}>
              <p style = {{fontWeight: 'bold'}}>{props.courseName} Evaluation</p>
             {props.data.map((item, index) =>{
                 if(item.type === 'radio'){

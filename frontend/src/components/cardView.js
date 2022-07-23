@@ -62,7 +62,7 @@ function CardView(props) {
     let tmp = data.docs[0] !==undefined? data.docs[0]._document.data.value.mapValue.fields:null;
     // setDescription(tmp.description.stringValue);
 
-    if(tmp!==null){
+    if(tmp!==null || tmp !== undefined){
     let tmpImages = [];
     tmp.images.arrayValue.values.map((curr) => {
       tmpImages.push({

@@ -39,7 +39,7 @@ const DropDialog =(props)=>{
     }
 
     return(
-        <div>
+        <div data-testid = 'drop-dialog-test'>
             <Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={props.open} onClose={onClose}>
                 <DialogTitle>
                     Component
@@ -58,7 +58,7 @@ const DropDialog =(props)=>{
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick = {onClose}>Add</Button>
+                    <Button data-testid = 'drop-dialog-button' onClick = {onClose}>Add</Button>
                 </DialogActions>
             </Dialog>
         </div>)

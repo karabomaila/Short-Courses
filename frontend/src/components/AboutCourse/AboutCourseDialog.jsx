@@ -1,7 +1,5 @@
 import {Button,Dialog, DialogTitle, DialogContent, DialogActions,DialogContentText} from '@mui/material';
 import * as React from 'react';
-import {useState, useEffect} from 'react';
-import { db } from '../firebase-config.jsx';
 import ListOutcomes from './ListOutcomes.jsx';
 
 const AboutCourseDialog = (props)=>{
@@ -13,7 +11,7 @@ const AboutCourseDialog = (props)=>{
     }
 
     return(
-        <div>
+        <div data-testid = 'abt-div'>
             <Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={props.open} onClose={onClose}>
                 <DialogTitle>
                     {props.courseName}
@@ -37,7 +35,7 @@ const AboutCourseDialog = (props)=>{
                     <ListOutcomes array = {props.data.outcomes}/>
                 </DialogContent>
                 <DialogActions>
-                    <Button variant = 'outlined' onClick = {onClose}>OK</Button>
+                    <Button data-testid = 'abt-btn' variant = 'outlined' onClick = {onClose}>OK</Button>
                 </DialogActions>
             </Dialog>
         </div>

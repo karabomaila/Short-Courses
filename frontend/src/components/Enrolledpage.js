@@ -1,22 +1,17 @@
 import CourseList from "./CourseList";
 import EnrolledAppBar from "./EnrolledAppBar";
 import {useLocation } from 'react-router-dom'
-import React from "react";
-
-
-
+import React, { useContext } from "react";
 
 function Enrolled(){
-    const {state} = useLocation();
-    console.log(state)
+
 
     return(
-        
         <>
-        <EnrolledAppBar title={"Enrolled"} user={state.user}/>
+        <EnrolledAppBar title={"Enrolled"}/>
         
         <div style = {{display: 'flex', margin: 20}}>
-        <CourseList user={state.user}/> 
+        <CourseList/> 
         </div>
         
 

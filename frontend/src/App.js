@@ -10,17 +10,13 @@ import React from "react";
 import Hub from './components/LearningHub/Hub'
 import Main from './components/studio/Main'
 import PlusHome from './components/Studio++/PlusHome';
-
-
+import UserDataContextProvider from './components/ContextAPI/UserDataContext';
 
 function App() {
     return (
-        
         <div>
-       
+        <UserDataContextProvider>
         <BrowserRouter>
-         
-          
           <Routes>
           {/* <Route path='/'exact element={ <Homepage/ >}/> */}
           <Route path='/'exact element={ <Explore/> }/>
@@ -31,16 +27,10 @@ function App() {
            <Route path='/Studio' element={<Main/>} />
            <Route path='/Hub' element={<Hub/>}/>
            <Route path='/Studio++' element={<PlusHome/>}/>
-           
           </Routes>
-         
-      
-     
        </BrowserRouter>
-       
-
+       </UserDataContextProvider>
         </div>
-       
     );
 }
 

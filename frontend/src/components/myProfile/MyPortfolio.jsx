@@ -6,16 +6,25 @@ import {collection, getDocs, doc, getDoc} from 'firebase/firestore';
 import {useLocation,useNavigate } from 'react-router-dom';
 import React from "react";
 
-const MyPortfolio = () =>{
-    const start = Date.now();
-    console.log('Start: '+ start);
+const MyPortfolio = (props) =>{
 
     const [view, setView] = useState('ExposeView');
-    
-    const {state} = useLocation();
-    const name = state.acc[0].name;
-    const userID = state.acc[0].username;
     const [bio, setBio] = useState('');
+
+    let name = '';
+    let userID = '';
+    
+    if(props.user !== undefined){
+        name = props.user.name;
+        userID = props.user.username;
+    }else{
+        const {state} = useLocation();
+        name = state.acc[0].name;
+        userID = state.acc[0].username;
+    }
+
+    
+    
 
     const getBio = async () =>{
         const bioRef = doc(db, "About", userID);
@@ -54,7 +63,7 @@ const MyPortfolio = () =>{
     }*/
     
     return(
-        <div style = {MyPortfolioStyle}>
+        <div data-testid = 'port-div' style = {MyPortfolioStyle}>
            
             <div className='pin' style = {LeftPanelStyle} >
                 <Menu 

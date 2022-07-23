@@ -3,7 +3,7 @@ import DisplayOutcomes from './DisplayOutcomes';
 
 const ListOutcomes = (props)=>{
     return(
-        <div style= {ListStyle}>
+        <div data-testid = 'ls-out' style= {ListStyle}>
                 {props.array.map((item, index) => 
                 <DisplayOutcomes 
                 key = {index} 

@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -69,65 +69,75 @@
 44
 45
 46
-47</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+47
+48
+49
+50
+51
+52</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Button } from '@mui/material';</span>
-<span class="cstat-no" title="statement not covered" >import React from 'react';</span>
-<span class="cstat-no" title="statement not covered" >import GetInfo from '../AboutCourse/GetInfo';</span>
-<span class="cstat-no" title="statement not covered" >import { useNavigate } from 'react-router-dom';</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button } from '@mui/material';
+import React from 'react';
+import GetInfo from '../AboutCourse/GetInfo';
+import { useNavigate } from 'react-router-dom';
 &nbsp;
 &nbsp;
-const Actions = (<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >props)=&gt;{</span></span>
-    const navigate = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
+const Actions = (props)=&gt;{
+    const navigate = useNavigate();
     
-    const onClick = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()=&gt;</span>{</span>
-<span class="cstat-no" title="statement not covered" >        switch (props.click){</span>
+    const onClick = ()=&gt;{
+        switch (props.click){
             case 'view':
-<span class="cstat-no" title="statement not covered" >                navigate(`/CreateCourse/${props.name}`, {</span>
+                navigate(`/CreateCourse/${props.name}`, {
                     state: {
                       student: false,
                       user: props.user,
@@ -136,26 +146,31 @@ const Actions = (<span class="cstat-no" title="statement not covered" ><span cla
                   });
             
             case 'info':
-                let getInfo = <span class="cstat-no" title="statement not covered" >new GetInfo(props.info, props.crs_id);</span>
-<span class="cstat-no" title="statement not covered" >                props.setDataObject(getInfo.PullData());</span>
-<span class="cstat-no" title="statement not covered" >                props.setOpenAbout(true);</span>
+                let getInfo = new GetInfo(props.info, props.crs_id);
+                props.setDataObject(getInfo.PullData());
+                props.setOpenAbout(true);
             
             case 'edit':
                 // console.log(props)
-<span class="cstat-no" title="statement not covered" >                navigate('/CreateCourse',{ state: { user: props.user,courseInfo:props } });</span>
+                navigate('/CreateCourse',{ state: { user: props.user,courseInfo:props } });
             case 'learn':
-<span class="cstat-no" title="statement not covered" >                navigate('/Hub', {state: {courseID: props.courseID, courseName: props.courseName ,userID: props.userID[0].username}});</span>
+                navigate('/Hub', {state: {courseID: props.courseID, courseName: props.courseName ,userID: props.userID[0].username}});
             default:
         }
         
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return(</span>
-        &lt;Button variant = 'outlined' style = {Style} onClick = {onClick}&gt;{props.title}&lt;/Button&gt;
+    return(
+        &lt;Button data-testid = 'ui-action'
+        variant = 'outlined' 
+        style = {Style} 
+        onClick = {onClick}&gt;
+        {props.title}
+        &lt;/Button&gt;
     )
 }
 &nbsp;
-const Style = <span class="cstat-no" title="statement not covered" >{</span>
+const Style = {
     margin: 5,
     color: '#003b5c',
     borderColor: '#daa520'
@@ -167,7 +182,7 @@ export default Actions;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 31 2022 21:40:32 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 06 2022 00:46:53 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

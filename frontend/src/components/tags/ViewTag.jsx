@@ -9,12 +9,12 @@ const ViewTag = (props)=>{
         props.tagArray.splice(props.i, 1);
     }
     return(
-        <div style = {TagStyle}>
+        <div data-testid = 'view-tag-div' style = {TagStyle}>
             <div style = {DivStyle}>
             {props.tagName}
             </div>
             <div style = {DivStyle}>
-            <HighlightOffIcon sx = {{color: 'orange', cursor: 'pointer'}} onClick = {onDelete}/>
+            <HighlightOffIcon data-testid = "view-tag-cl" sx = {{color: 'orange', cursor: 'pointer'}} onClick = {onDelete}/>
             </div>
         </div>
     )

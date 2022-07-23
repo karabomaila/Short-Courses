@@ -1,5 +1,6 @@
 import { TextField, Button, Typography, Paper } from "@mui/material";
 import React, { useState, useRef } from "react";
+import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 import Slide from "@mui/material/Slide";
 import CreateID from "./GenCourseID";
 import { useMsal } from "@azure/msal-react";
@@ -72,23 +73,28 @@ function Firstpanel({ handletab, setCourse }) {
   };
 
   return (
-    <div
+    <div data-testid = 'first-panel-div'
       style={{
-        backgroundColor: "#003b5c",
+        backgroundColor: '#edf4f5',
         margin: "0px",
         minHeight: "100vh",
-        paddingTop: "50px",
+        
       }}
     >
+
+      <div style = {NavStyle}>
+          <BubbleChartIcon fontSize='large' sx = {{color: 'white'}}/>
+          <p style ={{color: 'white', fontWeight: 'bold', margin: 10, fontSize: 24}}>STUDIO</p>
+        </div>
       <Paper
         elevation={20}
         style={{
           backgroundColor: "#ffffff",
           width: "50%",
           height: "80%",
-          border: "5px",
+          border: "8px",
           borderRadius: "15px",
-          borderColor: "#000000",
+          borderColor: "#007377",
           margin: "auto",
           borderRadius: "4",
           pading: "1rem",
@@ -116,7 +122,7 @@ function Firstpanel({ handletab, setCourse }) {
           <Button
             data-testid="addImageBtn"
             variant="contained"
-            style={{ margin: "10px 5px 30px 50px" }}
+            style={{ margin: "10px 5px 30px 50px",backgroundColor:"#007377" }}
             onClick={onclick}
           >
             Add Image{" "}
@@ -155,7 +161,7 @@ function Firstpanel({ handletab, setCourse }) {
               data-testid="uploadBtn"
               variant="contained"
               onClick={handleBtn}
-              style={{ margin: "2px 10px 30px 90px" }}
+              style={{ margin: "2px 10px 30px 90px" ,backgroundColor: "#007377"}}
             >
               upload
             </Button>
@@ -181,11 +187,11 @@ function Firstpanel({ handletab, setCourse }) {
           )}
         </div>
         <div>
-          <Button
-            variant="outlined"
+          <Button 
+            variant="contained"
             data-testid="nextBtn"
             style={{
-              backgroundColor: "#ffffff",
+              backgroundColor: "#007377",
               margin: "10px 50px 50px 500px ",
               marginBottom: "10px",
             }}
@@ -204,9 +210,19 @@ const container = {
   margin: "30px auto",
   overflow: "auto",
   height: "100px",
-  border: "1px solid steelblue",
+  border: "3px solid #007377",
   padding: "30px",
   borderRadius: "5px",
 };
+
+const NavStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  background: '#007377',
+  alignItems: 'center',
+  marginBottom: 12,
+  padding: 3,
+  width: '100%'
+}
 
 export default Firstpanel;

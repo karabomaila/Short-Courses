@@ -2,7 +2,7 @@ import React from "react";
 
 const DisplayOutcomes = (props)=>{
     return(
-        <div style = {TagStyle}>
+        <div data-testid = 'ds-out' style = {TagStyle}>
             <div style = {DivStyle}>
             {props.outcome}
             </div>

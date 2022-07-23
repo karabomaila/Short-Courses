@@ -9,17 +9,27 @@ import ViewHub from './ViewHub';
 import Chapter from './Chapter'
 import { useEffect } from 'react';
 
-const Hub = ()=>{
-    const {state} = useLocation();
+const Hub = (props)=>{
     const [chaptersArray, setChaptersArray] = useState([]);
     const [getIndex, setGetIndex] = useState(0);
     const [view, setView] = useState(false);
-
-    const userID = state.userID;
-    const courseID = state.courseID;
-    const courseName = state.courseName;
     let notes = new Array();
-    
+
+    let userID = '';
+    let courseID = '';
+    let courseName = '';
+
+    if(props.user !== undefined){
+        userID = props.user.userID;
+        courseID = props.user.courseID;
+        courseName = props.user.courseName;
+    }else{
+        const {state} = useLocation();
+        userID = state.userID;
+        courseID = state.courseID;
+        courseName = state.courseName;
+    }
+
     const initNotes = {
         courses: [{courseID: courseID, courseName: courseName, notes: 'Write Something...'}]
     }
@@ -76,7 +86,7 @@ const Hub = ()=>{
     }
 
     return(
-        <div style = {MainStyle}>
+        <div data-testid = 'hub-div' style = {MainStyle}>
             <div style = {NavStyle}>
                 <ScienceIcon fontSize='large' sx = {{color: 'white'}}/>
                 <p style ={{color: 'white', fontWeight: 'bold', margin: 10}}>Learning Hub</p>

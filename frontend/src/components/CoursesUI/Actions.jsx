@@ -34,7 +34,12 @@ const Actions = (props)=>{
     }
 
     return(
-        <Button variant = 'outlined' style = {Style} onClick = {onClick}>{props.title}</Button>
+        <Button data-testid = 'ui-action'
+        variant = 'outlined' 
+        style = {Style} 
+        onClick = {onClick}>
+        {props.title}
+        </Button>
     )
 }
 

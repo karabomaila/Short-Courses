@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -72,40 +72,40 @@
 47
 48
 49
-50</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+50</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -121,39 +121,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Container, Row, Col } from "react-bootstrap";</span>
-<span class="cstat-no" title="statement not covered" >import Course from "./EnrolledCourse";</span>
-<span class="cstat-no" title="statement not covered" >import DataContext from "./DataContext";</span>
-<span class="cstat-no" title="statement not covered" >import EnrolledCard from './CoursesUI/EnrolledCard';</span>
-<span class="cstat-no" title="statement not covered" >import { useContext, useState, useEffect } from "react";</span>
-<span class="cstat-no" title="statement not covered" >import axios from "axios";</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Container, Row, Col } from "react-bootstrap";
+import Course from "./EnrolledCourse";
+import DataContext from "./DataContext";
+import EnrolledCard from './CoursesUI/EnrolledCard';
+import { useContext, useState, useEffect } from "react";
+import axios from "axios";
 import React from "react";
 &nbsp;
 &nbsp;
 &nbsp;
-function <span class="fstat-no" title="function not covered" >CourseList(props) <span class="cstat-no" title="statement not covered" >{</span></span>
+function CourseList(props) {
   // const data=useContext(DataContext);
-  const [EnrolledData, setEnrolledData] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
+  const [EnrolledData, setEnrolledData] = useState([]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =&gt; </span>{</span>
+  useEffect(() =&gt; {
     
-    var temp = <span class="cstat-no" title="statement not covered" >{ user_id: props.user[0].username.split("@")[0] };</span>
+    var temp = { user_id: props.user[0].username.split("@")[0] };
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    axios</span>
+    axios
       .post("http://localhost:5000/enrolled", temp)
-      .then((<span class="fstat-no" title="function not covered" >res) =&gt; {</span>
+      .then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; {
 <span class="cstat-no" title="statement not covered" >        console.log(res.data);</span>
 <span class="cstat-no" title="statement not covered" >        setEnrolledData(res.data);</span>
       })
-      .catch((<span class="fstat-no" title="function not covered" >err) =&gt; {</span>
+      .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
 <span class="cstat-no" title="statement not covered" >        console.log(err);</span>
       });
   }, [setEnrolledData]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
 &nbsp;
-    &lt;div style = {{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', marginTop: 55}}&gt;
+    &lt;div data-testid = 'course-list-div' style = {{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', marginTop: 55}}&gt;
       {EnrolledData.map(<span class="fstat-no" title="function not covered" >(d</span>ata, index)=&gt;
 <span class="cstat-no" title="statement not covered" >          &lt;EnrolledCard </span>
            key = {index}
@@ -176,7 +176,7 @@ export default CourseList;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 31 2022 21:40:32 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 06 2022 00:46:53 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>
