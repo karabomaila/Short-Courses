@@ -4,7 +4,6 @@ import './index.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { DataProvider } from './components/DataContext';
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig";
@@ -20,13 +19,11 @@ import { msalConfig } from "./authConfig";
   */
 
 ReactDOM.render(
-  <DataProvider>
     <React.StrictMode>
     <MsalProvider instance={msalInstance}>
     <App />
     </MsalProvider>
   </React.StrictMode>
-  </DataProvider>
   ,
   document.getElementById('root')
 );
