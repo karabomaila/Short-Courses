@@ -1,4 +1,3 @@
-import { FaUserCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import * as React from "react";
 import Menu from "@mui/material/Menu";
@@ -6,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 
-function Profile(props) {
+function Profile() {
   const navigator = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -18,7 +17,7 @@ function Profile(props) {
   };
 
   const { instance,accounts } = useMsal();
-  // console.log(accounts)
+  
   const [namee,setNamee] = React.useState(null);
   const [char, setChar] = useState("");
   React.useEffect(()=>{
