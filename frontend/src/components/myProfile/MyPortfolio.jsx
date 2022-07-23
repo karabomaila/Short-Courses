@@ -23,8 +23,6 @@ const MyPortfolio = (props) =>{
         userID = state.acc[0].username;
     }
 
-    
-    
 
     const getBio = async () =>{
         const bioRef = doc(db, "About", userID);
@@ -33,7 +31,6 @@ const MyPortfolio = (props) =>{
         setBio(fields.bio.stringValue);
     }
     
-
     const courseCollection = collection(db, "FinCourses");
     const commCollection = collection(db, "Comments");
     const [displayWindow, setDisplay] = useState(true);

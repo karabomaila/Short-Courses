@@ -1,12 +1,9 @@
-const express = require("express");
-const { pool } = require("./db");
-const app = express();
-const cors = require("cors");
-const { async } = require("validate.js");
+import cors from 'cors';
+import express from 'express';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore'
-import { db } from '../frontend/src/components/firebase-config';
+import { db } from './Firebase/firebase-config.js';
 
-
+const app = express();
 //to be updated for sso 
 // middleware
 app.use(express.json());
