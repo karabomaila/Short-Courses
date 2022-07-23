@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CardViewList from './CardViewList';
+import axios from 'axios';
 import Navigation from './navigation';
+import { useState } from 'react';
 
 function Explore(props) {
+
+  const [allCourses, setAllCourses] = useState([]);
+  useEffect(()=>{
+    getAllCourses();
+  }, [allCourses, setAllCourses]);
+
+  // fetch all courses from the backend...
+  const getAllCourses = ()=>{
+      axios.get("/getAllCourses")
+      .then((response) => {setAllCourses(response.data)})
+      .catch();
+  }
   
   return ( 
-
     <div style = {styles.Main}>
         <Navigation user={props.user}/>
         <p style = {styles.Text}>EXPLORE</p>
-        <CardViewList/>
+        <CardViewList allCourses = {allCourses}/>
     </div>
-   
-    
-);
+    );
 }
 
 const styles = {

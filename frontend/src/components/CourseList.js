@@ -1,23 +1,18 @@
-import { Container, Row, Col } from "react-bootstrap";
-import Course from "./EnrolledCourse";
-import DataContext from "./DataContext";
-import EnrolledCard from './CoursesUI/EnrolledCard';
+import EnrolledCard from "./CoursesUI/EnrolledCard";
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
-
+import UserDataContext from "./ContextAPI/UserDataContext";
 
 function CourseList(props) {
-   //const data = useContext(DataContext);
+  const {user} = useContext(UserDataContext);
   const [EnrolledData, setEnrolledData] = useState([]);
 
+
   useEffect(() => {
-    
-    var temp = { user_id: props.user[0].username.split("@")[0] };
-
-
+    var temp = { user_id: user[0].username.split("@")[0] };
     axios
-      .post("http://localhost:5000/enrolled", temp)
+      .post("/enrolled", temp)
       .then((res) => {
         console.log(res.data);
         setEnrolledData(res.data);
@@ -27,24 +22,28 @@ function CourseList(props) {
       });
   }, [setEnrolledData]);
 
-  console.log(EnrolledData);
 
   return (
-
-    <div data-testid = 'course-list-div' style = {{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', marginTop: 55}}>
-      {EnrolledData.map((data, index)=>
-          <EnrolledCard 
-            key = {index}
-           image1={data.picture_1}
-           description={data.crs_description}
-           name={data.crs_name}
-           crs_id={data.crs_id}
-           user={props.user}
-          />
-      )}
+    <div
+      data-testid="course-list-div"
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+        flexWrap: "wrap",
+        marginTop: 55,
+      }}
+    >
+      {EnrolledData.map((data, index) => (
+        <EnrolledCard
+          key={index}
+          image1={data.picture_1}
+          description={data.crs_description}
+          name={data.crs_name}
+          crs_id={data.crs_id}
+          
+        />
+      ))}
     </div>
-
-    
   );
 }
 export default CourseList;

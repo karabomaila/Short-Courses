@@ -2,27 +2,22 @@ import { useContext, useEffect,useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import CardView from "./cardView";
 import { Box, CircularProgress } from "@mui/material";
-import DataContext from "./DataContext";
 import React from "react";
 
 
-function CardViewList(props) {
-  const dataCard = useContext(DataContext);
-  const MyDatabase = dataCard.Data;
-  
+function CardViewList({allCourses}) {
+
+  // keep buffering if the array of data is empty...
   return (
     <Container>
-      {MyDatabase.length !== 0 ? (
+      {allCourses.length !== 0 ? (
         <Row>
-          {MyDatabase.map((data, index) => (
+          {allCourses.map((data, index) => (
             <Col key={index}>
               <CardView
-                image1={data.picture_1}
-                image2={data.picture_1}
-                name={data.crs_name}
-                crs_id={data.crs_id}
-                
-
+                images = {data.images}
+                name = {data.name}
+                crs_id = {data.courseID}
               />
             </Col>
           ))}

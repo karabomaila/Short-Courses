@@ -49,7 +49,51 @@ const props = {
     ],
   };
 
-test("Drag", () => {
+// test("Drag", () => {
+//     const { getByTestId } = render(
+//         <BrowserRouter>
+//             <Main {...props} />
+//         </BrowserRouter>);
+
+//     let id = 1653242197288
+    
+//     const element1 = getByTestId("firstAcc");
+//     const element2 = getByTestId("secondAcc");
+//     const imageItem = getByTestId("1image");
+    
+
+//     fireEvent.click(element1)
+//     fireEvent.click(element2)
+//     fireEvent.click(imageItem)
+
+//     const x = getByTestId("x")
+//     const y = getByTestId("y")
+//     const width = getByTestId("width")
+//     const height = getByTestId("height")
+
+//     fireEvent.change(x,{target:{value:"0"}});
+//     fireEvent.change(y,{target:{value:"0"}});
+//     fireEvent.change(width,{target:{value:"250"}});
+//     fireEvent.change(height,{target:{value:"250"}});
+
+//     const image = getByTestId(id);
+
+
+//     expect(x.textContent).toBe("0")
+//     expect(y.textContent).toBe("0")
+//     expect(width.textContent).toBe("250")
+//     expect(height.textContent).toBe("250")
+
+//     expect(image.style.width).toBe("250px")
+//     expect(image.style.height).toBe("250px")
+//     expect(image.style.left).toBe("0px")
+//     expect(image.style.top).toBe("0px")
+
+    
+
+// });
+
+test("Drag2", async () => {
     const { getByTestId } = render(
         <BrowserRouter>
             <Main {...props} />
@@ -78,6 +122,8 @@ test("Drag", () => {
 
     const image = getByTestId(id);
 
+    fireEvent.mouseDown(image, { clientX: 162, clientY: 302 })
+
 
     expect(x.textContent).toBe("0")
     expect(y.textContent).toBe("0")
@@ -92,3 +138,5 @@ test("Drag", () => {
     
 
 });
+
+
