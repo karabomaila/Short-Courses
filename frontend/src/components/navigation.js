@@ -17,6 +17,7 @@ import { callMsGraph } from "../graph";
 import { loginRequest } from "../authConfig";
 import SignInButton from "./SSO/SignInButton";
 import { useState, useEffect } from "react";
+import { UserDataContext } from "./ContextAPI/UserDataContext";
 
 function Navigation(props) {
   const isAuthenticated = useIsAuthenticated();
@@ -25,22 +26,34 @@ function Navigation(props) {
   const [name, setName] = useState(null);
   const { instance, accounts } = useMsal();
 
+  const {account, setAccount} = useContext(UserDataContext);
+
+  const onMyCourses = ()=>{
+    console.log(account);
+    navigate("/MyCourses", { state: { user: accounts } });
+  }
+
+  useEffect(()=>{
+
+    const setUser = ()=>{
+      setAccount(accounts[0]);
+    }
+    
+    setUser();
+  }, []);
+
   return (
     <Navbar expand="lg" variant="dark" style={{ background: "#007377" }}>
       <Container fluid>
-        {isAuthenticated ? (
-          <Profile name={name} />
-        ) : (
-          <SignInButton setName={setName} />
-        )}
+        {isAuthenticated ? (<Profile name={name} /> ) : (<SignInButton setName={setName} />)}
+
         {/* <Navbar.Brand href="#"><Profile name={props.user.first_name}/></Navbar.Brand> */}
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
+            navbarScroll>
             {isAuthenticated ? (
               <>
                 <Button
@@ -48,25 +61,15 @@ function Navigation(props) {
                   variant="outline-light"
                   style={{ marginRight: "15px" }}
                   size="sm"
-                  onClick={() => {
-                    // console.log(graphData);
-                    // alert("hi");
-                    navigate("/MyCourses", { state: { user: accounts } });
-                  }}
-                >
-                  My Courses
-                </Button>
+                  onClick={onMyCourses}>My Courses</Button>
+
                 <Button
                   data-testid="enrolledBtn"
                   variant="outline-light"
                   size="sm"
-                  onClick={() => {
-                    // console.log(graphData);
-                    navigate("/Enrolled", { state: { user: accounts } });
-                  }}
-                >
-                  Enrolled
-                </Button>
+                  onClick={() => {navigate("/Enrolled", { state: { user: accounts } });
+                  }}>Enrolled</Button>
+
               </>
             ) : null}
           </Nav>
@@ -81,15 +84,7 @@ function Navigation(props) {
                 dataNav.getValue(event.target.value);
               }}
             />
-            <Button
-              data-testid="searchBtn"
-              variant="dark"
-              onClick={(event) => {
-                dataNav.getValue(event.target.value);
-              }}
-            >
-              Search
-            </Button>
+            
           </Form>
         </Navbar.Collapse>
       </Container>
