@@ -2,6 +2,10 @@ const express = require("express");
 const { pool } = require("./db");
 const app = express();
 const cors = require("cors");
+const { async } = require("validate.js");
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore'
+import { db } from '../frontend/src/components/firebase-config';
+
 
 //to be updated for sso 
 // middleware
@@ -10,18 +14,22 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
+const getData = async()=>{
+  const usersCollectionRef = collection(db, 'courses');
 
-app.get("/users", (req, res) => {
-  pool.query(`SELECT * FROM users`, (err, results) => {
-    if (err) {
-      res.status(400); 
-      throw err;
-    }
-    res.status(202);
+  const data = await getDocs(usersCollectionRef);
+
+  return data
+}
 
 
-    res.send(results.rows);
-  });
+app.get("/getAllCourses", (req, res) => {
+
+  const data = getData();
+
+  res.send(data);
+
+  
 });
 
 app.post("/users/register", (req, res) => {
