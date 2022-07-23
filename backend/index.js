@@ -15,7 +15,7 @@ app.use(cors());
 const PORT = process.env.PORT || 5000;
 
 const getData = async()=>{
-  const usersCollectionRef = collection(db, 'courses');
+  const usersCollectionRef = collection(db, 'slides');
 
   const data = await getDocs(usersCollectionRef);
 
