@@ -44,9 +44,6 @@ function Course(props) {
     setImageURL(tmpImages[0].url);
   };
 
-  // useEffect(() => {
-
-  // }, [setBackUpImageURL]);
 
   useEffect(async () => {
     const storage = getStorage();
