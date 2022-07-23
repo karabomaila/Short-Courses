@@ -1,6 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Course from "./EnrolledCourse";
-import DataContext from "./DataContext";
 import EnrolledCard from './CoursesUI/EnrolledCard';
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
