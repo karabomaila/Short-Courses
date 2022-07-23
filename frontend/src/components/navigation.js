@@ -26,21 +26,19 @@ function Navigation(props) {
   const [name, setName] = useState(null);
   const { instance, accounts } = useMsal();
 
-  const {account, setAccount} = useContext(UserDataContext);
+  const {user, setUser} = useContext(UserDataContext);
 
   const onMyCourses = ()=>{
-    console.log(account);
     navigate("/MyCourses", { state: { user: accounts } });
   }
 
   useEffect(()=>{
-
-    const setUser = ()=>{
-      setAccount(accounts[0]);
-    }
-    
-    setUser();
-  }, []);
+      const obj = {
+        userID: accounts[0].username,
+        name: accounts[0].name
+      }
+      setUser(obj);
+  }, [user, setUser]);
 
   return (
     <Navbar expand="lg" variant="dark" style={{ background: "#007377" }}>
@@ -67,7 +65,7 @@ function Navigation(props) {
                   data-testid="enrolledBtn"
                   variant="outline-light"
                   size="sm"
-                  onClick={() => {navigate("/Enrolled", { state: { user: accounts } });
+                  onClick={() => {navigate("/Enrolled");
                   }}>Enrolled</Button>
 
               </>

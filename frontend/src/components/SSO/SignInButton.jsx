@@ -10,7 +10,7 @@ import { UserDataContext } from "../ContextAPI/UserDataContext";
  * Renders a drop down button with child buttons for logging in with a popup or redirect
  */
 const SignInButton = (props) => {
-  const { instance, accounts } = useMsal();
+  const { instance, accounts} = useMsal();
 
   const handleLogin = () => {
     instance.loginPopup(loginRequest).catch((e) => {});

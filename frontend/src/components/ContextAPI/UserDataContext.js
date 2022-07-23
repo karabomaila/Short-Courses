@@ -6,10 +6,10 @@ export const UserDataContext = createContext();
 function UserDataContextProvider(props){
 
     // data about the user account...
-    const [account, setAccount] = useState();
+    const [user, setUser] = useState();
 
     return(
-        <UserDataContext.Provider value={{account, setAccount}}>
+        <UserDataContext.Provider value={{user, setUser}}>
             {props.children}
         </UserDataContext.Provider>
     )
