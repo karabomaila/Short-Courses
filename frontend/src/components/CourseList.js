@@ -7,9 +7,8 @@ import axios from "axios";
 import React from "react";
 
 
-
 function CourseList(props) {
-  // const data=useContext(DataContext);
+   //const data = useContext(DataContext);
   const [EnrolledData, setEnrolledData] = useState([]);
 
   useEffect(() => {
@@ -28,12 +27,14 @@ function CourseList(props) {
       });
   }, [setEnrolledData]);
 
+  console.log(EnrolledData);
+
   return (
 
     <div data-testid = 'course-list-div' style = {{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', marginTop: 55}}>
       {EnrolledData.map((data, index)=>
           <EnrolledCard 
-           key = {index}
+            key = {index}
            image1={data.picture_1}
            description={data.crs_description}
            name={data.crs_name}

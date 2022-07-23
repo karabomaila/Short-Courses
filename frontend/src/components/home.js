@@ -4,21 +4,31 @@ import Navigation from "./navigation";
 import React from "react";
 
 function Home(props) {
+
     return ( 
+
+        <div style = {styles.Main}>
+            <Navigation user={props.user}/>
+            <p style = {styles.Text}>EXPLORE</p>
+            <CardViewList/>
+        </div>
        
-        <Container fluid className="justify-content-center">
-            <Row>
-                <Navigation user={props.user}/>
-            </Row>
-            <Row className="justify-content-md-center">
-                <Col xs lg="2">  </Col>
-                <Col md="auto"><h2 data-testid="explore">EXPLORE</h2></Col>
-                <Col xs lg="2">  </Col>
-            </Row>
-            <Row>
-                <CardViewList/>
-            </Row>
-        </Container>
+        
     );
 }
+
+const styles = {
+   Main:{
+    display: 'flex',
+    flexDirection: 'column'
+
+   },
+   Text:{
+        fontWeight: '400',
+        fontSize: 22,
+        marginLeft: 12,
+        color: 'gray'
+   }
+}
+
 export default Home;
