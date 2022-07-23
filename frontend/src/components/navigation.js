@@ -8,7 +8,6 @@ import {
 } from "react-bootstrap";
 import "./navigation.css";
 import Profile from "./profile";
-import DataContext from "./DataContext";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useIsAuthenticated } from "@azure/msal-react";
@@ -19,7 +18,6 @@ import { UserDataContext } from "./ContextAPI/UserDataContext";
 
 function Navigation() {
   const isAuthenticated = useIsAuthenticated();
-  const dataNav = useContext(DataContext);
   const navigate = useNavigate();
   const [name, setName] = useState(null);
   const { instance, accounts } = useMsal();
@@ -80,7 +78,7 @@ function Navigation() {
               className="me-2"
               aria-label="Search"
               onChange={(event) => {
-                dataNav.getValue(event.target.value);
+               
               }}
             />
             

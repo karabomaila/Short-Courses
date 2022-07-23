@@ -1,7 +1,7 @@
 import { Card, Button, Carousel } from "react-bootstrap";
 import GetInfo from "./AboutCourse/GetInfo";
 import "./CardView.css";
-import { getDownloadURL, ref, getStorage } from "@firebase/storage";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useIsAuthenticated } from "@azure/msal-react";
