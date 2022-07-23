@@ -23,7 +23,7 @@ function Course(props) {
   const [ description,setDescription] = useState(props.description);
 
   const lindo = async () => {
-    const q = query(slidesCollectionRef, where("courseID", "==", props.crs_id));
+    const q = query(slidesCollectionRef, where("courseID", "===", props.crs_id));
     const data = await getDocs(q);
 
     let tmp = data.docs[0]._document.data.value.mapValue.fields;

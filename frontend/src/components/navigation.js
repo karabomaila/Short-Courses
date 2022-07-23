@@ -17,7 +17,7 @@ import SignInButton from "./SSO/SignInButton";
 import { useState, useEffect } from "react";
 import { UserDataContext } from "./ContextAPI/UserDataContext";
 
-function Navigation(props) {
+function Navigation() {
   const isAuthenticated = useIsAuthenticated();
   const dataNav = useContext(DataContext);
   const navigate = useNavigate();
@@ -27,10 +27,11 @@ function Navigation(props) {
   const {user, setUser} = useContext(UserDataContext);
 
   const onMyCourses = ()=>{
-    navigate("/MyCourses", { state: { user: accounts } });
+    navigate("/MyCourses");
   }
 
   useEffect(()=>{
+    // Update the user data once the is signed in...
     if(isAuthenticated){
       const obj = {
         userID: accounts[0].username,
@@ -46,7 +47,6 @@ function Navigation(props) {
       <Container fluid>
         {isAuthenticated ? (<Profile name={name} /> ) : (<SignInButton setName={setName} />)}
 
-        {/* <Navbar.Brand href="#"><Profile name={props.user.first_name}/></Navbar.Brand> */}
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
