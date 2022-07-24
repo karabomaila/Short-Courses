@@ -32,17 +32,17 @@ function CourseNav(props) {
             variant="outline-light"
             size="sm"
             style={{ marginRight: '10px' }}
-            onClick={() => navigate('/', { state: { user: props.user } })}>Home</Button>
+            onClick={() => navigate('/')}>Home</Button>
           <Button
             data-testid="enrolledBtn"
             variant="outline-light"
             size="sm" style={{ marginRight: '10px' }}
-            onClick={() => navigate('/Enrolled', { state: { user: props.user } })}>Enrolled</Button>
+            onClick={() => navigate('/Enrolled')}>Enrolled</Button>
           <Button
             data-testid="myCoursesBtn"
             variant="outline-light"
             size="sm"
-            onClick={() => navigate('/MyCourses', { state: { user: props.user } })}>MyCourses</Button>
+            onClick={() => navigate('/MyCourses')}>MyCourses</Button>
 
 
         </Nav>

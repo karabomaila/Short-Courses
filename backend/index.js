@@ -1,53 +1,64 @@
-import cors from 'cors';
-import express from 'express';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore'
-import { db } from './firebase-config.js';
+import cors from "cors";
+import express from "express";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
+import { db } from "./firebase-config.js";
 
 const app = express();
-//to be updated for sso 
+//to be updated for sso
 // middleware
 app.use(express.json());
 app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
-const getData = async ()=>{
-  const usersCollectionRef = collection(db, 'slides');
+const getData = async () => {
+  const usersCollectionRef = collection(db, "slides");
+  try {
+    const data = await getDocs(usersCollectionRef);
+    // console.log(data);
 
-  const data = await getDocs(usersCollectionRef);
-  // console.log(data);
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
 
-  return data
-}
+  return null;
+};
 
-app.get("/getAllCourses", async(req, res) => {
+app.get("/getAllCourses", async (req, res) => {
   const response = [];
 
   const data = await getData();
-  
-  data.forEach((doc)=>{
-   response.push(doc.data());
-  })
 
-  res.send(response);
+  if (data === null) {
+  } else {
+    data.forEach((doc) => {
+      response.push(doc.data());
+    });
 
-  
+    res.send(response);
+  }
 });
-
-
 
 app.get("/users", (req, res) => {
   pool.query(`SELECT * FROM users`, (err, results) => {
     if (err) {
-      res.status(400); 
+      res.status(400);
       throw err;
     }
     res.status(202);
 
-
     res.send(results.rows);
   });
-z});
+  z;
+});
 
 app.post("/users/register", (req, res) => {
   // get the details from request body.
@@ -106,22 +117,23 @@ app.post("/enroll", (req, res) => {
   // console.log(course_id);
   // console.log(user_id);
 
-  pool.query(`INSERT INTO enroll (crs_code, user_id)
+  pool.query(
+    `INSERT INTO enroll (crs_code, user_id)
   VALUES ($1, $2)`,
-[course_id,2381410], (err, results) => {
-    if (err) {
-      // res.status(400); 
-      console.log(err);
-      throw err;
-    }else{
-      console.log(results);
+    [course_id, 2381410],
+    (err, results) => {
+      if (err) {
+        // res.status(400);
+        console.log(err);
+        throw err;
+      } else {
+        console.log(results);
+      }
+      // res.status(202);
+
+      // res.send(results.rows);
     }
-    // res.status(202);
-
-
-    // res.send(results.rows);
-  });
-  
+  );
 
   //check if user is registered
   pool.query(
@@ -136,7 +148,6 @@ app.post("/enroll", (req, res) => {
 
       // not registered, register by force
       else if (results.rows.length == 0) {
-        
         pool.query(
           `INSERT INTO users (user_id , password, first_name)
                 VALUES ($1, $2, $3)`,
@@ -150,9 +161,8 @@ app.post("/enroll", (req, res) => {
           }
         );
         // we in by force
-      }else{
-        console.log("ingenile2")
-
+      } else {
+        console.log("ingenile2");
       }
 
       pool.query(
@@ -222,8 +232,7 @@ app.post("/enrolled", (req, res) => {
     (error, results) => {
       if (!error) {
         const data = []; // will add every object here
-        console.log(results)
-
+        console.log(results);
 
         // number of caurses the user is taking
         for (let i = 0; i < results.rowCount; i++) {
@@ -237,19 +246,18 @@ app.post("/enrolled", (req, res) => {
                 data.push(result.rows[0]); // adding all the enrolled course to one json
 
                 if (i == results.rowCount - 1) {
-
                   res.send(data);
                 }
               } else {
                 console.log(err.message);
-                console.log("hi")
+                console.log("hi");
               }
             }
           );
         }
       } else {
         console.log(err.message);
-        console.log("hiHi")
+        console.log("hiHi");
       }
     }
   );
@@ -292,12 +300,7 @@ app.post("/CreateCourse", (req, res) => {
 
   pool.query(
     data,
-    [
-      req.body.user_id,
-      "description",
-      req.body.crs_id,
-      req.body.crs_name,
-    ],
+    [req.body.user_id, "description", req.body.crs_id, req.body.crs_name],
     (err, results) => {
       if (err) {
         // course was not created

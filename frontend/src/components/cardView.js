@@ -1,7 +1,7 @@
 import { Card, Button, Carousel } from "react-bootstrap";
 import GetInfo from "./AboutCourse/GetInfo";
 import "./CardView.css";
-
+import "../App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useIsAuthenticated } from "@azure/msal-react";
@@ -28,6 +28,8 @@ function CardView(props) {
   const { instance, accounts } = useMsal();
   const isAuthenticated = useIsAuthenticated();
 
+  useEffect(()=>{console.log(props)},[])
+
   const handleClick = (event) => {
     event.preventDefault();
 
@@ -47,23 +49,30 @@ function CardView(props) {
     <div className="my-3 ">
       <Card style={{ width: "18rem" }}>
         <Carousel variant="dark">
-          
-          {props.images.map((image) => (
+          {props.images.length > 0 ? (
             <Carousel.Item>
-              <img
-              key={image.url}
-                style={{
-                  maxHeight: "300px",
-                  minHeight: "300px",
-                  maxWeight: "200px",
-                  minWeight: "200px",
-                }}
-                className="d-block w-100"
-                src={image.url}
-                alt="Second view"
-              />
+              <div className="circle">{props.images.length}</div>
             </Carousel.Item>
-          ))}
+          ) : (
+            <>
+              {props.images.map((image) => (
+                <Carousel.Item>
+                  <img
+                    key={image.url}
+                    style={{
+                      maxHeight: "300px",
+                      minHeight: "300px",
+                      maxWeight: "200px",
+                      minWeight: "200px",
+                    }}
+                    className="d-block w-100"
+                    src={image.url}
+                    alt="Second view"
+                  />
+                </Carousel.Item>
+              ))}
+            </>
+          )}
         </Carousel>
         <Card.Body className="justify-content-center">
           <Card.Title>{props.name}</Card.Title>

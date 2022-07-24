@@ -36,6 +36,7 @@ function Navigation() {
         name: accounts[0].name
       }
       setUser(obj);
+      console.log("Hey");
     }
       
   }, [user, setUser]);

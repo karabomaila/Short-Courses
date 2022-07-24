@@ -9,7 +9,7 @@ const EnrolledAppBar = (props) => {
   return (
     <AppBar style={{display: 'flex', backgroundColor: '#007377',textAlign: 'center'}}>
       <Container  style={{display: 'flex', flexDirection: 'row',textAlign: 'center'}}>
-          <CourseNav modal ={props.modal} user={props.user}/>
+          <CourseNav modal ={props.modal}/>
           <Typography variant="h3" style={{padding:'5px',marginLeft:'200px'}}>{props.title}</Typography>
       </Container>
     </AppBar>
