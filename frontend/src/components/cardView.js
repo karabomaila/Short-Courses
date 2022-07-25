@@ -28,7 +28,9 @@ function CardView(props) {
   const { instance, accounts } = useMsal();
   const isAuthenticated = useIsAuthenticated();
 
-  useEffect(()=>{console.log(props)},[])
+  useEffect(() => {
+    console.log(props.images);
+  }, []);
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -48,32 +50,39 @@ function CardView(props) {
   return (
     <div className="my-3 ">
       <Card style={{ width: "18rem" }}>
-        <Carousel variant="dark">
-          {props.images.length > 0 ? (
-            <Carousel.Item>
-              <div className="circle">{props.images.length}</div>
-            </Carousel.Item>
-          ) : (
-            <>
-              {props.images.map((image) => (
-                <Carousel.Item>
-                  <img
-                    key={image.url}
-                    style={{
-                      maxHeight: "300px",
-                      minHeight: "300px",
-                      maxWeight: "200px",
-                      minWeight: "200px",
-                    }}
-                    className="d-block w-100"
-                    src={image.url}
-                    alt="Second view"
-                  />
-                </Carousel.Item>
-              ))}
-            </>
-          )}
-        </Carousel>
+        {props.images.length > 0 ? (
+          <Carousel variant="dark">
+            {props.images.map((image, index) => (
+              <Carousel.Item>
+                <img
+                  key={image.url}
+                  style={{
+                    maxHeight: "300px",
+                    minHeight: "300px",
+                    maxWeight: "200px",
+                    minWeight: "200px",
+                  }}
+                  className="d-block w-100"
+                  src={image.url}
+                  alt="Second view"
+                />
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        ) : (
+          <div
+            style={{
+              maxHeight: "300px",
+              minHeight: "300px",
+              maxWeight: "200px",
+              minWeight: "200px",
+              
+            }}
+          >
+            <div className="circle">props.name[0]</div>
+          </div>
+        )}
+
         <Card.Body className="justify-content-center">
           <Card.Title>{props.name}</Card.Title>
           <Button variant="primary" onClick={handleClick}>
