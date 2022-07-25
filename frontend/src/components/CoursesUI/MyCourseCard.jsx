@@ -7,7 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
 import { useState, useEffect } from "react";
 
-const MyCourseCard = ({courseName, courseID, images}) => {
+const MyCourseCard = ({courseName, courseID, images, openDel, setOpenDel}) => {
   
     return(
         <div style = {MainStyle} data-testid = "my-ui-div">
@@ -53,7 +53,11 @@ const MyCourseCard = ({courseName, courseID, images}) => {
                 click = 'view'/>
                 <Actions title = 'Edit' click = 'edit'/>
                 
-                <ActionDel title = 'Del' click = 'del'/>
+                <ActionDel 
+                openDel = {openDel}
+                setOpenDel = {setOpenDel}
+                title = 'Del' 
+                click = 'del'/>
             </div>
     </div>
   );

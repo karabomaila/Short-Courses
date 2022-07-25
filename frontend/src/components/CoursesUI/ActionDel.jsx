@@ -2,8 +2,16 @@ import { Button } from '@mui/material';
 import React from 'react';
 
 const ActionDel = (props)=>{
+
+    const onDelete = ()=>{
+        props.setOpenDel(true);
+    }
+
     return(
-        <Button variant = 'outlined' style = {Style} >{props.title}</Button>
+        <Button 
+        onClick={onDelete}
+        variant = 'outlined' 
+        style = {Style}>{props.title}</Button>
     )
 }
 
