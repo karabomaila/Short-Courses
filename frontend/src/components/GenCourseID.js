@@ -1,24 +1,22 @@
 /*
-    Require this file
-    call the function
-    and pass in the the arguments
-
+    -> Generate unique ID for a course... 
 */
-
 function createID(userID, courseName){
-    let name = courseName.split("");
-    let nameSize = name.length;
-    let midChar;
+    const userIDSplit = userID.split("@");
+    const id = userIDSplit[0];
+    const sec = new Date().getTime();
+    let courseID = "";
 
-    if(nameSize % 2 == 0){
-        midChar = name[nameSize / 2];
+    const len = courseName.length;
+    const courseNameSplit = courseName.split(" ");
+    if(courseNameSplit.length > 1){
+        courseID = id + courseNameSplit[0][0].toUpperCase() + courseNameSplit[1][0].toUpperCase() + sec;
     }else{
-        midChar = name[Math.floor(nameSize / 2)];
+        courseID = id + courseNameSplit[0][0].toUpperCase() + courseNameSplit[0][len - 1].toUpperCase() + sec;
     }
     
-    let ID = userID + Math.floor((Math.random() * 10)) + name[0] + midChar + name[nameSize - 1];
-
-    return ID + Math.floor((Math.random() * 10));
+    console.log(courseID);
+    return courseID;
 }
 
 export default createID;
