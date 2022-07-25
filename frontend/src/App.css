@@ -10,9 +10,12 @@
     font-size: 50px;
     color: #000;
     text-align: center;
-    background: rgb(211, 203, 203);
+    background: white;
     margin: 20% auto;
     font-size: 100px;
-
-
+    color:#007377;
+    border: 5px solid #007377;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
   }

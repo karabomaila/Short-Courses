@@ -4,7 +4,7 @@ import EnrolledCard from './CoursesUI/EnrolledCard';
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
-import UserDataContext from "./ContextAPI/UserDataContext";
+import {UserDataContext} from "./ContextAPI/UserDataContext";
 
 function CourseList(props) {
   const {user} = useContext(UserDataContext);
@@ -12,7 +12,8 @@ function CourseList(props) {
 
 
   useEffect(() => {
-    var temp = { user_id: user[0].username.split("@")[0] };
+    console.log(user);
+    var temp = { user_id: user.userID.split("@")[0] };
     axios
       .post("/enrolled", temp)
       .then((res) => {

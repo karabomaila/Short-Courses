@@ -3,13 +3,14 @@ import CardViewList from './CardViewList';
 import axios from 'axios';
 import Navigation from './navigation';
 import { useState } from 'react';
+// import UserDataContext from './ContextAPI/UserDataContext';
 
 function Explore(props) {
 
   const [allCourses, setAllCourses] = useState([]);
   useEffect(()=>{
     getAllCourses();
-  }, [allCourses, setAllCourses]);
+  }, []);
 
   // fetch all courses from the backend...
   const getAllCourses = ()=>{

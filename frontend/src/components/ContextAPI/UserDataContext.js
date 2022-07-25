@@ -6,7 +6,7 @@ export const UserDataContext = createContext();
 function UserDataContextProvider(props){
 
     // data about the user account...
-    const [user, setUser] = useState();
+    const [user, setUser] = useState(null);
 
     return(
         <UserDataContext.Provider value={{user, setUser}}>

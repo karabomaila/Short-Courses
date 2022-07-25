@@ -29,6 +29,7 @@ function Navigation() {
   }
 
   useEffect(()=>{
+    console.log(isAuthenticated);
     // Update the user data once the is signed in...
     if(isAuthenticated){
       const obj = {
@@ -36,10 +37,9 @@ function Navigation() {
         name: accounts[0].name
       }
       setUser(obj);
-      console.log("Hey");
     }
       
-  }, [user, setUser]);
+  }, [isAuthenticated]);
 
   return (
     <Navbar expand="lg" variant="dark" style={{ background: "#007377" }}>
