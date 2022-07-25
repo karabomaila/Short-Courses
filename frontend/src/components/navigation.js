@@ -15,6 +15,7 @@ import { useMsal } from "@azure/msal-react";
 import SignInButton from "./SSO/SignInButton";
 import { useState, useEffect } from "react";
 import { UserDataContext } from "./ContextAPI/UserDataContext";
+import axios from "axios";
 
 function Navigation() {
   const isAuthenticated = useIsAuthenticated();
@@ -32,6 +33,7 @@ function Navigation() {
     console.log(isAuthenticated);
     // Update the user data once the is signed in...
     if(isAuthenticated){
+      axios.post("/newUser", {userID: accounts[0].username}).then(res=>{}).then(err=>{});
       const obj = {
         userID: accounts[0].username,
         name: accounts[0].name
