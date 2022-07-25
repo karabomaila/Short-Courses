@@ -9,6 +9,7 @@ import {UserDataContext} from "./ContextAPI/UserDataContext";
 function CourseList(props) {
   const {user} = useContext(UserDataContext);
   const [EnrolledData, setEnrolledData] = useState([]);
+  const [noCourses,setNoCourses] = useState(null);
 
 
   useEffect(() => {
@@ -17,8 +18,13 @@ function CourseList(props) {
     axios
       .post("/enrolled", temp)
       .then((res) => {
-        console.log(res.data);
-        setEnrolledData(res.data);
+        if(res.data===0){ 
+          setNoCourses(true);
+        }else{
+          console.log(res.data);
+          setEnrolledData(res.data);
+        }
+        
       })
       .catch((err) => {
         console.log(err);
@@ -35,7 +41,7 @@ function CourseList(props) {
         flexWrap: "wrap",
         marginTop: 55,
       }}
-    >
+    >{noCourses===true && (<div>You're not enrolled in any course</div>)}
       {EnrolledData.map((data, index) => (
         <EnrolledCard
           key={index}
@@ -43,7 +49,6 @@ function CourseList(props) {
           description={data.crs_description}
           name={data.crs_name}
           crs_id={data.crs_id}
-          
         />
       ))}
     </div>

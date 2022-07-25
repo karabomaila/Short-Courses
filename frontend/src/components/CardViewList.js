@@ -16,7 +16,7 @@ function CardViewList({allCourses}) {
             <Col key={index}>
               <CardView
                 images = {data.images}
-                name = {data.name}
+                name = {data.courseName}
                 crs_id = {data.courseID}
               />
             </Col>
