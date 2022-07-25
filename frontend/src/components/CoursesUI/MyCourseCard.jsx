@@ -1,101 +1,58 @@
 import Actions from "./Actions"
 import React from 'react';
 import ActionDel from "./ActionDel";
-import { db } from "../firebase-config";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  where,
-  query,
-  updateDoc,
-  doc,
-} from "@firebase/firestore";
-import {
-  getDownloadURL,
-  ref,
-  uploadBytesResumable,
-  getStorage,
-} from "@firebase/storage";
+import { Card, Button, Carousel } from "react-bootstrap";
+import "../../App.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
 import { useState, useEffect } from "react";
 
-const MyCourseCard = (props) => {
-  const [openAbout, setOpenAbout] = useState(false);
-  const [info, setInfo] = useState([]);
-  const [dataObject, setDataObject] = useState({});
-  const INFO_REF = collection(db, "slides");
-
-  useEffect(() => {
-    const getData = async () => {
-      const data = await getDocs(INFO_REF);
-      setInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    getData();
-  }, []);
-
+const MyCourseCard = ({courseName, courseID, images}) => {
   
-  console.log(props);
-  const slidesCollectionRef = collection(db, "slides");
-  const [description, setDescription] = useState(props.description);
-
-  const navigate = useNavigate();
-
-  var namee = props.name;
-
-  const [imageURL, setImageURL] = useState("");
-
-  const lindo = async () => {
-    const q = query(slidesCollectionRef, where("courseID", "==", props.crs_id));
-    const data = await getDocs(q);
-
-    let tmp = data.docs[0]._document.data.value.mapValue.fields;
-    setDescription(tmp.description.stringValue);
-
-    let tmpImages = [];
-    tmp.images.arrayValue.values.map((curr) => {
-      tmpImages.push({
-        id: curr.mapValue.fields.id.integerValue,
-        url: curr.mapValue.fields.url.stringValue,
-      });
-    });
-    setImageURL(tmpImages[0].url);
-  };
-
-  useEffect(async () => {
-    const storage = getStorage();
-    if (props.image1 === null) {
-      lindo();
-    } else {
-      await getDownloadURL(ref(storage, `Pictures/${props.image1}`)).then(
-        (url) => {
-          //console.log(url)
-          setImageURL(url);
-        }
-      );
-    }
-  }, [setImageURL]);
-
     return(
         <div style = {MainStyle} data-testid = "my-ui-div">
-            <div style = {ImageStyle}>
-                <img src = {imageURL} width = '100%' height = '100%'/>
+           <div style = {ImageStyle}>
+            {images.length > 0 ? (
+          <Carousel variant="dark">
+            {images.map((image, index) => (
+              <Carousel.Item>
+                <img
+                  key={image.url}
+                  style={{
+                    maxHeight: "300px",
+                    minHeight: "300px",
+                    maxWeight: "200px",
+                    minWeight: "200px",
+                  }}
+                  className="d-block w-100"
+                  src={image.url}
+                  alt="Second view"
+                />
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        ) : (
+          <div
+            style={{
+              maxHeight: "300px",
+              minHeight: "300px",
+              maxWeight: "200px",
+              minWeight: "200px",
+              
+            }}
+          >
+            <div className="circle">{courseName[0]}</div>
+          </div>
+        )}
             </div>
-            <div style = {TitleStyle}>{props.name}</div>
+          
+            <div style = {TitleStyle}>{courseName}</div>
             <div style = {ActionStyle}>
                 <Actions title = 'View' 
-                name = {props.name}
-                user = {props.user}
-                crs_id = {props.crs_id}
+                name = {courseName}
                 click = 'view'/>
                 <Actions title = 'Edit' click = 'edit'/>
-                <Actions title = 'Info' 
-                info = {info}
-                setDataObject = {setDataObject}
-                crs_id = {props.crs_id}
-                setOpenAbout = {setOpenAbout}
-                click = 'info'/>
+                
                 <ActionDel title = 'Del' click = 'del'/>
             </div>
 
