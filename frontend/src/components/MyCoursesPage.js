@@ -7,6 +7,7 @@ import axios from "axios";
 import {Button,Dialog, DialogTitle, DialogContent, DialogActions,DialogContentText} from '@mui/material';
 import MyCourseCard from "./CoursesUI/MyCourseCard";
 import { useContext } from "react";
+import CircularProgress from '@mui/material/CircularProgress';
 import { UserDataContext } from "./ContextAPI/UserDataContext";
 import { async } from "@firebase/util";
 
@@ -17,6 +18,7 @@ function MyCourses() {
   const {user} = useContext(UserDataContext);
   const [courses, setCourses] = useState([]);
 
+  const [loader, setLoader] = useState(false);
   const [courseDelID, setCourseDelID] = useState("");
   const [openDel, setOpenDel] = useState(false);
 
@@ -40,9 +42,13 @@ function MyCourses() {
   }
 
   const onDelete = async ()=>{
+      setLoader(true);
       console.log(courseDelID);
       axios.post("/deleteCourse", {courseID: courseDelID})
-      .then((response)=> {setOpenDel(false)})
+      .then((response)=> {
+        setLoader(false);
+        setOpenDel(false);
+      })
       .catch((err)=> {console.log(err)})
 }
 
@@ -63,6 +69,8 @@ function MyCourses() {
         openDel = {openDel}
         setCourseDelID = {setCourseDelID}
         setOpenDel = {setOpenDel}
+        setLoader = {setLoader}
+        loader = {loader}
         />
       )}
       </div>
@@ -70,14 +78,19 @@ function MyCourses() {
       <Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={openDel} onClose={onClose}>
             <DialogTitle>DELETE COURSE</DialogTitle>
             <DialogContent>
-            <DialogContentText>
-                This action cannot be reversed
-            </DialogContentText>
             </DialogContent>
-            <DialogActions>
-                <Button variant = 'text' onClick={onClose}>Cancel</Button>
-                <Button variant = 'text' onClick={onDelete}>Delete</Button>
-            </DialogActions>
+            {!loader ?
+                 <DialogActions>
+                 <Button variant = 'text' onClick={onClose}>Cancel</Button>
+                 <Button variant = 'text' onClick={onDelete}>Delete</Button>
+             </DialogActions>
+             :
+              <div style = {{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: 12}}>
+                  <CircularProgress />
+              </div>
+              
+            }
+           
       </Dialog>
 
       <Fab
