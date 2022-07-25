@@ -8,6 +8,7 @@ import {Button,Dialog, DialogTitle, DialogContent, DialogActions,DialogContentTe
 import MyCourseCard from "./CoursesUI/MyCourseCard";
 import { useContext } from "react";
 import { UserDataContext } from "./ContextAPI/UserDataContext";
+import { async } from "@firebase/util";
 
 
 function MyCourses() {
@@ -16,6 +17,7 @@ function MyCourses() {
   const {user} = useContext(UserDataContext);
   const [courses, setCourses] = useState([]);
 
+  const [courseDelID, setCourseDelID] = useState("");
   const [openDel, setOpenDel] = useState(false);
 
   useEffect(async()=>{
@@ -37,6 +39,13 @@ function MyCourses() {
     setOpenDel(false);
   }
 
+  const onDelete = async ()=>{
+      console.log(courseDelID);
+      axios.post("/deleteCourse", {courseID: courseDelID})
+      .then((response)=> {setOpenDel(false)})
+      .catch((err)=> {console.log(err)})
+}
+
   const [fullWidth, setFullWidth] = React.useState(true);
   const [maxWidth, setMaxWidth] = React.useState('sm');
 
@@ -48,10 +57,11 @@ function MyCourses() {
       {courses.map((course, index)=>
         <MyCourseCard 
         key = {index}
-        ourseID = {course.courseID}
+        courseID = {course.courseID}
         courseName = {course.courseName}
         images = {course.images}
         openDel = {openDel}
+        setCourseDelID = {setCourseDelID}
         setOpenDel = {setOpenDel}
         />
       )}
@@ -66,7 +76,7 @@ function MyCourses() {
             </DialogContent>
             <DialogActions>
                 <Button variant = 'text' onClick={onClose}>Cancel</Button>
-                <Button variant = 'text' onClick={onClose}>Delete</Button>
+                <Button variant = 'text' onClick={onDelete}>Delete</Button>
             </DialogActions>
       </Dialog>
 

@@ -5,6 +5,7 @@ const ActionDel = (props)=>{
 
     const onDelete = ()=>{
         props.setOpenDel(true);
+        props.setCourseDelID(props.courseID);
     }
 
     return(

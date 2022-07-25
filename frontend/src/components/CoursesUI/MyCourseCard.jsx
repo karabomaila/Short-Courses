@@ -1,13 +1,13 @@
 import Actions from "./Actions"
 import React from 'react';
 import ActionDel from "./ActionDel";
-import { Card, Button, Carousel } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import "../../App.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
 import { useState, useEffect } from "react";
 
-const MyCourseCard = ({courseName, courseID, images, openDel, setOpenDel}) => {
+const MyCourseCard = ({courseName, courseID, images, openDel, setOpenDel, setCourseDelID}) => {
   
     return(
         <div style = {MainStyle} data-testid = "my-ui-div">
@@ -55,6 +55,8 @@ const MyCourseCard = ({courseName, courseID, images, openDel, setOpenDel}) => {
                 
                 <ActionDel 
                 openDel = {openDel}
+                setCourseDelID = {setCourseDelID}
+                courseID = {courseID}
                 setOpenDel = {setOpenDel}
                 title = 'Del' 
                 click = 'del'/>
