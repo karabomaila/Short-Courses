@@ -9,12 +9,15 @@ const Menu = (props) => {
             <img src = {Profile} width = {100} height = {100} style = {ProfileSyle}/>
             <div style = {UserNameStyle} data-testid = "men-name">{props.name}</div>
             <div style = {AboutCourses}>
-                <div style = {CourseTag}>MyCourses 12</div>
-                <div style = {CourseTag}>Enrolled 8</div>
+                <div style = {CourseTag}>MyCourses {props.myCourses}</div>
+                <div style = {CourseTag}>Enrolled {props.enrolled}</div>
             </div >
             <Action title = 'Expose View' 
             setView = {props.setView} 
             click = {'ExposeView'}/>
+            <Action title = 'Personality Test' 
+            setView = {props.setView} 
+            click = {'Test'}/>
             <Action title = 'Notes' 
             setView = {props.setView} 
             click = {'Notes'}/>

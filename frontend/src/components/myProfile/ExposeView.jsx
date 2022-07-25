@@ -1,36 +1,26 @@
 import { TextField } from '@mui/material';
-import { db } from '../firebase-config.jsx';
-import {doc, setDoc, getDoc} from 'firebase/firestore';
 import React from "react";
 import PTestForm from './ExtPerTest/PTestForm';
 import {useState} from 'react';
 import Quiz from './ExtPerTest/Quiz';
 import { useEffect } from 'react';
+import axios from 'axios';
+import { useContext } from 'react';
+import { UserDataContext } from '../ContextAPI/UserDataContext';
 
 
 const ExposeView = (props) =>{
 
-    const [questions, setQuestions] = useState([]);
+    const {user} = useContext(UserDataContext);
+    const [bio, setBio] = useState(props.bio);
     const [modal, setModal] = useState('main');
 
-    useEffect(() => {
-        const getQuestions = async ()=>{
-           let ref = doc(db, 'GlobalData', 'Quiz');
-           const temp = await getDoc(ref);
-           setQuestions(temp._document.data.value.mapValue.fields.Questions.arrayValue.values);
-        }
-        getQuestions();
-    }, [])
-
-    
-    const updateBio = async () =>{
-        let ref = doc(db, 'About', props.userID);
-        setDoc(ref, {bio: props.bio}, {merge: true});
-    }
-
-    const onChange = event => {
-        props.setBio(event.target.value);
-        updateBio();
+    const onChange = async(event) => {
+        const text = event.target.value;
+        setBio(text);
+        axios.post("/updateBio", {userID: user.userID, newBio: text})
+        .then(()=> {})
+        .catch((err)=>{console.log(err)});
     }
    
     return(
@@ -45,10 +35,6 @@ const ExposeView = (props) =>{
             onChange = {onChange}/>
             </div>
            
-            <Quiz modal = {modal} 
-            setModal = {setModal}
-            userID = {props.userID}
-            questions = {questions}/>
             <PTestForm userID = {props.userID}/>
         </div>
     )

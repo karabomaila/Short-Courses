@@ -76,7 +76,9 @@ function MyCourses() {
       </div>
 
       <Dialog fullWidth={fullWidth} maxWidth={maxWidth} open={openDel} onClose={onClose}>
-            <DialogTitle>DELETE COURSE</DialogTitle>
+            <DialogContent>
+                <p style = {{margin: 0, fontWeight: '300', fontSize: 22}}>Delete Course</p>
+            </DialogContent>
             <DialogContent>
             </DialogContent>
             {!loader ?

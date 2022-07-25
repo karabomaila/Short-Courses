@@ -12,7 +12,6 @@ const Display = (props) => {
                 courses = {props.courses} 
                 comments = {props.comments}
                 bio = {props.bio}
-                setBio = {props.setBio}
                 />
             </div>
             );

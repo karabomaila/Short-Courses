@@ -4,9 +4,11 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 import { useMsal } from "@azure/msal-react";
+import { UserDataContext } from "./ContextAPI/UserDataContext";
 
 function Profile() {
   const navigator = useNavigate();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -16,28 +18,25 @@ function Profile() {
     setAnchorEl(null);
   };
 
-  const { instance,accounts } = useMsal();
-  
-  const [namee,setNamee] = React.useState(null);
-  const [char, setChar] = useState("");
+  const [char, setChar] = useState(null);
+  const {setUser} = React.useContext(UserDataContext);
+  const { instance, accounts} = useMsal();
+
+  const onProfile = ()=>{
+    navigator('/MyPortfolio');
+  }
+
   React.useEffect(()=>{
-    setNamee((s)=>{
-      try{
-        setChar(accounts[0].name[0]);
-        return accounts[0].name;
-
-      }
-      catch(e){
-        console.error(e);
-        return '';
-      }
-  
-    })
-
-  },[setNamee]);
+    try{
+        setChar(accounts[0].name[0])
+    }catch(err){
+      console.log(err);
+    }
+  }, []);
   
 
   const handleLogout = () => {
+    setUser(null);
     instance.logoutPopup({
       postLogoutRedirectUri: "/",
       mainWindowRedirectUri: "/",
@@ -60,7 +59,7 @@ function Profile() {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={() => navigator("/MyPortfolio", {state: {acc: accounts, visible: true}})}>Profile</MenuItem>
+        <MenuItem onClick={onProfile}>My Profile</MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </>
