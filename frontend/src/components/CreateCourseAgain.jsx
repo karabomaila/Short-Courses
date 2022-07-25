@@ -14,7 +14,7 @@ import {
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-  const { state } = useLocation();
+  
 
   return (
     <div
@@ -44,7 +44,6 @@ TabPanel.propTypes = {
 export default function CreateCourse() {
   const [value, setValue] = React.useState(0);
   const slidesCollectionRef = collection(db, "slides");
-  const { state } = useLocation();
   const [course, setCourse] = React.useState({});
   
 
@@ -60,7 +59,7 @@ export default function CreateCourse() {
         <Firstpanel handletab={handletab} setCourse={setCourse} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Main handletab={handletab} course={course} user={state.user} />
+        <Main handletab={handletab} course={course} />
       </TabPanel>
     </Box>
   );

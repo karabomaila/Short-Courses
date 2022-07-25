@@ -1,41 +1,46 @@
 import { TextField, Button, Typography, Paper } from "@mui/material";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useContext } from "react";
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
-import Slide from "@mui/material/Slide";
-import CreateID from "./GenCourseID";
 import { useMsal } from "@azure/msal-react";
-
 import {
   getDownloadURL,
   ref,
-  uploadBytesResumable,
   uploadBytes,
   getStorage,
 } from "@firebase/storage";
 import createID from "./GenCourseID";
+import {UserDataContext} from "./ContextAPI/UserDataContext"
 
 function Firstpanel({ handletab, setCourse }) {
+  const {user} = useContext(UserDataContext);
   const [showimageupload, setshowimageupload] = useState(false);
   const [images, setImages] = useState([]);
-  const { instance, accounts } = useMsal();
+ 
 
   const onclick = () => {
     setshowimageupload(!showimageupload);
   };
 
   const handletabChange = (event, num) => {
-    let temp = {
-      name: document.getElementById("courseName").value,
-      courseID: createID(
-        accounts[0].username.split("@")[0],
-        document.getElementById("courseName").value
-      ),
-      description: document.getElementById("courseDes").value,
-      images: images,
-    };
-    setCourse(temp);
+    const courseName = document.getElementById("courseName");
+    if(courseName.value===""){
 
-    handletab(event, num);
+    }else{
+      let temp = {
+        name: courseName.value,
+        courseID: createID(
+          user,
+          courseName.value
+        ),
+        description: courseName.value,
+        images: images,
+      };
+      setCourse(temp);
+      handletab(event, num);
+    }
+    
+
+    
   };
 
   const handleBtn = (e) => {
@@ -47,7 +52,7 @@ function Firstpanel({ handletab, setCourse }) {
       setImages([...images, { id: images.length, url: temp }]);
       document.getElementById("chowed").value = "";
     }
-    // setshowimageupload(false); ggggggg
+    
   };
 
   const picsRef = useRef();
@@ -70,6 +75,7 @@ function Firstpanel({ handletab, setCourse }) {
     const pictureURL = await upAnddown(file1);
     console.log(pictureURL);
     setImages([...images, { id: images.length, url: pictureURL }]);
+    // setImages([...images,{id:images.length,file:file}])
   };
 
   return (
@@ -174,7 +180,7 @@ function Firstpanel({ handletab, setCourse }) {
           ) : (
             <>
               {images.map((image) => {
-                // eslint-disable-next-line jsx-a11y/alt-text
+                
                 return (
                   <img
                     src={image.url}

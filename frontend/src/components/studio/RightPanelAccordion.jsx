@@ -144,7 +144,7 @@ export default function SimpleAccordion(props) {
   );
 
   return (
-    <div style={{ marginTop: "60px" }}>
+    <div >
       <Accordion style={{backgroundColor: "#f2f2f2"}} data-testid="propertiesAcc">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

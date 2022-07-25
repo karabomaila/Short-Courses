@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import React, { useState,useReducer,useEffect } from "react";
 import Leftpanel from "./Leftpanel";
 import RightPanel from "./RightPanel";
+import studioContext from "./StudioContext";
 
 const mainDiv = {
   
@@ -26,9 +27,12 @@ function Main(props) {
   
   return (
     <div style={mainDiv}>
+      <studioContext.Provider value={{canvasTools,setCanvasTools}}>
       
       <Leftpanel canvasTools={canvasTools} despatch={despatch} setCanvasTools={setCanvasTools} course={props.course} user={props.user} />
       <RightPanel canvasTools={canvasTools} setCanvasTools={setCanvasTools} course={props.course}  />
+      </studioContext.Provider>
+    
     </div>
   );
 }
