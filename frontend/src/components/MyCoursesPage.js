@@ -5,11 +5,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MyCourseCard from "./CoursesUI/MyCourseCard";
+import { useContext } from "react";
+import { UserDataContext } from "./ContextAPI/UserDataContext";
 
 
 function MyCourses() {
 
   const navigate = useNavigate();
+  const {user} = useContext(UserDataContext);
   const [courses, setCourses] = useState([]);
 
   useEffect(async()=>{

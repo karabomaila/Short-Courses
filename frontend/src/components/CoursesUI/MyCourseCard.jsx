@@ -55,13 +55,6 @@ const MyCourseCard = ({courseName, courseID, images}) => {
                 
                 <ActionDel title = 'Del' click = 'del'/>
             </div>
-
-      <AboutCourseDialog
-        open={openAbout}
-        close={setOpenAbout}
-        courseName={props.name}
-        data={dataObject}
-      />
     </div>
   );
 };
