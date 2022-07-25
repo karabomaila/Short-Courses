@@ -2,13 +2,14 @@ import { Card, Button, Carousel } from "react-bootstrap";
 import GetInfo from "./AboutCourse/GetInfo";
 import "./CardView.css";
 import "../App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useIsAuthenticated } from "@azure/msal-react";
 import { useMsal } from "@azure/msal-react";
 import React from "react";
 import { db } from "./firebase-config";
 import AboutCourseDialog from "./AboutCourse/AboutCourseDialog";
+import {UserDataContext} from './ContextAPI/UserDataContext';
 import { collection, getDocs, where, query } from "@firebase/firestore";
 
 function CardView(props) {
@@ -17,33 +18,30 @@ function CardView(props) {
   const [dataObject, setDataObject] = useState({});
   const INFO_REF = collection(db, "slides");
 
+  const {user} = useContext(UserDataContext)
+
   const onClickAboutDialog = () => {
     let getInfo = new GetInfo(info, props.crs_id);
     setDataObject(getInfo.PullData());
     setOpenAboutDialog(true);
   };
 
-  const [imageURL1, setImageURL1] = useState("");
-  const [imageURL2, setImageURL2] = useState("");
-  const { instance, accounts } = useMsal();
   const isAuthenticated = useIsAuthenticated();
 
   useEffect(() => {
     console.log(props.images);
   }, []);
 
-  const handleClick = (event) => {
+  const onEnroll = async (event) => {
     event.preventDefault();
-
+    
     if (isAuthenticated) {
-      console.log(accounts[0].username.split("@")[0]);
-      axios
-        .post("http://localhost:5000/enroll", {
-          user_id: accounts[0].username.split("@")[0],
-          crs_id: props.crs_id,
-        })
-        .then((response) => {})
-        .catch((error) => {});
+        axios.post("/enroll", {courseID:props.crs_id , userID: user.userID})
+        .then((response)=> {alert(response.data)})
+        .catch((err)=> {console.log(err)});
+    }else{
+      // give alert to log in...
+      alert('Please Log In');
     }
   };
 
@@ -85,7 +83,7 @@ function CardView(props) {
 
         <Card.Body className="justify-content-center">
           <Card.Title>{props.name}</Card.Title>
-          <Button variant="primary" onClick={handleClick}>
+          <Button variant="primary" onClick={onEnroll}>
             Enroll
           </Button>
           <Button
