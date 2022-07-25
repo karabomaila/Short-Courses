@@ -1,62 +1,52 @@
 import Actions from "./Actions"
 import React from 'react';
-import {db} from '../firebase-config';
-import {collection, where, query, getDocs} from 'firebase/firestore';
-import { useState, useEffect } from "react";
-import {getDownloadURL,ref,getStorage} from "@firebase/storage";
+import { Card, Button, Carousel } from "react-bootstrap";
+import "../../App.css";
 
-
-const EnrolledCard = (props)=>{
-    const [dataObject, setDataObject] = useState({});
-    const INFO_REF = collection(db, "slides");
-    const slidesCollectionRef = collection(db, "slides");
-    const [imageURL, setImageURL] = useState("");
-
-    const lindo = async () => {
-      const q = query(slidesCollectionRef, where("courseID", "==", props.crs_id));
-      const data = await getDocs(q);
-  
-      let tmp = data.docs[0]._document.data.value.mapValue.fields;
-      //setDescription(tmp.description.stringValue);
-  
-      let tmpImages = [];
-      tmp.images.arrayValue.values.map((curr) => {
-        tmpImages.push({
-          id: curr.mapValue.fields.id.integerValue,
-          url: curr.mapValue.fields.url.stringValue,
-        });
-      });
-      setImageURL(tmpImages[0].url);
-    };
-  
-    useEffect(async () => {
-      const storage = getStorage();
-      if (props.image1 === null) {
-        lindo();
-      } else {
-        await getDownloadURL(ref(storage, `Pictures/${props.image1}`)).then(
-          (url) => {
-            //console.log(url)
-            setImageURL(url);
-          }
-        );
-      }
-    }, [setImageURL]);
-
-
+const EnrolledCard = ({courseID, courseName, images})=>{
+    
     return(
         <div style = {MainStyle} data-testid = "en-ui-div">
             <div style = {ImageStyle}>
-                <img src = {imageURL} alt = {'Course Image'}width = '100%' height = '100%'/>
+            {images.length > 0 ? (
+          <Carousel variant="dark">
+            {images.map((image, index) => (
+              <Carousel.Item>
+                <img
+                  key={image.url}
+                  style={{
+                    maxHeight: "300px",
+                    minHeight: "300px",
+                    maxWeight: "200px",
+                    minWeight: "200px",
+                  }}
+                  className="d-block w-100"
+                  src={image.url}
+                  alt="Second view"
+                />
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        ) : (
+          <div
+            style={{
+              maxHeight: "300px",
+              minHeight: "300px",
+              maxWeight: "200px",
+              minWeight: "200px",
+              
+            }}
+          >
+            <div className="circle">{courseName[0]}</div>
+          </div>
+        )}
             </div>
-            <div style = {TitleStyle}>{props.name}</div>
+            <div style = {TitleStyle}>{courseName}</div>
             <div style = {ActionStyle}>
                 <Actions title = 'Learn' 
                 click = 'learn' 
-                courseID = {props.crs_id} 
-                userID = {props.user}
-                courseName = {props.name}/>
-                <Actions title = 'Info'/>
+                courseID = {courseID} 
+                courseName = {courseName}/>
             </div>
         </div>
     )
