@@ -79,7 +79,7 @@ function CardView(props) {
               
             }}
           >
-            <div className="circle">props.name[0]</div>
+            <div className="circle">{props.name[0]}</div>
           </div>
         )}
 
