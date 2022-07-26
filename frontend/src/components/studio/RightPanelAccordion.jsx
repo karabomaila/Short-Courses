@@ -125,7 +125,8 @@ export default function SimpleAccordion(props) {
               }}
               onClick={(e) => {
                 // e.preventDefault();
-                document.getElementById(item._id - 1000).click();
+                const btn = document.getElementById(item._id - 1000);
+                btn===undefined && btn.click();
                 setCurrentToolIndex(index);
                 setProperties([item]);
                 // console.log([item])
@@ -146,7 +147,7 @@ export default function SimpleAccordion(props) {
   );
 
   return (
-    <div >
+    <div style={{padding:"10px"}}>
       <Accordion style={{ backgroundColor: "#f2f2f2" }} data-testid="propertiesAcc">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
