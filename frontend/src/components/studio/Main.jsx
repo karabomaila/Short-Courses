@@ -77,8 +77,7 @@ function Main(props) {
   const [currentChapter, setCurrentChapter] = React.useState(0);
   const [displayAlert, setDisplayAlert] = React.useState(false);
   const [edit, setEdit] = React.useState(null);
-  const [open,setOpen] = useState(false);
-
+  
   const [canvasTools2, despatch] = useReducer((state, action) => {
     // setCanvasTools2(action.payload);
     return action.payload;
