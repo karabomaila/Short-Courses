@@ -146,6 +146,12 @@ export default function SimpleAccordion(props) {
     </List>
   );
 
+  const [boolean, setBoolean] = React.useState(true); 
+
+  const openOrClose = () =>{
+    boolean===true ? setBoolean(false) : setBoolean(true)
+  }
+
   return (
     <div style={{padding:"10px"}}>
       <Accordion style={{ backgroundColor: "#f2f2f2" }} data-testid="propertiesAcc">
@@ -195,11 +201,12 @@ export default function SimpleAccordion(props) {
         </AccordionSummary>
       </Accordion>
 
-      <Accordion style={{ backgroundColor: "#f2f2f2" }} TransitionProps={{ unmountOnExit: true }}>
+      <Accordion style={{ backgroundColor: "#f2f2f2" }} expanded={boolean}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel4a-content"
           id="panel4a-header"
+          onClick={openOrClose}
         >
 
           <Typography data-testid="4thAcc">Tools</Typography>
