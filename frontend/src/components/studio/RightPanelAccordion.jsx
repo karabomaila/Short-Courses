@@ -191,7 +191,7 @@ export default function SimpleAccordion(props) {
           <Typography data-testid="thirdAcc">Templates</Typography>
         </AccordionSummary>
       </Accordion>
-      {/* {console.log(document.activeElement)} */}
+      
     </div>
   );
 }
