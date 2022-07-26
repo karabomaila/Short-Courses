@@ -15,6 +15,8 @@ const mainDiv = {
 };
 
 function Main(props) {
+
+  const [open, setOpen] = useState(false);
   const onNext = () => {
     alert("Must show the tags");
   };

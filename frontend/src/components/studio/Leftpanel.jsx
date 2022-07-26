@@ -241,6 +241,7 @@ function Leftpanel(props) {
       />
 
       <Dialog
+        fullWidth
         open={open2}
         TransitionComponent={Transition}
         keepMounted
@@ -256,46 +257,27 @@ function Leftpanel(props) {
                   margin: "auto",
                   borderRadius: "10px",
                   width: "80%",
-                }}
-              >
+                }}>
                 <TextField
                   variant="outlined"
                   fullWidth
                   label = "Chapter Name"
                   id="ChapterName"
                   placeholder="Chapter Name"
-                
                   inputProps={{ "data-testid": "ChapterName" }}
+                  style = {{marginTop: 12, width: "100%"}}
                 ></TextField>
               </div>
 
-              <Typography variant="h6" data-testid="DataOutcomes">
-                Specify the learning outcomes of this chapter
-              </Typography>
-              <Button
-                style={{
-                  backgroundColor: "#d9c93b",
-                  color: "#ffffff",
-                  borderRadius: "15px",
-                  width: "20%",
-                  align: "right",
-                  marginLeft: "70%",
-                }}
-                onClick={(event) => {
-                  event.preventDefault();
-                  setOutcomes([...outcomes, outcomes.length]);
-                }}
-                data-testid="AddButton"
-              >
-                Add
-              </Button>
+             
+                <p style ={{margin: 0, marginTop: 11, fontSize: 11}}>Specify the learning outcomes of this chapter</p>
+              
               <div
                 style={{
-                  width: "90%",
-                  padding: "10px",
-                  border: "3px solid #003b5c",
+                  width: "80%",
+                  padding: "5px",
+                  border: "1px solid #003b5c",
                   margin: "auto",
-                  borderRadius: "15px",
                   backgroundColor: "#ffffff",
                 }}
               >
@@ -320,6 +302,25 @@ function Leftpanel(props) {
                   })}
                 </ul>
               </div>
+
+              <Button
+                style={{
+                  backgroundColor: "#007377",
+                  color: "#ffffff",
+                  borderRadius: "15px",
+                  width: "20%",
+                  align: "right",
+                  marginLeft: "70%",
+                  marginTop: 12
+                }}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setOutcomes([...outcomes, outcomes.length]);
+                }}
+                data-testid="AddButton"
+              >
+                Add
+              </Button>
            
           </DialogContent>
           <DialogActions>
