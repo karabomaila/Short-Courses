@@ -69,7 +69,7 @@ const TagsDialog = (props) => {
                 
             </DialogContent>
             <DialogActions>
-                <Button variant = 'outlined' onClick={onClose}>FINISH</Button>
+                <Button variant = 'text' onClick={onClose}>Next</Button>
             </DialogActions>
       </Dialog>
         </div>

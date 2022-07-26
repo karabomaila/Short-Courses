@@ -11,10 +11,10 @@ const ViewTag = (props)=>{
     return(
         <div data-testid = 'view-tag-div' style = {TagStyle}>
             <div style = {DivStyle}>
-            {props.tagName}
+            <p style = {{margin: 0, alignSelf: 'center', fontWeight: '600'}}>{props.tagName}</p>
             </div>
             <div style = {DivStyle}>
-            <HighlightOffIcon data-testid = "view-tag-cl" sx = {{color: 'orange', cursor: 'pointer'}} onClick = {onDelete}/>
+            <HighlightOffIcon data-testid = "view-tag-cl" sx = {{color: 'white', cursor: 'pointer'}} onClick = {onDelete}/>
             </div>
         </div>
     )
@@ -22,17 +22,20 @@ const ViewTag = (props)=>{
 
 const TagStyle = {
     display: 'flex',
-    background: 'green',
-    width: 'fit-content',
-    borderRadius: 10,
-    margin: 12
-    //height: 'fit-content'
+    background: '#007377',
+    borderRadius: 15,
+    padding: 4,
+    margin: 8,
+    justifyContent: 'center',
+    alignItems: 'center'
 }
 
 const DivStyle = {
+    display: 'flex',
     marginLeft: 5,
-    paddingTop: 5,
-    color: 'white'
+    color: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
 }
 
 export default ViewTag;

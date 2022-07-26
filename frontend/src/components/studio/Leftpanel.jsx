@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import AppBar from "./AppBar";
 import Drawer from "@mui/material/Drawer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -39,10 +39,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-
 const mainDiv = {
   position: "absolute",
-  backgroundColor: '#edf4f5',
+  backgroundColor: "#edf4f5",
   width: "75%",
   maxHeight: "100%",
   top: "0px",
@@ -60,23 +59,39 @@ const leftDiv = {
   display: "flex",
   flexDirection: "column",
   overflowY: "auto",
-  backgroundColor: '#007377',
+  backgroundColor: "#007377",
   minWidth: "25%",
   maxWidth: "25%",
   height: "100vh",
 };
 
 function Leftpanel(props) {
-  const { canvasTools, setCanvasTools,slides,setSlides,chapters, setChapters,open2,setOpen2 } = useContext(StudioContext);
+  const {
+    canvasTools,
+    setCanvasTools,
+    slides,
+    setSlides,
+    chapters,
+    setChapters,
+    open2,
+    setOpen2,
+    saveSlide,
+    currentChapter,
+    setCurrentChapter,
+    edit,
+    setEdit,
+    displayAlert,
+    setDisplayAlert,
+    open4,
+    setOpen4
+  } = useContext(StudioContext);
   const [openTagsDialog, setOpenTagsDialog] = React.useState(false);
   const slidesCollectionRef = collection(db, "slides");
   const [currSlideMins, setCurrSlideMins] = React.useState(2);
   const [outcomes, setOutcomes] = React.useState([]); //Learning outcomes of the current chapter
-  const [displayAlert, setDisplayAlert] = React.useState(false);
-  const [edit, setEdit] = React.useState(null);
-  const [currentChapter, setCurrentChapter] = React.useState(0);
+  
   // const [open2, setOpen2] = React.useState(false);
-  const [open4, setOpen4] = React.useState(false);
+  
   const [state, setState] = React.useState({
     left: false,
   });
@@ -138,41 +153,6 @@ function Leftpanel(props) {
     }
   };
 
-  const saveSlide = () => {
-    if (edit === null) {
-      // we're creating a new slide
-
-      let tmpSlide = {
-        id: slides.length,
-        chapter: currentChapter,
-        name: document.getElementById("slideName").value,
-        content: props.canvasTools,
-      };
-
-      setSlides([...slides, tmpSlide]);
-      props.setCanvasTools([]);
-      renderTools([]);
-    } else {
-      console.log(edit);
-
-      let TmpNewSlides = [];
-
-      slides.map((item, index) => {
-        if (index === edit.slide) {
-          TmpNewSlides.push({ ...item, content: props.canvasTools });
-        } else {
-          TmpNewSlides.push(item);
-        }
-      });
-
-      setSlides(TmpNewSlides);
-
-      setEdit(null);
-      props.setCanvasTools([]);
-      renderTools([]);
-    }
-  };
-
   const handleClose4 = () => {
     saveSlide();
 
@@ -197,7 +177,7 @@ function Leftpanel(props) {
       let chapter = {
         id: chapters.length,
         name: tmp,
-        outcomes: temp_outcomes
+        outcomes: temp_outcomes,
       };
       setChapters([...chapters, chapter]);
 
@@ -221,8 +201,6 @@ function Leftpanel(props) {
   const handleCloseAlert = (event) => {
     setDisplayAlert(false);
   };
-
-  
 
   return (
     <div style={mainDiv}>
@@ -261,7 +239,6 @@ function Leftpanel(props) {
         saveSlide={saveSlide}
         style={{ marginTop: "100px" }}
       />
-        
 
       <Dialog
         open={open2}
@@ -273,17 +250,7 @@ function Leftpanel(props) {
         <div style={{ backgroundColor: "#ffffff" }}>
           <DialogTitle>{"New Chapter"}</DialogTitle>
           <DialogContent>
-            <Paper
-              style={{
-                background: "#003b5c",
-                color: "#ffffff",
-                textAlign: "center",
-                padding: "10px",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <div
+          <div
                 style={{
                   backgroundColor: "#ffffff",
                   margin: "auto",
@@ -292,16 +259,18 @@ function Leftpanel(props) {
                 }}
               >
                 <TextField
-                  variant="filled"
+                  variant="outlined"
+                  fullWidth
+                  label = "Chapter Name"
                   id="ChapterName"
-                  placeholder="ChapterName"
-                  style={{ width: "100%" }}
+                  placeholder="Chapter Name"
+                
                   inputProps={{ "data-testid": "ChapterName" }}
                 ></TextField>
               </div>
 
-              <Typography variant="h5" data-testid="DataOutcomes">
-                Please specify the learning outcomes of this chapter
+              <Typography variant="h6" data-testid="DataOutcomes">
+                Specify the learning outcomes of this chapter
               </Typography>
               <Button
                 style={{
@@ -351,13 +320,10 @@ function Leftpanel(props) {
                   })}
                 </ul>
               </div>
-            </Paper>
+           
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose2} data-testid="NextButton">
-              NEXT
-            </Button>
-            <Button
+          <Button
               onClick={(event) => {
                 document.getElementById("ChapterName").value = "";
                 setOpen2(false);
@@ -367,6 +333,10 @@ function Leftpanel(props) {
             >
               CANCEL
             </Button>
+            <Button onClick={handleClose2} data-testid="NextButton">
+              Next
+            </Button>
+           
           </DialogActions>
         </div>
       </Dialog>
@@ -399,7 +369,7 @@ function Leftpanel(props) {
             variant="filled"
             style={{
               marginBottom: "10px",
-              color: "#ffffff",
+              color: "#007377",
               background: "white",
               borderRadius: "5px",
             }}

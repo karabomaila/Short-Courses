@@ -64,8 +64,8 @@ function RightPanel(props) {
             aria-label="basic tabs example"
             centered
           >
-            <Tab label="Design" {...a11yProps(0)} />
-            <Tab label="Content" {...a11yProps(1)} />
+            <Tab label="Design" {...a11yProps(0)} sx={{width: '50%'}} />
+            <Tab label="Content" {...a11yProps(1)} sx={{width: '50%'}}/>
           </Tabs>
         </Box>
         <TabPanel value={value} index={0} sx={{p:3}}>
