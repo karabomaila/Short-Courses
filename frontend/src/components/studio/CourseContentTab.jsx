@@ -1,38 +1,14 @@
 import React,{useContext,useState} from "react";
-import AppBar from "./AppBar";
-import Drawer from "@mui/material/Drawer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import DoneIcon from "@mui/icons-material/Done";
 import {
-  FormControl,
-  IconButton,
   Typography,
   Button,
   Box,
-  Fab,
-  InputLabel,
-  Select,
-  Alert,
-  MenuItem,
-  Paper,
-  TextField,
   AccordionSummary,
   AccordionDetails,
   Accordion,
-  Snackbar,
 } from "@mui/material";
-import { collection, addDoc } from "@firebase/firestore";
-import ArrowBack from "@mui/icons-material/ArrowBack";
-import { storage, db } from "../firebase-config";
-import DragAndDropTemp from "./DragAndDropTemp";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import Slide from "@mui/material/Slide";
 import renderTools from "./renderTools";
-import TagsDialog from "../tags/TagsDialog";
-import axios from "axios";
 import StudioContext from "./StudioContext"
 
 
@@ -44,7 +20,7 @@ import StudioContext from "./StudioContext"
     display: "flex",
     flexDirection: "column",
     overflowY: "auto",
-    backgroundColor: '#007377',
+    backgroundColor: 'inherit',
     minWidth: "25%",
     maxWidth: "25%",
     height: "100vh",
@@ -119,22 +95,14 @@ function CourseContentTab() {
   return (
     <Box>
       <div style={leftDiv}>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <IconButton>
-            <ArrowBack style={{ color: "white" }} />
-          </IconButton>
-          <Typography variant="h4" data-testid="hearder">
-            Course Content
-          </Typography>
-        </div>
 
         <div style={{ borderBottom: "1px solid white", paddingBottom: "10px" }}>
           <Button
             variant="contained"
             onClick={handleClickOpen2}
             style={{
-              color: "#003b5c",
-              backgroundColor: "#ffffff",
+              color: "white",
+              backgroundColor: "#007377",
               margin: "10%",
               width: "70%",
               borderRadius: "20px",

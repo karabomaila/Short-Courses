@@ -29,7 +29,7 @@ function Firstpanel({ handletab, setCourse }) {
       let temp = {
         name: courseName.value,
         courseID: createID(
-          user,
+          "2355285@students.wits.ac.za",
           courseName.value
         ),
         description: courseName.value,
