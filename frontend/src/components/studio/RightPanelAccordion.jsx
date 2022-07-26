@@ -125,7 +125,8 @@ export default function SimpleAccordion(props) {
               }}
               onClick={(e) => {
                 // e.preventDefault();
-                document.getElementById(item._id - 1000).click();
+                const btn = document.getElementById(item._id - 1000);
+                btn===undefined && btn.click();
                 setCurrentToolIndex(index);
                 setProperties([item]);
                 // console.log([item])
@@ -145,8 +146,14 @@ export default function SimpleAccordion(props) {
     </List>
   );
 
+  const [boolean, setBoolean] = React.useState(true); 
+
+  const openOrClose = () =>{
+    boolean===true ? setBoolean(false) : setBoolean(true)
+  }
+
   return (
-    <div >
+    <div style={{padding:"10px"}}>
       <Accordion style={{ backgroundColor: "#f2f2f2" }} data-testid="propertiesAcc">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -194,11 +201,12 @@ export default function SimpleAccordion(props) {
         </AccordionSummary>
       </Accordion>
 
-      <Accordion style={{ backgroundColor: "#f2f2f2" }} TransitionProps={{ unmountOnExit: true }}>
+      <Accordion style={{ backgroundColor: "#f2f2f2" }} expanded={boolean}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel4a-content"
           id="panel4a-header"
+          onClick={openOrClose}
         >
 
           <Typography data-testid="4thAcc">Tools</Typography>

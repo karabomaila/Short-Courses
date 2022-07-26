@@ -217,8 +217,8 @@ function DragAndDrop(props) {
           _id: new Date().getTime(),
           position: ui.helper.position(),
         };
-        currTool.position.left -= $("#canvas").position().left;
-        currTool.position.top -= $("#canvas").position().top;
+        // currTool.position.left -= $("#canvas").position().left;
+        // currTool.position.top -= $("#canvas").position().top;
 
         if (ui.helper.hasClass("text")) {
           currTool.type = "text";
