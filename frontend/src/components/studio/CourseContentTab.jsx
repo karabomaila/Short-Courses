@@ -1,4 +1,4 @@
-import React,{useContext,useState} from "react";
+import React, { useContext, useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Typography,
@@ -9,93 +9,87 @@ import {
   Accordion,
 } from "@mui/material";
 import renderTools from "./renderTools";
-import StudioContext from "./StudioContext"
+import StudioContext from "./StudioContext";
 
-
-  const leftDiv = {
-    position: "fixed",
-    padding: "10px",
-    textAlign: "center",
-    color: "white",
-    display: "flex",
-    flexDirection: "column",
-    overflowY: "auto",
-    backgroundColor: 'inherit',
-    minWidth: "25%",
-    maxWidth: "25%",
-    height: "100vh",
-  };
-
+const leftDiv = {
+  position: "fixed",
+  padding: "10px",
+  textAlign: "center",
+  color: "white",
+  display: "flex",
+  flexDirection: "column",
+  overflowY: "auto",
+  backgroundColor: "inherit",
+  minWidth: "25%",
+  maxWidth: "25%",
+  height: "100vh",
+};
 
 function CourseContentTab() {
+  const { canvasTools, setCanvasTools,slides,setSlides,chapters, setChapters } = useContext(StudioContext);
+  const [currentChapter, setCurrentChapter] = useState(0);
+  const [open2, setOpen2] = React.useState(false);
+  
+  const [edit, setEdit] = React.useState(null);
+   //List of all the chapters
 
-    const {canvasTools,setCanvasTools} = useContext(StudioContext);
-    const [currentChapter, setCurrentChapter] = useState(0);
-    const [open2, setOpen2] = React.useState(false);
-    const [slides, setSlides] = React.useState([]);
-    const [edit, setEdit] = React.useState(null);
-    const [chapters, setChapters] = React.useState([]); //List of all the chapters
+  const saveSlide = () => {
+    if (edit === null) {
+      // we're creating a new slide
 
-    const saveSlide = () => {
-        if (edit === null) {
-          // we're creating a new slide
-    
-          let tmpSlide = {
-            id: slides.length,
-            chapter: currentChapter,
-            name: document.getElementById("slideName").value,
-            content: canvasTools,
-          };
-    
-          setSlides([...slides, tmpSlide]);
-          setCanvasTools([]);
-          renderTools([]);
+      let tmpSlide = {
+        id: slides.length,
+        chapter: currentChapter,
+        name: document.getElementById("slideName").value,
+        content: canvasTools,
+      };
+
+      setSlides([...slides, tmpSlide]);
+      setCanvasTools([]);
+      renderTools([]);
+    } else {
+      console.log(edit);
+
+      let TmpNewSlides = [];
+
+      slides.map((item, index) => {
+        if (index === edit.slide) {
+          TmpNewSlides.push({ ...item, content: canvasTools });
         } else {
-          console.log(edit);
-    
-          let TmpNewSlides = [];
-    
-          slides.map((item, index) => {
-            if (index === edit.slide) {
-              TmpNewSlides.push({ ...item, content: canvasTools });
-            } else {
-              TmpNewSlides.push(item);
-            }
-          });
-    
-          setSlides(TmpNewSlides);
-    
-          setEdit(null);
-          setCanvasTools([]);
-          renderTools([]);
+          TmpNewSlides.push(item);
         }
-      };
-    
-    
-    const handleClickOpen2 = () => {
-        //open the new chapter dialog
-        setOpen2(true);
-      };
+      });
 
+      setSlides(TmpNewSlides);
 
-      const newSlide = (indexx) => {
-        setCanvasTools([]);
-        renderTools([]);
-    
-        if (canvasTools.length === 0) {
-          //if the canvas is empty, just set the current chapter to indexx
-          setCurrentChapter(indexx);
-        } else {
-          // if its not, the set the current chapter to indexx the call save slide.
-          saveSlide();
-          setCurrentChapter(indexx);
-        }
-      };
+      setEdit(null);
+      setCanvasTools([]);
+      renderTools([]);
+    }
+  };
+
+  const handleClickOpen2 = () => {
+    //open the new chapter dialog
+    setOpen2(true);
+  };
+
+  const newSlide = (indexx) => {
+    setCanvasTools([]);
+    renderTools([]);
+
+    if (canvasTools.length === 0) {
+      //if the canvas is empty, just set the current chapter to indexx
+      setCurrentChapter(indexx);
+    } else {
+      // if its not, the set the current chapter to indexx the call save slide.
+      saveSlide();
+      setCurrentChapter(indexx);
+    }
+  };
 
   return (
     <Box>
       <div style={leftDiv}>
-
         <div style={{ borderBottom: "1px solid white", paddingBottom: "10px" }}>
           <Button
             variant="contained"
@@ -218,7 +212,7 @@ function CourseContentTab() {
         </div>
       </div>
     </Box>
-  )
+  );
 }
 
-export default CourseContentTab
+export default CourseContentTab;

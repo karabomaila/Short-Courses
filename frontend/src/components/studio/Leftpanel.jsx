@@ -206,7 +206,7 @@ function Leftpanel(props) {
       let chapter = {
         id: chapters.length,
         name: tmp,
-        outcomes: temp_outcomes,
+        outcomes: temp_outcomes
       };
       setChapters([...chapters, chapter]);
 
