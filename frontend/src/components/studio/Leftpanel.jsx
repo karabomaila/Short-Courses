@@ -39,15 +39,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const fabStyle = {
-  margin: 0,
-  top: "auto",
-  right: 20,
-  bottom: 20,
-  left: "auto",
-  position: "fixed",
-  backgroundColor: "#d9c93b",
-};
 
 const mainDiv = {
   position: "absolute",
@@ -270,19 +261,7 @@ function Leftpanel(props) {
         saveSlide={saveSlide}
         style={{ marginTop: "100px" }}
       />
-
-
-      <Fab
-        color="primary"
-        aria-label="add"
-        style={fabStyle}
-        onClick={(event) => {
-          event.preventDefault();
-          handleShow();
-        }}
-      >
-        <DoneIcon />
-      </Fab>
+        
 
       <Dialog
         open={open2}

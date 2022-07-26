@@ -29,26 +29,7 @@ export default function MenuAppBar(props) {
             {tools.map((tool, index) => {
               return <Tool key={index} tool={tool} />;
             })}
-            <Button
-              variant="outlined"
-              style = {{color: 'white', borderColor: 'white'}}
-              data-testid="SaveButton2"
-              onClick={(event) => {
-                event.preventDefault();
-
-                if (props.chapters.length === 0) {
-                  props.setDisplayAlert(true);
-                } else {
-                  if (props.edit === null) {
-                    props.setOpen4(true);
-                  } else {
-                    props.saveSlide();
-                  }
-                }
-              }}
-            >
-              Save
-            </Button>
+            
           </Stack>
         </Toolbar>
       </AppBar>
