@@ -41,14 +41,26 @@ const TagsInput = (props)=>{
             onChange = {onChange} 
             id="newtag" 
             label="#NewTag" 
-            variant="outlined" 
+            fullWidth
+            variant="standard" 
             inputProps={{ "data-testid": "test-textfield" }}
             />
-            <Button variant = 'outlined' 
-            style = {{marginLeft: 12}} 
-            onClick = {onAdd}
-            data-testid = 'test-tags-button'
-            >Add</Button>
+            <div  onClick = {onAdd} 
+            data-testid = 'test-tags-button'  
+            style = {{
+                cursor: 'pointer',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginLeft: 15, 
+                padding: 2,
+                borderRadius: "100%", 
+                background: '#007377',
+                width: 50, 
+                height: 50}} >
+            <p style = {{margin: 0, color: 'white', fontWeight: '700'}}>Add</p>
+            </div>
         </div>
         <div>
             <ListTags tagArray = {props.tagArray}/>
