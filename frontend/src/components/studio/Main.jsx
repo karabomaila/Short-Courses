@@ -6,6 +6,7 @@ import studioContext from "./StudioContext";
 import Fab from '@mui/material/Fab';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import SaveIcon from '@mui/icons-material/Save';
+import TagsDialog from "../tags/TagsDialog";
 
 const mainDiv = {
   display: "flex",
@@ -14,8 +15,12 @@ const mainDiv = {
 };
 
 function Main(props) {
+
+  const [open, setOpen] = useState(false);
+
   const onNext = ()=>{
-    alert('Must show the tags');
+    // call the tags pop up...
+    setOpen(true);
   }
   
   const onSave = ()=>{
@@ -58,14 +63,15 @@ function Main(props) {
         <Fab data-testid = 'fab-save-slide' variant="extended" style = {NFabStyle} onClick = {onSave}>
                       <SaveIcon sx={{ mr: 1, color: '#007377'}} />
                       Save Slide
-              </Fab>
-
+          </Fab>
 
           <Fab data-testid = 'fab-next' variant="extended" style = {FabStyle} onClick = {onNext}>
                   <DoubleArrowIcon sx={{ mr: 1, color: '#007377'}} />
                   Next Step
           </Fab>
+          <TagsDialog open = {open} close = {setOpen} courseName = {'Course Name'} courseID = {props.course.courseID}/>
       </studioContext.Provider>
+      
     </div>
   );
 
