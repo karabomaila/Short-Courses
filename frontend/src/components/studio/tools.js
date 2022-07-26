@@ -9,20 +9,20 @@ export const tools = [
         name:"Text",
         className: "text",
         draggable:'draggable1',
-        icon:<TitleIcon/>
+        icon:<TitleIcon style={{color:'#464747'}}/>
     },
     {
         id:2,
         name:"Image",
         className: "image",
         draggable:'draggable2',
-        icon:<ImageIcon/>
+        icon:<ImageIcon style={{color:'#464747'}}/>
     },
     {
         id:3,
         name:"Video",
         className: "video",
         draggable:'draggable3',
-        icon:<VideoCameraBackIcon/>
+        icon:<VideoCameraBackIcon style={{color:'#464747'}}/>
     }
 ]
