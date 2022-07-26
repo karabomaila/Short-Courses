@@ -273,17 +273,7 @@ function Leftpanel(props) {
         <div style={{ backgroundColor: "#ffffff" }}>
           <DialogTitle>{"New Chapter"}</DialogTitle>
           <DialogContent>
-            <Paper
-              style={{
-                background: "#003b5c",
-                color: "#ffffff",
-                textAlign: "center",
-                padding: "10px",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <div
+          <div
                 style={{
                   backgroundColor: "#ffffff",
                   margin: "auto",
@@ -292,16 +282,18 @@ function Leftpanel(props) {
                 }}
               >
                 <TextField
-                  variant="filled"
+                  variant="outlined"
+                  fullWidth
+                  label = "Chapter Name"
                   id="ChapterName"
-                  placeholder="ChapterName"
-                  style={{ width: "100%" }}
+                  placeholder="Chapter Name"
+                
                   inputProps={{ "data-testid": "ChapterName" }}
                 ></TextField>
               </div>
 
-              <Typography variant="h5" data-testid="DataOutcomes">
-                Please specify the learning outcomes of this chapter
+              <Typography variant="h6" data-testid="DataOutcomes">
+                Specify the learning outcomes of this chapter
               </Typography>
               <Button
                 style={{
@@ -351,13 +343,10 @@ function Leftpanel(props) {
                   })}
                 </ul>
               </div>
-            </Paper>
+           
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose2} data-testid="NextButton">
-              NEXT
-            </Button>
-            <Button
+          <Button
               onClick={(event) => {
                 document.getElementById("ChapterName").value = "";
                 setOpen2(false);
@@ -367,6 +356,10 @@ function Leftpanel(props) {
             >
               CANCEL
             </Button>
+            <Button onClick={handleClose2} data-testid="NextButton">
+              Next
+            </Button>
+           
           </DialogActions>
         </div>
       </Dialog>
