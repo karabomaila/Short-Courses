@@ -10,7 +10,7 @@ const mainDiv = {
   left: "75%",
   right: "0px",
   bottom: "0px",
-  top: "11%",
+  top: "10%",
   resize: true,
   overflowY: "auto",
   textAlign: "center",
@@ -57,7 +57,7 @@ function RightPanel(props) {
   return (
     <div style={mainDiv}>
       <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider"}}>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -68,7 +68,7 @@ function RightPanel(props) {
             <Tab label="Content" {...a11yProps(1)} />
           </Tabs>
         </Box>
-        <TabPanel value={value} index={0}>
+        <TabPanel value={value} index={0} sx={{p:3}}>
           <RightPanelAccordion
             canvasTools={props.canvasTools}
             setCanvasTools={props.setCanvasTools}

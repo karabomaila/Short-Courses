@@ -26,9 +26,9 @@ const leftDiv = {
 };
 
 function CourseContentTab() {
-  const { canvasTools, setCanvasTools,slides,setSlides,chapters, setChapters } = useContext(StudioContext);
+  const { canvasTools, setCanvasTools,slides,setSlides,chapters, setChapters,setOpen2 } = useContext(StudioContext);
   const [currentChapter, setCurrentChapter] = useState(0);
-  const [open2, setOpen2] = React.useState(false);
+ 
   
   const [edit, setEdit] = React.useState(null);
    //List of all the chapters
@@ -134,7 +134,7 @@ function CourseContentTab() {
                             }}
                             style={{
                               color: "#ffffff",
-                              backgroundColor: "#003b5c",
+                              backgroundColor: "#007377",
                               borderRadius: "15px",
                               marginRight: "5px",
                             }}
@@ -150,7 +150,7 @@ function CourseContentTab() {
                             }}
                             style={{
                               color: "#ffffff",
-                              backgroundColor: "#003b5c",
+                              backgroundColor: "#007377",
                               borderRadius: "15px",
                             }}
                             data-testid="OutcomesButton"

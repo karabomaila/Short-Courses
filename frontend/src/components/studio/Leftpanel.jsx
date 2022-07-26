@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import AppBar from "./AppBar";
 import Drawer from "@mui/material/Drawer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -33,6 +33,7 @@ import Slide from "@mui/material/Slide";
 import renderTools from "./renderTools";
 import TagsDialog from "../tags/TagsDialog";
 import axios from "axios";
+import StudioContext from "./StudioContext";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -66,16 +67,15 @@ const leftDiv = {
 };
 
 function Leftpanel(props) {
+  const { canvasTools, setCanvasTools,slides,setSlides,chapters, setChapters,open2,setOpen2 } = useContext(StudioContext);
   const [openTagsDialog, setOpenTagsDialog] = React.useState(false);
   const slidesCollectionRef = collection(db, "slides");
   const [currSlideMins, setCurrSlideMins] = React.useState(2);
   const [outcomes, setOutcomes] = React.useState([]); //Learning outcomes of the current chapter
-  const [chapters, setChapters] = React.useState([]); //List of all the chapters
-  const [slides, setSlides] = React.useState([]);
   const [displayAlert, setDisplayAlert] = React.useState(false);
   const [edit, setEdit] = React.useState(null);
   const [currentChapter, setCurrentChapter] = React.useState(0);
-  const [open2, setOpen2] = React.useState(false);
+  // const [open2, setOpen2] = React.useState(false);
   const [open4, setOpen4] = React.useState(false);
   const [state, setState] = React.useState({
     left: false,
@@ -115,10 +115,10 @@ function Leftpanel(props) {
     }
   };
 
-  const handleClickOpen2 = () => {
-    //open the new chapter dialog
-    setOpen2(true);
-  };
+  // const handleClickOpen2 = () => {
+  //   //open the new chapter dialog
+  //   setOpen2(true);
+  // };
 
   const handleChangeSelect = (event) => {
     setCurrSlideMins(event.target.value);

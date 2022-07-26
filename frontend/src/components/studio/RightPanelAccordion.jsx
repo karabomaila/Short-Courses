@@ -56,7 +56,7 @@ export default function SimpleAccordion(props) {
   const getIcon = (type) => {
 
 
-    // return (tools.filter(item => item.className === type)[0].icon)
+    return (tools.filter(item => item.className === type)[0].icon)
 
   }
 

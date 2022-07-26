@@ -25,6 +25,7 @@ function Main(props) {
   const [active, setActive] = useState(null);
   const [chapters, setChapters] =useState([]);
   const [slides, setSlides] = useState([]);
+  const [open2, setOpen2] = React.useState(true);
   const [canvasTools2, despatch] = useReducer((state, action) => {
     // setCanvasTools2(action.payload);
     return action.payload;
@@ -40,6 +41,8 @@ function Main(props) {
           setSlides,
           chapters,
           setChapters,
+          open2,
+          setOpen2
         }}
       >
         <Leftpanel
