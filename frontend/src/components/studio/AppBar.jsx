@@ -2,7 +2,7 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import { Stack, Button } from "@mui/material";
+import { Stack } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Tool from "./Tool";
@@ -25,12 +25,13 @@ export default function MenuAppBar(props) {
             <MenuIcon />
           </IconButton>
           <p style ={{color: 'white', fontWeight: 'bold', margin: 10, fontSize: 28}}>STUDIO</p>
-          <Stack direction="row" spacing={7}>
+
+          {/* <Stack direction="row" spacing={7}>
             {tools.map((tool, index) => {
               return <Tool key={index} tool={tool} />;
             })}
-            
-          </Stack>
+          </Stack> */}
+
         </Toolbar>
       </AppBar>
     </Box>
