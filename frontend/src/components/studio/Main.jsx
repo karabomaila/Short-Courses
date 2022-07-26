@@ -4,8 +4,6 @@ import Leftpanel from "./Leftpanel";
 import RightPanel from "./RightPanel";
 import studioContext from "./StudioContext";
 import Fab from '@mui/material/Fab';
-import DoneIcon from '@mui/icons-material/Done';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import SaveIcon from '@mui/icons-material/Save';
 
