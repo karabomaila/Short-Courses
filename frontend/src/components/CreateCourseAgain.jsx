@@ -8,13 +8,10 @@ import Firstpanel from "./Firstpanel";
 import Main from "./studio/Main";
 import { storage, db } from "./firebase-config";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import {
-  collection,
-} from "@firebase/firestore";
+import { collection } from "@firebase/firestore";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-  
 
   return (
     <div
@@ -39,18 +36,22 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-
-
 export default function CreateCourse() {
   const [value, setValue] = React.useState(0);
-  const slidesCollectionRef = collection(db, "slides");
   const [course, setCourse] = React.useState({});
-  
 
-  
+  React.useEffect(() => {
+    const tabsStorage = window.sessionStorage.getItem("currTab");
+    if(tabsStorage!==null){
+      setValue(parseInt(tabsStorage));
+    }else{
+      window.sessionStorage.setItem("currTab","0");
+    }
+  }, []);
 
   const handletab = (event, num) => {
     setValue(num);
+    window.sessionStorage.setItem("currTab", num.toString());
   };
 
   return (

@@ -15,19 +15,27 @@ import { async } from "@firebase/util";
 function MyCourses() {
 
   const navigate = useNavigate();
-  const {user} = useContext(UserDataContext);
+  const {user,setUser} = useContext(UserDataContext);
   const [courses, setCourses] = useState([]);
 
   const [loader, setLoader] = useState(false);
   const [courseDelID, setCourseDelID] = useState("");
   const [openDel, setOpenDel] = useState(false);
 
+
   useEffect(async()=>{
     // return all the courses created by the user...
-    getCreatedCourses();
-  });
+    const userStorage = window.sessionStorage.getItem("user");
+    if(userStorage!==null){
+      setUser(JSON.parse(userStorage));
+      await getCreatedCourses(JSON.parse(userStorage));
+    }else{
+      await getCreatedCourses(user);
+    }
+    
+  },[]);
 
-  const getCreatedCourses = async()=>{
+  const getCreatedCourses = async(user)=>{
     axios.post("/getCreatedCourses", {userID: user.userID})
     .then((response)=> {setCourses(response.data)})
     .catch((err)=> console.log(err));

@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Tool from "./Tool";
 import { tools } from "./tools";
+import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 
 export default function MenuAppBar(props) {
   return (

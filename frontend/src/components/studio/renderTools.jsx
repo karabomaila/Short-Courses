@@ -191,7 +191,7 @@ const renderTools = (canvasTools) => {
         html = $(`<div data-testid=${currTool._id}></div>`)
           .css({
             position: "absolute",
-            border: "5px solid white",
+            border: "0.1px solid white",
             padding:"5px",
             cursor: "move",
             resize: "both",

@@ -17,7 +17,7 @@ function Enrolled(){
 
     const getEnrolledCourses = async ()=>{
         console.log(user);
-        axios.post("/getErolledCourses", {userID: user.userID})
+        axios.post("/getEnrolledCourses", {userID: user.userID})
         .then((response)=> {setCourses(response.data)})
         .catch((err)=>{console.log(err)});
     }

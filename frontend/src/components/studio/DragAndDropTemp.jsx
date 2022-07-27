@@ -44,7 +44,7 @@ const canvas = {
   backgroundColor: "white",
   border: "1px solid black",
   marginLeft: "5%",
-  top:'100px',
+  top: "100px",
   marginRight: "5%",
   marginBottom: "5px",
   minHeight: `${window.innerHeight * 0.8}px`,
@@ -86,10 +86,6 @@ const tmpCanvasTools = [
     height: 200,
   },
 ];
-
-
-
-
 
 function DragAndDrop(props) {
   const picsRef = useRef();
@@ -142,7 +138,7 @@ function DragAndDrop(props) {
       // console.log(temp)
       props.setCanvasTools(temp);
       renderTools(temp);
-      document.getElementById("imageURL").value="";
+      document.getElementById("imageURL").value = "";
     }
     setOpenPicDialog(false);
   };
@@ -173,7 +169,7 @@ function DragAndDrop(props) {
       ref(storage, `/Courses/${tmpCourseName}/${tmpUserID}/${file1.name}`)
     );
 
-    console.log(url)
+    console.log(url);
     return url;
   };
 
@@ -193,7 +189,7 @@ function DragAndDrop(props) {
       },
     ];
 
-    console.log("singapha")
+    console.log("singapha");
 
     props.setCanvasTools(temp);
     renderTools(temp);
@@ -207,18 +203,22 @@ function DragAndDrop(props) {
       handles: "se",
     });
 
-    
-
     $("#canvas").droppable({
       drop: (event, ui) => {
         let video = false;
         let picture = false;
         let currTool = {
           _id: new Date().getTime(),
-          position: ui.helper.position(),
+          position: {top:ui.offset.top,left:ui.offset.left},
         };
-        // currTool.position.left -= $("#canvas").position().left;
-        // currTool.position.top -= $("#canvas").position().top;
+        let num = window.innerWidth*.01;
+        currTool.position.left -=  $("#canvas").position().left+num;
+        currTool.position.top -= $("#canvas").position().top;
+
+        // currTool.position.left = 0;
+        // currTool.position.top = 0;
+
+        console.log(ui);
 
         if (ui.helper.hasClass("text")) {
           currTool.type = "text";
@@ -264,9 +264,13 @@ function DragAndDrop(props) {
   });
 
   return (
-    <div >
-      
-      <Paper id="canvas" elevation={5} data-testid="canvasTest" style={canvas}></Paper>
+    <div>
+      <Paper
+        id="canvas"
+        elevation={5}
+        data-testid="canvasTest"
+        style={canvas}
+      ></Paper>
 
       <Dialog
         open={openVidDialog}

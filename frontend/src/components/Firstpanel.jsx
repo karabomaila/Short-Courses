@@ -1,5 +1,5 @@
 import { TextField, Button, Typography, Paper } from "@mui/material";
-import React, { useState, useRef,useContext } from "react";
+import React, { useState, useRef,useContext,useEffect } from "react";
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 import { useMsal } from "@azure/msal-react";
 import {
@@ -21,6 +21,17 @@ function Firstpanel({ handletab, setCourse }) {
     setshowimageupload(!showimageupload);
   };
 
+  useEffect(() => {
+    const courseStorage = window.sessionStorage.getItem("course");
+    if(courseStorage!==null){
+      const currCourse = JSON.parse(courseStorage);
+      document.getElementById("courseName").value = currCourse.name;
+      document.getElementById("courseDes").value = currCourse.description;
+      setImages(currCourse.images);
+
+    }
+  },[])
+
   const handletabChange = (event, num) => {
     const courseName = document.getElementById("courseName");
     if(courseName.value===""){
@@ -29,14 +40,15 @@ function Firstpanel({ handletab, setCourse }) {
       let temp = {
         name: courseName.value,
         courseID: createID(
-          "2355285@students.wits.ac.za",
+          user.userID,
           courseName.value
         ),
-        description: courseName.value,
+        description: document.getElementById("courseDes").value,
         images: images,
       };
       setCourse(temp);
       handletab(event, num);
+      window.sessionStorage.setItem("course",JSON.stringify(temp));
     }
     
 

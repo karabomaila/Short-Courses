@@ -12,29 +12,28 @@ const toolStyle = {
   padding: "3px",
   margin: "5px",
   textAlign: "center",
-  zIndex: 2,
+  zIndex: 9,
   display: "flex",
   flexDirection: "row",
+
 };
 
 function Tool({ tool }) {
   useEffect(() => {
 
-
-    console.log("sure")
     $(`#${tool.draggable}`).draggable({
-      containment: $("#canvas"),
       helper: "clone",
+      opacity: 0.7
     });
   }, [$]);
 
   
 
   return (
-    <h3 style={toolStyle} id={tool.draggable}  className={tool.className} data-testid={tool.name+"test"}>
+    <h1 style={toolStyle} id={tool.draggable}  className={tool.className} data-testid={tool.name+"test"}>
       <Tooltip title={tool.name}>{tool.icon}</Tooltip>
       
-    </h3>
+    </h1>
   );
 }
 

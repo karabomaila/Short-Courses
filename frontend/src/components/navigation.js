@@ -32,6 +32,8 @@ function Navigation() {
   useEffect(()=>{
     console.log(isAuthenticated);
     // Update the user data once the is signed in...
+    // const temp = window.sessionStorage.getItem("user");
+    // console.log(JSON.parse(temp.toString()));
     if(isAuthenticated){
       axios.post("/newUser", {userID: accounts[0].username}).then(res=>{}).then(err=>{});
       const obj = {
@@ -39,6 +41,7 @@ function Navigation() {
         name: accounts[0].name
       }
       setUser(obj);
+      window.sessionStorage.setItem("user",JSON.stringify(obj));
     }
       
   }, [isAuthenticated]);

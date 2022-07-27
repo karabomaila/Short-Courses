@@ -16,6 +16,10 @@ const mainDiv = {
 
 function Main(props) {
 
+  // window.onbeforeunload = function () {
+  //   return 'Are you really want to perform the action?';
+  //  }
+
   const [open, setOpen] = useState(false);
   const onNext = () => {
     setOpen(true);
@@ -128,7 +132,7 @@ function Main(props) {
                   <DoubleArrowIcon sx={{ mr: 1, color: '#007377'}} />
                   Next Step
           </Fab>
-          <TagsDialog open = {open} close = {setOpen} courseName = {'Course Name'} courseID = {props.course.courseID}/>
+          <TagsDialog open = {open} close = {setOpen} courseName = {props.course.name} courseID = {props.course.courseID}/>
       </studioContext.Provider>
       
     </div>

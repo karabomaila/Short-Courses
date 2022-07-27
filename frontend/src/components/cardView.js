@@ -51,9 +51,9 @@ function CardView(props) {
         {props.images.length > 0 ? (
           <Carousel variant="dark">
             {props.images.map((image, index) => (
-              <Carousel.Item>
+              <Carousel.Item  key={image}>
                 <img
-                  key={image.url}
+                  
                   style={{
                     maxHeight: "300px",
                     minHeight: "300px",
@@ -61,7 +61,7 @@ function CardView(props) {
                     minWeight: "200px",
                   }}
                   className="d-block w-100"
-                  src={image.url}
+                  src={image}
                   alt="Second view"
                 />
               </Carousel.Item>
