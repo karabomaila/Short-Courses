@@ -37,11 +37,16 @@ function CardView(props) {
     
     if (isAuthenticated) {
         axios.post("/enroll", {courseID:props.crs_id , userID: user.userID})
-        .then((response)=> {alert(response.data)})
+        .then((response)=> {
+          // give alert to user after clicking enroll...
+          props.setMessage(response.data);
+          props.setOpenSnack(true);
+        })
         .catch((err)=> {console.log(err)});
     }else{
       // give alert to log in...
-      alert('Please Log In');
+      props.setMessage('Please log in');
+      props.setOpenSnack(true);
     }
   };
 
