@@ -1,23 +1,29 @@
-import Actions from "./Actions"
-import React from 'react';
+import Actions from "./Actions";
+import React from "react";
 import ActionDel from "./ActionDel";
 import { Carousel } from "react-bootstrap";
 import "../../App.css";
 import { useNavigate, useLocation } from "react-router-dom";
-import AboutCourseDialog from '../AboutCourse/AboutCourseDialog';
+import AboutCourseDialog from "../AboutCourse/AboutCourseDialog";
 import { useState, useEffect } from "react";
 
-const MyCourseCard = ({courseName, courseID, images, openDel, setOpenDel, setCourseDelID}) => {
-  
-    return(
-        <div style = {MainStyle} data-testid = "my-ui-div">
-           <div style = {ImageStyle}>
-            {images.length > 0 ? (
+const MyCourseCard = ({
+  courseName,
+  courseID,
+  images,
+  openDel,
+  setOpenDel,
+  setCourseDelID,
+}) => {
+  return (
+    <div style={MainStyle} data-testid="my-ui-div">
+      <div style={ImageStyle}>
+        {images.length > 0 ? (
           <Carousel variant="dark">
             {images.map((image, index) => (
               <Carousel.Item>
                 <img
-                  key={image.url}
+                  key={image}
                   style={{
                     maxHeight: "300px",
                     minHeight: "300px",
@@ -25,7 +31,7 @@ const MyCourseCard = ({courseName, courseID, images, openDel, setOpenDel, setCou
                     minWeight: "200px",
                   }}
                   className="d-block w-100"
-                  src={image.url}
+                  src={image}
                   alt="Second view"
                 />
               </Carousel.Item>
@@ -38,29 +44,27 @@ const MyCourseCard = ({courseName, courseID, images, openDel, setOpenDel, setCou
               minHeight: "300px",
               maxWeight: "200px",
               minWeight: "200px",
-              
             }}
           >
             <div className="circle">{courseName[0]}</div>
           </div>
         )}
-            </div>
-          
-            <div style = {TitleStyle}>{courseName}</div>
-            <div style = {ActionStyle}>
-                <Actions title = 'View' 
-                name = {courseName}
-                click = 'view'/>
-                <Actions title = 'Edit' click = 'edit'/>
-                
-                <ActionDel 
-                openDel = {openDel}
-                setCourseDelID = {setCourseDelID}
-                courseID = {courseID}
-                setOpenDel = {setOpenDel}
-                title = 'Del' 
-                click = 'del'/>
-            </div>
+      </div>
+
+      <div style={TitleStyle}>{courseName}</div>
+      <div style={ActionStyle}>
+        <Actions title="View" name={courseName} click="view" />
+        <Actions title="Edit" click="edit" />
+
+        <ActionDel
+          openDel={openDel}
+          setCourseDelID={setCourseDelID}
+          courseID={courseID}
+          setOpenDel={setOpenDel}
+          title="Del"
+          click="del"
+        />
+      </div>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const EnrolledCard = ({courseID, courseName, images})=>{
             {images.map((image, index) => (
               <Carousel.Item>
                 <img
-                  key={image.url}
+                  key={image}
                   style={{
                     maxHeight: "300px",
                     minHeight: "300px",
@@ -21,7 +21,7 @@ const EnrolledCard = ({courseID, courseName, images})=>{
                     minWeight: "200px",
                   }}
                   className="d-block w-100"
-                  src={image.url}
+                  src={image}
                   alt="Second view"
                 />
               </Carousel.Item>
