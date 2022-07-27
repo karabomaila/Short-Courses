@@ -5,7 +5,7 @@ import { Box, CircularProgress } from "@mui/material";
 import React from "react";
 
 
-function CardViewList({allCourses}) {
+function CardViewList({allCourses, setMessage, setOpenSnack}) {
 
   // keep buffering if the array of data is empty...
   return (
@@ -18,6 +18,8 @@ function CardViewList({allCourses}) {
                 images = {data.images}
                 name = {data.courseName}
                 crs_id = {data.courseID}
+                setMessage = {setMessage} 
+                setOpenSnack = {setOpenSnack}
               />
             </Col>
           ))}

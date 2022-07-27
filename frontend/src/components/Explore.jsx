@@ -3,9 +3,14 @@ import CardViewList from './CardViewList';
 import axios from 'axios';
 import Navigation from './navigation';
 import { useState } from 'react';
+import Snackbar from '@mui/material/Snackbar';
 // import UserDataContext from './ContextAPI/UserDataContext';
 
 function Explore(props) {
+
+  // Vars for the snack bar...
+  const [openSnack, setOpenSnack] = useState(false);
+  const [message, setMessage] = useState("");
 
   const [allCourses, setAllCourses] = useState([]);
   useEffect(()=>{
@@ -18,12 +23,27 @@ function Explore(props) {
       .then((response) => {setAllCourses(response.data)})
       .catch();
   }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenSnack(false);
+  };
   
   return ( 
     <div style = {styles.Main}>
         <Navigation user={props.user}/>
         <p style = {styles.Text}>EXPLORE</p>
-        <CardViewList allCourses = {allCourses}/>
+        <CardViewList allCourses = {allCourses} setMessage = {setMessage} setOpenSnack = {setOpenSnack}/>
+
+        <Snackbar
+        open={openSnack}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        message={message}
+      />
     </div>
     );
 }
