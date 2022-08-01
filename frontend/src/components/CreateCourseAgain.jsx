@@ -15,7 +15,7 @@ import { data } from "jquery";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
-  const { state } = useLocation();
+  
 
   return (
     <div
@@ -43,6 +43,7 @@ TabPanel.propTypes = {
 export default function CreateCourse() {
   const [value, setValue] = React.useState(0);
   const [course, setCourse] = React.useState(null);
+  const { state } = useLocation();
 
   React.useEffect(() => {
     const tabsStorage = window.sessionStorage.getItem("currTab");
@@ -53,26 +54,26 @@ export default function CreateCourse() {
     }
   }, []);
 
-  // React.useEffect(() => {
-  //   // const
+  React.useEffect(() => {
+    // const
 
-  //   if (state.edit == true) {
-  //     axios
-  //       .post("/getSlides", { courseID: state.courseID })
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         let temp = {
-  //           name: res.data.courseName,
-  //           courseID: res.data.courseID,
-  //           description: res.data.description,
-  //           images: res.data.images,
-  //         };
+    if (state.edit == true) {
+      axios
+        .post("/getSlides", { courseID: state.courseID })
+        .then((res) => {
+          console.log(res.data);
+          let temp = {
+            name: res.data.courseName,
+            courseID: res.data.courseID,
+            description: res.data.description,
+            images: res.data.images,
+          };
 
-  //         setCourse(temp);
-  //       })
-  //       .then((err) => {});
-  //   }
-  // }, []);
+          setCourse(temp);
+        })
+        .then((err) => {});
+    }
+  }, []);
 
   const handletab = (event, num) => {
     setValue(num);
@@ -86,7 +87,7 @@ export default function CreateCourse() {
           handletab={handletab}
           setCourse={setCourse}
           course={course}
-          
+          edit={state.edit}
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -94,7 +95,7 @@ export default function CreateCourse() {
           handletab={handletab}
           course={course}
           setCourse={setCourse}
-          
+          edit={state.edit}
         />
       </TabPanel>
     </Box>
