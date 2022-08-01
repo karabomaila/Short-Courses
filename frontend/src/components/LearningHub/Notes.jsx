@@ -4,11 +4,15 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useState } from 'react';
 import axios from 'axios';
 import { useContext } from 'react';
+import Snackbar from '@mui/material/Snackbar';
 import { UserDataContext } from '../ContextAPI/UserDataContext';
 
 const Notes = (props)=>{
 
     const {user} = useContext(UserDataContext);
+
+    const [openSnack, setOpenSnack] = useState(false);
+    const [message, setMessage] = useState("");
 
     const onClose =()=>{
         props.setShowNotes(false);
@@ -20,9 +24,23 @@ const Notes = (props)=>{
 
     const saveNotes = async()=>{
         await axios.post("/saveNotes", {notes: props.myNotes, userID: user.userID, courseID: props.courseID, chapterName: props.chapterName})
-        .then((response)=>{})
-        .catch((err)=>{console.log(err)})
+        .then((response)=>{
+            setMessage("Saved");
+        })
+        .catch((err)=>{
+            setMessage("Sorry Error Occurred");
+            console.log(err)
+        });
+
+        setOpenSnack(true);
     }
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setOpenSnack(false);
+    };
 
     return(
         <div style = {NotesMainStyle} data-testid = 'notes-div'>
@@ -40,6 +58,13 @@ const Notes = (props)=>{
                 rows={29}
                 variant="filled"
             />
+
+        <Snackbar
+            open={openSnack}
+            autoHideDuration={3000}
+            onClose={handleClose}
+            message={message}
+        />
         </div>
       
     );
