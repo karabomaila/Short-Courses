@@ -20,6 +20,7 @@ function CardViewList({allCourses, setMessage, setOpenSnack}) {
                 crs_id = {data.courseID}
                 setMessage = {setMessage} 
                 setOpenSnack = {setOpenSnack}
+                data={data}
               />
             </Col>
           ))}

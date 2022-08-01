@@ -11,7 +11,7 @@ import {
 import createID from "./GenCourseID";
 import {UserDataContext} from "./ContextAPI/UserDataContext"
 
-function Firstpanel({ handletab, setCourse }) {
+function Firstpanel({ handletab, setCourse,edit }) {
   const {user} = useContext(UserDataContext);
   const [showimageupload, setshowimageupload] = useState(false);
   const [images, setImages] = useState([]);
@@ -20,6 +20,15 @@ function Firstpanel({ handletab, setCourse }) {
   const onclick = () => {
     setshowimageupload(!showimageupload);
   };
+
+  useEffect(() => {
+    if(edit){
+      // document.getElementById("courseName").value = currCourse.name;
+      // document.getElementById("courseDes").value = currCourse.description;
+
+      
+    }
+  })
 
   useEffect(() => {
     const courseStorage = window.sessionStorage.getItem("course");
