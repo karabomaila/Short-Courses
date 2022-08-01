@@ -30,9 +30,12 @@ const Hub = ()=>{
                 
     if(view){
         // pass in props for the chapter wanna view... 
-        return(<ViewHub setView = {setView} 
+        return(
+            <ViewHub setView = {setView} 
             slidesArray = {chaptersArray[getIndex].slides}
-            courseID = {courseID}/>);
+            chapterName = {chaptersArray[getIndex].name}
+            courseID = {courseID}/>
+            );
     }
 
     return(
@@ -41,7 +44,7 @@ const Hub = ()=>{
                 <ScienceIcon fontSize='large' sx = {{color: 'white'}}/>
                 <p style ={{color: 'white', fontWeight: 'bold', margin: 10}}>Learning Hub</p>
             </div>
-            <p style ={{color: 'black', fontWeight: 'bold', marginBottom: 15, alignSelf: 'center'}} >{courseName}</p>
+            <p style ={{color: 'gray', fontWeight: '400', marginBottom: 15, fontSize: 22, marginLeft: 12}} >{courseName}</p>
             <div style = {ShowStyle}>
                 {chaptersArray.map((item, index)=>
                     <Chapter 
@@ -76,7 +79,7 @@ const ShowStyle ={
     display: 'flex',
     flexDirection: 'row',
     width: '80%',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-start',
     flexWrap: 'wrap',
     alignSelf: 'center'
 }

@@ -8,13 +8,31 @@ import NotesIcon from '@mui/icons-material/Notes';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import Notes from './Notes';
 import Navigation from './Navigation';
+import axios from 'axios';
+import { useContext } from 'react';
+import { UserDataContext } from '../ContextAPI/UserDataContext';
+import { useEffect } from 'react';
 
 const ViewHub = (props)=>{
 
+    const {user} = useContext(UserDataContext);
     const [onDisplay, setOnDisplay] = useState(props.slidesArray[0].content);
 
     const [showNav, setShowNav] = useState(false);
     const [showNotes, setShowNotes] = useState(false);
+
+    const [myNotes, setMyNotes] = useState("");
+    useEffect(()=>{
+        getChapterNotes();
+    }, []);
+
+    const getChapterNotes = async()=>{
+        await axios.post('/getChapterNotes', {userID: user.userID, courseID: props.courseID, chapterName: props.chapterName})
+        .then((response)=>{
+            setMyNotes(response.data);
+        })
+        .catch((err)=>{});
+    }
 
     const onNav = ()=>{
         setShowNav(true);
@@ -48,7 +66,12 @@ const ViewHub = (props)=>{
 
                 {showNotes && 
                     <div style = {LeftPanel}>
-                    <Notes setShowNotes = {setShowNotes}/>
+                    <Notes 
+                    myNotes = {myNotes}
+                    courseID = {props.courseID}
+                    chapterName = {props.chapterName}
+                    setMyNotes = {setMyNotes}
+                    setShowNotes = {setShowNotes}/>
                     </div>
                 }
             </div>

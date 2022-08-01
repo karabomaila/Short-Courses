@@ -1,22 +1,17 @@
 import { Card, Button, Carousel } from "react-bootstrap";
-import GetInfo from "./AboutCourse/GetInfo";
 import "./CardView.css";
 import "../App.css";
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useIsAuthenticated } from "@azure/msal-react";
-import { useMsal } from "@azure/msal-react";
 import React from "react";
-import { db } from "./firebase-config";
 import AboutCourseDialog from "./AboutCourse/AboutCourseDialog";
 import { UserDataContext } from "./ContextAPI/UserDataContext";
-import { collection, getDocs, where, query } from "@firebase/firestore";
+
 
 function CardView(props) {
   const [openAboutDialog, setOpenAboutDialog] = useState(false);
-  const [info, setInfo] = useState([]);
   const [dataObject, setDataObject] = useState({});
-  const INFO_REF = collection(db, "slides");
 
   const { user } = useContext(UserDataContext);
 
@@ -90,7 +85,7 @@ function CardView(props) {
 
         <Card.Body className="justify-content-center">
           <Card.Title>{props.name}</Card.Title>
-          <Button variant="primary" onClick={onEnroll}>
+          <Button style = {{background: '#007377', borderColor: '#007377'}} onClick={onEnroll}>
             Enroll
           </Button>
           <Button

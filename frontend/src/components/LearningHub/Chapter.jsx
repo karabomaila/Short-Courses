@@ -3,14 +3,6 @@ import ArtTrackIcon from '@mui/icons-material/ArtTrack';
 
 const Chapter = (props)=>{
 
-    let iconColour;
-
-    if(props.index % 2 == 0){
-        iconColour = '#daa520';
-    }else{
-        iconColour = '#003b5c';
-    }
-
     const onView = ()=>{
         props.setGetIndex(props.index);
         props.setView(true);
@@ -20,7 +12,7 @@ const Chapter = (props)=>{
     return(
         <div style = {MainStyle} onClick = {onView} data-testid = 'chap-div'>
             <div style = {IconStyle}>
-                <ArtTrackIcon fontSize='large' sx = {{color: iconColour, }}/>
+            <p style = {{margin: 0, fontSize: 50, fontWeight: 'bold', color: "#007377"}}>{props.index + 1}</p>
             </div>
             <div style = {RightStyle}>
                 <p style = {ChapterNameStyle}>{props.data.name}</p>
@@ -33,8 +25,13 @@ const Chapter = (props)=>{
 const MainStyle = {
     display: 'flex',
     flexDirection: 'row',
+    padding: 5,
     borderRadius: 12,
-    width: '40%',
+    width: '320px',
+    height: '150px',
+    marginBottom: 18,
+    marginRight: 22,
+    cursor: 'pointer',
     boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.5)'
 }
 
@@ -44,6 +41,12 @@ const IconStyle ={
     justifyContent: 'center',
     alignItems: 'center',
     margin: 12,
+    alignSelf: 'center',
+    borderStyle: 'solid',
+    borderColor: '#007377',
+    width: '120px',
+    height: '120px',
+    borderRadius: '100%'
 }
 
 const RightStyle = {
@@ -52,15 +55,18 @@ const RightStyle = {
 }
 
 const ChapterNameStyle = {
+    fontFamily: 'Helvetica',
     fontWeight: 'bold',
-    marginTop: 5,
-    marginBottom: 5
+    color: '#111417',
+    margin: 0,
+    marginTop: 8,
 }
 
 const ChapterDurationStyle = {
     //fontWeight: 'bold',
-    marginTop: 5,
-    marginBottom: 5
+    margin: 0,
+    marginTop: 3,
+    color: '#111417',
 }
 
 export default Chapter;

@@ -1,10 +1,14 @@
 import React from 'react'
 import { useState } from 'react';
 import { db } from '../firebase-config';
-import {getDoc, doc} from 'firebase/firestore';
 import { useEffect } from 'react';
 import ViewNotes from './ViewNotes';
 import ShowNotes from './ShowNotes';
+import axios from 'axios';
+import { error } from 'jquery';
+import { useContext } from 'react';
+import { UserDataContext } from '../ContextAPI/UserDataContext';
+import BasicLoader from '../Loaders/BasicLoader';
 
 const Notes =(props)=>{
     const [view, setView] = useState(false);
@@ -12,19 +16,21 @@ const Notes =(props)=>{
     const [info, setInfo] = useState({});
     let flag = false;
 
-    useEffect(() => {
-        
-        const getNotes = async ()=>{
-            const docRef = doc(db, "Notes", props.userID);
-            const docSnap = await getDoc(docRef);
+    const [loader, setLoader] = useState(true);
 
-            if (docSnap.exists()) {
-                setNotes(docSnap.data().courses);
-                flag = true;
-            }
-        }
-        getNotes();
-    }, [])
+    const {user} = useContext(UserDataContext);
+
+
+    const getAllNotes = async()=>{
+
+        await axios.post('getAllNotes', {userID: user.userID})
+        .then((response)=>{
+            setLoader(false);
+            setNotes(response.data);
+        })
+        .catch((err)=>{console.log(err)});
+    }
+
 
     return(
         <div data-testid = 'nts-div' style = {MainStyle}>
@@ -37,6 +43,10 @@ const Notes =(props)=>{
 
             {view &&
             <ViewNotes setView = {setView} info = {info}/>
+            }
+
+            {loader ?
+                <BasicLoader /> : null
             }
            
         </div>
