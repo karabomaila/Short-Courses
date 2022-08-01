@@ -68,7 +68,7 @@ function Main(props) {
 
 
     const slideData = {content:temp,courseID:props.course.courseID,courseName:props.course.name};
-    const courseData = {...props.course,duration,userID};
+    const courseData = {...props.course,duration,userID,courseName:props.course.name};
 
     setSlideData(slideData);
     setCourseData(courseData);
