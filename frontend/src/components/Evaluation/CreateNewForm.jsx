@@ -50,7 +50,8 @@ const CreateNewForm = (props)=>{
 
     const onFinish = ()=>{
         // call the backend to post data...
-        navigate('/MyCourses');
+        console.log(droppedItems);
+        //navigate('/MyCourses');
     }
 
     return(

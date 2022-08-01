@@ -5,7 +5,6 @@ import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import DefaultEvaluation from '../Evaluation/DefaultEvaluation';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import {DndProvider, useDrop} from 'react-dnd';
 import { HTML5Backend} from 'react-dnd-html5-backend';
 import { useNavigate } from 'react-router-dom';
@@ -22,6 +21,17 @@ const PlusHome = (props)=>{
 
     const courseID = courseData.courseID;
     const courseName = courseData.name;
+
+    // default evaluation...
+    const defaultItems = [
+        {type: 'slider', content: 'The slides were well prepared/presented'},
+        {type: 'slider', content: 'The course stimulated my interest in the field related to the course'},
+        {type: 'slider', content: 'The course had variety of instructional methods to reach the course objective '},
+        {type: 'box', content: 'Would you recommend this course to a friend'},
+        {type: 'box', content: 'Did you cover all the learning outcomes' },
+        {type: 'box', content: 'The course description accurately described the course content'},
+        {type: 'type', content: 'Out of 100 how good is this course', array: ['75+', '50 - 74', '0 - 49']},
+    ];
     
     const onCreate =()=>{
         setCreate(true);
@@ -29,7 +39,8 @@ const PlusHome = (props)=>{
 
     const onFinish = ()=>{
         // call the backend to post the data...
-        navigate('/MyCourses');
+        console.log(defaultItems)
+        //navigate('/MyCourses');
     }
 
     return(
