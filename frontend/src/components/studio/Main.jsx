@@ -6,7 +6,7 @@ import Fab from "@mui/material/Fab";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import SaveIcon from "@mui/icons-material/Save";
 import renderTools from "./renderTools";
-import TagsDialog from "../tags/TagsDialog";
+// import TagsDialog from "../tags/TagsDialog";
 
 const mainDiv = {
   display: "flex",
@@ -32,55 +32,49 @@ function Main(props) {
   const [outcomes, setOutcomes] = React.useState([]); //Learning outcomes of the current chapter
   const [slideData, setSlideData] = React.useState(null);
   const [courseData, setCourseData] = React.useState(null);
+  const [flag, setFlag] = React.useState(false);
 
-
-  const onNext = () => {
-    console.log(props.course);
-    console.log(slides);
-    console.log(chapters);
-
-    let temp = []
+  const onNext = (event) => {
+    event.preventDefault();
+    let temp = [];
     let duration = 0;
     let outcomes = [];
 
-    // let tempSlides = [];
+    chapters.map((chapter, index) => {
+      const tempSlides = slides.filter((item) => item.chapter === chapter.id);
 
-    chapters.map((chapter, index)=>{
+      tempSlides.map((item) => {
+        duration += item.duration;
+      });
 
-      const tempSlides = slides.filter((item)=>item.chapter===chapter.id);
-
-      tempSlides.map(item=>{
-        duration+=item.duration;
-      })
-
-      outcomes.push(...chapter.outcomes)
-
-
+      outcomes.push(...chapter.outcomes);
 
       // slides
-      temp.push({...chapter,slides:tempSlides});
+      temp.push({ ...chapter, slides: tempSlides });
 
       // slides.filter
-
-    })
+    });
 
     const userID = JSON.parse(window.sessionStorage.getItem("user")).userID;
 
+    const slideDataa = {
+      content: temp,
+      courseID: props.course.courseID,
+      courseName: props.course.name,
+    };
+    const courseDataa = {
+      ...props.course,
+      duration,
+      userID,
+      courseName: props.course.name,
+    };
+    console.log(courseDataa);
+    console.log(slideDataa)
+    setSlideData(slideDataa);
+    setCourseData(courseDataa);
+    // setFlag(true);
 
-    const slideData = {content:temp,courseID:props.course.courseID,courseName:props.course.name};
-    const courseData = {...props.course,duration,userID,courseName:props.course.name};
-
-    setSlideData(slideData);
-    setCourseData(courseData);
-    
-
-    
-
-    
-
-
-
-    setOpen(true);
+    // setOpen(true);
   };
 
   const saveSlide = () => {
@@ -129,7 +123,6 @@ function Main(props) {
       }
     }
   };
-  
 
   const [canvasTools2, despatch] = useReducer((state, action) => {
     // setCanvasTools2(action.payload);
@@ -160,7 +153,7 @@ function Main(props) {
           currSlideMins,
           setCurrSlideMins,
           outcomes,
-          setOutcomes
+          setOutcomes,
         }}
       >
         <Leftpanel
@@ -195,14 +188,17 @@ function Main(props) {
           <DoubleArrowIcon sx={{ mr: 1, color: "#007377" }} />
           Next Step
         </Fab>
-        <TagsDialog
-          open={open}
-          close={setOpen}
-          courseName={props.course.name}
-          courseID={props.course.courseID}
-          courseData={courseData}
-          slideData={slideData}
-        />
+        {/* {flag && (
+          <TagsDialog
+            open={open}
+            close={setOpen}
+            courseName={props.course.name}
+            courseID={props.course.courseID}
+            courseData={courseData}
+            slideData={slideData}
+            flag={flag}
+          />
+        )} */}
       </studioContext.Provider>
     </div>
   );
