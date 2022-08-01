@@ -14,6 +14,7 @@ const MyCourseCard = ({
   openDel,
   setOpenDel,
   setCourseDelID,
+  description
 }) => {
   return (
     <div style={MainStyle} data-testid="my-ui-div">
@@ -54,7 +55,7 @@ const MyCourseCard = ({
       <div style={TitleStyle}>{courseName}</div>
       <div style={ActionStyle}>
         <Actions title="View" name={courseName} click="view" />
-        <Actions title="Edit" click="edit" courseID={courseID} />
+        <Actions title="Edit" click="edit" courseID={courseID} images={images} description={description}/>
 
         <ActionDel
           openDel={openDel}

@@ -15,8 +15,6 @@ import { data } from "jquery";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
-  const { state } = useLocation();
-
   return (
     <div
       role="tabpanel"
@@ -43,6 +41,7 @@ TabPanel.propTypes = {
 export default function CreateCourse() {
   const [value, setValue] = React.useState(0);
   const [course, setCourse] = React.useState(null);
+  
 
   React.useEffect(() => {
     const tabsStorage = window.sessionStorage.getItem("currTab");
@@ -53,27 +52,7 @@ export default function CreateCourse() {
     }
   }, []);
 
-  // React.useEffect(() => {
-  //   // const
-
-  //   if (state.edit == true) {
-  //     axios
-  //       .post("/getSlides", { courseID: state.courseID })
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         let temp = {
-  //           name: res.data.courseName,
-  //           courseID: res.data.courseID,
-  //           description: res.data.description,
-  //           images: res.data.images,
-  //         };
-
-  //         setCourse(temp);
-  //       })
-  //       .then((err) => {});
-  //   }
-  // }, []);
-
+  
   const handletab = (event, num) => {
     setValue(num);
     window.sessionStorage.setItem("currTab", num.toString());
