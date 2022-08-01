@@ -45,15 +45,18 @@ function Main(props) {
       const tempSlides = slides.filter((item) => item.chapter === chapter.id);
 
       tempSlides.map((item) => {
-        duration += item.duration;
+        duration = duration + item.duration;
+        console.log(item)
       });
+
+      
 
       outcomes.push(...chapter.outcomes);
 
-      // slides
+    
       temp.push({ ...chapter, slides: tempSlides });
 
-      // slides.filter
+      
     });
 
     const userID = JSON.parse(window.sessionStorage.getItem("user")).userID;
@@ -83,6 +86,7 @@ function Main(props) {
         chapter: currentChapter,
         name: document.getElementById("slideName").value,
         content: canvasTools,
+        duration:currSlideMins
       };
 
       setSlides([...slides, tmpSlide]);
