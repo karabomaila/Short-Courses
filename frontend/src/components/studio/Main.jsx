@@ -30,7 +30,7 @@ function Main(props) {
   const [edit, setEdit] = React.useState(null);
   const [currSlideMins, setCurrSlideMins] = React.useState(2);
   const [outcomes, setOutcomes] = React.useState([]); //Learning outcomes of the current chapter
-  const [slideData, setSlidesData] = React.useState(null);
+  const [slideData, setSlideData] = React.useState(null);
   const [courseData, setCourseData] = React.useState(null);
 
 

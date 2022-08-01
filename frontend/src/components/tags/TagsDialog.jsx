@@ -6,10 +6,6 @@ import {useState, useEffect} from 'react';
 import {doc, setDoc, collection, getDocs} from "firebase/firestore"; 
 import Helpers from '../FirebaseAPIs/Helpers';
 import {useNavigate} from 'react-router-dom';
-import { useIsAuthenticated } from "@azure/msal-react";
-import { useMsal } from "@azure/msal-react";
-import { callMsGraph } from "./MicrosoftGraph/graph";
-import { loginRequest } from "./MicrosoftGraph/authConfig";
 
 /*
  * ONLY This file should be called on the studio
@@ -20,14 +16,10 @@ import { loginRequest } from "./MicrosoftGraph/authConfig";
  * By NO ONE I mean Lindokuhle...
 
 */
-const TagsDialog = (props) => {
+const TagsDialog = (props, {courseData, slideData}) => {
     const navigator = useNavigate();
     const [tags, setTags] = useState([]);
     const REF_COLLECTION = collection(db, "CourseTags");
-
-    const isAuthenticated = useIsAuthenticated();
-    const { instance, accounts } = useMsal();
-    const [graphData, setGraphData] = useState(null);
     
     useEffect(() => {
         const getTags = async ()=>{
@@ -37,9 +29,8 @@ const TagsDialog = (props) => {
         getTags();
     }, [])
 
-
     
-    let initArray = props.courseName.split(' ');
+    let initArray = courseData.courseName.split(" ");
     let TagArray = new Array();
 
     for(let i = 0; i < initArray.length; i++){
@@ -52,9 +43,9 @@ const TagsDialog = (props) => {
     const onClose = () =>{
         props.close(false);
         let uploadTag = new Helpers();
-        uploadTag.PushTag(tags, TagArray, props.courseID);
+        uploadTag.PushTag(tags, TagArray, courseData.courseID);
         // Lead back to homepage...
-        navigator("/Studio++", { state: {courseID: props.courseID, courseName: props.courseName, user: accounts } });
+        navigator("/Studio++", {courseData: courseData, slideData: slideData});
     }
 
     return(

@@ -49,7 +49,8 @@ const CreateNewForm = (props)=>{
     }
 
     const onFinish = ()=>{
-        navigate('/MyCourses', {state: {user: props.user}})
+        // call the backend to post data...
+        navigate('/MyCourses');
     }
 
     return(

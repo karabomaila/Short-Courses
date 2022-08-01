@@ -16,27 +16,19 @@ const PlusHome = (props)=>{
     const navigate = useNavigate();
     const [create, setCreate] = useState(false);
 
-    let user = {};
-    let courseID = '';
-    let courseName = '';
+    // getting the data from the user...
+    const {courseData, slideData} = useLocation();
 
-    if(props.user !== undefined){
-        user = props.user;
-        courseID = props.courseID;
-        courseName = props.courseName;
-    }else{
-        const {state} = useLocation();
-        user = state.user;
-        courseID = state.courseID;
-        courseName = state.courseName;
-    }
-
+    const courseID = courseData.courseID;
+    const courseName = courseData.courseName;
+    
     const onCreate =()=>{
         setCreate(true);
     }
 
     const onFinish = ()=>{
-        navigate('/MyCourses', {state: {user: user}})
+        // call the backend to post the data...
+        navigate('/MyCourses');
     }
 
     return(
@@ -60,7 +52,6 @@ const PlusHome = (props)=>{
                 <CreateNewForm setCreate = {setCreate}
                 courseID = {courseID}
                 courseName = {courseName}
-                user = {user}
                 />
             }
             
