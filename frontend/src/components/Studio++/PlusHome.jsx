@@ -9,6 +9,8 @@ import {DndProvider, useDrop} from 'react-dnd';
 import { HTML5Backend} from 'react-dnd-html5-backend';
 import { useNavigate } from 'react-router-dom';
 import CreateNewForm from '../Evaluation/CreateNewForm';
+import BasicLoader from '../Loaders/BasicLoader';
+import Backdrop from '@mui/material/Backdrop';
 import { CourseContext } from '../ContextAPI/CoursaContext';
 import axios from 'axios';
 
@@ -22,6 +24,8 @@ const PlusHome = (props)=>{
 
     const courseID = courseData.courseID;
     const courseName = courseData.name;
+
+    const [loader, setLoader] = useState(false);
 
     // default evaluation...
     const defaultItems = [
@@ -40,14 +44,17 @@ const PlusHome = (props)=>{
 
     const onFinish = async()=>{
         // call the backend to post the data...
+        setLoader(true);
         slideData.evaluation = defaultItems;
         await axios.post("/newCourse", {slideData: slideData, courseData: courseData})
         .then((response)=>{
+            setLoader(false);
             navigate('/MyCourses');
         })
         .catch((err)=>{
             console.log(err);
         });  
+        
     }
 
     return(
@@ -87,6 +94,13 @@ const PlusHome = (props)=>{
                  Create New Form
             </Fab>
             }
+
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={loader}
+            >
+                <BasicLoader />
+            </Backdrop>
         </div>
         </DndProvider>
     );

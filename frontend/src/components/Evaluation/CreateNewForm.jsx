@@ -11,6 +11,8 @@ import Dragable from './Dragable';
 import DropDialog from './DropDialog';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import Backdrop from '@mui/material/Backdrop';
+import BasicLoader from '../Loaders/BasicLoader';
 import empty from './drag_empty.webp';
 import EasyView from './EasyView';
 import ViewForm from './ViewForm';
@@ -26,6 +28,7 @@ const CreateNewForm = (props)=>{
     const list = ['slider', 'radio', 'box'];
 
     const {slideData, courseData} = useContext(CourseContext);
+    const [loader, setLoader] = useState(false);
 
     const [{isOver}, drop] = useDrop(() =>({
         accept: 'div',
@@ -54,10 +57,12 @@ const CreateNewForm = (props)=>{
 
     const onFinish = async()=>{
         // call the backend to post data...
+        setLoader(true);
         slideData.evaluation = droppedItems;
         
         await axios.post("/newCourse", {slideData: slideData, courseData: courseData})
         .then((response)=>{
+            setLoader(false);
             navigate('/MyCourses');
         })
         .catch((err)=>{
@@ -141,6 +146,13 @@ const CreateNewForm = (props)=>{
                  <DoneIcon sx={{ mr: 1, color: '#007377'}} />
                  Submit
             </Fab>
+
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={loader}
+            >
+                <BasicLoader />
+            </Backdrop>
         </div>
     );
 }

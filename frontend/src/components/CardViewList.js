@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import CardView from "./cardView";
 import { Box, CircularProgress } from "@mui/material";
 import React from "react";
+import BasicLoader from "./Loaders/BasicLoader";
 
 
 function CardViewList({allCourses, setMessage, setOpenSnack}) {
@@ -26,9 +27,7 @@ function CardViewList({allCourses, setMessage, setOpenSnack}) {
           ))}
         </Row>
       ) : (
-        <Box style={{ marginLeft: "48%", marginTop: "10%"}}>
-          <CircularProgress />
-        </Box>
+        <BasicLoader />
       )}
     </Container>
   );

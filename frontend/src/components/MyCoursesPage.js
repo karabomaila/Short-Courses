@@ -3,6 +3,7 @@ import AddIcon from "@mui/icons-material/Add";
 import EnrolledAppBar from "./EnrolledAppBar";
 import { useLocation, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import BasicLoader from "./Loaders/BasicLoader";
 import axios from "axios";
 import {
   Button,
@@ -24,6 +25,7 @@ function MyCourses() {
   const [courses, setCourses] = useState([]);
 
   const [loader, setLoader] = useState(false);
+  const [basicLoader, setBasicLoader] = useState(true);
   const [courseDelID, setCourseDelID] = useState("");
   const [openDel, setOpenDel] = useState(false);
 
@@ -42,6 +44,7 @@ function MyCourses() {
     axios
       .post("/getCreatedCourses", { userID: user.userID })
       .then((response) => {
+        setBasicLoader(false);
         setCourses(response.data);
       })
       .catch((err) => console.log(err));
@@ -135,6 +138,8 @@ function MyCourses() {
       >
         <AddIcon />
       </Fab>
+
+      {basicLoader ? <BasicLoader /> : null}
     </div>
   );
 }
