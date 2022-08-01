@@ -87,6 +87,7 @@ function MyCourses() {
             setOpenDel={setOpenDel}
             setLoader={setLoader}
             loader={loader}
+            description={course.description}
           />
         ))}
       </div>
