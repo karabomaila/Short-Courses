@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useReducer, useEffect, useContext } from "react";
 import Leftpanel from "./Leftpanel";
 import RightPanel from "./RightPanel";
 import studioContext from "./StudioContext";
@@ -7,6 +7,7 @@ import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import SaveIcon from "@mui/icons-material/Save";
 import renderTools from "./renderTools";
 import TagsDialog from "../tags/TagsDialog";
+import { CourseContext } from "../ContextAPI/CoursaContext";
 
 const mainDiv = {
   display: "flex",
@@ -30,8 +31,9 @@ function Main(props) {
   const [edit, setEdit] = React.useState(null);
   const [currSlideMins, setCurrSlideMins] = React.useState(2);
   const [outcomes, setOutcomes] = React.useState([]); //Learning outcomes of the current chapter
-  const [slideData, setSlideData] = React.useState(null);
-  const [courseData, setCourseData] = React.useState(null);
+
+  // course context...
+  const {setSlideData, setCourseData} = useContext(CourseContext);
 
 
   const onNext = () => {
@@ -73,14 +75,12 @@ function Main(props) {
     setSlideData(slideData);
     setCourseData(courseData);
     
+    setTimeout(()=>{
+      console.log(courseData);
+      setOpen(true);
+    }, 3000);
 
     
-
-    
-
-
-
-    setOpen(true);
   };
 
   const saveSlide = () => {
@@ -200,8 +200,6 @@ function Main(props) {
           close={setOpen}
           courseName={props.course.name}
           courseID={props.course.courseID}
-          courseData={courseData}
-          slideData={slideData}
         />
       </studioContext.Provider>
     </div>

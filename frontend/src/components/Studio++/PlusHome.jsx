@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 import DoneIcon from '@mui/icons-material/Done';
 import AddIcon from '@mui/icons-material/Add';
@@ -10,6 +10,7 @@ import {DndProvider, useDrop} from 'react-dnd';
 import { HTML5Backend} from 'react-dnd-html5-backend';
 import { useNavigate } from 'react-router-dom';
 import CreateNewForm from '../Evaluation/CreateNewForm';
+import { CourseContext } from '../ContextAPI/CoursaContext';
 
 const PlusHome = (props)=>{
     
@@ -17,10 +18,10 @@ const PlusHome = (props)=>{
     const [create, setCreate] = useState(false);
 
     // getting the data from the user...
-    const {courseData, slideData} = useLocation();
+    const {courseData, slideData} = useContext(CourseContext);
 
     const courseID = courseData.courseID;
-    const courseName = courseData.courseName;
+    const courseName = courseData.name;
     
     const onCreate =()=>{
         setCreate(true);

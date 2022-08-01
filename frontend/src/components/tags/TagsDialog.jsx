@@ -16,7 +16,7 @@ import {useNavigate} from 'react-router-dom';
  * By NO ONE I mean Lindokuhle...
 
 */
-const TagsDialog = (props, {courseData, slideData}) => {
+const TagsDialog = (props) => {
     const navigator = useNavigate();
     const [tags, setTags] = useState([]);
     const REF_COLLECTION = collection(db, "CourseTags");
@@ -30,7 +30,7 @@ const TagsDialog = (props, {courseData, slideData}) => {
     }, [])
 
     
-    let initArray = courseData.courseName.split(" ");
+    let initArray = props.courseName.split(" ");
     let TagArray = new Array();
 
     for(let i = 0; i < initArray.length; i++){
@@ -42,10 +42,10 @@ const TagsDialog = (props, {courseData, slideData}) => {
 
     const onClose = () =>{
         props.close(false);
-        let uploadTag = new Helpers();
-        uploadTag.PushTag(tags, TagArray, courseData.courseID);
+        //let uploadTag = new Helpers();
+        //uploadTag.PushTag(tags, TagArray, courseData.courseID);
         // Lead back to homepage...
-        navigator("/Studio++", {courseData: courseData, slideData: slideData});
+        navigator("/Studio++");
     }
 
     return(
