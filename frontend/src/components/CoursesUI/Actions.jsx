@@ -2,6 +2,7 @@ import { Button } from '@mui/material';
 import React from 'react';
 import GetInfo from '../AboutCourse/GetInfo';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Actions = (props)=>{
@@ -27,10 +28,18 @@ const Actions = (props)=>{
                 // console.log(props)
                 navigate('/CreateCourse',{ state: { user: props.user,courseInfo:props } });
             case 'learn':
-                navigate('/Hub', {state: {courseID: props.courseID, courseName: props.courseName ,userID: props.userID[0].username}});
+                onLearn(props.courseID);
             default:
         }
         
+    }
+
+    const onLearn = async(courseID)=>{
+        await axios.post("/getSlides", {courseID: courseID})
+        .then((response)=>{
+            navigate('/Hub', {state: {course: response.data}});
+        })
+        .catch((err)=>{console.log(err)});
     }
 
     return(

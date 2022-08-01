@@ -1,88 +1,38 @@
 import React from 'react';
 import ScienceIcon from '@mui/icons-material/Science';
-import {db} from '../firebase-config';
 import {useLocation} from 'react-router-dom';
-import {collection, where, query, getDocs, getDoc, 
-                    doc, setDoc, arrayUnion, updateDoc} from 'firebase/firestore';
 import { useState } from 'react';
 import ViewHub from './ViewHub';
 import Chapter from './Chapter'
 import { useEffect } from 'react';
 
-const Hub = (props)=>{
+const Hub = ()=>{
+    const {state} = useLocation();
     const [chaptersArray, setChaptersArray] = useState([]);
+    const [courseID, setCourseID] = useState("");
+    const [courseName, setCourseName] = useState("");
     const [getIndex, setGetIndex] = useState(0);
     const [view, setView] = useState(false);
-    let notes = new Array();
+   
 
-    let userID = '';
-    let courseID = '';
-    let courseName = '';
+    useEffect(()=>{
+        initData();
+    }, []);
 
-    if(props.user !== undefined){
-        userID = props.user.userID;
-        courseID = props.user.courseID;
-        courseName = props.user.courseName;
-    }else{
-        const {state} = useLocation();
-        userID = state.userID;
-        courseID = state.courseID;
-        courseName = state.courseName;
+    const initData =()=>{
+        
+        setChaptersArray(state.course.content);
+        setCourseID(state.course.courseID);
+        setCourseName(state.course.courseName);
+        console.log(state.course);
     }
-
-    const initNotes = {
-        courses: [{courseID: courseID, courseName: courseName, notes: 'Write Something...'}]
-    }
-
-    useEffect(() => {
-        const getData = async ()=>{
-            const q = query(collection(db, "slides"), where("courseID", "==", courseID));
-            const data = await getDocs(q);
-            data.forEach((doc) => {
-                setChaptersArray(doc.data().content);
-              });
-          
-        }
-
-        const getNotes = async ()=>{
-            const docRef = doc(db, "Notes", userID);
-            const docSnap = await getDoc(docRef);
-
-            if (docSnap.exists()) {
-                //check if the current course is there...
-                let flag = true;
-                notes = docSnap.data().courses;
-                for(let i = 0; i < notes.length; i++){
-                    if(notes[i].courseID === courseID){
-                        // The course has notes... 
-                        flag = false;
-                        break;
-                    }
-                }
-
-                if(flag){
-                    // when the course has no notes...
-                    await updateDoc(docRef, 
-                        {courses: arrayUnion({courseID: courseID, courseName: courseName, notes: 'Write Something...'})});
-                }
-
-            } else {
-                // create a new collection... 
-                // doc.data() will be undefined in this case
-                await setDoc(doc(db, "Notes", userID), initNotes);
-            }
-        }
-
-        getData();
-        getNotes();
-    }, [])
-
+    
+                
     if(view){
         // pass in props for the chapter wanna view... 
         return(<ViewHub setView = {setView} 
             slidesArray = {chaptersArray[getIndex].slides}
-            courseID = {courseID}
-            userID = {userID}/>);
+            courseID = {courseID}/>);
     }
 
     return(
