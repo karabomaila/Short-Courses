@@ -9,9 +9,13 @@ import Main from "./studio/Main";
 import { storage, db } from "./firebase-config";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { collection } from "@firebase/firestore";
+import axios from "axios";
+import { data } from "jquery";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+
+  const { state } = useLocation();
 
   return (
     <div
@@ -49,6 +53,27 @@ export default function CreateCourse() {
     }
   }, []);
 
+  // React.useEffect(() => {
+  //   // const
+
+  //   if (state.edit == true) {
+  //     axios
+  //       .post("/getSlides", { courseID: state.courseID })
+  //       .then((res) => {
+  //         console.log(res.data);
+  //         let temp = {
+  //           name: res.data.courseName,
+  //           courseID: res.data.courseID,
+  //           description: res.data.description,
+  //           images: res.data.images,
+  //         };
+
+  //         setCourse(temp);
+  //       })
+  //       .then((err) => {});
+  //   }
+  // }, []);
+
   const handletab = (event, num) => {
     setValue(num);
     window.sessionStorage.setItem("currTab", num.toString());
@@ -57,10 +82,20 @@ export default function CreateCourse() {
   return (
     <Box sx={{ width: "100%" }}>
       <TabPanel value={value} index={0}>
-        <Firstpanel handletab={handletab} setCourse={setCourse} />
+        <Firstpanel
+          handletab={handletab}
+          setCourse={setCourse}
+          course={course}
+          
+        />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Main handletab={handletab} course={course} setCourse={setCourse} />
+        <Main
+          handletab={handletab}
+          course={course}
+          setCourse={setCourse}
+          
+        />
       </TabPanel>
     </Box>
   );

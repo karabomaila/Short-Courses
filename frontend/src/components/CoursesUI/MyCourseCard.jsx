@@ -54,7 +54,7 @@ const MyCourseCard = ({
       <div style={TitleStyle}>{courseName}</div>
       <div style={ActionStyle}>
         <Actions title="View" name={courseName} click="view" />
-        <Actions title="Edit" click="edit" />
+        <Actions title="Edit" click="edit" courseID={courseID} />
 
         <ActionDel
           openDel={openDel}
