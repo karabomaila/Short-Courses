@@ -11,10 +11,11 @@ import Hub from './components/LearningHub/Hub'
 import Main from './components/studio/Main'
 import PlusHome from './components/Studio++/PlusHome';
 import UserDataContextProvider from './components/ContextAPI/UserDataContext';
+import CourseContextProvider from './components/ContextAPI/CoursaContext';
 
 function App() {
     return (
-        <div>
+        <CourseContextProvider>
         <UserDataContextProvider>
         <BrowserRouter>
           <Routes>
@@ -30,7 +31,7 @@ function App() {
           </Routes>
        </BrowserRouter>
        </UserDataContextProvider>
-        </div>
+       </CourseContextProvider>
     );
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useReducer, useEffect, useContext } from "react";
 import Leftpanel from "./Leftpanel";
 import RightPanel from "./RightPanel";
 import studioContext from "./StudioContext";
@@ -6,7 +6,8 @@ import Fab from "@mui/material/Fab";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import SaveIcon from "@mui/icons-material/Save";
 import renderTools from "./renderTools";
-// import TagsDialog from "../tags/TagsDialog";
+import TagsDialog from "../tags/TagsDialog";
+import { CourseContext } from "../ContextAPI/CoursaContext";
 
 const mainDiv = {
   display: "flex",
@@ -30,9 +31,9 @@ function Main(props) {
   const [edit, setEdit] = React.useState(null);
   const [currSlideMins, setCurrSlideMins] = React.useState(2);
   const [outcomes, setOutcomes] = React.useState([]); //Learning outcomes of the current chapter
-  const [slideData, setSlideData] = React.useState(null);
-  const [courseData, setCourseData] = React.useState(null);
-  const [flag, setFlag] = React.useState(false);
+
+  // course context...
+  const {setSlideData, setCourseData} = useContext(CourseContext);
 
   const onNext = (event) => {
     event.preventDefault();
@@ -57,24 +58,19 @@ function Main(props) {
 
     const userID = JSON.parse(window.sessionStorage.getItem("user")).userID;
 
-    const slideDataa = {
-      content: temp,
-      courseID: props.course.courseID,
-      courseName: props.course.name,
-    };
-    const courseDataa = {
-      ...props.course,
-      duration,
-      userID,
-      courseName: props.course.name,
-    };
-    console.log(courseDataa);
-    console.log(slideDataa)
-    setSlideData(slideDataa);
-    setCourseData(courseDataa);
-    // setFlag(true);
 
-    // setOpen(true);
+    const slideData = {content:temp,courseID:props.course.courseID,courseName:props.course.name};
+    const courseData = {...props.course,duration,userID,courseName:props.course.name};
+
+    setSlideData(slideData);
+    setCourseData(courseData);
+    
+    setTimeout(()=>{
+      console.log(courseData);
+      setOpen(true);
+    }, 3000);
+
+    
   };
 
   const saveSlide = () => {
@@ -188,17 +184,12 @@ function Main(props) {
           <DoubleArrowIcon sx={{ mr: 1, color: "#007377" }} />
           Next Step
         </Fab>
-        {/* {flag && (
-          <TagsDialog
-            open={open}
-            close={setOpen}
-            courseName={props.course.name}
-            courseID={props.course.courseID}
-            courseData={courseData}
-            slideData={slideData}
-            flag={flag}
-          />
-        )} */}
+        <TagsDialog
+          open={open}
+          close={setOpen}
+          courseName={props.course.name}
+          courseID={props.course.courseID}
+        />
       </studioContext.Provider>
     </div>
   );
