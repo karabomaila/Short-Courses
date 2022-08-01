@@ -63,7 +63,7 @@ function Firstpanel({ handletab, setCourse }) {
     if (temp === "") {
       document.getElementById("faith").click();
     } else {
-      setImages([...images, { id: images.length, url: temp }]);
+      setImages([...images,temp]);
       document.getElementById("chowed").value = "";
     }
     
@@ -88,8 +88,8 @@ function Firstpanel({ handletab, setCourse }) {
 
     const pictureURL = await upAnddown(file1);
     console.log(pictureURL);
-    setImages([...images, { id: images.length, url: pictureURL }]);
-    // setImages([...images,{id:images.length,file:file}])
+    setImages([...images, pictureURL ]);
+    
   };
 
   return (

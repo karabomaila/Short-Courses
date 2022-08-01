@@ -65,6 +65,7 @@ function Main(props) {
     setSlideData(slideData);
     setCourseData(courseData);
     
+    
     setTimeout(()=>{
       console.log(courseData);
       setOpen(true);
