@@ -15,13 +15,71 @@ const mainDiv = {
 };
 
 function Main(props) {
-
   // window.onbeforeunload = function () {
   //   return 'Are you really want to perform the action?';
   //  }
 
   const [open, setOpen] = useState(false);
+  const [canvasTools, setCanvasTools] = useState([]);
+  const [chapters, setChapters] = useState([]);
+  const [slides, setSlides] = useState([]);
+  const [open2, setOpen2] = React.useState(false);
+  const [open4, setOpen4] = React.useState(false);
+  const [currentChapter, setCurrentChapter] = React.useState(0);
+  const [displayAlert, setDisplayAlert] = React.useState(false);
+  const [edit, setEdit] = React.useState(null);
+  const [currSlideMins, setCurrSlideMins] = React.useState(2);
+  const [outcomes, setOutcomes] = React.useState([]); //Learning outcomes of the current chapter
+  const [slideData, setSlidesData] = React.useState(null);
+  const [courseData, setCourseData] = React.useState(null);
+
+
   const onNext = () => {
+    console.log(props.course);
+    console.log(slides);
+    console.log(chapters);
+
+    let temp = []
+    let duration = 0;
+    let outcomes = [];
+
+    // let tempSlides = [];
+
+    chapters.map((chapter, index)=>{
+
+      const tempSlides = slides.filter((item)=>item.chapter===chapter.id);
+
+      tempSlides.map(item=>{
+        duration+=item.duration;
+      })
+
+      outcomes.push(...chapter.outcomes)
+
+
+
+      // slides
+      temp.push({...chapter,slides:tempSlides});
+
+      // slides.filter
+
+    })
+
+    const userID = JSON.parse(window.sessionStorage.getItem("user")).userID;
+
+
+    const slideData = {content:temp,courseID:props.course.courseID,courseName:props.course.name};
+    const courseData = {...props.course,duration,userID};
+
+    setSlideData(slideData);
+    setCourseData(courseData);
+    
+
+    
+
+    
+
+
+
     setOpen(true);
   };
 
@@ -61,7 +119,6 @@ function Main(props) {
   };
 
   const onSave = () => {
-    
     if (chapters.length === 0) {
       setDisplayAlert(true);
     } else {
@@ -72,16 +129,8 @@ function Main(props) {
       }
     }
   };
-  const [canvasTools, setCanvasTools] = useState([]);
-  const [active, setActive] = useState(null);
-  const [chapters, setChapters] = useState([]);
-  const [slides, setSlides] = useState([]);
-  const [open2, setOpen2] = React.useState(false);
-  const [open4, setOpen4] = React.useState(false);
-  const [currentChapter, setCurrentChapter] = React.useState(0);
-  const [displayAlert, setDisplayAlert] = React.useState(false);
-  const [edit, setEdit] = React.useState(null);
   
+
   const [canvasTools2, despatch] = useReducer((state, action) => {
     // setCanvasTools2(action.payload);
     return action.payload;
@@ -107,7 +156,11 @@ function Main(props) {
           displayAlert,
           setDisplayAlert,
           open4,
-          setOpen4
+          setOpen4,
+          currSlideMins,
+          setCurrSlideMins,
+          outcomes,
+          setOutcomes
         }}
       >
         <Leftpanel
@@ -123,18 +176,34 @@ function Main(props) {
           course={props.course}
         />
 
-        <Fab data-testid = 'fab-save-slide' variant="extended" style = {NFabStyle} onClick = {onSave}>
-                      <SaveIcon sx={{ mr: 1, color: '#007377'}} />
-                      Save Slide
-          </Fab>
+        <Fab
+          data-testid="fab-save-slide"
+          variant="extended"
+          style={NFabStyle}
+          onClick={onSave}
+        >
+          <SaveIcon sx={{ mr: 1, color: "#007377" }} />
+          Save Slide
+        </Fab>
 
-          <Fab data-testid = 'fab-next' variant="extended" style = {FabStyle} onClick = {onNext}>
-                  <DoubleArrowIcon sx={{ mr: 1, color: '#007377'}} />
-                  Next Step
-          </Fab>
-          <TagsDialog open = {open} close = {setOpen} courseName = {props.course.name} courseID = {props.course.courseID}/>
+        <Fab
+          data-testid="fab-next"
+          variant="extended"
+          style={FabStyle}
+          onClick={onNext}
+        >
+          <DoubleArrowIcon sx={{ mr: 1, color: "#007377" }} />
+          Next Step
+        </Fab>
+        <TagsDialog
+          open={open}
+          close={setOpen}
+          courseName={props.course.name}
+          courseID={props.course.courseID}
+          courseData={courseData}
+          slideData={slideData}
+        />
       </studioContext.Provider>
-      
     </div>
   );
 }

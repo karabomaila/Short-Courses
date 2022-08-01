@@ -26,12 +26,21 @@ const leftDiv = {
 };
 
 function CourseContentTab() {
-  const { canvasTools, setCanvasTools,slides,setSlides,chapters, setChapters,setOpen2 } = useContext(StudioContext);
-  const [currentChapter, setCurrentChapter] = useState(0);
- 
+  const {
+    canvasTools,
+    setCanvasTools,
+    slides,
+    setSlides,
+    chapters,
+    setChapters,
+    setOpen2,
+    edit,
+    setEdit,
+    currentChapter,
+    setCurrentChapter,
+    currSlideMins
+  } = useContext(StudioContext);
   
-  const [edit, setEdit] = React.useState(null);
-   //List of all the chapters
 
   const saveSlide = () => {
     if (edit === null) {
@@ -42,6 +51,7 @@ function CourseContentTab() {
         chapter: currentChapter,
         name: document.getElementById("slideName").value,
         content: canvasTools,
+        duration:parseInt(currSlideMins)
       };
 
       setSlides([...slides, tmpSlide]);

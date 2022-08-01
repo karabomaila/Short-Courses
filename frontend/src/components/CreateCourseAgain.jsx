@@ -38,14 +38,14 @@ TabPanel.propTypes = {
 
 export default function CreateCourse() {
   const [value, setValue] = React.useState(0);
-  const [course, setCourse] = React.useState({});
+  const [course, setCourse] = React.useState(null);
 
   React.useEffect(() => {
     const tabsStorage = window.sessionStorage.getItem("currTab");
-    if(tabsStorage!==null){
+    if (tabsStorage !== null) {
       setValue(parseInt(tabsStorage));
-    }else{
-      window.sessionStorage.setItem("currTab","0");
+    } else {
+      window.sessionStorage.setItem("currTab", "0");
     }
   }, []);
 
@@ -60,7 +60,7 @@ export default function CreateCourse() {
         <Firstpanel handletab={handletab} setCourse={setCourse} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Main handletab={handletab} course={course} />
+        <Main handletab={handletab} course={course} setCourse={setCourse} />
       </TabPanel>
     </Box>
   );

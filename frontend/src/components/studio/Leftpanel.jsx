@@ -83,15 +83,17 @@ function Leftpanel(props) {
     displayAlert,
     setDisplayAlert,
     open4,
-    setOpen4
+    setOpen4,
+    currSlideMins,
+    setCurrSlideMins,
+    outcomes,
+    setOutcomes,
   } = useContext(StudioContext);
   const [openTagsDialog, setOpenTagsDialog] = React.useState(false);
   const slidesCollectionRef = collection(db, "slides");
-  const [currSlideMins, setCurrSlideMins] = React.useState(2);
-  const [outcomes, setOutcomes] = React.useState([]); //Learning outcomes of the current chapter
-  
+
   // const [open2, setOpen2] = React.useState(false);
-  
+
   const [state, setState] = React.useState({
     left: false,
   });
@@ -251,80 +253,81 @@ function Leftpanel(props) {
         <div style={{ backgroundColor: "#ffffff" }}>
           <DialogTitle>{"New Chapter"}</DialogTitle>
           <DialogContent>
-          <div
-                style={{
-                  backgroundColor: "#ffffff",
-                  margin: "auto",
-                  borderRadius: "10px",
-                  width: "80%",
-                }}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  label = "Chapter Name"
-                  id="ChapterName"
-                  placeholder="Chapter Name"
-                  inputProps={{ "data-testid": "ChapterName" }}
-                  style = {{marginTop: 12, width: "100%"}}
-                ></TextField>
-              </div>
+            <div
+              style={{
+                backgroundColor: "#ffffff",
+                margin: "auto",
+                borderRadius: "10px",
+                width: "80%",
+              }}
+            >
+              <TextField
+                variant="outlined"
+                fullWidth
+                label="Chapter Name"
+                id="ChapterName"
+                placeholder="Chapter Name"
+                inputProps={{ "data-testid": "ChapterName" }}
+                style={{ marginTop: 12, width: "100%" }}
+              ></TextField>
+            </div>
 
-             
-                <p style ={{margin: 0, marginTop: 11, fontSize: 11}}>Specify the learning outcomes of this chapter</p>
-              
-              <div
-                style={{
-                  width: "80%",
-                  padding: "5px",
-                  border: "1px solid #003b5c",
-                  margin: "auto",
-                  backgroundColor: "#ffffff",
-                }}
-              >
-                <ul>
-                  {outcomes.map((item, index) => {
-                    return (
-                      <li style={{ color: "#000000" }} key={index * 2}>
-                        <div>
-                          <textarea
-                            rows="1"
-                            id={"outcome" + index.toString()}
-                            style={{
-                              minWidth: "95%",
-                              resize: "both",
-                              border: "0px solid",
-                            }}
-                            autoFocus
-                          ></textarea>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
+            <p style={{ margin: 0, marginTop: 11, fontSize: 11 }}>
+              Specify the learning outcomes of this chapter
+            </p>
 
-              <Button
-                style={{
-                  backgroundColor: "#007377",
-                  color: "#ffffff",
-                  borderRadius: "15px",
-                  width: "20%",
-                  align: "right",
-                  marginLeft: "70%",
-                  marginTop: 12
-                }}
-                onClick={(event) => {
-                  event.preventDefault();
-                  setOutcomes([...outcomes, outcomes.length]);
-                }}
-                data-testid="AddButton"
-              >
-                Add
-              </Button>
-           
+            <div
+              style={{
+                width: "80%",
+                padding: "5px",
+                border: "1px solid #003b5c",
+                margin: "auto",
+                backgroundColor: "#ffffff",
+              }}
+            >
+              <ul>
+                {outcomes.map((item, index) => {
+                  return (
+                    <li style={{ color: "#000000" }} key={index * 2}>
+                      <div>
+                        <textarea
+                          rows="1"
+                          id={"outcome" + index.toString()}
+                          style={{
+                            minWidth: "95%",
+                            resize: "both",
+                            border: "0px solid",
+                          }}
+                          autoFocus
+                        ></textarea>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            <Button
+              style={{
+                backgroundColor: "#007377",
+                color: "#ffffff",
+                borderRadius: "15px",
+                width: "20%",
+                align: "right",
+                marginLeft: "70%",
+                marginTop: 12,
+              }}
+              onClick={(event) => {
+                event.preventDefault();
+                setOutcomes([...outcomes, outcomes.length]);
+              }}
+              data-testid="AddButton"
+            >
+              Add
+            </Button>
           </DialogContent>
           <DialogActions>
-          <Button
+            <Button
               onClick={(event) => {
                 document.getElementById("ChapterName").value = "";
                 setOpen2(false);
@@ -337,7 +340,6 @@ function Leftpanel(props) {
             <Button onClick={handleClose2} data-testid="NextButton">
               Next
             </Button>
-           
           </DialogActions>
         </div>
       </Dialog>

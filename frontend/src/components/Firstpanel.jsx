@@ -33,6 +33,8 @@ function Firstpanel({ handletab, setCourse }) {
   },[])
 
   const handletabChange = (event, num) => {
+    event.preventDefault();
+
     const courseName = document.getElementById("courseName");
     if(courseName.value===""){
 
@@ -48,7 +50,7 @@ function Firstpanel({ handletab, setCourse }) {
       };
       setCourse(temp);
       handletab(event, num);
-      window.sessionStorage.setItem("course",JSON.stringify(temp));
+      // window.sessionStorage.setItem("course",JSON.stringify(temp));
     }
     
 
