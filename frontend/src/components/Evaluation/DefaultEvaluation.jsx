@@ -5,8 +5,6 @@ import EvaluationRadio from './EvaluationRadio';
 import EvaluationSlider from './EvaluationSlider';
 
 
-
-
 const DefaultEvaluation=(props)=>{
     return(
         <div style = {MainStyle} data-testid = 'def-div'>

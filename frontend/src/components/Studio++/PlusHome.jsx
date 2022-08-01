@@ -10,6 +10,7 @@ import { HTML5Backend} from 'react-dnd-html5-backend';
 import { useNavigate } from 'react-router-dom';
 import CreateNewForm from '../Evaluation/CreateNewForm';
 import { CourseContext } from '../ContextAPI/CoursaContext';
+import axios from 'axios';
 
 const PlusHome = (props)=>{
     
@@ -37,10 +38,16 @@ const PlusHome = (props)=>{
         setCreate(true);
     }
 
-    const onFinish = ()=>{
+    const onFinish = async()=>{
         // call the backend to post the data...
-        console.log(defaultItems)
-        //navigate('/MyCourses');
+        slideData.evaluation = defaultItems;
+        await axios.post("/newCourse", {slideData: slideData, courseData: courseData})
+        .then((response)=>{
+            navigate('/MyCourses');
+        })
+        .catch((err)=>{
+            console.log(err);
+        });  
     }
 
     return(

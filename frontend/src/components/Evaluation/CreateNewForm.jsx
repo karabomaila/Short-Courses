@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DoneIcon from '@mui/icons-material/Done';
@@ -6,6 +6,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Fab from '@mui/material/Fab';
 import Checkbox from '@mui/material/Checkbox';
 import {useDrop} from 'react-dnd';
+import axios from 'axios';
 import Dragable from './Dragable';
 import DropDialog from './DropDialog';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -13,6 +14,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import empty from './drag_empty.webp';
 import EasyView from './EasyView';
 import ViewForm from './ViewForm';
+import { CourseContext } from '../ContextAPI/CoursaContext';
 
 const CreateNewForm = (props)=>{
     const navigate = useNavigate();
@@ -22,6 +24,8 @@ const CreateNewForm = (props)=>{
     const [visible, setVisible] = useState(false);
     const [type, setType] = useState('');
     const list = ['slider', 'radio', 'box'];
+
+    const {slideData, courseData} = useContext(CourseContext);
 
     const [{isOver}, drop] = useDrop(() =>({
         accept: 'div',
@@ -48,10 +52,17 @@ const CreateNewForm = (props)=>{
         setChecked(!checked, event.target.checked);
     }
 
-    const onFinish = ()=>{
+    const onFinish = async()=>{
         // call the backend to post data...
-        console.log(droppedItems);
-        //navigate('/MyCourses');
+        slideData.evaluation = droppedItems;
+        
+        await axios.post("/newCourse", {slideData: slideData, courseData: courseData})
+        .then((response)=>{
+            navigate('/MyCourses');
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
     }
 
     return(
