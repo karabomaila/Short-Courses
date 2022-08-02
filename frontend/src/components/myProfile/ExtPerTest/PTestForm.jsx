@@ -21,53 +21,6 @@ const PTestForm = (props)=>{
     const [work, setWork] = useState([]);
 
 
-    useEffect(() => {
-        const getInfo = async () =>{
-            const ref = doc(db, "About", props.userID);
-            const data = await getDoc(ref);
-            let fields = data._document.data.value.mapValue.fields;
-         
-            if(fields.skills == undefined){
-                setDoc(ref, {skills: []}, {merge: true});
-                const initData = await getDoc(ref);
-                const initFields = initData._document.data.value.mapValue.fields;
-                setSkills(initFields.skills.arrayValue.values);
-            }else{
-                setSkills(fields.skills.arrayValue.values);
-            }
-
-            if(fields.books == undefined){
-                setDoc(ref, {books: new Array()}, {merge: true});
-                const initData = await getDoc(ref);
-                const initFields = initData._document.data.value.mapValue.fields;
-                setBooks(initFields.books.arrayValue.values);
-            }else{
-                setBooks(fields.books.arrayValue.values);
-            }
-
-            if(fields.education == undefined){
-                setDoc(ref, {education: new Array()}, {merge: true});
-                const initData = await getDoc(ref);
-                const initFields = initData._document.data.value.mapValue.fields;
-                setEducation(initFields.education.arrayValue.values);
-            }else{
-                setEducation(fields.education.arrayValue.values);
-            }
-
-            if(fields.work == undefined){
-                setDoc(ref, {work: new Array()}, {merge: true});
-                const initData = await getDoc(ref);
-                const initFields = initData._document.data.value.mapValue.fields;
-                setWork(initFields.work.arrayValue.values);
-            }else{
-                setWork(fields.work.arrayValue.values);
-            }
-        }
-        
-        getInfo();
-       
-    }, [])
-
     return(
         <div data-testid = 'p-test-div' style = {MainStyle}>
             <p style = {{margin: 12, alignSelf: 'center'}} data-testid = 'ptest-data'>Data belonging to {props.userID}</p>

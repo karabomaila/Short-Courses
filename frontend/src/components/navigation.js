@@ -17,16 +17,22 @@ import { useState, useEffect } from "react";
 import { UserDataContext } from "./ContextAPI/UserDataContext";
 import axios from "axios";
 
-function Navigation() {
+function Navigation({search, setSearch, allCourses}) {
   const isAuthenticated = useIsAuthenticated();
   const navigate = useNavigate();
   const [name, setName] = useState(null);
   const { instance, accounts } = useMsal();
 
-  const {user, setUser} = useContext(UserDataContext);
+  const {setUser} = useContext(UserDataContext);
+
 
   const onMyCourses = ()=>{
     navigate("/MyCourses");
+  }
+
+  const onSearch = (event)=>{
+    console.log(event.target.value);
+    setSearch(event.target.value);
   }
 
   useEffect(()=>{
@@ -81,10 +87,11 @@ function Navigation() {
               data-testid="searchText"
               type="search"
               placeholder="Search"
+              value={search}
               className="me-2"
               aria-label="Search"
               onChange={(event) => {
-               
+               onSearch(event);
               }}
             />
             

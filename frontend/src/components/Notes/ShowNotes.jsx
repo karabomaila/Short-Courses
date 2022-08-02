@@ -3,25 +3,18 @@ import no_data from './no_data.webp'
 import CourseNotesCard from './CourseNotesCard';
 
 const ShowNotes = (props)=>{
-    if(!props.flag){
-        return(
-            <div data-testid = 'snts-div' style = {ListStyle}>
-            {props.notes.map((item, index) =>
-                 <CourseNotesCard 
-                 key = {index}
-                 data = {item}
-                 setInfo = {props.setInfo}
-                 setView = {props.setView}/>
-            )}
-    </div>
-        );
-    }
+
     return(
-       <div data-testid = 'snts-div2'>
-           <img src = {no_data} alt = {'opps'} width = {300} height = {300}/>
-           <p style = {{alignSelf: 'center', fontSize: 44, margin: 18}}>Sorry No Data Found...</p>
-       </div>
-    );
+        <div data-testid = 'snts-div' style = {ListStyle}>
+        {props.notes.map((item, index) =>
+                <CourseNotesCard 
+                key = {index}
+                data = {item}
+               />
+        )}
+        </div>
+        );
+   
 }
 
 const ListStyle ={

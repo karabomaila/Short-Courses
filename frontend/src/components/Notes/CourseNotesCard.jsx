@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CourseNotesCard = (props)=>{
+    const navigate = useNavigate();
 
     const onView = ()=>{
-        props.setView(true);
-        props.setInfo(props.data);
+       // move to the new route...
+        console.log(props.data);
+        navigate("/Notes++", {state:{chapters: props.data.content, courseName: props.data.courseName, courseID: props.data.courseID}});
     }
 
     return(

@@ -8,6 +8,9 @@ import Snackbar from '@mui/material/Snackbar';
 
 function Explore(props) {
 
+  // search values
+  const [search, setSearch] = useState("");
+
   // Vars for the snack bar...
   const [openSnack, setOpenSnack] = useState(false);
   const [message, setMessage] = useState("");
@@ -34,7 +37,7 @@ function Explore(props) {
   
   return ( 
     <div style = {styles.Main}>
-        <Navigation user={props.user}/>
+        <Navigation search = {search} setSearch = {setSearch} allCourses = {allCourses}/>
         <p style = {styles.Text}>EXPLORE</p>
         <CardViewList allCourses = {allCourses} setMessage = {setMessage} setOpenSnack = {setOpenSnack}/>
 

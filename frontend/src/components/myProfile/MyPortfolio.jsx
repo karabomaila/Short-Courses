@@ -13,17 +13,6 @@ const MyPortfolio = () =>{
     const [view, setView] = useState('ExposeView');
     const [profile, setProfile] = useState({});
 
-    useEffect(async()=>{
-        // get the profile data via the API...
-        getProfile();
-    }, []);
-
-    const getProfile = async()=>{
-        axios.post("/getProfile", {userID: user.userID})
-        .then((response)=> {setProfile(response.data)})
-        .catch((err)=> {console.log(err)})
-    }
-
     
     return(
         <div data-testid = 'port-div' style = {MyPortfolioStyle}>

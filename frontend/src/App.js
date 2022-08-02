@@ -10,6 +10,7 @@ import React from "react";
 import Hub from './components/LearningHub/Hub'
 import Main from './components/studio/Main'
 import PlusHome from './components/Studio++/PlusHome';
+import Chapters from './components/Notes/Chapters';
 import UserDataContextProvider from './components/ContextAPI/UserDataContext';
 import CourseContextProvider from './components/ContextAPI/CoursaContext';
 
@@ -28,6 +29,7 @@ function App() {
            <Route path='/Studio' element={<Main/>} />
            <Route path='/Hub' element={<Hub/>}/>
            <Route path='/Studio++' element={<PlusHome/>}/>
+           <Route path='/Notes++' element={<Chapters/>}/>
           </Routes>
        </BrowserRouter>
        </UserDataContextProvider>
