@@ -22,9 +22,9 @@ function Explore(props) {
 
   // fetch all courses from the backend...
   const getAllCourses = ()=>{
-      axios.get("/getAllCourses")
-      .then((response) => {setAllCourses(response.data)})
-      .catch();
+    //   axios.get("/getAllCourses")
+    //   .then((response) => {setAllCourses(response.data)})
+    //   .catch();
   }
 
   const handleClose = (event, reason) => {
